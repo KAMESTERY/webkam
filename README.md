@@ -41,3 +41,8 @@ go build
 
 [Click here to Visit Stage Environment](https://hllhvmvsfj.execute-api.us-east-1.amazonaws.com/staging/)
 
+
+## Miscellaneous
+
+[Figwheel with new Clojure 1.9 CLI tools](http://www.functionalbytes.nl/clojure/nodejs/figwheel/repl/clojurescript/cli/2017/12/20/tools-deps-figwheel.html)
+
