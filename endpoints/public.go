@@ -14,6 +14,6 @@ func Ping(c *gin.Context) {
 
 func Home(c *gin.Context) {
 	c.HTML(http.StatusOK, "public/home.html", gin.H{
-		"title": "Kamestery Web App",
+		"title": "Kamestery Web App :-)",
 	})
 }
