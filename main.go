@@ -4,13 +4,14 @@ import (
 	"github.com/gin-gonic/gin"
 
 	"kamestery.com/endpoints"
+	"kamestery.com/utils"
 )
 
 func main() {
 	r := gin.Default()
 
 	// Templates Folder
-	r.LoadHTMLGlob("./templates/**/*")
+	r.LoadHTMLGlob(utils.TemplatesDir + "/**/*")
 
 	// Request Routing
 	r.GET("/ping", endpoints.Ping)
