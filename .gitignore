@@ -1,4 +1,6 @@
 # Project
+.cpcache
+out
 kamestery.com
 # Golang
 vendor
