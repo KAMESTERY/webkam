@@ -19,4 +19,5 @@ var (
 	}()
 
 	TemplatesDir = baseDir + "/templates"
+	StaticDir    = baseDir + "/static"
 )

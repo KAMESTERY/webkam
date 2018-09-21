@@ -24,7 +24,5 @@ go build
 
 ## Stage
 
-<a href="https://hllhvmvsfj.execute-api.us-east-1.amazonaws.com/staging/" target="_blank">
-    Click here to Visit Stage Environment
-</a>
+[Click here to Visit Stage Environment](https://hllhvmvsfj.execute-api.us-east-1.amazonaws.com/staging/)
 
