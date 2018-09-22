@@ -1,6 +1,15 @@
 # webkam
 Kamestery Web Application
 
+## Setup
+
+```{bash}
+
+# Install Go and Clojure
+brew install go clojure
+
+```
+
 ## Clojurescript
 
 ```{bash}
