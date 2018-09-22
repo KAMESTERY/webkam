@@ -1,6 +1,6 @@
 
 
 {:paths [ui-src]
- :deps {org.clojure/clojurescript {:mvn/version "1.10.339"}}
- }
+ :deps {org.clojure/clojurescript {:mvn/version "1.10.339"}}}
+ 
 

@@ -11,5 +11,5 @@
 
 
 (comment
-  (require '[hello-world.core :as hello] :reload)
-  )
+  (require '[hello-world.core :as hello] :reload))
+  
