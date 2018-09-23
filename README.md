@@ -8,6 +8,8 @@ Kamestery Web Application
 # Install Go and Clojure
 brew install go clojure
 
+```
+
 ## Webpack
 
 ```{bash}
@@ -15,8 +17,6 @@ brew install go clojure
 npm i
 # Build Assets
 npm run build
-
-```
 
 ```
 
