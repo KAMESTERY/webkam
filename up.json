@@ -4,7 +4,30 @@
   "regions": [
     "us-east-1"
   ],
-    "lambda": {
-        "memory": 128
+  "lambda": {
+    "memory": 128,
+    "policy": [
+      {
+        "Sid": "AllowCloudFrontUpdateDistribution",
+        "Effect": "Allow",
+        "Action": [
+          "cloudfront:updateDistribution"
+        ],
+        "Resource": [
+          "*"
+        ]
+      }
+    ]
+  },
+  "stages": {
+    "prod": {
+      "domain": "kamestery.com"
+    },
+    "stage": {
+      "domain": "stage.kamestery.com"
+    },
+    "dev": {
+      "domain": "dev.kamestery.com"
     }
+  }
 }
