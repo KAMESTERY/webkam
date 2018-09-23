@@ -46,9 +46,11 @@ go build
 
 ```
 
-## Stage
+## Environments
 
-[Click here to Visit Stage Environment](https://hllhvmvsfj.execute-api.us-east-1.amazonaws.com/staging/)
+* [dev](dev.kamestery.com)
+* [stage](stage.kamestery.com)
+* [prod](kamestery.com)
 
 
 ## Miscellaneous
