@@ -48,9 +48,9 @@ go build
 
 ## Environments
 
-* [dev](dev.kamestery.com)
-* [stage](stage.kamestery.com)
-* [prod](kamestery.com)
+* [dev](https://dev.kamestery.com)
+* [stage](https://stage.kamestery.com)
+* [prod](https://kamestery.com)
 
 
 ## Miscellaneous
