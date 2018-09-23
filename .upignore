@@ -1,0 +1,27 @@
+# Project
+.git
+endpoints
+node_modules
+ui-src
+utils
+out
+vendor
+.gitignore
+.upignore
+LICENSE
+README.md
+deps.edn
+go.mod
+go.sum
+kamestery.com
+main.go
+package.json
+package-lock.json
+up.json
+webpack.config.js
+.lein-deps-sum
+.lein-repl-history
+.lein-plugins/
+.lein-failures
+.nrepl-port
+.cpcache/
