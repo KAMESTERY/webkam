@@ -11,6 +11,8 @@ import (
 	"kamestery.com/utils"
 )
 
+var main_logger = utils.NewLogger("main")
+
 func main() {
 	r := gin.Default()
 
@@ -29,6 +31,9 @@ func main() {
 	if len(port) == 0 {
 		port = "8998"
 	}
+
+	main_logger.Debugf("Listening on port: %+v", port)
+
 	s := &http.Server{
 		Addr:           ":" + port,
 		Handler:        r,

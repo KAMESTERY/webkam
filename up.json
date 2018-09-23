@@ -29,5 +29,8 @@
     "dev": {
       "domain": "dev.kamestery.com"
     }
+  },
+  "environment": {
+    "LOG_LEVEL": "DEBUG"
   }
 }

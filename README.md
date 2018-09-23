@@ -52,7 +52,7 @@ go mod vendor
 go build
 
 # Run project
-./kamestery.com
+LOG_LEVEL=DEBUG ./kamestery.com
 
 ```
 
