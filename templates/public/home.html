@@ -1,26 +1,18 @@
+<!-- home.html -->
+
 {{ define "public/home.html" }}
 
-<!doctype html>
-<html>
+<!-- Embed Header -->
+{{ template "header.html" . }}
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link rel="stylesheet" href="static/css/bundle.css" />
-</head>
-
-<body>
-    <div mv-app id="kamestery">
-        <h1>{{ .title }}</h1>
+    <div id="kamestery">
         <button class="foo-button mdc-button">
-            Button
+            {{ .title }}
         </button>
     </div>
-    <script src="static/js/style-bundle.js"></script>
-    <script src="static/js/ui.js"></script>
-</body>
 
-</html>
+<!-- Embed Footer -->
+{{ template "footer.html" . }}
 
 {{ end }}
+

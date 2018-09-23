@@ -21,10 +21,8 @@ func main() {
 	r.StaticFS("/static", http.Dir(utils.StaticDir))
 	r.StaticFile("/favicon.ico", utils.StaticDir+"/favicon.ico")
 
-	// Request Routing
-	r.GET("/ping", endpoints.Ping)
-	r.GET("/", endpoints.Home)
-	r.GET("/material", endpoints.MaterialDesignDemo)
+	// Initialize Routes
+	endpoints.InitializeRoutes(r)
 
 	// Server Configuration
 	port := os.Getenv("PORT")

@@ -1,11 +1,14 @@
 {
   "scripts": {
-      "start": "webpack-dev-server",
-      "build": "webpack"
+    "start": "webpack-dev-server",
+    "build": "webpack"
   },
   "devDependencies": {
     "@material/button": "^0.39.3",
+    "@material/card": "^0.39.3",
+    "@material/menu": "^0.39.3",
     "@material/ripple": "^0.39.3",
+    "@material/top-app-bar": "^0.39.3",
     "autoprefixer": "^9.1.5",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",

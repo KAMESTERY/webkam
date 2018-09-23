@@ -1,26 +1,26 @@
 
+<!-- material-demo.html -->
+
 {{ define "public/material-demo.html" }}
 
-<!doctype html>
-<html>
-    <head>
-        <meta charset="utf-8"/>
-        <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-        <title>{{ .title }}</title>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-        <link rel="stylesheet" href="static/css/bundle.css"/>
-    </head>
-    <body>
-        <div>
-            <h1>{{ .title }}</h1>
-        </div>
+<!-- Embed Header -->
+{{ template "header.html" . }}
+
+    <header class="mdc-top-app-bar">
+      <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+          <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
+          <span class="mdc-top-app-bar__title">>{{ .title }}</span>
+        </section>
+      </div>
+    </header>
+    <div id="kamestery">
         <button class="foo-button mdc-button">
             Button
         </button>
-        <script src="static/js/style-bundle.js"></script>
-        <script src="static/js/ui.js"></script>
-    </body>
-</html>
+    </div>
+
+<!-- Embed Footer -->
+{{ template "footer.html" . }}
 
 {{ end }}
-

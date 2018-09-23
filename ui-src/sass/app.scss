@@ -3,6 +3,9 @@ body {
     color: blue;
 }
 
+@import "@material/top-app-bar/mdc-top-app-bar";
+@import "@material/card/mdc-card";
+
 @import "@material/button/mdc-button";
 
 .foo-button {
