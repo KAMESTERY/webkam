@@ -17,3 +17,9 @@ func Home(c *gin.Context) {
 		"title": "Kamestery Web App :-)",
 	})
 }
+
+func MaterialDesignDemo(c *gin.Context) {
+	c.HTML(http.StatusOK, "public/material-demo.html", gin.H{
+		"title": "Simple Webpage using basic Material Design components.",
+	})
+}

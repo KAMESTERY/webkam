@@ -24,6 +24,7 @@ func main() {
 	// Request Routing
 	r.GET("/ping", endpoints.Ping)
 	r.GET("/", endpoints.Home)
+	r.GET("/material", endpoints.MaterialDesignDemo)
 
 	// Server Configuration
 	port := os.Getenv("PORT")
