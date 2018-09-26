@@ -18,8 +18,8 @@ func home(c *gin.Context) {
 	})
 }
 
-func materialDesignDemo(c *gin.Context) {
-	c.HTML(http.StatusOK, "public/material-demo.html", gin.H{
+func login(c *gin.Context) {
+	c.HTML(http.StatusOK, "public/login.html", gin.H{
 		"title": "Simple Webpage using basic Material Design components.",
 	})
 }

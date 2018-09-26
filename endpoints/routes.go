@@ -12,5 +12,5 @@ func InitializeRoutes(r *gin.Engine) {
 	// Request Routing
 	r.GET("/ping", ping)
 	r.GET("/", home)
-	r.GET("/material", materialDesignDemo)
+	r.GET("/login", login)
 }
