@@ -5,8 +5,23 @@ Kamestery Web Application
 
 ```{bash}
 
-# Install Go and Clojure
-brew install go clojure
+# Install Go and Clojure and Node
+brew install go clojure node
+
+```
+
+## Build Project with Make
+
+```{bash}
+
+# Run
+make run
+
+# Build UI
+make build-ui
+
+# Build
+make build
 
 ```
 
