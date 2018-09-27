@@ -8,11 +8,26 @@
 
 
 body {
-    color: blue;
+    font-family: 'Roboto';
 }
 
+.header {
+    text-align: center;
+}
+
+// home styles
 .foo-button {
     @include mdc-button-ink-color(teal);
     @include mdc-states(teal);
 }
+
+// login styles
+.username,
+.password {
+    display: block;
+    width: 300px;
+    margin: 20px auto;
+}
+
+
 
