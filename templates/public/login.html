@@ -5,7 +5,7 @@
 <!-- Embed Header -->
 {{ template "header.html" . }}
 
-<body>
+
 <section class="header">
     <h1>KAMESTERY</h1>
 </section>
@@ -20,6 +20,14 @@
         <input type="password" class="mdc-text-field__input" id="password-input" name="password" required minlength="8">
         <label class="mdc-floating-label" for="password-input">Password</label>
         <div class="mdc-line-ripple"></div>
+    </div>
+    <div class="button-container">
+        <button type="button" class="mdc-button cancel">
+            Cancel
+        </button>
+        <button class="mdc-button mdc-button--raised next">
+            Next
+        </button>
     </div>
 </form>
 

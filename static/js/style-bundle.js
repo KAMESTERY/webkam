@@ -60,244 +60,11 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 25);
+/******/ 	return __webpack_require__(__webpack_require__.s = 20);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * @license
- * Copyright 2018 Google Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-
-/* eslint no-unused-vars: [2, {"args": "none"}] */
-
-/**
- * Adapter for MDC Top App Bar
- *
- * Defines the shape of the adapter expected by the foundation. Implement this
- * adapter to integrate the Top App Bar into your framework. See
- * https://github.com/material-components/material-components-web/blob/master/docs/authoring-components.md
- * for more information.
- *
- * @record
- */
-var MDCTopAppBarAdapter = function () {
-  function MDCTopAppBarAdapter() {
-    _classCallCheck(this, MDCTopAppBarAdapter);
-  }
-
-  _createClass(MDCTopAppBarAdapter, [{
-    key: "addClass",
-
-    /**
-     * Adds a class to the root Element.
-     * @param {string} className
-     */
-    value: function addClass(className) {}
-
-    /**
-     * Removes a class from the root Element.
-     * @param {string} className
-     */
-
-  }, {
-    key: "removeClass",
-    value: function removeClass(className) {}
-
-    /**
-     * Returns true if the root Element contains the given class.
-     * @param {string} className
-     * @return {boolean}
-     */
-
-  }, {
-    key: "hasClass",
-    value: function hasClass(className) {}
-
-    /**
-     * Sets the specified inline style property on the root Element to the given value.
-     * @param {string} property
-     * @param {string} value
-     */
-
-  }, {
-    key: "setStyle",
-    value: function setStyle(property, value) {}
-
-    /**
-     * Gets the height of the top app bar.
-     * @return {number}
-     */
-
-  }, {
-    key: "getTopAppBarHeight",
-    value: function getTopAppBarHeight() {}
-
-    /**
-     * Registers an event handler on the navigation icon element for a given event.
-     * @param {string} type
-     * @param {function(!Event): undefined} handler
-     */
-
-  }, {
-    key: "registerNavigationIconInteractionHandler",
-    value: function registerNavigationIconInteractionHandler(type, handler) {}
-
-    /**
-     * Deregisters an event handler on the navigation icon element for a given event.
-     * @param {string} type
-     * @param {function(!Event): undefined} handler
-     */
-
-  }, {
-    key: "deregisterNavigationIconInteractionHandler",
-    value: function deregisterNavigationIconInteractionHandler(type, handler) {}
-
-    /**
-     * Emits an event when the navigation icon is clicked.
-     */
-
-  }, {
-    key: "notifyNavigationIconClicked",
-    value: function notifyNavigationIconClicked() {}
-
-    /** @param {function(!Event)} handler */
-
-  }, {
-    key: "registerScrollHandler",
-    value: function registerScrollHandler(handler) {}
-
-    /** @param {function(!Event)} handler */
-
-  }, {
-    key: "deregisterScrollHandler",
-    value: function deregisterScrollHandler(handler) {}
-
-    /** @param {function(!Event)} handler */
-
-  }, {
-    key: "registerResizeHandler",
-    value: function registerResizeHandler(handler) {}
-
-    /** @param {function(!Event)} handler */
-
-  }, {
-    key: "deregisterResizeHandler",
-    value: function deregisterResizeHandler(handler) {}
-
-    /** @return {number} */
-
-  }, {
-    key: "getViewportScrollY",
-    value: function getViewportScrollY() {}
-
-    /** @return {number} */
-
-  }, {
-    key: "getTotalActionItems",
-    value: function getTotalActionItems() {}
-  }]);
-
-  return MDCTopAppBarAdapter;
-}();
-
-exports.default = MDCTopAppBarAdapter;
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-/**
- * @license
- * Copyright 2018 Google Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-
-/** @enum {string} */
-var cssClasses = {
-  FIXED_CLASS: 'mdc-top-app-bar--fixed',
-  FIXED_SCROLLED_CLASS: 'mdc-top-app-bar--fixed-scrolled',
-  SHORT_CLASS: 'mdc-top-app-bar--short',
-  SHORT_HAS_ACTION_ITEM_CLASS: 'mdc-top-app-bar--short-has-action-item',
-  SHORT_COLLAPSED_CLASS: 'mdc-top-app-bar--short-collapsed'
-};
-
-/** @enum {number} */
-var numbers = {
-  DEBOUNCE_THROTTLE_RESIZE_TIME_MS: 100,
-  MAX_TOP_APP_BAR_HEIGHT: 128
-};
-
-/** @enum {string} */
-var strings = {
-  ACTION_ITEM_SELECTOR: '.mdc-top-app-bar__action-item',
-  NAVIGATION_EVENT: 'MDCTopAppBar:nav',
-  NAVIGATION_ICON_SELECTOR: '.mdc-top-app-bar__navigation-icon',
-  ROOT_SELECTOR: '.mdc-top-app-bar',
-  TITLE_SELECTOR: '.mdc-top-app-bar__title'
-};
-
-exports.strings = strings;
-exports.cssClasses = cssClasses;
-exports.numbers = numbers;
-
-/***/ }),
-/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -406,169 +173,7 @@ var MDCFoundation = function () {
 exports.default = MDCFoundation;
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _constants = __webpack_require__(1);
-
-var _adapter = __webpack_require__(0);
-
-var _adapter2 = _interopRequireDefault(_adapter);
-
-var _foundation = __webpack_require__(5);
-
-var _foundation2 = _interopRequireDefault(_foundation);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @license
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright 2018 Google Inc.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-/**
- * @extends {MDCFoundation<!MDCTopAppBarAdapter>}
- */
-var MDCTopAppBarBaseFoundation = function (_MDCFoundation) {
-  _inherits(MDCTopAppBarBaseFoundation, _MDCFoundation);
-
-  _createClass(MDCTopAppBarBaseFoundation, null, [{
-    key: 'strings',
-
-    /** @return enum {string} */
-    get: function get() {
-      return _constants.strings;
-    }
-
-    /** @return enum {string} */
-
-  }, {
-    key: 'cssClasses',
-    get: function get() {
-      return _constants.cssClasses;
-    }
-
-    /** @return enum {number} */
-
-  }, {
-    key: 'numbers',
-    get: function get() {
-      return _constants.numbers;
-    }
-
-    /**
-     * {@see MDCTopAppBarAdapter} for typing information on parameters and return
-     * types.
-     * @return {!MDCTopAppBarAdapter}
-     */
-
-  }, {
-    key: 'defaultAdapter',
-    get: function get() {
-      return (/** @type {!MDCTopAppBarAdapter} */{
-          hasClass: function hasClass() /* className: string */{},
-          addClass: function addClass() /* className: string */{},
-          removeClass: function removeClass() /* className: string */{},
-          setStyle: function setStyle() /* property: string, value: string */{},
-          getTopAppBarHeight: function getTopAppBarHeight() {},
-          registerNavigationIconInteractionHandler: function registerNavigationIconInteractionHandler() /* type: string, handler: EventListener */{},
-          deregisterNavigationIconInteractionHandler: function deregisterNavigationIconInteractionHandler() /* type: string, handler: EventListener */{},
-          notifyNavigationIconClicked: function notifyNavigationIconClicked() {},
-          registerScrollHandler: function registerScrollHandler() /* handler: EventListener */{},
-          deregisterScrollHandler: function deregisterScrollHandler() /* handler: EventListener */{},
-          registerResizeHandler: function registerResizeHandler() /* handler: EventListener */{},
-          deregisterResizeHandler: function deregisterResizeHandler() /* handler: EventListener */{},
-          getViewportScrollY: function getViewportScrollY() {
-            return (/* number */0
-            );
-          },
-          getTotalActionItems: function getTotalActionItems() {
-            return (/* number */0
-            );
-          }
-        }
-      );
-    }
-
-    /**
-     * @param {!MDCTopAppBarAdapter} adapter
-     */
-
-  }]);
-
-  function MDCTopAppBarBaseFoundation( /** @type {!MDCTopAppBarAdapter} */adapter) {
-    _classCallCheck(this, MDCTopAppBarBaseFoundation);
-
-    var _this = _possibleConstructorReturn(this, (MDCTopAppBarBaseFoundation.__proto__ || Object.getPrototypeOf(MDCTopAppBarBaseFoundation)).call(this, Object.assign(MDCTopAppBarBaseFoundation.defaultAdapter, adapter)));
-
-    _this.navClickHandler_ = function () {
-      return _this.adapter_.notifyNavigationIconClicked();
-    };
-
-    _this.scrollHandler_ = function () {};
-    return _this;
-  }
-
-  _createClass(MDCTopAppBarBaseFoundation, [{
-    key: 'init',
-    value: function init() {
-      this.adapter_.registerNavigationIconInteractionHandler('click', this.navClickHandler_);
-    }
-  }, {
-    key: 'destroy',
-    value: function destroy() {
-      this.adapter_.deregisterNavigationIconInteractionHandler('click', this.navClickHandler_);
-    }
-  }, {
-    key: 'initScrollHandler',
-    value: function initScrollHandler() {
-      this.adapter_.registerScrollHandler(this.scrollHandler_);
-    }
-  }, {
-    key: 'destroyScrollHandler',
-    value: function destroyScrollHandler() {
-      this.adapter_.deregisterScrollHandler(this.scrollHandler_);
-    }
-  }]);
-
-  return MDCTopAppBarBaseFoundation;
-}(_foundation2.default);
-
-exports.default = MDCTopAppBarBaseFoundation;
-
-/***/ }),
-/* 4 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -595,7 +200,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * limitations under the License.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
-var _foundation = __webpack_require__(2);
+var _foundation = __webpack_require__(0);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -746,122 +351,7 @@ var MDCComponent = function () {
 exports.default = MDCComponent;
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * @license
- * Copyright 2016 Google Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-
-/**
- * @template A
- */
-var MDCFoundation = function () {
-  _createClass(MDCFoundation, null, [{
-    key: "cssClasses",
-
-    /** @return enum{cssClasses} */
-    get: function get() {
-      // Classes extending MDCFoundation should implement this method to return an object which exports every
-      // CSS class the foundation class needs as a property. e.g. {ACTIVE: 'mdc-component--active'}
-      return {};
-    }
-
-    /** @return enum{strings} */
-
-  }, {
-    key: "strings",
-    get: function get() {
-      // Classes extending MDCFoundation should implement this method to return an object which exports all
-      // semantic strings as constants. e.g. {ARIA_ROLE: 'tablist'}
-      return {};
-    }
-
-    /** @return enum{numbers} */
-
-  }, {
-    key: "numbers",
-    get: function get() {
-      // Classes extending MDCFoundation should implement this method to return an object which exports all
-      // of its semantic numbers as constants. e.g. {ANIMATION_DELAY_MS: 350}
-      return {};
-    }
-
-    /** @return {!Object} */
-
-  }, {
-    key: "defaultAdapter",
-    get: function get() {
-      // Classes extending MDCFoundation may choose to implement this getter in order to provide a convenient
-      // way of viewing the necessary methods of an adapter. In the future, this could also be used for adapter
-      // validation.
-      return {};
-    }
-
-    /**
-     * @param {A=} adapter
-     */
-
-  }]);
-
-  function MDCFoundation() {
-    var adapter = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    _classCallCheck(this, MDCFoundation);
-
-    /** @protected {!A} */
-    this.adapter_ = adapter;
-  }
-
-  _createClass(MDCFoundation, [{
-    key: "init",
-    value: function init() {
-      // Subclasses should override this method to perform initialization routines (registering events, etc.)
-    }
-  }, {
-    key: "destroy",
-    value: function destroy() {
-      // Subclasses should override this method to perform de-initialization routines (de-registering events, etc.)
-    }
-  }]);
-
-  return MDCFoundation;
-}();
-
-exports.default = MDCFoundation;
-
-/***/ }),
-/* 6 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1025,7 +515,7 @@ exports.getMatchesProperty = getMatchesProperty;
 exports.getNormalizedEventCoords = getNormalizedEventCoords;
 
 /***/ }),
-/* 7 */
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1037,15 +527,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _foundation = __webpack_require__(2);
+var _foundation = __webpack_require__(0);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _adapter = __webpack_require__(16);
+var _adapter = __webpack_require__(11);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _constants = __webpack_require__(38);
+var _constants = __webpack_require__(31);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1213,7 +703,7 @@ var MDCTextFieldHelperTextFoundation = function (_MDCFoundation) {
 exports.default = MDCTextFieldHelperTextFoundation;
 
 /***/ }),
-/* 8 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1225,15 +715,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _foundation = __webpack_require__(2);
+var _foundation = __webpack_require__(0);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _adapter = __webpack_require__(17);
+var _adapter = __webpack_require__(12);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _constants = __webpack_require__(39);
+var _constants = __webpack_require__(32);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1376,7 +866,7 @@ var MDCTextFieldIconFoundation = function (_MDCFoundation) {
 exports.default = MDCTextFieldIconFoundation;
 
 /***/ }),
-/* 9 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1385,453 +875,113 @@ exports.default = MDCTextFieldIconFoundation;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @license
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Copyright 2016 Google Inc.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Permission is hereby granted, free of charge, to any person obtaining a copy
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * of this software and associated documentation files (the "Software"), to deal
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * in the Software without restriction, including without limitation the rights
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * copies of the Software, and to permit persons to whom the Software is
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * furnished to do so, subject to the following conditions:
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * The above copyright notice and this permission notice shall be included in
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * all copies or substantial portions of the Software.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * THE SOFTWARE.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
-
-var _foundation = __webpack_require__(5);
-
-var _foundation2 = _interopRequireDefault(_foundation);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * @template F
- */
-var MDCComponent = function () {
-  _createClass(MDCComponent, null, [{
-    key: 'attachTo',
-
-    /**
-     * @param {!Element} root
-     * @return {!MDCComponent}
-     */
-    value: function attachTo(root) {
-      // Subclasses which extend MDCBase should provide an attachTo() method that takes a root element and
-      // returns an instantiated component with its root set to that element. Also note that in the cases of
-      // subclasses, an explicit foundation class will not have to be passed in; it will simply be initialized
-      // from getDefaultFoundation().
-      return new MDCComponent(root, new _foundation2.default());
-    }
-
-    /**
-     * @param {!Element} root
-     * @param {F=} foundation
-     * @param {...?} args
-     */
-
-  }]);
-
-  function MDCComponent(root) {
-    var foundation = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
-
-    _classCallCheck(this, MDCComponent);
-
-    /** @protected {!Element} */
-    this.root_ = root;
-
-    for (var _len = arguments.length, args = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
-      args[_key - 2] = arguments[_key];
-    }
-
-    this.initialize.apply(this, args);
-    // Note that we initialize foundation here and not within the constructor's default param so that
-    // this.root_ is defined and can be used within the foundation class.
-    /** @protected {!F} */
-    this.foundation_ = foundation === undefined ? this.getDefaultFoundation() : foundation;
-    this.foundation_.init();
-    this.initialSyncWithDOM();
-  }
-
-  _createClass(MDCComponent, [{
-    key: 'initialize',
-    value: function initialize() /* ...args */{}
-    // Subclasses can override this to do any additional setup work that would be considered part of a
-    // "constructor". Essentially, it is a hook into the parent constructor before the foundation is
-    // initialized. Any additional arguments besides root and foundation will be passed in here.
-
-
-    /**
-     * @return {!F} foundation
-     */
-
-  }, {
-    key: 'getDefaultFoundation',
-    value: function getDefaultFoundation() {
-      // Subclasses must override this method to return a properly configured foundation class for the
-      // component.
-      throw new Error('Subclasses must override getDefaultFoundation to return a properly configured ' + 'foundation class');
-    }
-  }, {
-    key: 'initialSyncWithDOM',
-    value: function initialSyncWithDOM() {
-      // Subclasses should override this method if they need to perform work to synchronize with a host DOM
-      // object. An example of this would be a form control wrapper that needs to synchronize its internal state
-      // to some property or attribute of the host DOM. Please note: this is *not* the place to perform DOM
-      // reads/writes that would cause layout / paint, as this is called synchronously from within the constructor.
-    }
-  }, {
-    key: 'destroy',
-    value: function destroy() {
-      // Subclasses may implement this method to release any resources / deregister any listeners they have
-      // attached. An example of this might be deregistering a resize event from the window object.
-      this.foundation_.destroy();
-    }
-
-    /**
-     * Wrapper method to add an event listener to the component's root element. This is most useful when
-     * listening for custom events.
-     * @param {string} evtType
-     * @param {!Function} handler
-     */
-
-  }, {
-    key: 'listen',
-    value: function listen(evtType, handler) {
-      this.root_.addEventListener(evtType, handler);
-    }
-
-    /**
-     * Wrapper method to remove an event listener to the component's root element. This is most useful when
-     * unlistening for custom events.
-     * @param {string} evtType
-     * @param {!Function} handler
-     */
-
-  }, {
-    key: 'unlisten',
-    value: function unlisten(evtType, handler) {
-      this.root_.removeEventListener(evtType, handler);
-    }
-
-    /**
-     * Fires a cross-browser-compatible custom event from the component root of the given type,
-     * with the given data.
-     * @param {string} evtType
-     * @param {!Object} evtData
-     * @param {boolean=} shouldBubble
-     */
-
-  }, {
-    key: 'emit',
-    value: function emit(evtType, evtData) {
-      var shouldBubble = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-
-      var evt = void 0;
-      if (typeof CustomEvent === 'function') {
-        evt = new CustomEvent(evtType, {
-          detail: evtData,
-          bubbles: shouldBubble
-        });
-      } else {
-        evt = document.createEvent('CustomEvent');
-        evt.initCustomEvent(evtType, shouldBubble, false, evtData);
-      }
-
-      this.root_.dispatchEvent(evt);
-    }
-  }]);
-
-  return MDCComponent;
-}();
-
-exports.default = MDCComponent;
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.util = exports.RippleCapableSurface = exports.MDCRippleFoundation = exports.MDCRipple = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _component = __webpack_require__(9);
-
-var _component2 = _interopRequireDefault(_component);
-
-var _adapter = __webpack_require__(11);
-
-var _adapter2 = _interopRequireDefault(_adapter);
-
-var _foundation = __webpack_require__(29);
-
-var _foundation2 = _interopRequireDefault(_foundation);
-
-var _util = __webpack_require__(12);
-
-var util = _interopRequireWildcard(_util);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @license
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright 2016 Google Inc.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+/**
+ * @license
+ * Copyright 2016 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
 
 /**
- * @extends MDCComponent<!MDCRippleFoundation>
+ * @template A
  */
-var MDCRipple = function (_MDCComponent) {
-  _inherits(MDCRipple, _MDCComponent);
+var MDCFoundation = function () {
+  _createClass(MDCFoundation, null, [{
+    key: "cssClasses",
 
-  /** @param {...?} args */
-  function MDCRipple() {
-    var _ref;
-
-    _classCallCheck(this, MDCRipple);
-
-    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
+    /** @return enum{cssClasses} */
+    get: function get() {
+      // Classes extending MDCFoundation should implement this method to return an object which exports every
+      // CSS class the foundation class needs as a property. e.g. {ACTIVE: 'mdc-component--active'}
+      return {};
     }
 
-    /** @type {boolean} */
-    var _this = _possibleConstructorReturn(this, (_ref = MDCRipple.__proto__ || Object.getPrototypeOf(MDCRipple)).call.apply(_ref, [this].concat(args)));
+    /** @return enum{strings} */
 
-    _this.disabled = false;
+  }, {
+    key: "strings",
+    get: function get() {
+      // Classes extending MDCFoundation should implement this method to return an object which exports all
+      // semantic strings as constants. e.g. {ARIA_ROLE: 'tablist'}
+      return {};
+    }
 
-    /** @private {boolean} */
-    _this.unbounded_;
-    return _this;
+    /** @return enum{numbers} */
+
+  }, {
+    key: "numbers",
+    get: function get() {
+      // Classes extending MDCFoundation should implement this method to return an object which exports all
+      // of its semantic numbers as constants. e.g. {ANIMATION_DELAY_MS: 350}
+      return {};
+    }
+
+    /** @return {!Object} */
+
+  }, {
+    key: "defaultAdapter",
+    get: function get() {
+      // Classes extending MDCFoundation may choose to implement this getter in order to provide a convenient
+      // way of viewing the necessary methods of an adapter. In the future, this could also be used for adapter
+      // validation.
+      return {};
+    }
+
+    /**
+     * @param {A=} adapter
+     */
+
+  }]);
+
+  function MDCFoundation() {
+    var adapter = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+    _classCallCheck(this, MDCFoundation);
+
+    /** @protected {!A} */
+    this.adapter_ = adapter;
   }
 
-  /**
-   * @param {!Element} root
-   * @param {{isUnbounded: (boolean|undefined)}=} options
-   * @return {!MDCRipple}
-   */
-
-
-  _createClass(MDCRipple, [{
-    key: 'setUnbounded_',
-
-
-    /**
-     * Closure Compiler throws an access control error when directly accessing a
-     * protected or private property inside a getter/setter, like unbounded above.
-     * By accessing the protected property inside a method, we solve that problem.
-     * That's why this function exists.
-     * @private
-     */
-    value: function setUnbounded_() {
-      this.foundation_.setUnbounded(this.unbounded_);
+  _createClass(MDCFoundation, [{
+    key: "init",
+    value: function init() {
+      // Subclasses should override this method to perform initialization routines (registering events, etc.)
     }
   }, {
-    key: 'activate',
-    value: function activate() {
-      this.foundation_.activate();
-    }
-  }, {
-    key: 'deactivate',
-    value: function deactivate() {
-      this.foundation_.deactivate();
-    }
-  }, {
-    key: 'layout',
-    value: function layout() {
-      this.foundation_.layout();
-    }
-
-    /**
-     * @return {!MDCRippleFoundation}
-     * @override
-     */
-
-  }, {
-    key: 'getDefaultFoundation',
-    value: function getDefaultFoundation() {
-      return new _foundation2.default(MDCRipple.createAdapter(this));
-    }
-
-    /** @override */
-
-  }, {
-    key: 'initialSyncWithDOM',
-    value: function initialSyncWithDOM() {
-      this.unbounded = 'mdcRippleIsUnbounded' in this.root_.dataset;
-    }
-  }, {
-    key: 'unbounded',
-
-
-    /** @return {boolean} */
-    get: function get() {
-      return this.unbounded_;
-    }
-
-    /** @param {boolean} unbounded */
-    ,
-    set: function set(unbounded) {
-      this.unbounded_ = Boolean(unbounded);
-      this.setUnbounded_();
-    }
-  }], [{
-    key: 'attachTo',
-    value: function attachTo(root) {
-      var _ref2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
-          _ref2$isUnbounded = _ref2.isUnbounded,
-          isUnbounded = _ref2$isUnbounded === undefined ? undefined : _ref2$isUnbounded;
-
-      var ripple = new MDCRipple(root);
-      // Only override unbounded behavior if option is explicitly specified
-      if (isUnbounded !== undefined) {
-        ripple.unbounded = /** @type {boolean} */isUnbounded;
-      }
-      return ripple;
-    }
-
-    /**
-     * @param {!RippleCapableSurface} instance
-     * @return {!MDCRippleAdapter}
-     */
-
-  }, {
-    key: 'createAdapter',
-    value: function createAdapter(instance) {
-      var MATCHES = util.getMatchesProperty(HTMLElement.prototype);
-
-      return {
-        browserSupportsCssVars: function browserSupportsCssVars() {
-          return util.supportsCssVariables(window);
-        },
-        isUnbounded: function isUnbounded() {
-          return instance.unbounded;
-        },
-        isSurfaceActive: function isSurfaceActive() {
-          return instance.root_[MATCHES](':active');
-        },
-        isSurfaceDisabled: function isSurfaceDisabled() {
-          return instance.disabled;
-        },
-        addClass: function addClass(className) {
-          return instance.root_.classList.add(className);
-        },
-        removeClass: function removeClass(className) {
-          return instance.root_.classList.remove(className);
-        },
-        containsEventTarget: function containsEventTarget(target) {
-          return instance.root_.contains(target);
-        },
-        registerInteractionHandler: function registerInteractionHandler(evtType, handler) {
-          return instance.root_.addEventListener(evtType, handler, util.applyPassive());
-        },
-        deregisterInteractionHandler: function deregisterInteractionHandler(evtType, handler) {
-          return instance.root_.removeEventListener(evtType, handler, util.applyPassive());
-        },
-        registerDocumentInteractionHandler: function registerDocumentInteractionHandler(evtType, handler) {
-          return document.documentElement.addEventListener(evtType, handler, util.applyPassive());
-        },
-        deregisterDocumentInteractionHandler: function deregisterDocumentInteractionHandler(evtType, handler) {
-          return document.documentElement.removeEventListener(evtType, handler, util.applyPassive());
-        },
-        registerResizeHandler: function registerResizeHandler(handler) {
-          return window.addEventListener('resize', handler);
-        },
-        deregisterResizeHandler: function deregisterResizeHandler(handler) {
-          return window.removeEventListener('resize', handler);
-        },
-        updateCssVariable: function updateCssVariable(varName, value) {
-          return instance.root_.style.setProperty(varName, value);
-        },
-        computeBoundingRect: function computeBoundingRect() {
-          return instance.root_.getBoundingClientRect();
-        },
-        getWindowPageOffset: function getWindowPageOffset() {
-          return { x: window.pageXOffset, y: window.pageYOffset };
-        }
-      };
+    key: "destroy",
+    value: function destroy() {
+      // Subclasses should override this method to perform de-initialization routines (de-registering events, etc.)
     }
   }]);
 
-  return MDCRipple;
-}(_component2.default);
+  return MDCFoundation;
+}();
 
-/**
- * See Material Design spec for more details on when to use ripples.
- * https://material.io/guidelines/motion/choreography.html#choreography-creation
- * @record
- */
-
-
-var RippleCapableSurface = function RippleCapableSurface() {
-  _classCallCheck(this, RippleCapableSurface);
-};
-
-/** @protected {!Element} */
-
-
-RippleCapableSurface.prototype.root_;
-
-/**
- * Whether or not the ripple bleeds out of the bounds of the element.
- * @type {boolean|undefined}
- */
-RippleCapableSurface.prototype.unbounded;
-
-/**
- * Whether or not the ripple is attached to a disabled component.
- * @type {boolean|undefined}
- */
-RippleCapableSurface.prototype.disabled;
-
-exports.MDCRipple = MDCRipple;
-exports.MDCRippleFoundation = _foundation2.default;
-exports.RippleCapableSurface = RippleCapableSurface;
-exports.util = util;
+exports.default = MDCFoundation;
 
 /***/ }),
-/* 11 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2018,7 +1168,7 @@ var MDCRippleAdapter = function () {
 exports.default = MDCRippleAdapter;
 
 /***/ }),
-/* 12 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2188,7 +1338,7 @@ exports.getMatchesProperty = getMatchesProperty;
 exports.getNormalizedEventCoords = getNormalizedEventCoords;
 
 /***/ }),
-/* 13 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2369,7 +1519,7 @@ var MDCRippleAdapter = function () {
 exports.default = MDCRippleAdapter;
 
 /***/ }),
-/* 14 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2428,7 +1578,7 @@ exports.strings = strings;
 exports.numbers = numbers;
 
 /***/ }),
-/* 15 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2459,11 +1609,11 @@ var _createClass = function () { function defineProperties(target, props) { for 
 /* eslint-disable no-unused-vars */
 
 
-var _foundation = __webpack_require__(7);
+var _foundation = __webpack_require__(3);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _foundation3 = __webpack_require__(8);
+var _foundation3 = __webpack_require__(4);
 
 var _foundation4 = _interopRequireDefault(_foundation3);
 
@@ -2734,7 +1884,7 @@ exports.NativeInputType = NativeInputType;
 exports.FoundationMapType = FoundationMapType;
 
 /***/ }),
-/* 16 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2845,7 +1995,7 @@ var MDCTextFieldHelperTextAdapter = function () {
 exports.default = MDCTextFieldHelperTextAdapter;
 
 /***/ }),
-/* 17 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2957,7 +2107,7 @@ var MDCTextFieldIconAdapter = function () {
 exports.default = MDCTextFieldIconAdapter;
 
 /***/ }),
-/* 18 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3066,7 +2216,7 @@ var MDCFoundation = function () {
 exports.default = MDCFoundation;
 
 /***/ }),
-/* 19 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3178,7 +2328,7 @@ var MDCLineRippleAdapter = function () {
 exports.default = MDCLineRippleAdapter;
 
 /***/ }),
-/* 20 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3287,7 +2437,7 @@ var MDCFoundation = function () {
 exports.default = MDCFoundation;
 
 /***/ }),
-/* 21 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3389,7 +2539,7 @@ var MDCFloatingLabelAdapter = function () {
 exports.default = MDCFloatingLabelAdapter;
 
 /***/ }),
-/* 22 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3498,7 +2648,7 @@ var MDCFoundation = function () {
 exports.default = MDCFoundation;
 
 /***/ }),
-/* 23 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3609,7 +2759,7 @@ var MDCNotchedOutlineAdapter = function () {
 exports.default = MDCNotchedOutlineAdapter;
 
 /***/ }),
-/* 24 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3650,43 +2800,43 @@ exports.cssClasses = cssClasses;
 exports.strings = strings;
 
 /***/ }),
-/* 25 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(26);
-module.exports = __webpack_require__(27);
+__webpack_require__(21);
+module.exports = __webpack_require__(22);
 
 
 /***/ }),
-/* 26 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "static/css/bundle.css";
 
 /***/ }),
-/* 27 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _index = __webpack_require__(28);
+var _ripple = __webpack_require__(23);
 
-var _ripple = __webpack_require__(10);
+var _textfield = __webpack_require__(27);
 
-var _textfield = __webpack_require__(34);
+// import { MDCTopAppBar } from '@material/top-app-bar/index'
+// const topAppBar = new MDCTopAppBar(document.querySelector('.mdc-top-app-bar'));
 
-var topAppBar = new _index.MDCTopAppBar(document.querySelector('.mdc-top-app-bar'));
-
-console.log('hello style');
-
-var ripple = new _ripple.MDCRipple(document.querySelector('.foo-button'));
+new _ripple.MDCRipple(document.querySelector('.cancel'));
+new _ripple.MDCRipple(document.querySelector('.next'));
 
 var username = new _textfield.MDCTextField(document.querySelector('.username'));
 var password = new _textfield.MDCTextField(document.querySelector('.password'));
 
+console.log('Styles loaded');
+
 /***/ }),
-/* 28 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3695,39 +2845,27 @@ var password = new _textfield.MDCTextField(document.querySelector('.password'));
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.MDCShortTopAppBarFoundation = exports.MDCFixedTopAppBarFoundation = exports.MDCTopAppBarFoundation = exports.MDCTopAppBarBaseFoundation = exports.MDCTopAppBar = undefined;
+exports.util = exports.RippleCapableSurface = exports.MDCRippleFoundation = exports.MDCRipple = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-
-var _adapter = __webpack_require__(0);
-
-var _adapter2 = _interopRequireDefault(_adapter);
-
-var _component = __webpack_require__(9);
+var _component = __webpack_require__(24);
 
 var _component2 = _interopRequireDefault(_component);
 
-var _index = __webpack_require__(10);
+var _adapter = __webpack_require__(6);
 
-var _constants = __webpack_require__(1);
+var _adapter2 = _interopRequireDefault(_adapter);
 
-var _foundation = __webpack_require__(3);
+var _foundation = __webpack_require__(25);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _foundation3 = __webpack_require__(31);
+var _util = __webpack_require__(7);
 
-var _foundation4 = _interopRequireDefault(_foundation3);
+var util = _interopRequireWildcard(_util);
 
-var _foundation5 = __webpack_require__(32);
-
-var _foundation6 = _interopRequireDefault(_foundation5);
-
-var _foundation7 = __webpack_require__(33);
-
-var _foundation8 = _interopRequireDefault(_foundation7);
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3737,7 +2875,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * @license
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright 2018 Google Inc.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright 2016 Google Inc.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 *
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * Permission is hereby granted, free of charge, to any person obtaining a copy
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * of this software and associated documentation files (the "Software"), to deal
@@ -3759,122 +2897,159 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
 
 /**
- * @extends {MDCComponent<!MDCTopAppBarBaseFoundation>}
- * @final
+ * @extends MDCComponent<!MDCRippleFoundation>
  */
-var MDCTopAppBar = function (_MDCComponent) {
-  _inherits(MDCTopAppBar, _MDCComponent);
+var MDCRipple = function (_MDCComponent) {
+  _inherits(MDCRipple, _MDCComponent);
 
-  /**
-   * @param {...?} args
-   */
-  function MDCTopAppBar() {
+  /** @param {...?} args */
+  function MDCRipple() {
     var _ref;
 
-    _classCallCheck(this, MDCTopAppBar);
+    _classCallCheck(this, MDCRipple);
 
     for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    /** @private {?Element} */
-    var _this = _possibleConstructorReturn(this, (_ref = MDCTopAppBar.__proto__ || Object.getPrototypeOf(MDCTopAppBar)).call.apply(_ref, [this].concat(args)));
+    /** @type {boolean} */
+    var _this = _possibleConstructorReturn(this, (_ref = MDCRipple.__proto__ || Object.getPrototypeOf(MDCRipple)).call.apply(_ref, [this].concat(args)));
 
-    _this.navIcon_;
-    /** @type {?Array<MDCRipple>} */
-    _this.iconRipples_;
-    /** @type {Object} */
-    _this.scrollTarget_;
+    _this.disabled = false;
+
+    /** @private {boolean} */
+    _this.unbounded_;
     return _this;
   }
 
-  _createClass(MDCTopAppBar, [{
-    key: 'initialize',
-    value: function initialize() {
-      var rippleFactory = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function (el) {
-        return _index.MDCRipple.attachTo(el);
-      };
+  /**
+   * @param {!Element} root
+   * @param {{isUnbounded: (boolean|undefined)}=} options
+   * @return {!MDCRipple}
+   */
 
-      this.navIcon_ = this.root_.querySelector(_constants.strings.NAVIGATION_ICON_SELECTOR);
 
-      // Get all icons in the toolbar and instantiate the ripples
-      var icons = [].slice.call(this.root_.querySelectorAll(_constants.strings.ACTION_ITEM_SELECTOR));
-      if (this.navIcon_) {
-        icons.push(this.navIcon_);
-      }
+  _createClass(MDCRipple, [{
+    key: 'setUnbounded_',
 
-      this.iconRipples_ = icons.map(function (icon) {
-        var ripple = rippleFactory(icon);
-        ripple.unbounded = true;
-        return ripple;
-      });
+
+    /**
+     * Closure Compiler throws an access control error when directly accessing a
+     * protected or private property inside a getter/setter, like unbounded above.
+     * By accessing the protected property inside a method, we solve that problem.
+     * That's why this function exists.
+     * @private
+     */
+    value: function setUnbounded_() {
+      this.foundation_.setUnbounded(this.unbounded_);
     }
   }, {
-    key: 'destroy',
-    value: function destroy() {
-      this.iconRipples_.forEach(function (iconRipple) {
-        return iconRipple.destroy();
-      });
-      _get(MDCTopAppBar.prototype.__proto__ || Object.getPrototypeOf(MDCTopAppBar.prototype), 'destroy', this).call(this);
+    key: 'activate',
+    value: function activate() {
+      this.foundation_.activate();
     }
   }, {
-    key: 'setScrollTarget',
-    value: function setScrollTarget(target) {
-      this.foundation_.destroyScrollHandler();
-      this.scrollTarget_ = target;
-      this.foundation_.initScrollHandler();
+    key: 'deactivate',
+    value: function deactivate() {
+      this.foundation_.deactivate();
+    }
+  }, {
+    key: 'layout',
+    value: function layout() {
+      this.foundation_.layout();
     }
 
     /**
-     * @param {!Element} root
-     * @return {!MDCTopAppBar}
+     * @return {!MDCRippleFoundation}
+     * @override
      */
 
   }, {
     key: 'getDefaultFoundation',
+    value: function getDefaultFoundation() {
+      return new _foundation2.default(MDCRipple.createAdapter(this));
+    }
 
+    /** @override */
+
+  }, {
+    key: 'initialSyncWithDOM',
+    value: function initialSyncWithDOM() {
+      this.unbounded = 'mdcRippleIsUnbounded' in this.root_.dataset;
+    }
+  }, {
+    key: 'unbounded',
+
+
+    /** @return {boolean} */
+    get: function get() {
+      return this.unbounded_;
+    }
+
+    /** @param {boolean} unbounded */
+    ,
+    set: function set(unbounded) {
+      this.unbounded_ = Boolean(unbounded);
+      this.setUnbounded_();
+    }
+  }], [{
+    key: 'attachTo',
+    value: function attachTo(root) {
+      var _ref2 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+          _ref2$isUnbounded = _ref2.isUnbounded,
+          isUnbounded = _ref2$isUnbounded === undefined ? undefined : _ref2$isUnbounded;
+
+      var ripple = new MDCRipple(root);
+      // Only override unbounded behavior if option is explicitly specified
+      if (isUnbounded !== undefined) {
+        ripple.unbounded = /** @type {boolean} */isUnbounded;
+      }
+      return ripple;
+    }
 
     /**
-     * @return {!MDCTopAppBarBaseFoundation}
+     * @param {!RippleCapableSurface} instance
+     * @return {!MDCRippleAdapter}
      */
-    value: function getDefaultFoundation() {
-      var _this2 = this;
 
-      /** @type {!MDCTopAppBarAdapter} */
-      var adapter = /** @type {!MDCTopAppBarAdapter} */Object.assign({
-        hasClass: function hasClass(className) {
-          return _this2.root_.classList.contains(className);
+  }, {
+    key: 'createAdapter',
+    value: function createAdapter(instance) {
+      var MATCHES = util.getMatchesProperty(HTMLElement.prototype);
+
+      return {
+        browserSupportsCssVars: function browserSupportsCssVars() {
+          return util.supportsCssVariables(window);
+        },
+        isUnbounded: function isUnbounded() {
+          return instance.unbounded;
+        },
+        isSurfaceActive: function isSurfaceActive() {
+          return instance.root_[MATCHES](':active');
+        },
+        isSurfaceDisabled: function isSurfaceDisabled() {
+          return instance.disabled;
         },
         addClass: function addClass(className) {
-          return _this2.root_.classList.add(className);
+          return instance.root_.classList.add(className);
         },
         removeClass: function removeClass(className) {
-          return _this2.root_.classList.remove(className);
+          return instance.root_.classList.remove(className);
         },
-        setStyle: function setStyle(property, value) {
-          return _this2.root_.style.setProperty(property, value);
+        containsEventTarget: function containsEventTarget(target) {
+          return instance.root_.contains(target);
         },
-        getTopAppBarHeight: function getTopAppBarHeight() {
-          return _this2.root_.clientHeight;
+        registerInteractionHandler: function registerInteractionHandler(evtType, handler) {
+          return instance.root_.addEventListener(evtType, handler, util.applyPassive());
         },
-        registerNavigationIconInteractionHandler: function registerNavigationIconInteractionHandler(evtType, handler) {
-          if (_this2.navIcon_) {
-            _this2.navIcon_.addEventListener(evtType, handler);
-          }
+        deregisterInteractionHandler: function deregisterInteractionHandler(evtType, handler) {
+          return instance.root_.removeEventListener(evtType, handler, util.applyPassive());
         },
-        deregisterNavigationIconInteractionHandler: function deregisterNavigationIconInteractionHandler(evtType, handler) {
-          if (_this2.navIcon_) {
-            _this2.navIcon_.removeEventListener(evtType, handler);
-          }
+        registerDocumentInteractionHandler: function registerDocumentInteractionHandler(evtType, handler) {
+          return document.documentElement.addEventListener(evtType, handler, util.applyPassive());
         },
-        notifyNavigationIconClicked: function notifyNavigationIconClicked() {
-          _this2.emit(_constants.strings.NAVIGATION_EVENT, {});
-        },
-        registerScrollHandler: function registerScrollHandler(handler) {
-          return _this2.scrollTarget_.addEventListener('scroll', handler);
-        },
-        deregisterScrollHandler: function deregisterScrollHandler(handler) {
-          return _this2.scrollTarget_.removeEventListener('scroll', handler);
+        deregisterDocumentInteractionHandler: function deregisterDocumentInteractionHandler(evtType, handler) {
+          return document.documentElement.removeEventListener(evtType, handler, util.applyPassive());
         },
         registerResizeHandler: function registerResizeHandler(handler) {
           return window.addEventListener('resize', handler);
@@ -3882,46 +3057,241 @@ var MDCTopAppBar = function (_MDCComponent) {
         deregisterResizeHandler: function deregisterResizeHandler(handler) {
           return window.removeEventListener('resize', handler);
         },
-        getViewportScrollY: function getViewportScrollY() {
-          return _this2.scrollTarget_[_this2.scrollTarget_ === window ? 'pageYOffset' : 'scrollTop'];
+        updateCssVariable: function updateCssVariable(varName, value) {
+          return instance.root_.style.setProperty(varName, value);
         },
-        getTotalActionItems: function getTotalActionItems() {
-          return _this2.root_.querySelectorAll(_constants.strings.ACTION_ITEM_SELECTOR).length;
+        computeBoundingRect: function computeBoundingRect() {
+          return instance.root_.getBoundingClientRect();
+        },
+        getWindowPageOffset: function getWindowPageOffset() {
+          return { x: window.pageXOffset, y: window.pageYOffset };
         }
-      });
-
-      this.scrollTarget_ = window;
-
-      /** @type {!MDCTopAppBarBaseFoundation} */
-      var foundation = void 0;
-      if (this.root_.classList.contains(_constants.cssClasses.SHORT_CLASS)) {
-        foundation = new _foundation6.default(adapter);
-      } else if (this.root_.classList.contains(_constants.cssClasses.FIXED_CLASS)) {
-        foundation = new _foundation4.default(adapter);
-      } else {
-        foundation = new _foundation8.default(adapter);
-      }
-
-      return foundation;
-    }
-  }], [{
-    key: 'attachTo',
-    value: function attachTo(root) {
-      return new MDCTopAppBar(root);
+      };
     }
   }]);
 
-  return MDCTopAppBar;
+  return MDCRipple;
 }(_component2.default);
 
-exports.MDCTopAppBar = MDCTopAppBar;
-exports.MDCTopAppBarBaseFoundation = _foundation2.default;
-exports.MDCTopAppBarFoundation = _foundation8.default;
-exports.MDCFixedTopAppBarFoundation = _foundation4.default;
-exports.MDCShortTopAppBarFoundation = _foundation6.default;
+/**
+ * See Material Design spec for more details on when to use ripples.
+ * https://material.io/guidelines/motion/choreography.html#choreography-creation
+ * @record
+ */
+
+
+var RippleCapableSurface = function RippleCapableSurface() {
+  _classCallCheck(this, RippleCapableSurface);
+};
+
+/** @protected {!Element} */
+
+
+RippleCapableSurface.prototype.root_;
+
+/**
+ * Whether or not the ripple bleeds out of the bounds of the element.
+ * @type {boolean|undefined}
+ */
+RippleCapableSurface.prototype.unbounded;
+
+/**
+ * Whether or not the ripple is attached to a disabled component.
+ * @type {boolean|undefined}
+ */
+RippleCapableSurface.prototype.disabled;
+
+exports.MDCRipple = MDCRipple;
+exports.MDCRippleFoundation = _foundation2.default;
+exports.RippleCapableSurface = RippleCapableSurface;
+exports.util = util;
 
 /***/ }),
-/* 29 */
+/* 24 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @license
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Copyright 2016 Google Inc.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Permission is hereby granted, free of charge, to any person obtaining a copy
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * of this software and associated documentation files (the "Software"), to deal
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * in the Software without restriction, including without limitation the rights
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * copies of the Software, and to permit persons to whom the Software is
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * furnished to do so, subject to the following conditions:
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * The above copyright notice and this permission notice shall be included in
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * all copies or substantial portions of the Software.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * THE SOFTWARE.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
+
+var _foundation = __webpack_require__(5);
+
+var _foundation2 = _interopRequireDefault(_foundation);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * @template F
+ */
+var MDCComponent = function () {
+  _createClass(MDCComponent, null, [{
+    key: 'attachTo',
+
+    /**
+     * @param {!Element} root
+     * @return {!MDCComponent}
+     */
+    value: function attachTo(root) {
+      // Subclasses which extend MDCBase should provide an attachTo() method that takes a root element and
+      // returns an instantiated component with its root set to that element. Also note that in the cases of
+      // subclasses, an explicit foundation class will not have to be passed in; it will simply be initialized
+      // from getDefaultFoundation().
+      return new MDCComponent(root, new _foundation2.default());
+    }
+
+    /**
+     * @param {!Element} root
+     * @param {F=} foundation
+     * @param {...?} args
+     */
+
+  }]);
+
+  function MDCComponent(root) {
+    var foundation = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
+
+    _classCallCheck(this, MDCComponent);
+
+    /** @protected {!Element} */
+    this.root_ = root;
+
+    for (var _len = arguments.length, args = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+      args[_key - 2] = arguments[_key];
+    }
+
+    this.initialize.apply(this, args);
+    // Note that we initialize foundation here and not within the constructor's default param so that
+    // this.root_ is defined and can be used within the foundation class.
+    /** @protected {!F} */
+    this.foundation_ = foundation === undefined ? this.getDefaultFoundation() : foundation;
+    this.foundation_.init();
+    this.initialSyncWithDOM();
+  }
+
+  _createClass(MDCComponent, [{
+    key: 'initialize',
+    value: function initialize() /* ...args */{}
+    // Subclasses can override this to do any additional setup work that would be considered part of a
+    // "constructor". Essentially, it is a hook into the parent constructor before the foundation is
+    // initialized. Any additional arguments besides root and foundation will be passed in here.
+
+
+    /**
+     * @return {!F} foundation
+     */
+
+  }, {
+    key: 'getDefaultFoundation',
+    value: function getDefaultFoundation() {
+      // Subclasses must override this method to return a properly configured foundation class for the
+      // component.
+      throw new Error('Subclasses must override getDefaultFoundation to return a properly configured ' + 'foundation class');
+    }
+  }, {
+    key: 'initialSyncWithDOM',
+    value: function initialSyncWithDOM() {
+      // Subclasses should override this method if they need to perform work to synchronize with a host DOM
+      // object. An example of this would be a form control wrapper that needs to synchronize its internal state
+      // to some property or attribute of the host DOM. Please note: this is *not* the place to perform DOM
+      // reads/writes that would cause layout / paint, as this is called synchronously from within the constructor.
+    }
+  }, {
+    key: 'destroy',
+    value: function destroy() {
+      // Subclasses may implement this method to release any resources / deregister any listeners they have
+      // attached. An example of this might be deregistering a resize event from the window object.
+      this.foundation_.destroy();
+    }
+
+    /**
+     * Wrapper method to add an event listener to the component's root element. This is most useful when
+     * listening for custom events.
+     * @param {string} evtType
+     * @param {!Function} handler
+     */
+
+  }, {
+    key: 'listen',
+    value: function listen(evtType, handler) {
+      this.root_.addEventListener(evtType, handler);
+    }
+
+    /**
+     * Wrapper method to remove an event listener to the component's root element. This is most useful when
+     * unlistening for custom events.
+     * @param {string} evtType
+     * @param {!Function} handler
+     */
+
+  }, {
+    key: 'unlisten',
+    value: function unlisten(evtType, handler) {
+      this.root_.removeEventListener(evtType, handler);
+    }
+
+    /**
+     * Fires a cross-browser-compatible custom event from the component root of the given type,
+     * with the given data.
+     * @param {string} evtType
+     * @param {!Object} evtData
+     * @param {boolean=} shouldBubble
+     */
+
+  }, {
+    key: 'emit',
+    value: function emit(evtType, evtData) {
+      var shouldBubble = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+      var evt = void 0;
+      if (typeof CustomEvent === 'function') {
+        evt = new CustomEvent(evtType, {
+          detail: evtData,
+          bubbles: shouldBubble
+        });
+      } else {
+        evt = document.createEvent('CustomEvent');
+        evt.initCustomEvent(evtType, shouldBubble, false, evtData);
+      }
+
+      this.root_.dispatchEvent(evt);
+    }
+  }]);
+
+  return MDCComponent;
+}();
+
+exports.default = MDCComponent;
+
+/***/ }),
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3937,13 +3307,13 @@ var _foundation = __webpack_require__(5);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _adapter = __webpack_require__(11);
+var _adapter = __webpack_require__(6);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _constants = __webpack_require__(30);
+var _constants = __webpack_require__(26);
 
-var _util = __webpack_require__(12);
+var _util = __webpack_require__(7);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4729,7 +4099,7 @@ var MDCRippleFoundation = function (_MDCFoundation) {
 exports.default = MDCRippleFoundation;
 
 /***/ }),
-/* 30 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4794,539 +4164,7 @@ exports.strings = strings;
 exports.numbers = numbers;
 
 /***/ }),
-/* 31 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-
-var _constants = __webpack_require__(1);
-
-var _adapter = __webpack_require__(0);
-
-var _adapter2 = _interopRequireDefault(_adapter);
-
-var _foundation = __webpack_require__(3);
-
-var _foundation2 = _interopRequireDefault(_foundation);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @license
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright 2018 Google Inc.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-/**
- * @extends {MDCTopAppBarFoundation<!MDCFixedTopAppBarFoundation>}
- * @final
- */
-var MDCFixedTopAppBarFoundation = function (_MDCTopAppBarFoundati) {
-  _inherits(MDCFixedTopAppBarFoundation, _MDCTopAppBarFoundati);
-
-  /**
-   * @param {!MDCTopAppBarAdapter} adapter
-   */
-  function MDCFixedTopAppBarFoundation(adapter) {
-    _classCallCheck(this, MDCFixedTopAppBarFoundation);
-
-    /** State variable for the previous scroll iteration top app bar state */
-    var _this = _possibleConstructorReturn(this, (MDCFixedTopAppBarFoundation.__proto__ || Object.getPrototypeOf(MDCFixedTopAppBarFoundation)).call(this, adapter));
-
-    _this.wasScrolled_ = false;
-
-    _this.scrollHandler_ = function () {
-      return _this.fixedScrollHandler_();
-    };
-    return _this;
-  }
-
-  _createClass(MDCFixedTopAppBarFoundation, [{
-    key: 'init',
-    value: function init() {
-      _get(MDCFixedTopAppBarFoundation.prototype.__proto__ || Object.getPrototypeOf(MDCFixedTopAppBarFoundation.prototype), 'init', this).call(this);
-      this.adapter_.registerScrollHandler(this.scrollHandler_);
-    }
-  }, {
-    key: 'destroy',
-    value: function destroy() {
-      _get(MDCFixedTopAppBarFoundation.prototype.__proto__ || Object.getPrototypeOf(MDCFixedTopAppBarFoundation.prototype), 'destroy', this).call(this);
-      this.adapter_.deregisterScrollHandler(this.scrollHandler_);
-    }
-
-    /**
-     * Scroll handler for applying/removing the modifier class
-     * on the fixed top app bar.
-     */
-
-  }, {
-    key: 'fixedScrollHandler_',
-    value: function fixedScrollHandler_() {
-      var currentScroll = this.adapter_.getViewportScrollY();
-
-      if (currentScroll <= 0) {
-        if (this.wasScrolled_) {
-          this.adapter_.removeClass(_constants.cssClasses.FIXED_SCROLLED_CLASS);
-          this.wasScrolled_ = false;
-        }
-      } else {
-        if (!this.wasScrolled_) {
-          this.adapter_.addClass(_constants.cssClasses.FIXED_SCROLLED_CLASS);
-          this.wasScrolled_ = true;
-        }
-      }
-    }
-  }]);
-
-  return MDCFixedTopAppBarFoundation;
-}(_foundation2.default);
-
-exports.default = MDCFixedTopAppBarFoundation;
-
-/***/ }),
-/* 32 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-
-var _adapter = __webpack_require__(0);
-
-var _adapter2 = _interopRequireDefault(_adapter);
-
-var _foundation = __webpack_require__(3);
-
-var _foundation2 = _interopRequireDefault(_foundation);
-
-var _constants = __webpack_require__(1);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @license
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright 2018 Google Inc.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-/**
- * @extends {MDCTopAppBarBaseFoundation<!MDCShortTopAppBarFoundation>}
- * @final
- */
-var MDCShortTopAppBarFoundation = function (_MDCTopAppBarBaseFoun) {
-  _inherits(MDCShortTopAppBarFoundation, _MDCTopAppBarBaseFoun);
-
-  /**
-   * @param {!MDCTopAppBarAdapter} adapter
-   */
-  function MDCShortTopAppBarFoundation(adapter) {
-    _classCallCheck(this, MDCShortTopAppBarFoundation);
-
-    // State variable for the current top app bar state
-    var _this = _possibleConstructorReturn(this, (MDCShortTopAppBarFoundation.__proto__ || Object.getPrototypeOf(MDCShortTopAppBarFoundation)).call(this, adapter));
-
-    _this.isCollapsed = false;
-
-    _this.scrollHandler_ = function () {
-      return _this.shortAppBarScrollHandler_();
-    };
-    return _this;
-  }
-
-  _createClass(MDCShortTopAppBarFoundation, [{
-    key: 'init',
-    value: function init() {
-      _get(MDCShortTopAppBarFoundation.prototype.__proto__ || Object.getPrototypeOf(MDCShortTopAppBarFoundation.prototype), 'init', this).call(this);
-      var isAlwaysCollapsed = this.adapter_.hasClass(_constants.cssClasses.SHORT_COLLAPSED_CLASS);
-
-      if (this.adapter_.getTotalActionItems() > 0) {
-        this.adapter_.addClass(_constants.cssClasses.SHORT_HAS_ACTION_ITEM_CLASS);
-      }
-
-      if (!isAlwaysCollapsed) {
-        this.adapter_.registerScrollHandler(this.scrollHandler_);
-        this.shortAppBarScrollHandler_();
-      }
-    }
-  }, {
-    key: 'destroy',
-    value: function destroy() {
-      _get(MDCShortTopAppBarFoundation.prototype.__proto__ || Object.getPrototypeOf(MDCShortTopAppBarFoundation.prototype), 'destroy', this).call(this);
-      this.adapter_.deregisterScrollHandler(this.scrollHandler_);
-    }
-
-    /**
-     * Scroll handler for applying/removing the collapsed modifier class
-     * on the short top app bar.
-     * @private
-     */
-
-  }, {
-    key: 'shortAppBarScrollHandler_',
-    value: function shortAppBarScrollHandler_() {
-      var currentScroll = this.adapter_.getViewportScrollY();
-
-      if (currentScroll <= 0) {
-        if (this.isCollapsed) {
-          this.adapter_.removeClass(_constants.cssClasses.SHORT_COLLAPSED_CLASS);
-          this.isCollapsed = false;
-        }
-      } else {
-        if (!this.isCollapsed) {
-          this.adapter_.addClass(_constants.cssClasses.SHORT_COLLAPSED_CLASS);
-          this.isCollapsed = true;
-        }
-      }
-    }
-  }]);
-
-  return MDCShortTopAppBarFoundation;
-}(_foundation2.default);
-
-exports.default = MDCShortTopAppBarFoundation;
-
-/***/ }),
-/* 33 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-
-var _adapter = __webpack_require__(0);
-
-var _adapter2 = _interopRequireDefault(_adapter);
-
-var _foundation = __webpack_require__(3);
-
-var _foundation2 = _interopRequireDefault(_foundation);
-
-var _constants = __webpack_require__(1);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @license
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright 2018 Google Inc.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
-
-var INITIAL_VALUE = 0;
-/**
- * @extends {MDCTopAppBarBaseFoundation<!MDCTopAppBarFoundation>}
- * @final
- */
-
-var MDCTopAppBarFoundation = function (_MDCTopAppBarBaseFoun) {
-  _inherits(MDCTopAppBarFoundation, _MDCTopAppBarBaseFoun);
-
-  /**
-   * @param {!MDCTopAppBarAdapter} adapter
-   */
-  function MDCTopAppBarFoundation(adapter) {
-    _classCallCheck(this, MDCTopAppBarFoundation);
-
-    /**
-     * Used for diffs of current scroll position vs previous scroll position
-     * @private {number}
-     */
-    var _this = _possibleConstructorReturn(this, (MDCTopAppBarFoundation.__proto__ || Object.getPrototypeOf(MDCTopAppBarFoundation)).call(this, adapter));
-
-    _this.lastScrollPosition_ = _this.adapter_.getViewportScrollY();
-
-    /**
-     * Used to verify when the top app bar is completely showing or completely hidden
-     * @private {number}
-     */
-    _this.topAppBarHeight_ = _this.adapter_.getTopAppBarHeight();
-
-    /**
-     * wasDocked_ is used to indicate if the top app bar was docked in the previous
-     * scroll handler iteration.
-     * @private {boolean}
-     */
-    _this.wasDocked_ = true;
-
-    /**
-     * isDockedShowing_ is used to indicate if the top app bar is docked in the fully
-     * shown position.
-     * @private {boolean}
-     */
-    _this.isDockedShowing_ = true;
-
-    /**
-     * Variable for current scroll position of the top app bar
-     * @private {number}
-     */
-    _this.currentAppBarOffsetTop_ = 0;
-
-    /**
-     * Used to prevent the top app bar from being scrolled out of view during resize events
-     * @private {boolean} */
-    _this.isCurrentlyBeingResized_ = false;
-
-    /**
-     * The timeout that's used to throttle the resize events
-     * @private {number}
-     */
-    _this.resizeThrottleId_ = INITIAL_VALUE;
-
-    /**
-     * The timeout that's used to debounce toggling the isCurrentlyBeingResized_ variable after a resize
-     * @private {number}
-     */
-    _this.resizeDebounceId_ = INITIAL_VALUE;
-
-    _this.scrollHandler_ = function () {
-      return _this.topAppBarScrollHandler_();
-    };
-    _this.resizeHandler_ = function () {
-      return _this.topAppBarResizeHandler_();
-    };
-    return _this;
-  }
-
-  _createClass(MDCTopAppBarFoundation, [{
-    key: 'init',
-    value: function init() {
-      _get(MDCTopAppBarFoundation.prototype.__proto__ || Object.getPrototypeOf(MDCTopAppBarFoundation.prototype), 'init', this).call(this);
-      this.adapter_.registerScrollHandler(this.scrollHandler_);
-      this.adapter_.registerResizeHandler(this.resizeHandler_);
-    }
-  }, {
-    key: 'destroy',
-    value: function destroy() {
-      _get(MDCTopAppBarFoundation.prototype.__proto__ || Object.getPrototypeOf(MDCTopAppBarFoundation.prototype), 'destroy', this).call(this);
-      this.adapter_.deregisterScrollHandler(this.scrollHandler_);
-      this.adapter_.deregisterResizeHandler(this.resizeHandler_);
-      this.adapter_.setStyle('top', '');
-    }
-
-    /**
-     * Function to determine if the DOM needs to update.
-     * @return {boolean}
-     * @private
-     */
-
-  }, {
-    key: 'checkForUpdate_',
-    value: function checkForUpdate_() {
-      var offscreenBoundaryTop = -this.topAppBarHeight_;
-      var hasAnyPixelsOffscreen = this.currentAppBarOffsetTop_ < 0;
-      var hasAnyPixelsOnscreen = this.currentAppBarOffsetTop_ > offscreenBoundaryTop;
-      var partiallyShowing = hasAnyPixelsOffscreen && hasAnyPixelsOnscreen;
-
-      // If it's partially showing, it can't be docked.
-      if (partiallyShowing) {
-        this.wasDocked_ = false;
-      } else {
-        // Not previously docked and not partially showing, it's now docked.
-        if (!this.wasDocked_) {
-          this.wasDocked_ = true;
-          return true;
-        } else if (this.isDockedShowing_ !== hasAnyPixelsOnscreen) {
-          this.isDockedShowing_ = hasAnyPixelsOnscreen;
-          return true;
-        }
-      }
-
-      return partiallyShowing;
-    }
-
-    /**
-     * Function to move the top app bar if needed.
-     * @private
-     */
-
-  }, {
-    key: 'moveTopAppBar_',
-    value: function moveTopAppBar_() {
-      if (this.checkForUpdate_()) {
-        // Once the top app bar is fully hidden we use the max potential top app bar height as our offset
-        // so the top app bar doesn't show if the window resizes and the new height > the old height.
-        var offset = this.currentAppBarOffsetTop_;
-        if (Math.abs(offset) >= this.topAppBarHeight_) {
-          offset = -_constants.numbers.MAX_TOP_APP_BAR_HEIGHT;
-        }
-
-        this.adapter_.setStyle('top', offset + 'px');
-      }
-    }
-
-    /**
-     * Scroll handler for the default scroll behavior of the top app bar.
-     * @private
-     */
-
-  }, {
-    key: 'topAppBarScrollHandler_',
-    value: function topAppBarScrollHandler_() {
-      var currentScrollPosition = Math.max(this.adapter_.getViewportScrollY(), 0);
-      var diff = currentScrollPosition - this.lastScrollPosition_;
-      this.lastScrollPosition_ = currentScrollPosition;
-
-      // If the window is being resized the lastScrollPosition_ needs to be updated but the
-      // current scroll of the top app bar should stay in the same position.
-      if (!this.isCurrentlyBeingResized_) {
-        this.currentAppBarOffsetTop_ -= diff;
-
-        if (this.currentAppBarOffsetTop_ > 0) {
-          this.currentAppBarOffsetTop_ = 0;
-        } else if (Math.abs(this.currentAppBarOffsetTop_) > this.topAppBarHeight_) {
-          this.currentAppBarOffsetTop_ = -this.topAppBarHeight_;
-        }
-
-        this.moveTopAppBar_();
-      }
-    }
-
-    /**
-     * Top app bar resize handler that throttle/debounce functions that execute updates.
-     * @private
-     */
-
-  }, {
-    key: 'topAppBarResizeHandler_',
-    value: function topAppBarResizeHandler_() {
-      var _this2 = this;
-
-      // Throttle resize events 10 p/s
-      if (!this.resizeThrottleId_) {
-        this.resizeThrottleId_ = setTimeout(function () {
-          _this2.resizeThrottleId_ = INITIAL_VALUE;
-          _this2.throttledResizeHandler_();
-        }, _constants.numbers.DEBOUNCE_THROTTLE_RESIZE_TIME_MS);
-      }
-
-      this.isCurrentlyBeingResized_ = true;
-
-      if (this.resizeDebounceId_) {
-        clearTimeout(this.resizeDebounceId_);
-      }
-
-      this.resizeDebounceId_ = setTimeout(function () {
-        _this2.topAppBarScrollHandler_();
-        _this2.isCurrentlyBeingResized_ = false;
-        _this2.resizeDebounceId_ = INITIAL_VALUE;
-      }, _constants.numbers.DEBOUNCE_THROTTLE_RESIZE_TIME_MS);
-    }
-
-    /**
-     * Throttled function that updates the top app bar scrolled values if the
-     * top app bar height changes.
-     * @private
-     */
-
-  }, {
-    key: 'throttledResizeHandler_',
-    value: function throttledResizeHandler_() {
-      var currentHeight = this.adapter_.getTopAppBarHeight();
-      if (this.topAppBarHeight_ !== currentHeight) {
-        this.wasDocked_ = false;
-
-        // Since the top app bar has a different height depending on the screen width, this
-        // will ensure that the top app bar remains in the correct location if
-        // completely hidden and a resize makes the top app bar a different height.
-        this.currentAppBarOffsetTop_ -= this.topAppBarHeight_ - currentHeight;
-        this.topAppBarHeight_ = currentHeight;
-      }
-      this.topAppBarScrollHandler_();
-    }
-  }]);
-
-  return MDCTopAppBarFoundation;
-}(_foundation2.default);
-
-exports.default = MDCTopAppBarFoundation;
-
-/***/ }),
-/* 34 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5341,31 +4179,31 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-var _component = __webpack_require__(4);
+var _component = __webpack_require__(1);
 
 var _component2 = _interopRequireDefault(_component);
 
-var _index = __webpack_require__(35);
+var _index = __webpack_require__(28);
 
-var _util = __webpack_require__(6);
+var _util = __webpack_require__(2);
 
-var _constants = __webpack_require__(14);
+var _constants = __webpack_require__(9);
 
-var _adapter = __webpack_require__(15);
+var _adapter = __webpack_require__(10);
 
-var _foundation = __webpack_require__(40);
+var _foundation = __webpack_require__(33);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _index2 = __webpack_require__(41);
+var _index2 = __webpack_require__(34);
 
-var _index3 = __webpack_require__(45);
+var _index3 = __webpack_require__(38);
 
-var _index4 = __webpack_require__(46);
+var _index4 = __webpack_require__(39);
 
-var _index5 = __webpack_require__(47);
+var _index5 = __webpack_require__(40);
 
-var _index6 = __webpack_require__(51);
+var _index6 = __webpack_require__(44);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5957,7 +4795,7 @@ exports.MDCTextFieldIcon = _index4.MDCTextFieldIcon;
 exports.MDCTextFieldIconFoundation = _index4.MDCTextFieldIconFoundation;
 
 /***/ }),
-/* 35 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5970,19 +4808,19 @@ exports.util = exports.RippleCapableSurface = exports.MDCRippleFoundation = expo
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _component = __webpack_require__(4);
+var _component = __webpack_require__(1);
 
 var _component2 = _interopRequireDefault(_component);
 
-var _adapter = __webpack_require__(13);
+var _adapter = __webpack_require__(8);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _foundation = __webpack_require__(36);
+var _foundation = __webpack_require__(29);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _util = __webpack_require__(6);
+var _util = __webpack_require__(2);
 
 var util = _interopRequireWildcard(_util);
 
@@ -6216,7 +5054,7 @@ exports.RippleCapableSurface = RippleCapableSurface;
 exports.util = util;
 
 /***/ }),
-/* 36 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6228,17 +5066,17 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _foundation = __webpack_require__(2);
+var _foundation = __webpack_require__(0);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _adapter = __webpack_require__(13);
+var _adapter = __webpack_require__(8);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _constants = __webpack_require__(37);
+var _constants = __webpack_require__(30);
 
-var _util = __webpack_require__(6);
+var _util = __webpack_require__(2);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6990,7 +5828,7 @@ var MDCRippleFoundation = function (_MDCFoundation) {
 exports.default = MDCRippleFoundation;
 
 /***/ }),
-/* 37 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7049,7 +5887,7 @@ exports.strings = strings;
 exports.numbers = numbers;
 
 /***/ }),
-/* 38 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7091,7 +5929,7 @@ exports.strings = strings;
 exports.cssClasses = cssClasses;
 
 /***/ }),
-/* 39 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7126,7 +5964,7 @@ var strings = {
 exports.strings = strings;
 
 /***/ }),
-/* 40 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7138,21 +5976,21 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _foundation = __webpack_require__(2);
+var _foundation = __webpack_require__(0);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _foundation3 = __webpack_require__(7);
+var _foundation3 = __webpack_require__(3);
 
 var _foundation4 = _interopRequireDefault(_foundation3);
 
-var _foundation5 = __webpack_require__(8);
+var _foundation5 = __webpack_require__(4);
 
 var _foundation6 = _interopRequireDefault(_foundation5);
 
-var _adapter = __webpack_require__(15);
+var _adapter = __webpack_require__(10);
 
-var _constants = __webpack_require__(14);
+var _constants = __webpack_require__(9);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -7319,7 +6157,7 @@ var MDCTextFieldFoundation = function (_MDCFoundation) {
     };
     /** @private {function(!Array): undefined} */
     _this.validationAttributeChangeHandler_ = function (mutations) {
-      return _this.handleValidationAttributeMutation_(mutations);
+      return _this.handleValidationAttributeMutation(mutations);
     };
     /** @private {!MutationObserver} */
     _this.validationObserver_;
@@ -7386,13 +6224,12 @@ var MDCTextFieldFoundation = function (_MDCFoundation) {
 
     /**
      * Handles validation attribute changes
-     * @param {Array<MutationRecord>} mutationsList
-     * @private
+     * @param {!Array<MutationRecord>} mutationsList
      */
 
   }, {
-    key: 'handleValidationAttributeMutation_',
-    value: function handleValidationAttributeMutation_(mutationsList) {
+    key: 'handleValidationAttributeMutation',
+    value: function handleValidationAttributeMutation(mutationsList) {
       var _this4 = this;
 
       mutationsList.some(function (mutation) {
@@ -7699,7 +6536,7 @@ var MDCTextFieldFoundation = function (_MDCFoundation) {
 exports.default = MDCTextFieldFoundation;
 
 /***/ }),
-/* 41 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7712,15 +6549,15 @@ exports.MDCLineRippleFoundation = exports.MDCLineRipple = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _component = __webpack_require__(42);
+var _component = __webpack_require__(35);
 
 var _component2 = _interopRequireDefault(_component);
 
-var _adapter = __webpack_require__(19);
+var _adapter = __webpack_require__(14);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _foundation = __webpack_require__(43);
+var _foundation = __webpack_require__(36);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -7842,7 +6679,7 @@ exports.MDCLineRipple = MDCLineRipple;
 exports.MDCLineRippleFoundation = _foundation2.default;
 
 /***/ }),
-/* 42 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7869,7 +6706,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * limitations under the License.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
-var _foundation = __webpack_require__(18);
+var _foundation = __webpack_require__(13);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -8020,7 +6857,7 @@ var MDCComponent = function () {
 exports.default = MDCComponent;
 
 /***/ }),
-/* 43 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8032,15 +6869,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _foundation = __webpack_require__(18);
+var _foundation = __webpack_require__(13);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _adapter = __webpack_require__(19);
+var _adapter = __webpack_require__(14);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _constants = __webpack_require__(44);
+var _constants = __webpack_require__(37);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8190,7 +7027,7 @@ var MDCLineRippleFoundation = function (_MDCFoundation) {
 exports.default = MDCLineRippleFoundation;
 
 /***/ }),
-/* 44 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8225,7 +7062,7 @@ var cssClasses = {
 exports.cssClasses = cssClasses;
 
 /***/ }),
-/* 45 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8238,15 +7075,15 @@ exports.MDCTextFieldHelperTextFoundation = exports.MDCTextFieldHelperText = unde
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _component = __webpack_require__(4);
+var _component = __webpack_require__(1);
 
 var _component2 = _interopRequireDefault(_component);
 
-var _adapter = __webpack_require__(16);
+var _adapter = __webpack_require__(11);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _foundation = __webpack_require__(7);
+var _foundation = __webpack_require__(3);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -8346,7 +7183,7 @@ exports.MDCTextFieldHelperText = MDCTextFieldHelperText;
 exports.MDCTextFieldHelperTextFoundation = _foundation2.default;
 
 /***/ }),
-/* 46 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8359,15 +7196,15 @@ exports.MDCTextFieldIconFoundation = exports.MDCTextFieldIcon = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _component = __webpack_require__(4);
+var _component = __webpack_require__(1);
 
 var _component2 = _interopRequireDefault(_component);
 
-var _adapter = __webpack_require__(17);
+var _adapter = __webpack_require__(12);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _foundation = __webpack_require__(8);
+var _foundation = __webpack_require__(4);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -8467,7 +7304,7 @@ exports.MDCTextFieldIcon = MDCTextFieldIcon;
 exports.MDCTextFieldIconFoundation = _foundation2.default;
 
 /***/ }),
-/* 47 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8480,15 +7317,15 @@ exports.MDCFloatingLabelFoundation = exports.MDCFloatingLabel = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _component = __webpack_require__(48);
+var _component = __webpack_require__(41);
 
 var _component2 = _interopRequireDefault(_component);
 
-var _adapter = __webpack_require__(21);
+var _adapter = __webpack_require__(16);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _foundation = __webpack_require__(49);
+var _foundation = __webpack_require__(42);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -8609,7 +7446,7 @@ exports.MDCFloatingLabel = MDCFloatingLabel;
 exports.MDCFloatingLabelFoundation = _foundation2.default;
 
 /***/ }),
-/* 48 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8636,7 +7473,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * limitations under the License.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
-var _foundation = __webpack_require__(20);
+var _foundation = __webpack_require__(15);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -8787,7 +7624,7 @@ var MDCComponent = function () {
 exports.default = MDCComponent;
 
 /***/ }),
-/* 49 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8799,15 +7636,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _foundation = __webpack_require__(20);
+var _foundation = __webpack_require__(15);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _adapter = __webpack_require__(21);
+var _adapter = __webpack_require__(16);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _constants = __webpack_require__(50);
+var _constants = __webpack_require__(43);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8964,7 +7801,7 @@ var MDCFloatingLabelFoundation = function (_MDCFoundation) {
 exports.default = MDCFloatingLabelFoundation;
 
 /***/ }),
-/* 50 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8999,7 +7836,7 @@ var cssClasses = {
 exports.cssClasses = cssClasses;
 
 /***/ }),
-/* 51 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9012,19 +7849,19 @@ exports.MDCNotchedOutlineFoundation = exports.MDCNotchedOutline = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _component = __webpack_require__(52);
+var _component = __webpack_require__(45);
 
 var _component2 = _interopRequireDefault(_component);
 
-var _adapter = __webpack_require__(23);
+var _adapter = __webpack_require__(18);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _foundation = __webpack_require__(53);
+var _foundation = __webpack_require__(46);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _constants = __webpack_require__(24);
+var _constants = __webpack_require__(19);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9137,7 +7974,7 @@ exports.MDCNotchedOutline = MDCNotchedOutline;
 exports.MDCNotchedOutlineFoundation = _foundation2.default;
 
 /***/ }),
-/* 52 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9164,7 +8001,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * limitations under the License.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
-var _foundation = __webpack_require__(22);
+var _foundation = __webpack_require__(17);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -9315,7 +8152,7 @@ var MDCComponent = function () {
 exports.default = MDCComponent;
 
 /***/ }),
-/* 53 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9327,15 +8164,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _foundation = __webpack_require__(22);
+var _foundation = __webpack_require__(17);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _adapter = __webpack_require__(23);
+var _adapter = __webpack_require__(18);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _constants = __webpack_require__(24);
+var _constants = __webpack_require__(19);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

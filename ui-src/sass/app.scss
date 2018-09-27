@@ -1,18 +1,41 @@
 
 @import "@material/textfield/mdc-text-field";
-
 @import "@material/top-app-bar/mdc-top-app-bar";
 @import "@material/card/mdc-card";
-
 @import "@material/button/mdc-button";
 
-
 body {
-    color: blue;
+    font-family: 'Roboto';
 }
 
+.header {
+    text-align: center;
+}
+
+// home styles
 .foo-button {
     @include mdc-button-ink-color(teal);
     @include mdc-states(teal);
 }
+
+// login styles
+.username,
+.password {
+    display: block;
+    width: 300px;
+    margin: 20px auto;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 300px;
+    margin: auto;
+}
+
+.button-container button {
+    margin: 3px;
+}
+
+
 
