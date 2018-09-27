@@ -4,7 +4,7 @@
     "build": "webpack"
   },
   "devDependencies": {
-    "@material/button": "^0.39.3",
+    "@material/button": "^0.35.0",
     "@material/card": "^0.39.3",
     "@material/menu": "^0.39.3",
     "@material/ripple": "^0.39.3",

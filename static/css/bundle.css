@@ -1924,9 +1924,12 @@
 .mdc-button--outlined {
   border-style: solid;
   padding: 0 14px 0 14px;
-  border-width: 2px; }
+  border-width: 2px;
+  line-height: 32px; }
   .mdc-button--outlined:disabled {
     border-color: rgba(0, 0, 0, 0.37); }
+  .mdc-button--outlined.mdc-button--dense {
+    line-height: 27px; }
   .mdc-button--outlined:not(:disabled) {
     border-color: #6200ee;
     /* @alternate */
@@ -1934,7 +1937,8 @@
 
 .mdc-button--dense {
   height: 32px;
-  font-size: .8125rem; }
+  font-size: .8125rem;
+  line-height: 32px; }
 
 body {
   font-family: 'Roboto'; }
@@ -1970,3 +1974,12 @@ body {
   display: block;
   width: 300px;
   margin: 20px auto; }
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 300px;
+  margin: auto; }
+
+.button-container button {
+  margin: 3px; }
