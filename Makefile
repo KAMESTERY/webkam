@@ -4,7 +4,8 @@ BASEDIR=$(PWD)
 all: build-ui build
 
 build-ui:
-	npm i && npm r build
+	npm i
+	npm run build
 	clj -m cljs.main -O advanced -o $(BASEDIR)/static/js/ui.js -c hello-world.core
 
 build:
