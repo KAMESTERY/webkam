@@ -23,6 +23,9 @@ func main() {
 	r.StaticFS("/static", http.Dir(utils.StaticDir))
 	r.StaticFile("/favicon.ico", utils.StaticDir+"/favicon.ico")
 
+	// Include Middleawares
+	endpoints.IncludeCommonMiddlewares(r)
+
 	// Initialize Routes
 	endpoints.InitializeRoutes(r)
 

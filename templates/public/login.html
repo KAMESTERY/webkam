@@ -10,7 +10,8 @@
     <h1>KAMESTERY</h1>
 </section>
 
-<form action="home.html">
+<form action="/user/login" method="post">
+    <input type="hidden" name="_csrf" value="{{ .csrf }}">
     <div class="mdc-text-field mdc-text-field--box username">
         <input type="text" class="mdc-text-field__input" id="username-input" name="username" required>
         <label class="mdc-floating-label" for="username-input">Username</label>
@@ -26,7 +27,7 @@
             Cancel
         </button>
         <button class="mdc-button mdc-button--raised next">
-            Next
+            Login
         </button>
     </div>
 </form>

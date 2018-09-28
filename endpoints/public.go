@@ -13,13 +13,7 @@ func ping(c *gin.Context) {
 }
 
 func home(c *gin.Context) {
-	c.HTML(http.StatusOK, "public/home.html", gin.H{
+	render(c, gin.H{
 		"title": "Kamestery Web App :-)",
-	})
-}
-
-func login(c *gin.Context) {
-	c.HTML(http.StatusOK, "public/login.html", gin.H{
-		"title": "Simple Webpage using basic Material Design components.",
-	})
+	}, "public/home.html")
 }

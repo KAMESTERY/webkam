@@ -9,8 +9,15 @@ var routes_logger = utils.NewLogger("entpointroutes")
 
 func InitializeRoutes(r *gin.Engine) {
 	routes_logger.Debug("Attaching routes...")
+	
 	// Request Routing
 	r.GET("/ping", ping)
 	r.GET("/", home)
-	r.GET("/login", login)
+
+	// User Routes
+	user_routes := r.Group("/user")
+	{
+		user_routes.GET("/login", login)
+		user_routes.POST("/login", authenticate)
+	}
 }
