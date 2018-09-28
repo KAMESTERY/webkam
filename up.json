@@ -32,5 +32,8 @@
   },
   "environment": {
     "LOG_LEVEL": "DEBUG"
+  },
+  "error_pages": {
+    "disable": true
   }
 }
