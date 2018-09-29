@@ -1941,10 +1941,19 @@
   line-height: 32px; }
 
 body {
-  font-family: 'Roboto'; }
+  font-family: 'Roboto';
+  margin: 0; }
 
 .header {
   text-align: center; }
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.container {
+  margin-top: 75px; }
 
 .foo-button:not(:disabled) {
   color: teal; }
@@ -1969,6 +1978,7 @@ body {
 .foo-button.mdc-ripple-upgraded {
   --mdc-ripple-fg-opacity: 0.16; }
 
+.confirm-password,
 .username,
 .password {
   display: block;
