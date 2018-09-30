@@ -5,10 +5,8 @@
 {{ template "header.html" . }}
 
 <div class="wrapper">
-    <section class="container">
-
+    <section id="login-container" class="container">
     {{ template "title.html" . }}
-
         <form action="/user/login" method="post">
             <input type="hidden" name="_csrf" value="{{ .csrf }}">
             <div class="mdc-text-field mdc-text-field--box username">
@@ -17,11 +15,12 @@
                 <div class="mdc-line-ripple"></div>
             </div>
             <div class="mdc-text-field mdc-text-field--box password">
-                <input type="password" class="mdc-text-field__input" id="password-input" name="password" required minlength="8">
+                <input type="password" class="mdc-text-field__input" id="password-input" name="password" required
+                       minlength="8">
                 <label class="mdc-floating-label" for="password-input">Password</label>
                 <div class="mdc-line-ripple"></div>
             </div>
-            <div class="button-container">
+            <div class="form-button-container">
                 <button type="button" class="mdc-button cancel">
                     Cancel
                 </button>
@@ -31,7 +30,6 @@
             </div>
         </form>
     </section>
-
 </div>
 
 <!-- Embed Footer -->

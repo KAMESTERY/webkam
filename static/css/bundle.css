@@ -1944,9 +1944,6 @@ body {
   font-family: 'Roboto';
   margin: 0; }
 
-.header {
-  text-align: center; }
-
 .wrapper {
   display: flex;
   align-items: center;
@@ -1955,28 +1952,14 @@ body {
 .container {
   margin-top: 75px; }
 
-.foo-button:not(:disabled) {
-  color: teal; }
+.form-button-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 300px;
+  margin: auto; }
 
-.foo-button::before, .foo-button::after {
-  background-color: teal; }
-
-.foo-button:hover::before {
-  opacity: 0.04; }
-
-.foo-button:not(.mdc-ripple-upgraded):focus::before, .foo-button.mdc-ripple-upgraded--background-focused::before {
-  transition-duration: 75ms;
-  opacity: 0.12; }
-
-.foo-button:not(.mdc-ripple-upgraded)::after {
-  transition: opacity 150ms linear; }
-
-.foo-button:not(.mdc-ripple-upgraded):active::after {
-  transition-duration: 75ms;
-  opacity: 0.16; }
-
-.foo-button.mdc-ripple-upgraded {
-  --mdc-ripple-fg-opacity: 0.16; }
+.form-button-container button {
+  margin: 3px; }
 
 .confirm-password,
 .username,
@@ -1984,12 +1967,3 @@ body {
   display: block;
   width: 300px;
   margin: 20px auto; }
-
-.button-container {
-  display: flex;
-  justify-content: flex-end;
-  width: 300px;
-  margin: auto; }
-
-.button-container button {
-  margin: 3px; }

@@ -8,26 +8,31 @@ body {
   margin: 0;
 }
 
-.header {
-  text-align: center;
-}
-
+//global
 .wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .container {
   margin-top: 75px;
 }
 
-// home styles
-.foo-button {
-  @include mdc-button-ink-color(teal);
-  @include mdc-states(teal);
+.form-button-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 300px;
+  margin: auto;
 }
 
-// login styles
+.form-button-container button {
+  margin: 3px;
+}
+
+// home styles
+
+// login & register styles
 .confirm-password,
 .username,
 .password {
@@ -36,16 +41,6 @@ body {
   margin: 20px auto;
 }
 
-.button-container {
-  display: flex;
-  justify-content: flex-end;
-  width: 300px;
-  margin: auto;
-}
-
-.button-container button {
-  margin: 3px;
-}
 
 
 
