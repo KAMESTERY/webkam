@@ -1940,17 +1940,54 @@
   font-size: .8125rem;
   line-height: 32px; }
 
+html {
+  height: 100%;
+  box-sizing: border-box;
+  /* https://css-tricks.com/box-sizing/ */ }
+
 body {
   font-family: 'Roboto';
-  margin: 0; }
+  margin: 0;
+  display: flow-root; }
 
-.wrapper {
+.content-wrapper {
+  padding: 20px 0 20px 0;
+  color: white;
+  text-align: center; }
+
+.content-section {
+  flex: 3;
+  background: mediumpurple; }
+
+.center-wrapper {
   display: flex;
   align-items: center;
   justify-content: center; }
 
-.container {
+.center-container {
   margin-top: 75px; }
+
+.main-wrapper {
+  position: relative;
+  min-height: -webkit-fill-available;
+  top: 50px;
+  display: flex;
+  /* body is the outer flex container */
+  flex-flow: row wrap; }
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 250px);
+  order: 1; }
+
+aside {
+  flex: 1 250px;
+  background: purple; }
+
+footer {
+  background: rebeccapurple;
+  position: relative; }
 
 .form-button-container {
   display: flex;
@@ -1961,9 +1998,32 @@ body {
 .form-button-container button {
   margin: 3px; }
 
+.kamestery-logo-drawer {
+  width: 48px;
+  padding: 40px 0 0;
+  margin: 0 auto;
+  fill: currentColor; }
+
+.kamestery-title {
+  align-self: center;
+  margin: 5px auto; }
+
+.email,
 .confirm-password,
 .username,
 .password {
   display: block;
   width: 300px;
   margin: 20px auto; }
+
+@media screen and (max-width: 650px) {
+  .main-wrapper {
+    flex-direction: column;
+    top: 50px; }
+  aside {
+    flex: 1;
+    max-height: 175px;
+    order: 1; }
+  .main-container {
+    width: 100%;
+    flex: 1; } }

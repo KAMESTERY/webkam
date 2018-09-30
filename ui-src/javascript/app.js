@@ -1,13 +1,16 @@
-
-import {MDCTopAppBar} from '@material/top-app-bar/index';
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+};
 
 // Instantiation
+console.log('Starting import');
+import {MDCTopAppBar} from '@material/top-app-bar/index';
+import {MDCRipple} from '@material/ripple';
+import {MDCTextField} from '@material/textfield';
+
 const topAppBarElement = document.querySelector('.mdc-top-app-bar');
 const topAppBar = new MDCTopAppBar(topAppBarElement);
 
-console.log('Starting import');
-import {MDCRipple} from '@material/ripple';
-import {MDCTextField} from '@material/textfield';
 
 // home
 // global
@@ -24,5 +27,6 @@ new MDCRipple(document.querySelector('.login'));
 console.log('login page Styles loaded');
 
 // register
+const email = new MDCTextField(document.querySelector('.email'));
 new MDCRipple(document.querySelector('.register'));
 console.log('register page Styles loaded');

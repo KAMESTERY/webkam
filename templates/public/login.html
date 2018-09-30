@@ -4,8 +4,8 @@
 
 {{ template "header.html" . }}
 
-<div class="wrapper">
-    <section id="login-container" class="container">
+<div class="center-wrapper">
+    <section id="login-container" class="center-container">
     {{ template "title.html" . }}
         <form action="/user/login" method="post">
             <input type="hidden" name="_csrf" value="{{ .csrf }}">

@@ -1,6 +1,6 @@
 {{ define "primary-menu.html" }}
 
-<header class="mdc-top-app-bar">
+<nav class="mdc-top-app-bar" id="primary-menu-bar">
     <div class="mdc-top-app-bar__row">
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
             <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
@@ -11,11 +11,9 @@
                alt="Register">person_add</a>
             <a href="/user/login" class="material-icons mdc-top-app-bar__action-item" aria-label="Login" alt="Login">account_circle</a>
         </section>
-        <section class="mdc-top-app-bar__section mdc-top-app-bar__title" role="toolbar">
-            <p>{{ .title }}</p>
-        </section>
+
     </div>
-</header>
+</nav>
 
 {{ end }}
 
