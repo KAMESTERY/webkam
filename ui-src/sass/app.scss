@@ -98,13 +98,14 @@ footer {
   margin: 20px auto;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 650px) {
   .main-wrapper {
     flex-direction: column;
     top: 50px;
   }
   aside {
     flex: 1;
+    max-height: 175px;
     order: 1;
   }
   .main-container {

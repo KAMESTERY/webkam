@@ -3677,7 +3677,6 @@ var _ripple = __webpack_require__(10);
 var _textfield = __webpack_require__(34);
 
 window.onbeforeunload = function () {
-    alert('function-called');
     window.scrollTo(0, 0);
 };
 

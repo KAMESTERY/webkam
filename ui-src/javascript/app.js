@@ -1,5 +1,4 @@
 window.onbeforeunload = function () {
-    alert('function-called');
     window.scrollTo(0, 0);
 };
 
