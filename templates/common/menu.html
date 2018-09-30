@@ -1,4 +1,18 @@
 
 {{ define "menu.html" }}
+
+<header class="mdc-top-app-bar">
+    <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
+            <span class="mdc-top-app-bar__title">KAMESTERY</span>
+        </section>
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+            <a href="/user/register" class="material-icons mdc-top-app-bar__action-item" aria-label="Register" alt="Register">library_add</a>
+            <a href="/user/login" class="material-icons mdc-top-app-bar__action-item" aria-label="Login" alt="Login">person</a>
+        </section>
+    </div>
+</header>
+
 {{ end }}
 

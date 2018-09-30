@@ -19,5 +19,7 @@ func InitializeRoutes(r *gin.Engine) {
 	{
 		user_routes.GET("/login", login)
 		user_routes.POST("/login", authenticate)
+		user_routes.GET("/register", register)
+		user_routes.POST("/register", authenticate)
 	}
 }

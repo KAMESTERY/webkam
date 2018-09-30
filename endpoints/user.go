@@ -9,8 +9,14 @@ import (
 func login(c *gin.Context) {
 	render(c, gin.H{
 		"csrf": csrf.GetToken(c),
-		"title": "Simple Webpage using basic Material Design components.",
+		"title": "Login",
 	}, "public/login.html")
+}
+func register(c *gin.Context) {
+	render(c, gin.H{
+		"csrf": csrf.GetToken(c),
+		"title": "Register",
+	}, "public/register.html")
 }
 
 func authenticate(c *gin.Context) {
