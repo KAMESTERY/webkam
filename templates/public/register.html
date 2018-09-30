@@ -4,14 +4,19 @@
 
 {{ template "header.html" . }}
 
-<div class="wrapper">
-    <section id="register-container" class="container">
+<div class="center-wrapper">
+    <section id="register-container" class="center-container">
     {{ template "title.html" . }}
         <form action="/user/register" method="post">
             <input type="hidden" name="_csrf" value="{{ .csrf }}">
             <div class="mdc-text-field mdc-text-field--box username">
                 <input type="text" class="mdc-text-field__input" id="username-input" name="username" required>
                 <label class="mdc-floating-label" for="username-input">Username</label>
+                <div class="mdc-line-ripple"></div>
+            </div>
+            <div class="mdc-text-field mdc-text-field--box email">
+                <input type="text" class="mdc-text-field__input" id="email-input" name="email" required>
+                <label class="mdc-floating-label" for="email-input">E-mail</label>
                 <div class="mdc-line-ripple"></div>
             </div>
             <div class="mdc-text-field mdc-text-field--box password">

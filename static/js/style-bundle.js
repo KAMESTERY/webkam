@@ -3676,12 +3676,17 @@ var _ripple = __webpack_require__(10);
 
 var _textfield = __webpack_require__(34);
 
-// Instantiation
-var topAppBarElement = document.querySelector('.mdc-top-app-bar');
-var topAppBar = new _index.MDCTopAppBar(topAppBarElement);
+window.onbeforeunload = function () {
+    alert('function-called');
+    window.scrollTo(0, 0);
+};
 
+// Instantiation
 console.log('Starting import');
 
+
+var topAppBarElement = document.querySelector('.mdc-top-app-bar');
+var topAppBar = new _index.MDCTopAppBar(topAppBarElement);
 
 // home
 // global
@@ -3698,6 +3703,7 @@ new _ripple.MDCRipple(document.querySelector('.login'));
 console.log('login page Styles loaded');
 
 // register
+var email = new _textfield.MDCTextField(document.querySelector('.email'));
 new _ripple.MDCRipple(document.querySelector('.register'));
 console.log('register page Styles loaded');
 

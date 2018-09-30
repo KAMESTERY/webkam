@@ -3,20 +3,65 @@
 @import "@material/card/mdc-card";
 @import "@material/button/mdc-button";
 
+//global
+html {
+  height: 100%;
+  box-sizing: border-box; /* https://css-tricks.com/box-sizing/ */
+}
+
 body {
   font-family: 'Roboto';
   margin: 0;
+  display: flow-root;
 }
 
-//global
-.wrapper {
+.content-wrapper {
+  padding: 20px 0 20px 0;
+  color: white;
+  //todo remove temporary for illustration
+  text-align: center;
+}
+
+.content-section {
+  flex: 3;
+  background: mediumpurple;
+}
+
+// center-layout
+.center-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.container {
+.center-container {
   margin-top: 75px;
+}
+
+// main-layout
+.main-wrapper {
+  position: relative;
+  min-height: -webkit-fill-available;
+  top: 50px;
+  display: flex; /* body is the outer flex container */
+  flex-flow: row wrap;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 250px);
+  order: 1;
+}
+
+aside {
+  flex: 1 250px;
+  background: purple;
+}
+
+footer {
+  background: rebeccapurple;
+  position: relative;
 }
 
 .form-button-container {
@@ -31,8 +76,20 @@ body {
 }
 
 // home styles
+.kamestery-logo-drawer {
+  width: 48px;
+  padding: 40px 0 0;
+  margin: 0 auto;
+  fill: currentColor;
+}
+
+.kamestery-title {
+  align-self: center;
+  margin: 5px auto;
+}
 
 // login & register styles
+.email,
 .confirm-password,
 .username,
 .password {
@@ -41,6 +98,17 @@ body {
   margin: 20px auto;
 }
 
-
-
-
+@media screen and (max-width: 500px) {
+  .main-wrapper {
+    flex-direction: column;
+    top: 50px;
+  }
+  aside {
+    flex: 1;
+    order: 1;
+  }
+  .main-container {
+    width: 100%;
+    flex: 1;
+  }
+}
