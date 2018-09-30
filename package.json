@@ -17,11 +17,11 @@
     "css-loader": "^1.0.0",
     "extract-loader": "^3.0.0",
     "file-loader": "^2.0.0",
+    "@fortawesome/fontawesome-free": "^5.3.1",
     "node-sass": "^4.9.3",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
     "webpack": "^3.12.0",
     "webpack-dev-server": "^2.11.3"
-  },
-  "dependencies": {}
+  }
 }
