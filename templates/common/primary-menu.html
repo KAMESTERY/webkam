@@ -1,19 +1,23 @@
 {{ define "primary-menu.html" }}
 
-<nav class="mdc-top-app-bar" id="primary-menu-bar">
-    <div class="mdc-top-app-bar__row">
-        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-            <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
-            <span class="mdc-top-app-bar__title"> <h3 class="title"><i class="fas fa-atom"></i> KAMESTERY</h3></span>
-        </section>
-        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-            <a href="/user/register" class="material-icons mdc-top-app-bar__action-item" aria-label="Register"
-               alt="Register">person_add</a>
-            <a href="/user/login" class="material-icons mdc-top-app-bar__action-item" aria-label="Login" alt="Login">account_circle</a>
-        </section>
-
+<aside class="mdc-drawer mdc-drawer--dismissible">
+    <div class="mdc-drawer__content">
+        <div class="mdc-list">
+            <a class="mdc-list-item mdc-list-item--activated" href="/" aria-selected="true">
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>
+                <span class="mdc-list-item__text">Home</span>
+            </a>
+            <a class="mdc-list-item" href="/user/register">
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">person_add</i>
+                <span class="mdc-list-item__text">Register</span>
+            </a>
+            <a class="mdc-list-item" href="/user/login">
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">person</i>
+                <span class="mdc-list-item__text">Login</span>
+            </a>
+        </div>
     </div>
-</nav>
+</aside>
 
 {{ end }}
 

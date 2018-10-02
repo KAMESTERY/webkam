@@ -6,9 +6,9 @@
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.3.1",
     "@material/button": "^0.35.0",
-    "@material/card": "^0.39.3",
-    "@material/drawer": "^0.35.0",
-    "@material/list": "^0.35.0",
+    "@material/drawer": "^0.40.0",
+    "@material/list": "^0.40.0",
+    "@material/card": "^0.40.0",
     "@material/menu": "^0.39.3",
     "@material/ripple": "^0.39.3",
     "@material/textfield": "^0.35.2",
