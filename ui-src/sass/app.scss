@@ -9,15 +9,21 @@
 
 body {
   font-family: 'Roboto';
-  height: 100vh;
+  margin: 0;
   display: flex;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
 }
 
 // center-layout
 .center-wrapper {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .center-container {
@@ -36,12 +42,6 @@ body {
 }
 
 .app-bar {
-  position: absolute;
-}
-
-
-footer {
-  background: rebeccapurple;
 }
 
 .form-button-container {
@@ -56,6 +56,13 @@ footer {
 }
 
 // home styles
+.my-card{
+  margin: 20px;
+}
+.my-card__media {
+  background-image: url("https://via.placeholder.com/350x250");
+}
+
 
 // login & register styles
 .email,
