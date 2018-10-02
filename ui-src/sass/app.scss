@@ -2,29 +2,15 @@
 @import "@material/top-app-bar/mdc-top-app-bar";
 @import "@material/card/mdc-card";
 @import "@material/button/mdc-button";
+@import "@material/drawer/mdc-drawer";
+@import "@material/list/mdc-list";
 
 //global
-html {
-  height: 100%;
-  box-sizing: border-box; /* https://css-tricks.com/box-sizing/ */
-}
 
 body {
   font-family: 'Roboto';
-  margin: 0;
-  display: flow-root;
-}
-
-.content-wrapper {
-  padding: 20px 0 20px 0;
-  color: white;
-  //todo remove temporary for illustration
-  text-align: center;
-}
-
-.content-section {
-  flex: 3;
-  background: mediumpurple;
+  height: 100vh;
+  display: flex;
 }
 
 // center-layout
@@ -39,29 +25,23 @@ body {
 }
 
 // main-layout
-.main-wrapper {
-  position: relative;
-  min-height: -webkit-fill-available;
-  top: 50px;
-  display: flex; /* body is the outer flex container */
-  flex-flow: row wrap;
+.mdc-drawer-app-content {
+  flex: auto;
+  overflow: auto;
 }
 
-.main-container {
-  display: flex;
-  flex-direction: column;
-  width: calc(100% - 250px);
-  order: 1;
+.main-content {
+  overflow: auto;
+  height: 100%;
 }
 
-aside {
-  flex: 1 250px;
-  background: purple;
+.app-bar {
+  position: absolute;
 }
+
 
 footer {
   background: rebeccapurple;
-  position: relative;
 }
 
 .form-button-container {
@@ -76,17 +56,6 @@ footer {
 }
 
 // home styles
-.kamestery-logo-drawer {
-  width: 48px;
-  padding: 40px 0 0;
-  margin: 0 auto;
-  fill: currentColor;
-}
-
-.kamestery-title {
-  align-self: center;
-  margin: 5px auto;
-}
 
 // login & register styles
 .email,
@@ -96,20 +65,4 @@ footer {
   display: block;
   width: 300px;
   margin: 20px auto;
-}
-
-@media screen and (max-width: 650px) {
-  .main-wrapper {
-    flex-direction: column;
-    top: 50px;
-  }
-  aside {
-    flex: 1;
-    max-height: 175px;
-    order: 1;
-  }
-  .main-container {
-    width: 100%;
-    flex: 1;
-  }
 }

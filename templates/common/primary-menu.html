@@ -1,19 +1,23 @@
 {{ define "primary-menu.html" }}
 
-<nav class="mdc-top-app-bar" id="primary-menu-bar">
-    <div class="mdc-top-app-bar__row">
-        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-            <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
-            <span class="mdc-top-app-bar__title"> <h3 class="title"><i class="fas fa-atom"></i> KAMESTERY</h3></span>
-        </section>
-        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-            <a href="/user/register" class="material-icons mdc-top-app-bar__action-item" aria-label="Register"
-               alt="Register">person_add</a>
-            <a href="/user/login" class="material-icons mdc-top-app-bar__action-item" aria-label="Login" alt="Login">account_circle</a>
-        </section>
-
+<aside class="mdc-drawer mdc-drawer--dismissible">
+    <div class="mdc-drawer__content">
+        <div class="mdc-list">
+            <a class="mdc-list-item mdc-list-item--activated" href="#" aria-selected="true">
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">inbox</i>
+                <span class="mdc-list-item__text">Inbox</span>
+            </a>
+            <a class="mdc-list-item" href="#">
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">send</i>
+                <span class="mdc-list-item__text">Outgoing</span>
+            </a>
+            <a class="mdc-list-item" href="#">
+                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">drafts</i>
+                <span class="mdc-list-item__text">Drafts</span>
+            </a>
+        </div>
     </div>
-</nav>
+</aside>
 
 {{ end }}
 

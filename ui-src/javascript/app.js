@@ -4,18 +4,23 @@ window.onbeforeunload = function () {
 
 // Instantiation
 console.log('Starting import');
-import {MDCTopAppBar} from '@material/top-app-bar/index';
 import {MDCRipple} from '@material/ripple';
 import {MDCTextField} from '@material/textfield';
+import {MDCTopAppBar} from "@material/top-app-bar";
+import {MDCDrawer} from "@material/drawer";
 
-const topAppBarElement = document.querySelector('.mdc-top-app-bar');
-const topAppBar = new MDCTopAppBar(topAppBarElement);
+// global
+let topBarEl = document.getElementById('app-bar');
+const drawer = MDCDrawer.attachTo(document.querySelector('.mdc-drawer'));
+const topAppBar = new MDCTopAppBar(topBarEl);
 
+topAppBar.setScrollTarget(document.getElementById('main-content'));
+topAppBar.listen('MDCTopAppBar:nav', () => {
+    drawer.open = !drawer.open;
+});
 
 // home
-// global
 console.log('Starting load');
-
 new MDCRipple(document.querySelector('.cancel'));
 const username = new MDCTextField(document.querySelector('.username'));
 const password = new MDCTextField(document.querySelector('.password'));
