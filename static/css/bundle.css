@@ -2608,38 +2608,47 @@ body {
   margin: 0;
   display: flex; }
 
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly; }
+.center-container {
+  margin-top: 75px; }
 
 .center-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-evenly; }
 
-.center-container {
-  margin-top: 75px; }
-
 .mdc-drawer-app-content {
   flex: auto;
   overflow: auto; }
 
+.main-container {
+  display: flex; }
+
+.content-container {
+  flex: 70%; }
+
+.menu-container {
+  flex: 30%; }
+
+.side-menu {
+  padding: 40px 0 0;
+  margin: 0 auto;
+  fill: currentColor; }
+
+.menu-title {
+  align-self: center;
+  margin: 5px auto; }
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap; }
+
+.my-card {
+  min-width: 250px;
+  margin: 10px; }
+
 .main-content {
   overflow: auto;
   height: 100%; }
-
-.form-button-container {
-  display: flex;
-  justify-content: flex-end;
-  width: 300px;
-  margin: auto; }
-
-.form-button-container button {
-  margin: 3px; }
-
-.my-card {
-  margin: 20px; }
 
 .my-card__media {
   background-image: url("https://via.placeholder.com/350x250"); }
@@ -2651,3 +2660,20 @@ body {
   display: block;
   width: 300px;
   margin: 20px auto; }
+
+.form-button-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 300px;
+  margin: auto; }
+
+.form-button-container button {
+  margin: 3px; }
+
+/* Responsive layout - when the screen is less than 700px wide, make the
+two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .main-container {
+    flex-direction: column; }
+  .card-container {
+    justify-content: center; } }

@@ -6,42 +6,81 @@
 @import "@material/list/mdc-list";
 
 //global
-
 body {
   font-family: 'Roboto';
   margin: 0;
   display: flex;
 }
 
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+// common
+.mdc-drawer-app-content {
+  flex: auto;
+  overflow: auto;
 }
 
-// center-layout
+// home
+.main-content {
+  overflow: auto;
+  height: 100%;
+}
+
+.main-container {
+  display: flex;
+}
+
+.content-container {
+  flex: 70%;
+}
+
+// side-menu
+.menu-container {
+  flex: 30%;
+}
+
+.side-menu {
+  padding: 40px 0 0;
+  margin: 0 auto;
+  fill: currentColor;
+}
+
+.menu-title {
+    align-self: center;
+    margin: 5px auto;
+}
+
+//card layout
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.my-card {
+  min-width: 250px;
+  margin: 10px;
+}
+
+.my-card__media {
+  background-image: url("https://via.placeholder.com/350x250");
+}
+
+// login & register
+.center-container {
+  margin-top: 75px;
+}
+
 .center-wrapper {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
 }
 
-.center-container {
-  margin-top: 75px;
-}
-
-// main-layout
-.mdc-drawer-app-content {
-  flex: auto;
-  overflow: auto;
-}
-
-.main-content {
-  overflow: auto;
-  height: 100%;
-}
-
-.app-bar {
+.email,
+.confirm-password,
+.username,
+.password {
+  display: block;
+  width: 300px;
+  margin: 20px auto;
 }
 
 .form-button-container {
@@ -55,21 +94,14 @@ body {
   margin: 3px;
 }
 
-// home styles
-.my-card{
-  margin: 20px;
-}
-.my-card__media {
-  background-image: url("https://via.placeholder.com/350x250");
-}
+/* Responsive layout - when the screen is less than 700px wide, make the
+two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 700px) {
+  .main-container {
+    flex-direction: column;
+  }
 
-
-// login & register styles
-.email,
-.confirm-password,
-.username,
-.password {
-  display: block;
-  width: 300px;
-  margin: 20px auto;
+  .card-container {
+    justify-content: center;
+  }
 }

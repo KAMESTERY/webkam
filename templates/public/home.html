@@ -5,38 +5,68 @@
 <!-- Embed Header -->
 {{ template "header.html" . }}
 
-<div class="mdc-drawer-app-content">
-    <header class="mdc-top-app-bar app-bar" id="app-bar">
-        <div class="mdc-top-app-bar__row">
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-                <a href="#" class="demo-menu material-icons mdc-top-app-bar__navigation-icon">menu</a>
-                <span class="mdc-top-app-bar__title"><h3 class="title"><i class="fas fa-atom"></i> KAMESTERY</h3></span>
-            </section>
-            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-                <a href="/user/register" class="material-icons mdc-top-app-bar__action-item" aria-label="Register"
-                   alt="Register">person_add</a>
-                <a href="/user/login" class="material-icons mdc-top-app-bar__action-item" aria-label="Login"
-                   alt="Login">account_circle</a>
-            </section>
-        </div>
-    </header>
+<div class="mdc-drawer-app-content"> <!-- Needed for top app bar functionality-->
+
+{{ template "app-bar.html" . }}
 
     <main class="main-content" id="main-content">
-        <div class="mdc-top-app-bar--fixed-adjust">
+        <div class="mdc-top-app-bar--fixed-adjust"> <!-- Needed for top app bar functionality -->
 
-            <div class="flex-container">
-                {{template "card.html"}}
-                {{template "card.html"}}
-                {{template "card.html"}}
-                {{template "card.html"}}
-                {{template "card.html"}}
-                {{template "card.html"}}
-                {{template "card.html"}}
-                {{template "card.html"}}
-                {{template "card.html"}}
-                {{template "card.html"}}
-                {{template "card.html"}}
-                {{template "card.html"}}
+            <div class="main-container"> <!-- flex container -->
+
+                <div class="menu-container"> <!-- flex el -->
+
+                    <nav class="side-menu mdc-drawer mdc-drawer--permanent">
+                        <h1 class="menu-title">HOME</h1>
+                        <div class="mdc-drawer__content">
+                            <nav class="mdc-list">
+                                <a class="mdc-list-item" href="#">
+                                    Section One
+                                </a>
+                                <a class="mdc-list-item" href="#">
+                                    Section Two
+                                </a>
+                                <a class="mdc-list-item" href="#">
+                                    Section Three
+                                </a>
+                            </nav>
+                        </div>
+                    </nav>
+
+                </div>
+
+                <div class="content-container"> <!-- flex el -->
+                    <section>
+                        <h1>Section One</h1>
+                        <div class="card-container"> <!-- flex container -->
+                        {{template "card.html"}}
+                        {{template "card.html"}}
+                        {{template "card.html"}}
+                        {{template "card.html"}}
+                        </div>
+                    </section>
+
+                    <section>
+                        <h1>Section Two</h1>
+                        <div class="card-container"> <!-- flex container -->
+                        {{template "card.html"}}
+                        {{template "card.html"}}
+                        {{template "card.html"}}
+                        {{template "card.html"}}
+                        </div>
+                    </section>
+
+                    <section>
+                        <h1>Section Three</h1>
+                        <div class="card-container"> <!-- flex container -->
+                        {{template "card.html"}}
+                        {{template "card.html"}}
+                        {{template "card.html"}}
+                        {{template "card.html"}}
+                        </div>
+                    </section>
+                </div>
+
             </div>
         </div>
     </main>

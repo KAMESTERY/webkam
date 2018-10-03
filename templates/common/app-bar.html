@@ -1,0 +1,19 @@
+{{ define "app-bar.html" }}
+
+<header class="mdc-top-app-bar app-bar" id="app-bar">
+    <div class="mdc-top-app-bar__row">
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <a href="#" class="demo-menu material-icons mdc-top-app-bar__navigation-icon">menu</a>
+            <span class="mdc-top-app-bar__title"><h3 class="title"><i class="fas fa-atom"></i> KAMESTERY</h3></span>
+        </section>
+        <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+            <a href="/user/register" class="material-icons mdc-top-app-bar__action-item" aria-label="Register"
+               alt="Register">person_add</a>
+            <a href="/user/login" class="material-icons mdc-top-app-bar__action-item" aria-label="Login"
+               alt="Login">account_circle</a>
+        </section>
+    </div>
+</header>
+
+{{ end }}
+
