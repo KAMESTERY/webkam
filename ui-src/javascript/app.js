@@ -18,20 +18,16 @@ topAppBar.setScrollTarget(document.getElementById('main-content'));
 topAppBar.listen('MDCTopAppBar:nav', () => {
     drawer.open = !drawer.open;
 });
-
-// home
-console.log('Starting load');
-new MDCRipple(document.querySelector('.cancel'));
-const username = new MDCTextField(document.querySelector('.username'));
-const password = new MDCTextField(document.querySelector('.password'));
-const confirmPassword = new MDCTextField(document.querySelector('.confirm-password'));
 console.log('Global Styles loaded');
 
-// login
-new MDCRipple(document.querySelector('.login'));
-console.log('login page Styles loaded');
+// home
+new MDCRipple(document.querySelector('.cancel'));
+console.log('Starting load');
 
-// register
+// login/register
+new MDCRipple(document.querySelector('.login'));
 const email = new MDCTextField(document.querySelector('.email'));
+const password = new MDCTextField(document.querySelector('.password'));
 new MDCRipple(document.querySelector('.register'));
-console.log('register page Styles loaded');
+const confirmPassword = new MDCTextField(document.querySelector('.confirm-password'));
+console.log('login/register page Styles loaded');

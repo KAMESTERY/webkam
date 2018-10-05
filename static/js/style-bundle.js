@@ -5011,23 +5011,19 @@ topAppBar.setScrollTarget(document.getElementById('main-content'));
 topAppBar.listen('MDCTopAppBar:nav', function () {
     drawer.open = !drawer.open;
 });
-
-// home
-console.log('Starting load');
-new _ripple.MDCRipple(document.querySelector('.cancel'));
-var username = new _textfield.MDCTextField(document.querySelector('.username'));
-var password = new _textfield.MDCTextField(document.querySelector('.password'));
-var confirmPassword = new _textfield.MDCTextField(document.querySelector('.confirm-password'));
 console.log('Global Styles loaded');
 
-// login
-new _ripple.MDCRipple(document.querySelector('.login'));
-console.log('login page Styles loaded');
+// home
+new _ripple.MDCRipple(document.querySelector('.cancel'));
+console.log('Starting load');
 
-// register
+// login/register
+new _ripple.MDCRipple(document.querySelector('.login'));
 var email = new _textfield.MDCTextField(document.querySelector('.email'));
+var password = new _textfield.MDCTextField(document.querySelector('.password'));
 new _ripple.MDCRipple(document.querySelector('.register'));
-console.log('register page Styles loaded');
+var confirmPassword = new _textfield.MDCTextField(document.querySelector('.confirm-password'));
+console.log('login/register page Styles loaded');
 
 /***/ }),
 /* 35 */
