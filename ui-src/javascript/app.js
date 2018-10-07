@@ -25,9 +25,11 @@ new MDCRipple(document.querySelector('.cancel'));
 console.log('Starting load');
 
 // login/register
-new MDCRipple(document.querySelector('.login'));
 const email = new MDCTextField(document.querySelector('.email'));
 const password = new MDCTextField(document.querySelector('.password'));
-new MDCRipple(document.querySelector('.register'));
 const confirmPassword = new MDCTextField(document.querySelector('.confirm-password'));
+
+new MDCRipple(document.querySelector('.register'));
+new MDCRipple(document.querySelector('.login'));
+
 console.log('login/register page Styles loaded');

@@ -5018,11 +5018,13 @@ new _ripple.MDCRipple(document.querySelector('.cancel'));
 console.log('Starting load');
 
 // login/register
-new _ripple.MDCRipple(document.querySelector('.login'));
 var email = new _textfield.MDCTextField(document.querySelector('.email'));
 var password = new _textfield.MDCTextField(document.querySelector('.password'));
-new _ripple.MDCRipple(document.querySelector('.register'));
 var confirmPassword = new _textfield.MDCTextField(document.querySelector('.confirm-password'));
+
+new _ripple.MDCRipple(document.querySelector('.register'));
+new _ripple.MDCRipple(document.querySelector('.login'));
+
 console.log('login/register page Styles loaded');
 
 /***/ }),
