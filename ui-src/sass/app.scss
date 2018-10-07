@@ -12,6 +12,10 @@ body {
   display: flex;
 }
 
+#main-menu {
+  position: fixed;
+}
+
 // common
 .mdc-drawer-app-content {
   flex: auto;
@@ -30,6 +34,11 @@ body {
 
 .content-container {
   flex: 70%;
+  padding: 0 0 0 50px;
+}
+
+.content-container section {
+  padding-top: 50px;
 }
 
 // side-menu
@@ -38,14 +47,14 @@ body {
 }
 
 .side-menu {
-  padding: 40px 0 0;
+  padding: 20px;
   margin: 0 auto;
-  fill: currentColor;
+  position: fixed;
 }
 
 .menu-title {
-    align-self: center;
-    margin: 5px auto;
+  align-self: center;
+  margin: 5px auto;
 }
 
 //card layout
@@ -96,12 +105,28 @@ body {
 
 /* Responsive layout - when the screen is less than 700px wide, make the
 two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 850px) {
   .main-container {
     flex-direction: column;
   }
 
+  .menu-container {
+    display: none;
+  }
+
+  .content-container {
+    padding: 0;
+  }
+
   .card-container {
     justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .section-title {
+    text-align: center;
   }
 }
