@@ -7,6 +7,10 @@ Kamestery Web Application
 
 # Install Go and Clojure and Node
 brew install go clojure node
+# Ensure proper compilation toolchain
+xcode-select --install # optional
+# Install Delve
+go get -u github.com/derekparker/delve/cmd/dlv
 
 ```
 
