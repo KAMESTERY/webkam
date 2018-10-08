@@ -2611,6 +2611,10 @@ body {
 #main-menu {
   position: fixed; }
 
+#logo-text {
+  color: ghostwhite;
+  text-decoration: none; }
+
 .mdc-drawer-app-content {
   flex: auto;
   overflow: auto; }
