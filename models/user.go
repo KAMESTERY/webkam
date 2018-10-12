@@ -28,8 +28,8 @@ type queryData struct {
 }
 
 type User struct {
-	Email    string `validate:"required,min=50"`
-	Password string `validate:"required,min=10"`
+	Email    string `form:"email" binding:"required" validate:"required,min=50"`
+	Password string `form:"password" binding:"required" validate:"required,min=10"`
 }
 
 type TokenData struct {

@@ -25,16 +25,14 @@ func register(c *gin.Context) {
 
 func authenticate(c *gin.Context) {
 
-	email := c.PostForm("email")
-	password := c.PostForm("password")
-
-	user := models.User{
-		Email: email,
-		Password: password,
+	var user models.User
+	if err := c.ShouldBind(&user); err != nil {
+		login(c) //TODO: Works but do it better
+		return
 	}
 
-	if validationErrors, err := utils.ValidateStruct(user); validationErrors != nil || err != nil {
-		login(c)
+	if validationErrors, err := utils.ValidateStruct(&user); validationErrors != nil || err != nil {
+		login(c) //TODO: Works but do it better
 		return
 	}
 
