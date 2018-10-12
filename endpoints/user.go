@@ -24,9 +24,28 @@ func register(c *gin.Context) {
 }
 
 func authenticate(c *gin.Context) {
+
 	email := c.PostForm("email")
 	password := c.PostForm("password")
-	token := models.Login(email, email, password)
-	user_logger.Debugf("AUTH_TOKEN:::: %s", token)
+
+	user := models.User{
+		Email: email,
+		Password: password,
+	}
+
+	if validationErrors, err := utils.ValidateStruct(user); validationErrors != nil || err != nil {
+		login(c)
+		return
+	}
+
+	//TODO: Not Ready for Prime Time Yet
+	//token := models.Login(email, email, password)
+	//
+	//if token == "" {
+	//	c.Redirect(http.StatusUnprocessableEntity, "/user/login")
+	//	return
+	//}
+	//user_logger.Debugf("AUTH_TOKEN:::: %s", token)
+
 	c.Redirect(http.StatusFound, "/")
 }

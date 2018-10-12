@@ -12,10 +12,10 @@ import (
 const (
 	loginQuery = `
 query LoginUser{
-  Token: login(
-    userId: %s,
-    email: %s,
-    password: %s
+  login(
+    userId: "%s",
+    email: "%s",
+    password: "%s"
   )
 }
 `
@@ -28,7 +28,8 @@ type queryData struct {
 }
 
 type User struct {
-
+	Email    string `validate:"required,min=50"`
+	Password string `validate:"required,min=10"`
 }
 
 type TokenData struct {
