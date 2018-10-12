@@ -39,7 +39,7 @@ func authenticate(c *gin.Context) {
 	}
 
 	//TODO: Not Ready for Prime Time Yet
-	//token := models.Login(email, email, password)
+	//token := models.Login(user)
 	//
 	//if token == "" {
 	//	c.Redirect(http.StatusUnprocessableEntity, "/user/login")

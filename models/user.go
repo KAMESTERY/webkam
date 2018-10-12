@@ -38,11 +38,17 @@ type TokenData struct {
 	}
 }
 
-func Login(user_id, email, password string) (token string) {
+func Login(user User) (token string) {
 	c := &http.Client{
 		Timeout: 15 * time.Second,
 	}
-	resp, err := c.Post(utils.BackendGQL, "application/json", newQuery(fmt.Sprintf(loginQuery, user_id, email, password)))
+	queryData := fmt.Sprintf(
+		loginQuery,
+		user.Email,
+		user.Email,
+		user.Password,
+		)
+	resp, err := c.Post(utils.BackendGQL, "application/json", newQuery(queryData))
 	if err == nil {
 		token_data := &TokenData{}
 		utils.DecodeJson(resp.Body, token_data)
