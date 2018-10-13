@@ -5018,6 +5018,7 @@ new _ripple.MDCRipple(document.querySelector('.cancel'));
 console.log('Starting load');
 
 // login/register
+var username = new _textfield.MDCTextField(document.querySelector('.username'));
 var email = new _textfield.MDCTextField(document.querySelector('.email'));
 var password = new _textfield.MDCTextField(document.querySelector('.password'));
 var confirmPassword = new _textfield.MDCTextField(document.querySelector('.confirm-password'));

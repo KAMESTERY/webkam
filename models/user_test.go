@@ -30,5 +30,5 @@ func (uts *UserTestSuite) TestLogin() {
 
 	assert := assert.New(t)
 
-	assert.True(len(Login("hhhh@hhhh.hhh", "hhhh@hhhh.hhh", "hhhhhhhh")) > 0)
+	assert.True(len(Authenticate("hhhh@hhhh.hhh", "hhhh@hhhh.hhh", "hhhhhhhh")) > 0)
 }

@@ -27,9 +27,18 @@ type queryData struct {
 	Query string `json:"query"`
 }
 
-type User struct {
+// TODO: Revisit Validations
+type Credentials struct {
 	Email    string `form:"email" binding:"required" validate:"required,min=50"`
 	Password string `form:"password" binding:"required" validate:"required,min=10"`
+}
+
+// TODO: Revisit Validations
+type User struct {
+	Username        string `form:"username" binding:"required" validate:"required,min=50"`
+	Email           string `form:"email" binding:"required" validate:"required,min=50"`
+	Password        string `form:"password" binding:"required" validate:"required,min=10"`
+	ConfirmPassword string `form:"password" binding:"required" validate:"required,min=10"`
 }
 
 type TokenData struct {
@@ -38,16 +47,16 @@ type TokenData struct {
 	}
 }
 
-func Login(user User) (token string) {
+func Authenticate(creds Credentials) (token string) {
 	c := &http.Client{
 		Timeout: 15 * time.Second,
 	}
 	queryData := fmt.Sprintf(
 		loginQuery,
-		user.Email,
-		user.Email,
-		user.Password,
-		)
+		creds.Email,
+		creds.Email,
+		creds.Password,
+	)
 	resp, err := c.Post(utils.BackendGQL, "application/json", newQuery(queryData))
 	if err == nil {
 		token_data := &TokenData{}
@@ -57,9 +66,14 @@ func Login(user User) (token string) {
 	return
 }
 
+func Enroll(_user User) (status string) {
+	status = "SUCCESS"
+	return
+}
+
 func newQuery(queryString string) *strings.Reader {
 	buffer := new(bytes.Buffer)
-	query := queryData {
+	query := queryData{
 		Query: queryString,
 	}
 	utils.EncodeJson(buffer, query)

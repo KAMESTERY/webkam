@@ -25,6 +25,7 @@ new MDCRipple(document.querySelector('.cancel'));
 console.log('Starting load');
 
 // login/register
+const username = new MDCTextField(document.querySelector('.username'));
 const email = new MDCTextField(document.querySelector('.email'));
 const password = new MDCTextField(document.querySelector('.password'));
 const confirmPassword = new MDCTextField(document.querySelector('.confirm-password'));
