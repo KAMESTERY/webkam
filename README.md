@@ -1,6 +1,34 @@
 # webkam
 Kamestery Web Application
 
+## Git Setup
+
+```{bash}
+# Clone the main repository
+git clone https://github.com/KAMESTERY/webkam.git my_webkam
+
+# Now navigate to https://github.com/KAMESTERY/webkam and fork the remository
+# Then add you fork as a remote
+cd my_webkam
+git remote add my_machinekam https://github.com/yourusername/webkam
+
+# List your remotes
+git remote
+#-output-> my_webkam
+#-output-> origin
+
+# Make changes and push them to your fork
+git push -u my_webkam master
+
+# And navigate to https://github.com/yourusername/webkam and create a pull request
+
+# Finally pull new changes from origin
+git pull origin master
+
+# That completes your git workflow for contributing to this project. Thank you!
+
+```
+
 ## Setup
 
 ```{bash}
