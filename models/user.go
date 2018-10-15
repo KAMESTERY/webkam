@@ -40,14 +40,14 @@ type Credentials struct {
 // TODO: Revisit Validations, Leave json tags as is for now
 type User struct {
 	Userid          string `json:"UserID"`
-	Email           string `form:"email" binding:"required" validate:"required,min=10,max=120"`
-	Username        string `json:"Username" form:"username" binding:"required" validate:"required,min=50"`
+	Email           string `json:"Email" form:"email" binding:"required" validate:"required,min=10,max=120"`
+	Username        string `json:"Username" form:"username" binding:"required" validate:"required,min=4,max=40"`
 	Role            int    `json:"Role"`
 	Confirmed       int    `json:"Confirmed"`
-	Passwordhash    string `json:"PasswordHash"`
+	//Passwordhash    string `json:"PasswordHash"`
 	Lastseen        string `json:"LastSeen"`
 	Password        string `form:"password" binding:"required" validate:"required,min=8,max=120"`
-	ConfirmPassword string `form:"password" binding:"required" validate:"required,min=10"`
+	ConfirmPassword string `form:"password" binding:"required" validate:"required,min=8,max=120"`
 }
 
 func Authenticate(creds Credentials) (token string) {

@@ -84,6 +84,8 @@ func register_error(c *gin.Context, flashes []interface{}) {
 
 func enroll(c *gin.Context) {
 
+	user_logger.Debugf("ENROLLING using BACKEND URL: %+v", utils.BackendGQL)
+
 	session := sessions.Default(c)
 
 	var user models.User
@@ -107,7 +109,7 @@ func enroll(c *gin.Context) {
 		register_error(c, session.Flashes())
 		return
 	}
-	user_logger.Debugf("ENROLLMENT_STATUS:::: %s", ok)
+	user_logger.Debugf("ENROLLMENT_STATUS:::: %+v", ok)
 
 	c.Redirect(http.StatusFound, "/")
 }
