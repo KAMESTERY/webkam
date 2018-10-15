@@ -30,5 +30,30 @@ func (uts *UserTestSuite) TestLogin() {
 
 	assert := assert.New(t)
 
-	assert.True(len(Authenticate("hhhh@hhhh.hhh", "hhhh@hhhh.hhh", "hhhhhhhh")) > 0)
+	creds := Credentials{
+		Email:    "hhhh@hhhh.hhh",
+		Password: "hhhhhhhh",
+	}
+
+	token := Authenticate(creds)
+
+	assert.True(len(token) > 0)
+}
+
+func (uts *UserTestSuite) TestEnroll() {
+
+	t := uts.T()
+
+	assert := assert.New(t)
+
+	user := User{
+		Userid:    "tttt@tttt.ttt",
+		Email:    "tttt@tttt.ttt",
+		Username:    "tttt",
+		Password: "tttttttt",
+	}
+
+	ok := Enroll(user)
+
+	assert.True(!ok)
 }

@@ -30,6 +30,8 @@ func login_error(c *gin.Context, flashes []interface{}) {
 
 func authenticate(c *gin.Context) {
 
+	user_logger.Debugf("LOGGING IN using BACKEND URL: %+v", utils.BackendGQL)
+
 	session := sessions.Default(c)
 
 	var user models.Credentials
@@ -54,6 +56,11 @@ func authenticate(c *gin.Context) {
 		return
 	}
 	user_logger.Debugf("AUTH_TOKEN:::: %s", token)
+
+	session.Set(TOKEN_KAM, token)
+	session.Save()
+
+	session.AddFlash("You are now Logged in!")
 
 	c.Redirect(http.StatusFound, "/")
 }
@@ -93,14 +100,14 @@ func enroll(c *gin.Context) {
 	}
 
 	//TODO: Not Ready for Prime Time Yet
-	status := models.Enroll(user)
+	ok := models.Enroll(user)
 
-	if status == "" {
+	if !ok {
 		session.AddFlash("Could not Enroll You!") //TODO: Revisit this!
 		register_error(c, session.Flashes())
 		return
 	}
-	user_logger.Debugf("ENROLLMENT_STATUS:::: %s", status)
+	user_logger.Debugf("ENROLLMENT_STATUS:::: %s", ok)
 
 	c.Redirect(http.StatusFound, "/")
 }

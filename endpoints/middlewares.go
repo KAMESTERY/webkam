@@ -14,7 +14,7 @@ func IncludeCommonMiddlewares(r *gin.Engine) {
 	middlewares_logger.Debug("Including Middlewares...")
 
 	store := cookie.NewStore([]byte("secret"))
-	r.Use(sessions.Sessions("sessionkam", store))
+	r.Use(sessions.Sessions(SESSION_KAM, store))
 	r.Use(csrf.Middleware(csrf.Options{
 		Secret: "secret123",
 		ErrorFunc: func(c *gin.Context) {
