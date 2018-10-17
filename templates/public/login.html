@@ -2,14 +2,15 @@
 
 {{ define "public/login.html" }}
 
+<!-- BEGIN COMMON TEMPLATE CODE -->
 {{ template "header.html" . }}
-
-<div class="mdc-drawer-app-content">
-
+<div class="mdc-drawer-app-content"> <!-- Needed for top app bar functionality -->
     {{ template "app-bar.html" .}}
-
     <main class="main-content" id="main-content">
-        <div class="mdc-top-app-bar--fixed-adjust">
+        <div class="mdc-top-app-bar--fixed-adjust"> <!-- Needed for top app bar functionality -->
+        {{ template "user-messages.html" . }}
+<!-- END COMMON TEMPLATE CODE -->
+
             <form action="/user/login" method="post">
                 <input type="hidden" name="_csrf" value="{{ .csrf }}">
                 <div class="mdc-text-field mdc-text-field--box email">

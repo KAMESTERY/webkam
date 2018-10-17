@@ -42,7 +42,7 @@ func authenticate(c *gin.Context) {
 	}
 
 	if validationErrors, err := utils.ValidateStruct(&user); validationErrors != nil || err != nil {
-		session.AddFlash("Figure out which Error you Made!") //TODO: Revisit this!
+		utils.BindMessages(err, session)
 		login_error(c, session.Flashes())
 		return
 	}
@@ -96,7 +96,7 @@ func enroll(c *gin.Context) {
 	}
 
 	if validationErrors, err := utils.ValidateStruct(&user); validationErrors != nil || err != nil {
-		session.AddFlash("Figure out which Error you Made!") //TODO: Revisit this!
+		utils.BindMessages(err, session)
 		register_error(c, session.Flashes())
 		return
 	}

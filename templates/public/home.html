@@ -2,18 +2,16 @@
 
 {{ define "public/home.html" }}
 
-<!-- Embed Header -->
+<!-- BEGIN COMMON TEMPLATE CODE -->
 {{ template "header.html" . }}
-
 <div class="mdc-drawer-app-content"> <!-- Needed for top app bar functionality-->
-
 {{ template "app-bar.html" . }}
-
     <main class="main-content" id="main-content">
         <div class="mdc-top-app-bar--fixed-adjust"> <!-- Needed for top app bar functionality -->
+        {{ template "user-messages.html" . }}
+<!-- END COMMON TEMPLATE CODE -->
 
             <div class="main-container"> <!-- flex container -->
-
                 <div class="menu-container"> <!-- flex el -->
 
                     <nav class="side-menu mdc-drawer mdc-drawer--permanent">
