@@ -1,15 +1,16 @@
-<!-- login.html -->
+<!-- register.html -->
 
 {{ define "public/register.html" }}
 
+<!-- BEGIN COMMON TEMPLATE CODE -->
 {{ template "header.html" . }}
-
-<div class="mdc-drawer-app-content">
-
-    {{ template "app-bar.html" . }}
-
+<div class="mdc-drawer-app-content"> <!-- Needed for top app bar functionality-->
+{{ template "app-bar.html" . }}
     <main class="main-content" id="main-content">
-        <div class="mdc-top-app-bar--fixed-adjust">
+        <div class="mdc-top-app-bar--fixed-adjust"> <!-- Needed for top app bar functionality-->
+        {{ template "user-messages.html" . }}
+<!-- END COMMON TEMPLATE CODE -->
+
             <form action="/user/register" method="post">
                 <input type="hidden" name="_csrf" value="{{ .csrf }}">
                 <div class="mdc-text-field mdc-text-field--box username">

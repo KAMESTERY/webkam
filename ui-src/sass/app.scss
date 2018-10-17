@@ -22,6 +22,12 @@ body {
   text-decoration: none;
 }
 
+.msg-container {
+    text-align: center;
+    margin-top: 10px;
+    color: red;
+}
+
 .mdc-drawer-app-content {
   flex: auto;
   overflow: auto;
