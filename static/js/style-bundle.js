@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 32);
+/******/ 	return __webpack_require__(__webpack_require__.s = 34);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1229,7 +1229,7 @@ var _adapter = __webpack_require__(17);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _constants = __webpack_require__(41);
+var _constants = __webpack_require__(43);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1417,7 +1417,7 @@ var _adapter = __webpack_require__(18);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _constants = __webpack_require__(42);
+var _constants = __webpack_require__(44);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1742,7 +1742,7 @@ var _adapter = __webpack_require__(12);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _foundation = __webpack_require__(35);
+var _foundation = __webpack_require__(37);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -4705,8 +4705,8 @@ exports.cssClasses = cssClasses;
 "use strict";
 
 
-var tabbable = __webpack_require__(67);
-var xtend = __webpack_require__(68);
+var tabbable = __webpack_require__(69);
+var xtend = __webpack_require__(70);
 
 var listeningFocusTrap = null;
 
@@ -4969,18 +4969,181 @@ module.exports = focusTrap;
 /* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(33);
-module.exports = __webpack_require__(34);
+"use strict";
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.MDCComponent = exports.MDCFoundation = undefined;
+
+var _foundation = __webpack_require__(33);
+
+var _foundation2 = _interopRequireDefault(_foundation);
+
+var _component = __webpack_require__(72);
+
+var _component2 = _interopRequireDefault(_component);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+/**
+ * @license
+ * Copyright 2016 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+exports.MDCFoundation = _foundation2.default;
+exports.MDCComponent = _component2.default;
 
 /***/ }),
 /* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__.p + "static/css/bundle.css";
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * @license
+ * Copyright 2016 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+/**
+ * @template A
+ */
+var MDCFoundation = function () {
+  _createClass(MDCFoundation, null, [{
+    key: "cssClasses",
+
+    /** @return enum{cssClasses} */
+    get: function get() {
+      // Classes extending MDCFoundation should implement this method to return an object which exports every
+      // CSS class the foundation class needs as a property. e.g. {ACTIVE: 'mdc-component--active'}
+      return {};
+    }
+
+    /** @return enum{strings} */
+
+  }, {
+    key: "strings",
+    get: function get() {
+      // Classes extending MDCFoundation should implement this method to return an object which exports all
+      // semantic strings as constants. e.g. {ARIA_ROLE: 'tablist'}
+      return {};
+    }
+
+    /** @return enum{numbers} */
+
+  }, {
+    key: "numbers",
+    get: function get() {
+      // Classes extending MDCFoundation should implement this method to return an object which exports all
+      // of its semantic numbers as constants. e.g. {ANIMATION_DELAY_MS: 350}
+      return {};
+    }
+
+    /** @return {!Object} */
+
+  }, {
+    key: "defaultAdapter",
+    get: function get() {
+      // Classes extending MDCFoundation may choose to implement this getter in order to provide a convenient
+      // way of viewing the necessary methods of an adapter. In the future, this could also be used for adapter
+      // validation.
+      return {};
+    }
+
+    /**
+     * @param {A=} adapter
+     */
+
+  }]);
+
+  function MDCFoundation() {
+    var adapter = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+    _classCallCheck(this, MDCFoundation);
+
+    /** @protected {!A} */
+    this.adapter_ = adapter;
+  }
+
+  _createClass(MDCFoundation, [{
+    key: "init",
+    value: function init() {
+      // Subclasses should override this method to perform initialization routines (registering events, etc.)
+    }
+  }, {
+    key: "destroy",
+    value: function destroy() {
+      // Subclasses should override this method to perform de-initialization routines (de-registering events, etc.)
+    }
+  }]);
+
+  return MDCFoundation;
+}();
+
+exports.default = MDCFoundation;
 
 /***/ }),
 /* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(35);
+module.exports = __webpack_require__(36);
+
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__.p + "static/css/bundle.css";
+
+/***/ }),
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4988,48 +5151,155 @@ module.exports = __webpack_require__.p + "static/css/bundle.css";
 
 var _ripple = __webpack_require__(11);
 
-var _textfield = __webpack_require__(37);
+var _textfield = __webpack_require__(39);
 
-var _topAppBar = __webpack_require__(57);
+var _topAppBar = __webpack_require__(59);
 
-var _drawer = __webpack_require__(61);
+var _drawer2 = __webpack_require__(63);
+
+var _snackbar = __webpack_require__(71);
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // global
+    var topBarEl = document.getElementById('app-bar');
+    if (topBarEl) {
+        var topAppBar = new _topAppBar.MDCTopAppBar(topBarEl);
+        topAppBar.setScrollTarget(document.getElementById('main-content'));
+        topAppBar.listen('MDCTopAppBar:nav', function () {
+            drawer.open = !drawer.open;
+        });
+    }
+    var drawerEl = document.querySelector('.mdc-drawer');
+    if (drawerEl) {
+        var _drawer = _drawer2.MDCDrawer.attachTo(drawerEl);
+    }
+
+    console.log('Global Styles loaded');
+
+    // Communication
+
+    var snackbarEl = document.querySelector('.mdc-snackbar');
+
+    if (snackbarEl) {
+        var snackbar = new _snackbar.MDCSnackbar(snackbarEl);
+
+        if (flashes) {
+            var _iteratorNormalCompletion = true;
+            var _didIteratorError = false;
+            var _iteratorError = undefined;
+
+            try {
+                for (var _iterator = flashes[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+                    var flash = _step.value;
+
+                    var dataObj = {
+                        message: flash,
+                        actionText: 'Ok',
+                        actionHandler: function actionHandler() {
+                            console.log(flash);
+                        }
+                    };
+                    snackbar.show(dataObj);
+                    console.log("Snacking on Messages :-) :-)");
+                }
+            } catch (err) {
+                _didIteratorError = true;
+                _iteratorError = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion && _iterator.return) {
+                        _iterator.return();
+                    }
+                } finally {
+                    if (_didIteratorError) {
+                        throw _iteratorError;
+                    }
+                }
+            }
+        }
+
+        if (validationErrors) {
+            var _iteratorNormalCompletion2 = true;
+            var _didIteratorError2 = false;
+            var _iteratorError2 = undefined;
+
+            try {
+                for (var _iterator2 = validationErrors[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+                    var valError = _step2.value;
+
+                    var _dataObj = {
+                        message: valError,
+                        actionText: 'Ok',
+                        actionHandler: function actionHandler() {
+                            console.log(valError);
+                        }
+                    };
+                    snackbar.show(_dataObj);
+                    console.log("Snacking on Messages :-) :-)");
+                }
+            } catch (err) {
+                _didIteratorError2 = true;
+                _iteratorError2 = err;
+            } finally {
+                try {
+                    if (!_iteratorNormalCompletion2 && _iterator2.return) {
+                        _iterator2.return();
+                    }
+                } finally {
+                    if (_didIteratorError2) {
+                        throw _iteratorError2;
+                    }
+                }
+            }
+        }
+    }
+
+    // home
+    var cancelEl = document.querySelector('.cancel');
+    if (cancelEl) {
+        new _ripple.MDCRipple(cancelEl);
+    }
+
+    console.log('Starting load');
+
+    // login/register
+    var usernameEl = document.querySelector('.username');
+    if (usernameEl) {
+        var username = new _textfield.MDCTextField(usernameEl);
+    }
+    var emailEl = document.querySelector('.email');
+    if (emailEl) {
+        var email = new _textfield.MDCTextField(emailEl);
+    }
+    var passwordEl = document.querySelector('.password');
+    if (passwordEl) {
+        var password = new _textfield.MDCTextField(passwordEl);
+    }
+    var confirmPasswordEl = document.querySelector('.confirm-password');
+    if (confirmPasswordEl) {
+        var confirmPassword = new _textfield.MDCTextField(confirmPasswordEl);
+    }
+
+    var registerEl = document.querySelector('.register');
+    if (registerEl) {
+        new _ripple.MDCRipple(registerEl);
+    }
+    var loginEl = document.querySelector('.login');
+    if (loginEl) {
+        new _ripple.MDCRipple(loginEl);
+    }
+
+    console.log('login/register page Styles loaded');
+}); // ES6
+
 
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);
 };
 
-// Instantiation
-console.log('Starting import');
-
-
-// global
-var topBarEl = document.getElementById('app-bar');
-var drawer = _drawer.MDCDrawer.attachTo(document.querySelector('.mdc-drawer'));
-var topAppBar = new _topAppBar.MDCTopAppBar(topBarEl);
-
-topAppBar.setScrollTarget(document.getElementById('main-content'));
-topAppBar.listen('MDCTopAppBar:nav', function () {
-    drawer.open = !drawer.open;
-});
-console.log('Global Styles loaded');
-
-// home
-new _ripple.MDCRipple(document.querySelector('.cancel'));
-console.log('Starting load');
-
-// login/register
-var username = new _textfield.MDCTextField(document.querySelector('.username'));
-var email = new _textfield.MDCTextField(document.querySelector('.email'));
-var password = new _textfield.MDCTextField(document.querySelector('.password'));
-var confirmPassword = new _textfield.MDCTextField(document.querySelector('.confirm-password'));
-
-new _ripple.MDCRipple(document.querySelector('.register'));
-new _ripple.MDCRipple(document.querySelector('.login'));
-
-console.log('login/register page Styles loaded');
-
 /***/ }),
-/* 35 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5049,7 +5319,7 @@ var _adapter = __webpack_require__(12);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _constants = __webpack_require__(36);
+var _constants = __webpack_require__(38);
 
 var _util = __webpack_require__(13);
 
@@ -5837,7 +6107,7 @@ var MDCRippleFoundation = function (_MDCFoundation) {
 exports.default = MDCRippleFoundation;
 
 /***/ }),
-/* 36 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5902,7 +6172,7 @@ exports.strings = strings;
 exports.numbers = numbers;
 
 /***/ }),
-/* 37 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5921,7 +6191,7 @@ var _component = __webpack_require__(5);
 
 var _component2 = _interopRequireDefault(_component);
 
-var _index = __webpack_require__(38);
+var _index = __webpack_require__(40);
 
 var _util = __webpack_require__(7);
 
@@ -5929,19 +6199,19 @@ var _constants = __webpack_require__(15);
 
 var _adapter = __webpack_require__(16);
 
-var _foundation = __webpack_require__(43);
+var _foundation = __webpack_require__(45);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _index2 = __webpack_require__(44);
+var _index2 = __webpack_require__(46);
 
-var _index3 = __webpack_require__(48);
+var _index3 = __webpack_require__(50);
 
-var _index4 = __webpack_require__(49);
+var _index4 = __webpack_require__(51);
 
-var _index5 = __webpack_require__(50);
+var _index5 = __webpack_require__(52);
 
-var _index6 = __webpack_require__(54);
+var _index6 = __webpack_require__(56);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6533,7 +6803,7 @@ exports.MDCTextFieldIcon = _index4.MDCTextFieldIcon;
 exports.MDCTextFieldIconFoundation = _index4.MDCTextFieldIconFoundation;
 
 /***/ }),
-/* 38 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6554,7 +6824,7 @@ var _adapter = __webpack_require__(14);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _foundation = __webpack_require__(39);
+var _foundation = __webpack_require__(41);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -6792,7 +7062,7 @@ exports.RippleCapableSurface = RippleCapableSurface;
 exports.util = util;
 
 /***/ }),
-/* 39 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6812,7 +7082,7 @@ var _adapter = __webpack_require__(14);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _constants = __webpack_require__(40);
+var _constants = __webpack_require__(42);
 
 var _util = __webpack_require__(7);
 
@@ -7566,7 +7836,7 @@ var MDCRippleFoundation = function (_MDCFoundation) {
 exports.default = MDCRippleFoundation;
 
 /***/ }),
-/* 40 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7625,7 +7895,7 @@ exports.strings = strings;
 exports.numbers = numbers;
 
 /***/ }),
-/* 41 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7667,7 +7937,7 @@ exports.strings = strings;
 exports.cssClasses = cssClasses;
 
 /***/ }),
-/* 42 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7702,7 +7972,7 @@ var strings = {
 exports.strings = strings;
 
 /***/ }),
-/* 43 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8274,7 +8544,7 @@ var MDCTextFieldFoundation = function (_MDCFoundation) {
 exports.default = MDCTextFieldFoundation;
 
 /***/ }),
-/* 44 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8287,7 +8557,7 @@ exports.MDCLineRippleFoundation = exports.MDCLineRipple = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _component = __webpack_require__(45);
+var _component = __webpack_require__(47);
 
 var _component2 = _interopRequireDefault(_component);
 
@@ -8295,7 +8565,7 @@ var _adapter = __webpack_require__(20);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _foundation = __webpack_require__(46);
+var _foundation = __webpack_require__(48);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -8417,7 +8687,7 @@ exports.MDCLineRipple = MDCLineRipple;
 exports.MDCLineRippleFoundation = _foundation2.default;
 
 /***/ }),
-/* 45 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8595,7 +8865,7 @@ var MDCComponent = function () {
 exports.default = MDCComponent;
 
 /***/ }),
-/* 46 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8615,7 +8885,7 @@ var _adapter = __webpack_require__(20);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _constants = __webpack_require__(47);
+var _constants = __webpack_require__(49);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8765,7 +9035,7 @@ var MDCLineRippleFoundation = function (_MDCFoundation) {
 exports.default = MDCLineRippleFoundation;
 
 /***/ }),
-/* 47 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8800,7 +9070,7 @@ var cssClasses = {
 exports.cssClasses = cssClasses;
 
 /***/ }),
-/* 48 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8921,7 +9191,7 @@ exports.MDCTextFieldHelperText = MDCTextFieldHelperText;
 exports.MDCTextFieldHelperTextFoundation = _foundation2.default;
 
 /***/ }),
-/* 49 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9042,7 +9312,7 @@ exports.MDCTextFieldIcon = MDCTextFieldIcon;
 exports.MDCTextFieldIconFoundation = _foundation2.default;
 
 /***/ }),
-/* 50 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9055,7 +9325,7 @@ exports.MDCFloatingLabelFoundation = exports.MDCFloatingLabel = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _component = __webpack_require__(51);
+var _component = __webpack_require__(53);
 
 var _component2 = _interopRequireDefault(_component);
 
@@ -9063,7 +9333,7 @@ var _adapter = __webpack_require__(22);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _foundation = __webpack_require__(52);
+var _foundation = __webpack_require__(54);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -9184,7 +9454,7 @@ exports.MDCFloatingLabel = MDCFloatingLabel;
 exports.MDCFloatingLabelFoundation = _foundation2.default;
 
 /***/ }),
-/* 51 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9362,7 +9632,7 @@ var MDCComponent = function () {
 exports.default = MDCComponent;
 
 /***/ }),
-/* 52 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9382,7 +9652,7 @@ var _adapter = __webpack_require__(22);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _constants = __webpack_require__(53);
+var _constants = __webpack_require__(55);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -9539,7 +9809,7 @@ var MDCFloatingLabelFoundation = function (_MDCFoundation) {
 exports.default = MDCFloatingLabelFoundation;
 
 /***/ }),
-/* 53 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9574,7 +9844,7 @@ var cssClasses = {
 exports.cssClasses = cssClasses;
 
 /***/ }),
-/* 54 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9587,7 +9857,7 @@ exports.MDCNotchedOutlineFoundation = exports.MDCNotchedOutline = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _component = __webpack_require__(55);
+var _component = __webpack_require__(57);
 
 var _component2 = _interopRequireDefault(_component);
 
@@ -9595,7 +9865,7 @@ var _adapter = __webpack_require__(24);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _foundation = __webpack_require__(56);
+var _foundation = __webpack_require__(58);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -9712,7 +9982,7 @@ exports.MDCNotchedOutline = MDCNotchedOutline;
 exports.MDCNotchedOutlineFoundation = _foundation2.default;
 
 /***/ }),
-/* 55 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9890,7 +10160,7 @@ var MDCComponent = function () {
 exports.default = MDCComponent;
 
 /***/ }),
-/* 56 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10060,7 +10330,7 @@ var MDCNotchedOutlineFoundation = function (_MDCFoundation) {
 exports.default = MDCNotchedOutlineFoundation;
 
 /***/ }),
-/* 57 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10091,15 +10361,15 @@ var _foundation = __webpack_require__(6);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _foundation3 = __webpack_require__(58);
+var _foundation3 = __webpack_require__(60);
 
 var _foundation4 = _interopRequireDefault(_foundation3);
 
-var _foundation5 = __webpack_require__(59);
+var _foundation5 = __webpack_require__(61);
 
 var _foundation6 = _interopRequireDefault(_foundation5);
 
-var _foundation7 = __webpack_require__(60);
+var _foundation7 = __webpack_require__(62);
 
 var _foundation8 = _interopRequireDefault(_foundation7);
 
@@ -10295,7 +10565,7 @@ exports.MDCFixedTopAppBarFoundation = _foundation4.default;
 exports.MDCShortTopAppBarFoundation = _foundation6.default;
 
 /***/ }),
-/* 58 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10415,7 +10685,7 @@ var MDCFixedTopAppBarFoundation = function (_MDCTopAppBarFoundati) {
 exports.default = MDCFixedTopAppBarFoundation;
 
 /***/ }),
-/* 59 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10545,7 +10815,7 @@ var MDCShortTopAppBarFoundation = function (_MDCTopAppBarBaseFoun) {
 exports.default = MDCShortTopAppBarFoundation;
 
 /***/ }),
-/* 60 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10827,7 +11097,7 @@ var MDCTopAppBarFoundation = function (_MDCTopAppBarBaseFoun) {
 exports.default = MDCTopAppBarFoundation;
 
 /***/ }),
-/* 61 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10840,13 +11110,13 @@ exports.util = exports.MDCModalDrawerFoundation = exports.MDCDismissibleDrawerFo
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _index = __webpack_require__(62);
+var _index = __webpack_require__(64);
 
 var _foundation = __webpack_require__(26);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _foundation3 = __webpack_require__(63);
+var _foundation3 = __webpack_require__(65);
 
 var _foundation4 = _interopRequireDefault(_foundation3);
 
@@ -10854,7 +11124,7 @@ var _adapter = __webpack_require__(10);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _index2 = __webpack_require__(64);
+var _index2 = __webpack_require__(66);
 
 var _foundation5 = __webpack_require__(28);
 
@@ -10862,7 +11132,7 @@ var _foundation6 = _interopRequireDefault(_foundation5);
 
 var _constants = __webpack_require__(27);
 
-var _util = __webpack_require__(66);
+var _util = __webpack_require__(68);
 
 var util = _interopRequireWildcard(_util);
 
@@ -11121,7 +11391,7 @@ exports.MDCModalDrawerFoundation = _foundation4.default;
 exports.util = util;
 
 /***/ }),
-/* 62 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11169,7 +11439,7 @@ exports.MDCFoundation = _foundation2.default;
 exports.MDCComponent = _component2.default;
 
 /***/ }),
-/* 63 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11269,7 +11539,7 @@ var MDCModalDrawerFoundation = function (_MDCDismissibleDrawer) {
 exports.default = MDCModalDrawerFoundation;
 
 /***/ }),
-/* 64 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11294,7 +11564,7 @@ var _adapter = __webpack_require__(29);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _ponyfill = __webpack_require__(65);
+var _ponyfill = __webpack_require__(67);
 
 var _constants = __webpack_require__(30);
 
@@ -11630,7 +11900,7 @@ exports.MDCList = MDCList;
 exports.MDCListFoundation = _foundation2.default;
 
 /***/ }),
-/* 65 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11701,7 +11971,7 @@ exports.closest = closest;
 exports.matches = matches;
 
 /***/ }),
-/* 66 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11758,7 +12028,7 @@ function createFocusTrapInstance(surfaceEl) {
 exports.createFocusTrapInstance = createFocusTrapInstance;
 
 /***/ }),
-/* 67 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11945,7 +12215,7 @@ UntouchabilityChecker.prototype.isUntouchable = function isUntouchable(node) {
 module.exports = tabbable;
 
 /***/ }),
-/* 68 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11970,6 +12240,898 @@ function extend() {
 
     return target;
 }
+
+/***/ }),
+/* 71 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.MDCSnackbar = exports.MDCSnackbarFoundation = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _index = __webpack_require__(32);
+
+var _foundation = __webpack_require__(73);
+
+var _foundation2 = _interopRequireDefault(_foundation);
+
+var _index2 = __webpack_require__(75);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @license
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright 2016 Google Inc.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+exports.MDCSnackbarFoundation = _foundation2.default;
+
+var MDCSnackbar = exports.MDCSnackbar = function (_MDCComponent) {
+  _inherits(MDCSnackbar, _MDCComponent);
+
+  function MDCSnackbar() {
+    _classCallCheck(this, MDCSnackbar);
+
+    return _possibleConstructorReturn(this, (MDCSnackbar.__proto__ || Object.getPrototypeOf(MDCSnackbar)).apply(this, arguments));
+  }
+
+  _createClass(MDCSnackbar, [{
+    key: 'show',
+    value: function show(data) {
+      this.foundation_.show(data);
+    }
+  }, {
+    key: 'getDefaultFoundation',
+    value: function getDefaultFoundation() {
+      var _this2 = this;
+
+      var _MDCSnackbarFoundatio = _foundation2.default.strings,
+          TEXT_SELECTOR = _MDCSnackbarFoundatio.TEXT_SELECTOR,
+          ACTION_BUTTON_SELECTOR = _MDCSnackbarFoundatio.ACTION_BUTTON_SELECTOR;
+
+      var getText = function getText() {
+        return _this2.root_.querySelector(TEXT_SELECTOR);
+      };
+      var getActionButton = function getActionButton() {
+        return _this2.root_.querySelector(ACTION_BUTTON_SELECTOR);
+      };
+
+      /* eslint brace-style: "off" */
+      return new _foundation2.default({
+        addClass: function addClass(className) {
+          return _this2.root_.classList.add(className);
+        },
+        removeClass: function removeClass(className) {
+          return _this2.root_.classList.remove(className);
+        },
+        setAriaHidden: function setAriaHidden() {
+          return _this2.root_.setAttribute('aria-hidden', 'true');
+        },
+        unsetAriaHidden: function unsetAriaHidden() {
+          return _this2.root_.removeAttribute('aria-hidden');
+        },
+        setActionAriaHidden: function setActionAriaHidden() {
+          return getActionButton().setAttribute('aria-hidden', 'true');
+        },
+        unsetActionAriaHidden: function unsetActionAriaHidden() {
+          return getActionButton().removeAttribute('aria-hidden');
+        },
+        setActionText: function setActionText(text) {
+          getActionButton().textContent = text;
+        },
+        setMessageText: function setMessageText(text) {
+          getText().textContent = text;
+        },
+        setFocus: function setFocus() {
+          return getActionButton().focus();
+        },
+        isFocused: function isFocused() {
+          return document.activeElement === getActionButton();
+        },
+        visibilityIsHidden: function visibilityIsHidden() {
+          return document.hidden;
+        },
+        registerCapturedBlurHandler: function registerCapturedBlurHandler(handler) {
+          return getActionButton().addEventListener('blur', handler, true);
+        },
+        deregisterCapturedBlurHandler: function deregisterCapturedBlurHandler(handler) {
+          return getActionButton().removeEventListener('blur', handler, true);
+        },
+        registerVisibilityChangeHandler: function registerVisibilityChangeHandler(handler) {
+          return document.addEventListener('visibilitychange', handler);
+        },
+        deregisterVisibilityChangeHandler: function deregisterVisibilityChangeHandler(handler) {
+          return document.removeEventListener('visibilitychange', handler);
+        },
+        registerCapturedInteractionHandler: function registerCapturedInteractionHandler(evt, handler) {
+          return document.body.addEventListener(evt, handler, true);
+        },
+        deregisterCapturedInteractionHandler: function deregisterCapturedInteractionHandler(evt, handler) {
+          return document.body.removeEventListener(evt, handler, true);
+        },
+        registerActionClickHandler: function registerActionClickHandler(handler) {
+          return getActionButton().addEventListener('click', handler);
+        },
+        deregisterActionClickHandler: function deregisterActionClickHandler(handler) {
+          return getActionButton().removeEventListener('click', handler);
+        },
+        registerTransitionEndHandler: function registerTransitionEndHandler(handler) {
+          return _this2.root_.addEventListener((0, _index2.getCorrectEventName)(window, 'transitionend'), handler);
+        },
+        deregisterTransitionEndHandler: function deregisterTransitionEndHandler(handler) {
+          return _this2.root_.removeEventListener((0, _index2.getCorrectEventName)(window, 'transitionend'), handler);
+        },
+        notifyShow: function notifyShow() {
+          return _this2.emit(_foundation2.default.strings.SHOW_EVENT);
+        },
+        notifyHide: function notifyHide() {
+          return _this2.emit(_foundation2.default.strings.HIDE_EVENT);
+        }
+      });
+    }
+  }, {
+    key: 'dismissesOnAction',
+    get: function get() {
+      return this.foundation_.dismissesOnAction();
+    },
+    set: function set(dismissesOnAction) {
+      this.foundation_.setDismissOnAction(dismissesOnAction);
+    }
+  }], [{
+    key: 'attachTo',
+    value: function attachTo(root) {
+      return new MDCSnackbar(root);
+    }
+  }]);
+
+  return MDCSnackbar;
+}(_index.MDCComponent);
+
+/***/ }),
+/* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @license
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Copyright 2016 Google Inc.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Permission is hereby granted, free of charge, to any person obtaining a copy
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * of this software and associated documentation files (the "Software"), to deal
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * in the Software without restriction, including without limitation the rights
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * copies of the Software, and to permit persons to whom the Software is
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * furnished to do so, subject to the following conditions:
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * The above copyright notice and this permission notice shall be included in
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * all copies or substantial portions of the Software.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * THE SOFTWARE.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
+
+var _foundation = __webpack_require__(33);
+
+var _foundation2 = _interopRequireDefault(_foundation);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * @template F
+ */
+var MDCComponent = function () {
+  _createClass(MDCComponent, null, [{
+    key: 'attachTo',
+
+    /**
+     * @param {!Element} root
+     * @return {!MDCComponent}
+     */
+    value: function attachTo(root) {
+      // Subclasses which extend MDCBase should provide an attachTo() method that takes a root element and
+      // returns an instantiated component with its root set to that element. Also note that in the cases of
+      // subclasses, an explicit foundation class will not have to be passed in; it will simply be initialized
+      // from getDefaultFoundation().
+      return new MDCComponent(root, new _foundation2.default());
+    }
+
+    /**
+     * @param {!Element} root
+     * @param {F=} foundation
+     * @param {...?} args
+     */
+
+  }]);
+
+  function MDCComponent(root) {
+    var foundation = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
+
+    _classCallCheck(this, MDCComponent);
+
+    /** @protected {!Element} */
+    this.root_ = root;
+
+    for (var _len = arguments.length, args = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+      args[_key - 2] = arguments[_key];
+    }
+
+    this.initialize.apply(this, args);
+    // Note that we initialize foundation here and not within the constructor's default param so that
+    // this.root_ is defined and can be used within the foundation class.
+    /** @protected {!F} */
+    this.foundation_ = foundation === undefined ? this.getDefaultFoundation() : foundation;
+    this.foundation_.init();
+    this.initialSyncWithDOM();
+  }
+
+  _createClass(MDCComponent, [{
+    key: 'initialize',
+    value: function initialize() /* ...args */{}
+    // Subclasses can override this to do any additional setup work that would be considered part of a
+    // "constructor". Essentially, it is a hook into the parent constructor before the foundation is
+    // initialized. Any additional arguments besides root and foundation will be passed in here.
+
+
+    /**
+     * @return {!F} foundation
+     */
+
+  }, {
+    key: 'getDefaultFoundation',
+    value: function getDefaultFoundation() {
+      // Subclasses must override this method to return a properly configured foundation class for the
+      // component.
+      throw new Error('Subclasses must override getDefaultFoundation to return a properly configured ' + 'foundation class');
+    }
+  }, {
+    key: 'initialSyncWithDOM',
+    value: function initialSyncWithDOM() {
+      // Subclasses should override this method if they need to perform work to synchronize with a host DOM
+      // object. An example of this would be a form control wrapper that needs to synchronize its internal state
+      // to some property or attribute of the host DOM. Please note: this is *not* the place to perform DOM
+      // reads/writes that would cause layout / paint, as this is called synchronously from within the constructor.
+    }
+  }, {
+    key: 'destroy',
+    value: function destroy() {
+      // Subclasses may implement this method to release any resources / deregister any listeners they have
+      // attached. An example of this might be deregistering a resize event from the window object.
+      this.foundation_.destroy();
+    }
+
+    /**
+     * Wrapper method to add an event listener to the component's root element. This is most useful when
+     * listening for custom events.
+     * @param {string} evtType
+     * @param {!Function} handler
+     */
+
+  }, {
+    key: 'listen',
+    value: function listen(evtType, handler) {
+      this.root_.addEventListener(evtType, handler);
+    }
+
+    /**
+     * Wrapper method to remove an event listener to the component's root element. This is most useful when
+     * unlistening for custom events.
+     * @param {string} evtType
+     * @param {!Function} handler
+     */
+
+  }, {
+    key: 'unlisten',
+    value: function unlisten(evtType, handler) {
+      this.root_.removeEventListener(evtType, handler);
+    }
+
+    /**
+     * Fires a cross-browser-compatible custom event from the component root of the given type,
+     * with the given data.
+     * @param {string} evtType
+     * @param {!Object} evtData
+     * @param {boolean=} shouldBubble
+     */
+
+  }, {
+    key: 'emit',
+    value: function emit(evtType, evtData) {
+      var shouldBubble = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+
+      var evt = void 0;
+      if (typeof CustomEvent === 'function') {
+        evt = new CustomEvent(evtType, {
+          detail: evtData,
+          bubbles: shouldBubble
+        });
+      } else {
+        evt = document.createEvent('CustomEvent');
+        evt.initCustomEvent(evtType, shouldBubble, false, evtData);
+      }
+
+      this.root_.dispatchEvent(evt);
+    }
+  }]);
+
+  return MDCComponent;
+}();
+
+exports.default = MDCComponent;
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _index = __webpack_require__(32);
+
+var _constants = __webpack_require__(74);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @license
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Copyright 2016 Google Inc.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Permission is hereby granted, free of charge, to any person obtaining a copy
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * of this software and associated documentation files (the "Software"), to deal
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * in the Software without restriction, including without limitation the rights
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * copies of the Software, and to permit persons to whom the Software is
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * furnished to do so, subject to the following conditions:
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * The above copyright notice and this permission notice shall be included in
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * all copies or substantial portions of the Software.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                *
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * THE SOFTWARE.
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+var MDCSnackbarFoundation = function (_MDCFoundation) {
+  _inherits(MDCSnackbarFoundation, _MDCFoundation);
+
+  _createClass(MDCSnackbarFoundation, [{
+    key: 'active',
+    get: function get() {
+      return this.active_;
+    }
+  }], [{
+    key: 'cssClasses',
+    get: function get() {
+      return _constants.cssClasses;
+    }
+  }, {
+    key: 'strings',
+    get: function get() {
+      return _constants.strings;
+    }
+  }, {
+    key: 'defaultAdapter',
+    get: function get() {
+      return {
+        addClass: function addClass() /* className: string */{},
+        removeClass: function removeClass() /* className: string */{},
+        setAriaHidden: function setAriaHidden() {},
+        unsetAriaHidden: function unsetAriaHidden() {},
+        setActionAriaHidden: function setActionAriaHidden() {},
+        unsetActionAriaHidden: function unsetActionAriaHidden() {},
+        setActionText: function setActionText() /* actionText: string */{},
+        setMessageText: function setMessageText() /* message: string */{},
+        setFocus: function setFocus() {},
+        isFocused: function isFocused() {
+          return (/* boolean */false
+          );
+        },
+        visibilityIsHidden: function visibilityIsHidden() {
+          return (/* boolean */false
+          );
+        },
+        registerCapturedBlurHandler: function registerCapturedBlurHandler() /* handler: EventListener */{},
+        deregisterCapturedBlurHandler: function deregisterCapturedBlurHandler() /* handler: EventListener */{},
+        registerVisibilityChangeHandler: function registerVisibilityChangeHandler() /* handler: EventListener */{},
+        deregisterVisibilityChangeHandler: function deregisterVisibilityChangeHandler() /* handler: EventListener */{},
+        registerCapturedInteractionHandler: function registerCapturedInteractionHandler() /* evtType: string, handler: EventListener */{},
+        deregisterCapturedInteractionHandler: function deregisterCapturedInteractionHandler() /* evtType: string, handler: EventListener */{},
+        registerActionClickHandler: function registerActionClickHandler() /* handler: EventListener */{},
+        deregisterActionClickHandler: function deregisterActionClickHandler() /* handler: EventListener */{},
+        registerTransitionEndHandler: function registerTransitionEndHandler() /* handler: EventListener */{},
+        deregisterTransitionEndHandler: function deregisterTransitionEndHandler() /* handler: EventListener */{},
+        notifyShow: function notifyShow() {},
+        notifyHide: function notifyHide() {}
+      };
+    }
+  }]);
+
+  function MDCSnackbarFoundation(adapter) {
+    _classCallCheck(this, MDCSnackbarFoundation);
+
+    var _this = _possibleConstructorReturn(this, (MDCSnackbarFoundation.__proto__ || Object.getPrototypeOf(MDCSnackbarFoundation)).call(this, Object.assign(MDCSnackbarFoundation.defaultAdapter, adapter)));
+
+    _this.active_ = false;
+    _this.actionWasClicked_ = false;
+    _this.dismissOnAction_ = true;
+    _this.firstFocus_ = true;
+    _this.pointerDownRecognized_ = false;
+    _this.snackbarHasFocus_ = false;
+    _this.snackbarData_ = null;
+    _this.queue_ = [];
+    _this.actionClickHandler_ = function () {
+      _this.actionWasClicked_ = true;
+      _this.invokeAction_();
+    };
+    _this.visibilitychangeHandler_ = function () {
+      clearTimeout(_this.timeoutId_);
+      _this.snackbarHasFocus_ = true;
+
+      if (!_this.adapter_.visibilityIsHidden()) {
+        setTimeout(_this.cleanup_.bind(_this), _this.snackbarData_.timeout || _constants.numbers.MESSAGE_TIMEOUT);
+      }
+    };
+    _this.interactionHandler_ = function (evt) {
+      if (evt.type === 'focus' && !_this.adapter_.isFocused()) {
+        return;
+      }
+      if (evt.type === 'touchstart' || evt.type === 'mousedown') {
+        _this.pointerDownRecognized_ = true;
+      }
+      _this.handlePossibleTabKeyboardFocus_(evt);
+
+      if (evt.type === 'focus') {
+        _this.pointerDownRecognized_ = false;
+      }
+    };
+    _this.blurHandler_ = function () {
+      clearTimeout(_this.timeoutId_);
+      _this.snackbarHasFocus_ = false;
+      _this.timeoutId_ = setTimeout(_this.cleanup_.bind(_this), _this.snackbarData_.timeout || _constants.numbers.MESSAGE_TIMEOUT);
+    };
+    return _this;
+  }
+
+  _createClass(MDCSnackbarFoundation, [{
+    key: 'init',
+    value: function init() {
+      this.adapter_.registerActionClickHandler(this.actionClickHandler_);
+      this.adapter_.setAriaHidden();
+      this.adapter_.setActionAriaHidden();
+    }
+  }, {
+    key: 'destroy',
+    value: function destroy() {
+      var _this2 = this;
+
+      this.adapter_.deregisterActionClickHandler(this.actionClickHandler_);
+      this.adapter_.deregisterCapturedBlurHandler(this.blurHandler_);
+      this.adapter_.deregisterVisibilityChangeHandler(this.visibilitychangeHandler_);
+      ['touchstart', 'mousedown', 'focus'].forEach(function (evtType) {
+        _this2.adapter_.deregisterCapturedInteractionHandler(evtType, _this2.interactionHandler_);
+      });
+    }
+  }, {
+    key: 'dismissesOnAction',
+    value: function dismissesOnAction() {
+      return this.dismissOnAction_;
+    }
+  }, {
+    key: 'setDismissOnAction',
+    value: function setDismissOnAction(dismissOnAction) {
+      this.dismissOnAction_ = !!dismissOnAction;
+    }
+  }, {
+    key: 'show',
+    value: function show(data) {
+      var _this3 = this;
+
+      if (!data) {
+        throw new Error('Please provide a data object with at least a message to display.');
+      }
+      if (!data.message) {
+        throw new Error('Please provide a message to be displayed.');
+      }
+      if (data.actionHandler && !data.actionText) {
+        throw new Error('Please provide action text with the handler.');
+      }
+      if (this.active) {
+        this.queue_.push(data);
+        return;
+      }
+      clearTimeout(this.timeoutId_);
+      this.snackbarData_ = data;
+      this.firstFocus_ = true;
+      this.adapter_.registerVisibilityChangeHandler(this.visibilitychangeHandler_);
+      this.adapter_.registerCapturedBlurHandler(this.blurHandler_);
+      ['touchstart', 'mousedown', 'focus'].forEach(function (evtType) {
+        _this3.adapter_.registerCapturedInteractionHandler(evtType, _this3.interactionHandler_);
+      });
+
+      var ACTIVE = _constants.cssClasses.ACTIVE,
+          MULTILINE = _constants.cssClasses.MULTILINE,
+          ACTION_ON_BOTTOM = _constants.cssClasses.ACTION_ON_BOTTOM;
+
+
+      this.adapter_.setMessageText(this.snackbarData_.message);
+
+      if (this.snackbarData_.multiline) {
+        this.adapter_.addClass(MULTILINE);
+        if (this.snackbarData_.actionOnBottom) {
+          this.adapter_.addClass(ACTION_ON_BOTTOM);
+        }
+      }
+
+      if (this.snackbarData_.actionHandler) {
+        this.adapter_.setActionText(this.snackbarData_.actionText);
+        this.actionHandler_ = this.snackbarData_.actionHandler;
+        this.setActionHidden_(false);
+      } else {
+        this.setActionHidden_(true);
+        this.actionHandler_ = null;
+        this.adapter_.setActionText(null);
+      }
+
+      this.active_ = true;
+      this.adapter_.addClass(ACTIVE);
+      this.adapter_.unsetAriaHidden();
+      this.adapter_.notifyShow();
+
+      this.timeoutId_ = setTimeout(this.cleanup_.bind(this), this.snackbarData_.timeout || _constants.numbers.MESSAGE_TIMEOUT);
+    }
+  }, {
+    key: 'handlePossibleTabKeyboardFocus_',
+    value: function handlePossibleTabKeyboardFocus_() {
+      var hijackFocus = this.firstFocus_ && !this.pointerDownRecognized_;
+
+      if (hijackFocus) {
+        this.setFocusOnAction_();
+      }
+
+      this.firstFocus_ = false;
+    }
+  }, {
+    key: 'setFocusOnAction_',
+    value: function setFocusOnAction_() {
+      this.adapter_.setFocus();
+      this.snackbarHasFocus_ = true;
+      this.firstFocus_ = false;
+    }
+  }, {
+    key: 'invokeAction_',
+    value: function invokeAction_() {
+      try {
+        if (!this.actionHandler_) {
+          return;
+        }
+
+        this.actionHandler_();
+      } finally {
+        if (this.dismissOnAction_) {
+          this.cleanup_();
+        }
+      }
+    }
+  }, {
+    key: 'cleanup_',
+    value: function cleanup_() {
+      var _this4 = this;
+
+      var allowDismissal = !this.snackbarHasFocus_ || this.actionWasClicked_;
+
+      if (allowDismissal) {
+        var ACTIVE = _constants.cssClasses.ACTIVE,
+            MULTILINE = _constants.cssClasses.MULTILINE,
+            ACTION_ON_BOTTOM = _constants.cssClasses.ACTION_ON_BOTTOM;
+
+
+        this.adapter_.removeClass(ACTIVE);
+
+        var handler = function handler() {
+          clearTimeout(_this4.timeoutId_);
+          _this4.adapter_.deregisterTransitionEndHandler(handler);
+          _this4.adapter_.removeClass(MULTILINE);
+          _this4.adapter_.removeClass(ACTION_ON_BOTTOM);
+          _this4.setActionHidden_(true);
+          _this4.adapter_.setAriaHidden();
+          _this4.active_ = false;
+          _this4.snackbarHasFocus_ = false;
+          _this4.adapter_.notifyHide();
+          _this4.showNext_();
+        };
+
+        this.adapter_.registerTransitionEndHandler(handler);
+      }
+    }
+  }, {
+    key: 'showNext_',
+    value: function showNext_() {
+      if (!this.queue_.length) {
+        return;
+      }
+      this.show(this.queue_.shift());
+    }
+  }, {
+    key: 'setActionHidden_',
+    value: function setActionHidden_(isHidden) {
+      if (isHidden) {
+        this.adapter_.setActionAriaHidden();
+      } else {
+        this.adapter_.unsetActionAriaHidden();
+      }
+    }
+  }]);
+
+  return MDCSnackbarFoundation;
+}(_index.MDCFoundation);
+
+exports.default = MDCSnackbarFoundation;
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/**
+ * @license
+ * Copyright 2016 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+var cssClasses = exports.cssClasses = {
+  ROOT: 'mdc-snackbar',
+  TEXT: 'mdc-snackbar__text',
+  ACTION_WRAPPER: 'mdc-snackbar__action-wrapper',
+  ACTION_BUTTON: 'mdc-snackbar__action-button',
+  ACTIVE: 'mdc-snackbar--active',
+  MULTILINE: 'mdc-snackbar--multiline',
+  ACTION_ON_BOTTOM: 'mdc-snackbar--action-on-bottom'
+};
+
+var strings = exports.strings = {
+  TEXT_SELECTOR: '.mdc-snackbar__text',
+  ACTION_WRAPPER_SELECTOR: '.mdc-snackbar__action-wrapper',
+  ACTION_BUTTON_SELECTOR: '.mdc-snackbar__action-button',
+  SHOW_EVENT: 'MDCSnackbar:show',
+  HIDE_EVENT: 'MDCSnackbar:hide'
+};
+
+var numbers = exports.numbers = {
+  MESSAGE_TIMEOUT: 2750
+};
+
+/***/ }),
+/* 75 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+/**
+ * @license
+ * Copyright 2016 Google Inc.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
+/**
+ * @typedef {{
+ *   noPrefix: string,
+ *   webkitPrefix: string,
+ *   styleProperty: string
+ * }}
+ */
+var VendorPropertyMapType = void 0;
+
+/** @const {Object<string, !VendorPropertyMapType>} */
+var eventTypeMap = {
+  'animationstart': {
+    noPrefix: 'animationstart',
+    webkitPrefix: 'webkitAnimationStart',
+    styleProperty: 'animation'
+  },
+  'animationend': {
+    noPrefix: 'animationend',
+    webkitPrefix: 'webkitAnimationEnd',
+    styleProperty: 'animation'
+  },
+  'animationiteration': {
+    noPrefix: 'animationiteration',
+    webkitPrefix: 'webkitAnimationIteration',
+    styleProperty: 'animation'
+  },
+  'transitionend': {
+    noPrefix: 'transitionend',
+    webkitPrefix: 'webkitTransitionEnd',
+    styleProperty: 'transition'
+  }
+};
+
+/** @const {Object<string, !VendorPropertyMapType>} */
+var cssPropertyMap = {
+  'animation': {
+    noPrefix: 'animation',
+    webkitPrefix: '-webkit-animation'
+  },
+  'transform': {
+    noPrefix: 'transform',
+    webkitPrefix: '-webkit-transform'
+  },
+  'transition': {
+    noPrefix: 'transition',
+    webkitPrefix: '-webkit-transition'
+  }
+};
+
+/**
+ * @param {!Object} windowObj
+ * @return {boolean}
+ */
+function hasProperShape(windowObj) {
+  return windowObj['document'] !== undefined && typeof windowObj['document']['createElement'] === 'function';
+}
+
+/**
+ * @param {string} eventType
+ * @return {boolean}
+ */
+function eventFoundInMaps(eventType) {
+  return eventType in eventTypeMap || eventType in cssPropertyMap;
+}
+
+/**
+ * @param {string} eventType
+ * @param {!Object<string, !VendorPropertyMapType>} map
+ * @param {!Element} el
+ * @return {string}
+ */
+function getJavaScriptEventName(eventType, map, el) {
+  return map[eventType].styleProperty in el.style ? map[eventType].noPrefix : map[eventType].webkitPrefix;
+}
+
+/**
+ * Helper function to determine browser prefix for CSS3 animation events
+ * and property names.
+ * @param {!Object} windowObj
+ * @param {string} eventType
+ * @return {string}
+ */
+function getAnimationName(windowObj, eventType) {
+  if (!hasProperShape(windowObj) || !eventFoundInMaps(eventType)) {
+    return eventType;
+  }
+
+  var map = /** @type {!Object<string, !VendorPropertyMapType>} */eventType in eventTypeMap ? eventTypeMap : cssPropertyMap;
+  var el = windowObj['document']['createElement']('div');
+  var eventName = '';
+
+  if (map === eventTypeMap) {
+    eventName = getJavaScriptEventName(eventType, map, el);
+  } else {
+    eventName = map[eventType].noPrefix in el.style ? map[eventType].noPrefix : map[eventType].webkitPrefix;
+  }
+
+  return eventName;
+}
+
+// Public functions to access getAnimationName() for JavaScript events or CSS
+// property names.
+
+var transformStyleProperties = ['transform', 'WebkitTransform', 'MozTransform', 'OTransform', 'MSTransform'];
+
+/**
+ * @param {!Object} windowObj
+ * @param {string} eventType
+ * @return {string}
+ */
+function getCorrectEventName(windowObj, eventType) {
+  return getAnimationName(windowObj, eventType);
+}
+
+/**
+ * @param {!Object} windowObj
+ * @param {string} eventType
+ * @return {string}
+ */
+function getCorrectPropertyName(windowObj, eventType) {
+  return getAnimationName(windowObj, eventType);
+}
+
+exports.transformStyleProperties = transformStyleProperties;
+exports.getCorrectEventName = getCorrectEventName;
+exports.getCorrectPropertyName = getCorrectPropertyName;
 
 /***/ })
 /******/ ]);

@@ -4,6 +4,7 @@ import (
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"github.com/utrack/gin-csrf"
+	"gopkg.in/go-playground/validator.v9"
 	"kamestery.com/models"
 	"kamestery.com/utils"
 	"net/http"
@@ -20,10 +21,11 @@ func login(c *gin.Context) {
 	}, "public/login.html")
 }
 
-func login_error(c *gin.Context, flashes []interface{}) {
+func login_error(c *gin.Context, validationErrors []validator.FieldError, flashes []interface{}) {
 	render(c, gin.H{
 		"csrf":    csrf.GetToken(c),
 		"title":   "Authenticate",
+		"validationErrors": validationErrors,
 		"flashes": flashes,
 	}, "public/login.html")
 }
@@ -36,14 +38,14 @@ func authenticate(c *gin.Context) {
 
 	var user models.Credentials
 	if err := c.ShouldBind(&user); err != nil {
-		session.AddFlash("Figure out which Error you Made!") //TODO: Revisit this!
-		login_error(c, session.Flashes())
+		session.AddFlash("Could not Log You in!") //TODO: Revisit this!
+		login_error(c, nil, session.Flashes())
 		return
 	}
 
 	if validationErrors, err := utils.ValidateStruct(&user); validationErrors != nil || err != nil {
-		utils.BindMessages(err, session)
-		login_error(c, session.Flashes())
+		session.AddFlash("Could not Log You in!") //TODO: Revisit this!
+		login_error(c, validationErrors, session.Flashes())
 		return
 	}
 
@@ -52,7 +54,7 @@ func authenticate(c *gin.Context) {
 
 	if token == "" {
 		session.AddFlash("Could not Log You in!") //TODO: Revisit this!
-		login_error(c, session.Flashes())
+		login_error(c, nil, session.Flashes())
 		return
 	}
 	user_logger.Debugf("AUTH_TOKEN:::: %s", token)
@@ -74,11 +76,12 @@ func register(c *gin.Context) {
 	}, "public/register.html")
 }
 
-func register_error(c *gin.Context, flashes []interface{}) {
+func register_error(c *gin.Context, validationErrors []validator.FieldError, flashes []interface{}) {
 	render(c, gin.H{
-		"csrf":    csrf.GetToken(c),
-		"title":   "Register",
-		"flashes": flashes,
+		"csrf":             csrf.GetToken(c),
+		"title":            "Register",
+		"validationErrors": validationErrors,
+		"flashes":          flashes,
 	}, "public/register.html")
 }
 
@@ -90,14 +93,14 @@ func enroll(c *gin.Context) {
 
 	var user models.User
 	if err := c.ShouldBind(&user); err != nil {
-		session.AddFlash("Figure out which Error you Made!") //TODO: Revisit this!
-		register_error(c, session.Flashes())
+		session.AddFlash("Could not Enroll You!") //TODO: Revisit this!
+		register_error(c, nil, session.Flashes())
 		return
 	}
 
 	if validationErrors, err := utils.ValidateStruct(&user); validationErrors != nil || err != nil {
-		utils.BindMessages(err, session)
-		register_error(c, session.Flashes())
+		session.AddFlash("Could not Enroll You!") //TODO: Revisit this!
+		register_error(c, validationErrors, session.Flashes())
 		return
 	}
 
@@ -106,7 +109,7 @@ func enroll(c *gin.Context) {
 
 	if !ok {
 		session.AddFlash("Could not Enroll You!") //TODO: Revisit this!
-		register_error(c, session.Flashes())
+		register_error(c, nil, session.Flashes())
 		return
 	}
 	user_logger.Debugf("ENROLLMENT_STATUS:::: %+v", ok)

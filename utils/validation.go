@@ -1,8 +1,6 @@
 package utils
 
 import (
-	"fmt"
-	"github.com/gin-contrib/sessions"
 	"gopkg.in/go-playground/validator.v9"
 )
 
@@ -27,16 +25,4 @@ func ValidateStruct(data interface{}) (validationErrors validator.ValidationErro
 	}
 
 	return
-}
-
-func BindMessages(err error, session sessions.Session) {
-	var allMsgs []string
-
-	for _, err := range err.(validator.ValidationErrors) {
-		msg := fmt.Sprintf("%+v", err)
-		validation_logger.Debugf("BINDING ERROR MESSAGE:::: %s", msg)
-		allMsgs = append(allMsgs, msg)
-	}
-
-	session.AddFlash(allMsgs) //TODO: Revisit this!
 }
