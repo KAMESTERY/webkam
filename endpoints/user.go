@@ -57,9 +57,15 @@ func authenticate(c *gin.Context) {
 		login_error(c, nil, session.Flashes())
 		return
 	}
+
 	user_logger.Debugf("AUTH_TOKEN:::: %s", token)
 
+	claims := models.GetClaims(token)
+
+	user_logger.Debugf("CLAIMS:::: %+v", claims)
+
 	session.Set(TOKEN_KAM, token)
+	session.Set(USER_KAM, utils.ToJsonString(claims))
 	session.Save()
 
 	session.AddFlash("You are now Logged in!")

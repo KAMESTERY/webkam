@@ -12,10 +12,15 @@
             </span>
         </section>
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-            <a href="/user/register" class="material-icons mdc-top-app-bar__action-item" aria-label="Register"
-               alt="Register">person_add</a>
-            <a href="/user/login" class="material-icons mdc-top-app-bar__action-item" aria-label="Login"
-               alt="Login">account_circle</a>
+            {{with .user_kam}}
+                <a href="#profile" class="mdc-top-app-bar__action-item" aria-label="Profile"
+                   alt="Profile">{{ .Userid }}</a><!-- TODO: Fix the styling and the link for the user display and profile -->
+            {{else}}
+                <a href="/user/register" class="material-icons mdc-top-app-bar__action-item" aria-label="Register"
+                   alt="Register">person_add</a>
+                <a href="/user/login" class="material-icons mdc-top-app-bar__action-item" aria-label="Login"
+                   alt="Login">account_circle</a>
+            {{end}}
         </section>
     </div>
 </header>

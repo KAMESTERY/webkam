@@ -28,9 +28,26 @@ query LoginUser{
   )
 }
 `
+	getClaims = `
+query GetClaims{
+  getClaims(
+    token: "%s"
+  ) {
+    userId,
+    email,
+    role
+  }
+}
+`
 )
 
 var user_logger = utils.NewLogger("modelsuser")
+
+type Claims struct {
+	Userid string `json:"userId"`
+	Email  string `json:"email"`
+	Role   string `json:"role"`
+}
 
 type Credentials struct {
 	Email    string `form:"email" binding:"required" validate:"required,min=10,max=120"`
@@ -39,15 +56,36 @@ type Credentials struct {
 
 // TODO: Revisit Validations, Leave json tags as is for now
 type User struct {
-	Userid          string `json:"UserID"`
-	Email           string `json:"Email" form:"email" binding:"required" validate:"required,min=10,max=120"`
-	Username        string `json:"Username" form:"username" binding:"required" validate:"required,min=4,max=40"`
-	Role            int    `json:"Role"`
-	Confirmed       int    `json:"Confirmed"`
-	//Passwordhash    string `json:"PasswordHash"`
-	Lastseen        string `json:"LastSeen"`
+	Userid    string `json:"userId"`
+	Email     string `json:"email" form:"email" binding:"required" validate:"required,min=10,max=120"`
+	Username  string `json:"username" form:"username" binding:"required" validate:"required,min=4,max=40"`
+	Role      int    `json:"role"`
+	Confirmed int    `json:"confirmed"`
+	//Passwordhash    string `json:"passwordhash"`
+	Lastseen        string `json:"lastseen"`
 	Password        string `form:"password" binding:"required" validate:"required,min=8,max=120"`
 	ConfirmPassword string `form:"password" binding:"required" validate:"required,min=8,max=120"`
+}
+
+func GetClaims(token string) (claims Claims) {
+	c := &http.Client{
+		Timeout: HTTP_CLIENT_TIMEOUT,
+	}
+	qryData := fmt.Sprintf(
+		getClaims,
+		token,
+	)
+	resp, err := c.Post(utils.BackendGQL, "application/json", newQuery(qryData))
+	if err == nil {
+		resp_struct := &struct {
+			Data struct {
+				Claims Claims `json:"getClaims"`
+			} `json:"data"`
+		}{}
+		utils.DecodeJson(resp.Body, resp_struct)
+		claims = resp_struct.Data.Claims
+	}
+	return
 }
 
 func Authenticate(creds Credentials) (token string) {
@@ -109,5 +147,6 @@ func newQuery(queryString string) *strings.Reader {
 	}
 	utils.EncodeJson(buffer, query)
 	json := buffer.String()
+	user_logger.Debugf("GQL_QUERY:::: %s", json)
 	return strings.NewReader(json)
 }
