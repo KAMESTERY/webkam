@@ -18,7 +18,7 @@
     var validationErrors = [];
     {{range .validationErrors}}
 
-    validationErrors.push("{{.Field}} -- {{.Value}}");
+    validationErrors.push("{{.Field}}");
 
     {{end}}
 </script>
