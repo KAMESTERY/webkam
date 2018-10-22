@@ -44,9 +44,14 @@ query GetClaims{
 var user_logger = utils.NewLogger("modelsuser")
 
 type Claims struct {
-	Userid string `json:"user_id"`
+	Userid string `json:"userId"`
 	Email  string `json:"email"`
-	Role   string `json:"role"`
+	Role   int64 `json:"role"`
+}
+
+func (c *Claims) Ok() (ok bool) {
+	ok = c.Userid != "" && c.Email != ""
+	return
 }
 
 type Credentials struct {

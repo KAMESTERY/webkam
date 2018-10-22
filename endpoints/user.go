@@ -21,9 +21,9 @@ func login(c *gin.Context) {
 
 func login_error(c *gin.Context, validationErrors []validator.FieldError, flashes []interface{}) {
 	render(c, gin.H{
-		"title":   "Authenticate",
+		"title":            "Authenticate",
 		"validationErrors": validationErrors,
-		"flashes": flashes,
+		"flashes":          flashes,
 	}, "public/login.html")
 }
 
@@ -59,6 +59,12 @@ func authenticate(c *gin.Context) {
 
 	claims := models.GetClaims(token)
 
+	if !claims.Ok() {
+		session.AddFlash("Could not Log You in!") //TODO: Revisit this!
+		login_error(c, nil, session.Flashes())
+		return
+	}
+
 	user_logger.Debugf("CLAIMS:::: %+v", claims)
 
 	session.Set(TOKEN_KAM, token)
@@ -74,7 +80,7 @@ func authenticate(c *gin.Context) {
 func logout(c *gin.Context) {
 	session := sessions.Default(c)
 	session.Clear() // Required: Removes all keys
-	session.Save() // Required: Save the changes to the session
+	session.Save()  // Required: Save the changes to the session
 	session.AddFlash("You are now Logged Out!")
 	c.Redirect(http.StatusFound, "/")
 }
