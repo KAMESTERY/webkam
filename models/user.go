@@ -116,6 +116,7 @@ func Enroll(user User) (ok bool) {
 	c := &http.Client{
 		Timeout: HTTP_CLIENT_TIMEOUT,
 	}
+	user.Userid = user.Email //TODO: Revisit this!! Backend also uses Email value as Userid
 	qryData := fmt.Sprintf(
 		registerQuery,
 		user.Userid,
