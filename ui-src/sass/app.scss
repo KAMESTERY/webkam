@@ -55,7 +55,7 @@ body {
 
 // side-menu
 .menu-container {
-  flex: 30%;
+  flex: 25%;
 }
 
 .side-menu {
@@ -85,6 +85,10 @@ body {
 }
 
 // login & register
+.auth-form {
+  margin-top: 50px;
+}
+
 .center-container {
   margin-top: 75px;
 }

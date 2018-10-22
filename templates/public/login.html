@@ -3,39 +3,31 @@
 {{ define "public/login.html" }}
 
 <!-- BEGIN COMMON TEMPLATE CODE -->
-{{ template "header.html" . }}
-<div class="mdc-drawer-app-content"> <!-- Needed for top app bar functionality -->
-    {{ template "app-bar.html" .}}
-    <main class="main-content" id="main-content">
-        <div class="mdc-top-app-bar--fixed-adjust"> <!-- Needed for top app bar functionality -->
+{{ template "global-header.html" . }}
 <!-- END COMMON TEMPLATE CODE -->
 
-            <form action="/user/login" method="post">
-                <input type="hidden" name="_csrf" value="{{ .csrf }}">
-                <div class="mdc-text-field mdc-text-field--box email">
-                    <input type="email" class="mdc-text-field__input" id="email-input" name="email" required>
-                    <label class="mdc-floating-label" for="email-input">Email</label>
-                    <div class="mdc-line-ripple"></div>
-                </div>
-                <div class="mdc-text-field mdc-text-field--box password">
-                    <input type="password" class="mdc-text-field__input" id="password-input" name="password" required
-                           minlength="8">
-                    <label class="mdc-floating-label" for="password-input">Password</label>
-                    <div class="mdc-line-ripple"></div>
-                </div>
-                <div class="form-button-container">
-                    <button type="button" class="mdc-button cancel">
-                        Cancel
-                    </button>
-                    <button class="mdc-button mdc-button--raised login">
-                        Login
-                    </button>
-                </div>
-            </form>
-
-        </div>
-    </main>
-</div>
+<form class="auth-form" action="/user/login" method="post">
+    <input type="hidden" name="_csrf" value="{{ .csrf }}">
+    <div class="mdc-text-field mdc-text-field--box email">
+        <input type="email" class="mdc-text-field__input" id="email-input" name="email" required>
+        <label class="mdc-floating-label" for="email-input">Email</label>
+        <div class="mdc-line-ripple"></div>
+    </div>
+    <div class="mdc-text-field mdc-text-field--box password">
+        <input type="password" class="mdc-text-field__input" id="password-input" name="password" required
+               minlength="8">
+        <label class="mdc-floating-label" for="password-input">Password</label>
+        <div class="mdc-line-ripple"></div>
+    </div>
+    <div class="form-button-container">
+        <button type="button" class="mdc-button cancel">
+            Cancel
+        </button>
+        <button class="mdc-button mdc-button--raised login">
+            Login
+        </button>
+    </div>
+</form>
 
 <!-- Embed Footer -->
 {{ template "footer.html" . }}

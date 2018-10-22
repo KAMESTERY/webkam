@@ -63,8 +63,8 @@ type User struct {
 	Confirmed int    `json:"confirmed"`
 	//Passwordhash    string `json:"passwordhash"`
 	Lastseen        string `json:"lastseen"`
-	Password        string `form:"password" binding:"required" validate:"required,min=8,max=120"`
-	ConfirmPassword string `form:"password" binding:"required" validate:"required,min=8,max=120"`
+	Password        string `form:"password" binding:"required" validate:"eqfield=ConfirmPassword,required,min=8,max=120"`
+	ConfirmPassword string `form:"confirm-password" binding:"required" validate:"required,min=8,max=120"`
 }
 
 func GetClaims(token string) (claims Claims) {
