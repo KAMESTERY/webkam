@@ -21,6 +21,14 @@
                 <a href="/user/login" class="material-icons mdc-top-app-bar__action-item" aria-label="Login"
                    alt="Login">account_circle</a>
             {{end}}
+            {{if .user_kam}}
+                <form action="/user/logout" method="post">
+                    <input type="hidden" name="_csrf" value="{{ .csrf }}">
+                    <button class="mdc-button mdc-button--raised login">
+                        Logout
+                    </button>
+                </form>
+            {{end}}
         </section>
     </div>
 </header>

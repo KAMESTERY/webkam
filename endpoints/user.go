@@ -3,7 +3,6 @@ package endpoints
 import (
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
-	"github.com/utrack/gin-csrf"
 	"gopkg.in/go-playground/validator.v9"
 	"kamestery.com/models"
 	"kamestery.com/utils"
@@ -16,14 +15,12 @@ var user_logger = utils.NewLogger("entpointuser")
 
 func login(c *gin.Context) {
 	render(c, gin.H{
-		"csrf":  csrf.GetToken(c),
 		"title": "Authenticate",
 	}, "public/login.html")
 }
 
 func login_error(c *gin.Context, validationErrors []validator.FieldError, flashes []interface{}) {
 	render(c, gin.H{
-		"csrf":    csrf.GetToken(c),
 		"title":   "Authenticate",
 		"validationErrors": validationErrors,
 		"flashes": flashes,
@@ -65,7 +62,8 @@ func authenticate(c *gin.Context) {
 	user_logger.Debugf("CLAIMS:::: %+v", claims)
 
 	session.Set(TOKEN_KAM, token)
-	session.Set(USER_KAM, utils.ToJsonString(claims))
+	jsonClaims := utils.ToJsonString(claims)
+	session.Set(USER_KAM, jsonClaims)
 	session.Save()
 
 	session.AddFlash("You are now Logged in!")
@@ -73,18 +71,24 @@ func authenticate(c *gin.Context) {
 	c.Redirect(http.StatusFound, "/")
 }
 
+func logout(c *gin.Context) {
+	session := sessions.Default(c)
+	session.Clear() // Required: Removes all keys
+	session.Save() // Required: Save the changes to the session
+	session.AddFlash("You are now Logged Out!")
+	c.Redirect(http.StatusFound, "/")
+}
+
 /////////////// Registration
 
 func register(c *gin.Context) {
 	render(c, gin.H{
-		"csrf":  csrf.GetToken(c),
 		"title": "Register",
 	}, "public/register.html")
 }
 
 func register_error(c *gin.Context, validationErrors []validator.FieldError, flashes []interface{}) {
 	render(c, gin.H{
-		"csrf":             csrf.GetToken(c),
 		"title":            "Register",
 		"validationErrors": validationErrors,
 		"flashes":          flashes,

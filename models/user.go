@@ -44,7 +44,7 @@ query GetClaims{
 var user_logger = utils.NewLogger("modelsuser")
 
 type Claims struct {
-	Userid string `json:"userId"`
+	Userid string `json:"user_id"`
 	Email  string `json:"email"`
 	Role   string `json:"role"`
 }
