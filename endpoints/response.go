@@ -2,6 +2,7 @@ package endpoints
 
 import (
 	"github.com/gin-contrib/sessions"
+	"github.com/utrack/gin-csrf"
 	"kamestery.com/models"
 	"kamestery.com/utils"
 	"net/http"
@@ -59,6 +60,8 @@ func render500(c *gin.Context, data gin.H) {
 
 func addMetadata(c *gin.Context, data gin.H) {
 	session := sessions.Default(c)
+	// Add CSRF Token
+	data[CSRF] = csrf.GetToken(c)
 	// Add Claims
 	if claimsJson := session.Get(USER_KAM); claimsJson != nil {
 		response_logger.Debugf("CLAIMS_JSON:::: %+s", claimsJson)
