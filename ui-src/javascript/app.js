@@ -5,16 +5,22 @@ import {MDCTopAppBar} from "@material/top-app-bar";
 import {MDCDrawer} from "@material/drawer";
 import {MDCSnackbar} from '@material/snackbar';
 
-document.addEventListener("DOMContentLoaded",()=>{
+document.addEventListener("DOMContentLoaded", () => {
 
 // global
     let topBarEl = document.getElementById('app-bar');
     if (topBarEl) {
         const topAppBar = new MDCTopAppBar(topBarEl);
         topAppBar.setScrollTarget(document.getElementById('main-content'));
-        topAppBar.listen('MDCTopAppBar:nav', () => {
-            drawer.open = !drawer.open;
-        });
+
+        let drawerEl = document.querySelector('.mdc-drawer');
+        if (drawerEl) {
+            const drawer = MDCDrawer.attachTo(drawerEl);
+            topAppBar.listen('MDCTopAppBar:nav', () => {
+                drawer.open = !drawer.open;
+            });
+        }
+
     }
     let drawerEl = document.querySelector('.mdc-drawer');
     if (drawerEl) {

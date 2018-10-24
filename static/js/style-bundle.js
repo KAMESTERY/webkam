@@ -5166,9 +5166,14 @@ document.addEventListener("DOMContentLoaded", function () {
     if (topBarEl) {
         var topAppBar = new _topAppBar.MDCTopAppBar(topBarEl);
         topAppBar.setScrollTarget(document.getElementById('main-content'));
-        topAppBar.listen('MDCTopAppBar:nav', function () {
-            drawer.open = !drawer.open;
-        });
+
+        var _drawerEl = document.querySelector('.mdc-drawer');
+        if (_drawerEl) {
+            var drawer = _drawer2.MDCDrawer.attachTo(_drawerEl);
+            topAppBar.listen('MDCTopAppBar:nav', function () {
+                drawer.open = !drawer.open;
+            });
+        }
     }
     var drawerEl = document.querySelector('.mdc-drawer');
     if (drawerEl) {

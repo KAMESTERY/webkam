@@ -1598,7 +1598,7 @@
     width: var(--mdc-ripple-fg-size, 100%);
     height: var(--mdc-ripple-fg-size, 100%); }
   .mdc-card__primary-action::before, .mdc-card__primary-action::after {
-    background-color: #000; }
+    background-color: black; }
   .mdc-card__primary-action:hover::before {
     opacity: 0.04; }
   .mdc-card__primary-action:not(.mdc-ripple-upgraded):focus::before, .mdc-card__primary-action.mdc-ripple-upgraded--background-focused::before {
@@ -2496,7 +2496,7 @@
     width: var(--mdc-ripple-fg-size, 100%);
     height: var(--mdc-ripple-fg-size, 100%); }
   :not(.mdc-list--non-interactive) > :not(.mdc-list-item--disabled).mdc-list-item::before, :not(.mdc-list--non-interactive) > :not(.mdc-list-item--disabled).mdc-list-item::after {
-    background-color: #000; }
+    background-color: black; }
   :not(.mdc-list--non-interactive) > :not(.mdc-list-item--disabled).mdc-list-item:hover::before {
     opacity: 0.04; }
   :not(.mdc-list--non-interactive) > :not(.mdc-list-item--disabled).mdc-list-item:not(.mdc-ripple-upgraded):focus::before, :not(.mdc-list--non-interactive) > :not(.mdc-list-item--disabled).mdc-list-item.mdc-ripple-upgraded--background-focused::before {
@@ -2897,7 +2897,7 @@ body {
   padding-top: 50px; }
 
 .menu-container {
-  flex: 30%; }
+  flex: 25%; }
 
 .side-menu {
   padding: 20px;
@@ -2918,6 +2918,9 @@ body {
 
 .my-card__media {
   background-image: url("https://via.placeholder.com/350x250"); }
+
+.auth-form {
+  margin-top: 50px; }
 
 .center-container {
   margin-top: 75px; }
