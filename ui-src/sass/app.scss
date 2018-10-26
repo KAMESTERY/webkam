@@ -134,29 +134,6 @@ xl, extra-large: 1920px or larger
 
 */
 
-//@media only screen and (max-width: 850px) {
-//  .main-container {
-//    flex-direction: column;
-//  }
-//
-//  .menu-container {
-//    display: none;
-//  }
-//
-//  .content-container {
-//    padding: 0;
-//  }
-//
-//  .card-container {
-//    justify-content: center;
-//    max-width: 600px;
-//    margin: 0 auto;
-//    flex-direction: column;
-//    flex-wrap: nowrap;
-//  }
-//
-//}
-
 @media only screen and (min-width: 0) and (max-width: 600px) {
   .main-container {
     flex-direction: column;
@@ -167,6 +144,8 @@ xl, extra-large: 1920px or larger
   }
 
   .content-container {
+    margin: 0;
+    padding: 20px;
   }
 
   .card-container {
@@ -177,7 +156,8 @@ xl, extra-large: 1920px or larger
     flex-wrap: nowrap;
   }
 
-  .section-title {
+  .my-card {
+    margin: 20px;
   }
 }
 
