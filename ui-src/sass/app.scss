@@ -25,9 +25,9 @@ body {
 }
 
 .msg-container {
-    text-align: center;
-    margin-top: 10px;
-    color: red;
+  text-align: center;
+  margin-top: 10px;
+  color: red;
 }
 
 .mdc-drawer-app-content {
@@ -46,17 +46,17 @@ body {
 }
 
 .content-container {
-  flex: 70%;
-  padding: 0 0 0 50px;
+  margin: 0 auto;
 }
 
 .content-container section {
-  padding-top: 50px;
+  padding-top: 25px;
 }
 
-// side-menu
 .menu-container {
-  flex: 25%;
+  display: flex;
+  flex: 10%;
+  max-width: 300px;
 }
 
 .side-menu {
@@ -68,6 +68,10 @@ body {
 .menu-title {
   align-self: center;
   margin: 5px auto;
+}
+
+.section-title {
+  text-align: center;
 }
 
 //card layout
@@ -120,9 +124,40 @@ body {
   margin: 3px;
 }
 
-/* Responsive layout - when the screen is less than 700px wide, make the
-two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 850px) {
+/* Responsive layout Grid
+
+xs, extra-small: 0px or larger
+sm, small: 600px or larger
+md, medium: 960px or larger
+lg, large: 1280px or larger
+xl, extra-large: 1920px or larger
+
+*/
+
+//@media only screen and (max-width: 850px) {
+//  .main-container {
+//    flex-direction: column;
+//  }
+//
+//  .menu-container {
+//    display: none;
+//  }
+//
+//  .content-container {
+//    padding: 0;
+//  }
+//
+//  .card-container {
+//    justify-content: center;
+//    max-width: 600px;
+//    margin: 0 auto;
+//    flex-direction: column;
+//    flex-wrap: nowrap;
+//  }
+//
+//}
+
+@media only screen and (min-width: 0) and (max-width: 600px) {
   .main-container {
     flex-direction: column;
   }
@@ -132,7 +167,6 @@ two columns stack on top of each other instead of next to each other */
   }
 
   .content-container {
-    padding: 0;
   }
 
   .card-container {
@@ -144,6 +178,51 @@ two columns stack on top of each other instead of next to each other */
   }
 
   .section-title {
-    text-align: center;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 960px) {
+  .main-container {
+
+  }
+
+  .content-container {
+    max-width: 900px;
+  }
+
+  .menu-container {
+    display: none;
+  }
+
+  .card-container {
+    justify-content: center;
+  }
+
+}
+
+@media only screen and (min-width: 961px) and (max-width: 1280px) {
+  .main-container {
+  }
+
+  .menu-container {
+  }
+
+  .content-container {
+    max-width: 600px;
+  }
+
+}
+
+@media only screen and (min-width: 1280px) and (max-width: 1600px) {
+
+  .content-container {
+    max-width: 900px;
+  }
+}
+
+@media only screen and (min-width: 1601px) and (max-width: 1920px) {
+
+  .content-container {
+    max-width: 1200px;
   }
 }

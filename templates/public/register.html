@@ -7,6 +7,7 @@
 <!-- END COMMON TEMPLATE CODE -->
 
 <form class="auth-form" action="/user/register" method="post">
+    <h2 class="section-title">{{ .title}}</h2>
     <input type="hidden" name="_csrf" value="{{ .csrf }}">
     <div class="mdc-text-field mdc-text-field--box username">
         <input type="text" class="mdc-text-field__input" id="username-input" name="username" required>
