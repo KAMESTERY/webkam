@@ -131,11 +131,12 @@ body {
   margin: 3px;
 }
 
+//TODO APPLY MOBILE FIRST PRINCIPLE
 // content
-
 .article-main {
   margin-top: -35vh;
   flex-shrink: 0;
+  margin-bottom: 50px;
 }
 
 .article-header {
@@ -143,17 +144,18 @@ body {
 }
 
 .article-container {
-  max-width: 1200px;
-  min-width: 325px;
+  max-width: 900px;
+  min-width: 400px;
   width: calc(100% - 16px);
   margin: 0 auto;
 }
 
 .article-content {
-  border-radius: 2px;
-  padding: 80px 56px;
-  margin-bottom: 80px;
+  max-width: 675px;
+  border-radius: 6px;
+  padding: 50px;
   background: white;
+  margin: 0 auto;
 }
 
 .article-content h3 {
