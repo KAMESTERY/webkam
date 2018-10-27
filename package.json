@@ -26,5 +26,9 @@
     "sass-loader": "^7.1.0",
     "webpack": "^3.12.0",
     "webpack-dev-server": "^2.11.3"
+  },
+  "dependencies": {
+    "@material/elevation": "^0.40.1",
+    "@material/layout-grid": "^0.40.1"
   }
 }

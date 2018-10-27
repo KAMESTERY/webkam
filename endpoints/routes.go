@@ -14,6 +14,9 @@ func InitializeRoutes(r *gin.Engine) {
 	r.GET("/ping", ping)
 	r.GET("/", home)
 
+	// todo move to user routes
+	r.GET("/article", article)
+
 	// User Routes
 	user_routes := r.Group("/user")
 	{
