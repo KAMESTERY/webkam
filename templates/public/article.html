@@ -6,13 +6,12 @@
 {{ template "global-header.html" . }}
 <!-- END COMMON TEMPLATE CODE -->
 
-<div class="style-ribbon">
+<div class="style-ribbon"></div>
 
-</div>
 <section class="article-main mdc-layout-grid"> <!-- removed: (mdc-layout-grid)-->
     <div class="article-container mdc-layout-grid__inner">
-        <!-- removed: (mdc-color--white mdc-shadow--4dp content mdc-color-text--grey-800)-->
-        <div class="article-content mdc-elevation--z4 mdc-layout-grid__cell mdc-layout-grid__cell--span-8">
+        <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-8"></div>
+        <div class="article-content mdc-layout-grid__cell mdc-layout-grid__cell--span-8">
             <h3>How to install MDL</h3>
             <p>
                 Cillum dolor esse sit incididunt velit eiusmod magna ad nostrud officia aute dolor dolor. Magna esse
@@ -110,6 +109,19 @@
         </div>
     </div>
 </section>
+
+<section class="article-list-container">
+    <h3 class="section-title">More</h3>
+    <div class="card-container"> <!-- flex container -->
+    {{template "card.html"}}
+    {{template "card.html"}}
+    {{template "card.html"}}
+    {{template "card.html"}}
+    {{template "card.html"}}
+    {{template "card.html"}}
+    </div>
+</section>
+
 
 
 <!-- Embed Footer -->

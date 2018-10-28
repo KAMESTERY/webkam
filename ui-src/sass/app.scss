@@ -6,16 +6,51 @@
 @import "@material/list/mdc-list";
 @import "@material/snackbar/mdc-snackbar";
 @import "instagram-filters";
+@import "@material/elevation/mdc-elevation";
+
+//TODO REFACTOR:
+// - UTILIZE SCSS TO ORGANIZE AND RE-USE STYLES
+// - REFACTOR CLASSES INTO ID'S WHERE APPLICABLE
+// - CONSIDER REMOVING CUSTOM FLEXBOX LAYOUT AND USE MDC GRID
 
 //global
 body {
   font-family: 'Roboto';
   margin: 0;
-  display: flex;
 }
 
 #main-menu {
   position: fixed;
+}
+
+footer {
+  height: 100px;
+  margin-top: 50px;
+  padding: 10px 0 10px 40px;
+  background: #333333;
+}
+
+#footer-link-list {
+  list-style: none;
+}
+
+#footer-link-list ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+#footer-link-list li {
+  float: left;
+}
+
+#footer-link-list li a {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
 // common
@@ -151,6 +186,8 @@ body {
 }
 
 .article-content {
+  @include mdc-elevation(4);
+
   max-width: 675px;
   border-radius: 6px;
   padding: 50px;
@@ -160,6 +197,11 @@ body {
 
 .article-content h3 {
   margin-top: 48px;
+}
+
+.article-list-container {
+  margin: 0 auto;
+  max-width: 900px;
 }
 
 /* Responsive layout Grid
