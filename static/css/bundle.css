@@ -2943,14 +2943,20 @@ a.mdc-list-item {
 body {
   font-family: 'Roboto';
   margin: 0;
-  display: flex; }
+  min-height: 100%;
+  width: 100%; }
 
 #main-menu {
   position: fixed; }
 
+#app-bar {
+  z-index: 1000000000000; }
+
+#main-content-container {
+  min-height: 100vh; }
+
 footer {
   height: 100px;
-  margin-top: 50px;
   padding: 10px 0 10px 40px;
   background: #333333; }
 
@@ -2971,7 +2977,8 @@ footer {
   display: block;
   text-align: center;
   padding: 14px 16px;
-  text-decoration: none; }
+  text-decoration: none;
+  color: white; }
 
 .style-ribbon {
   width: 100%;
@@ -2983,14 +2990,26 @@ footer {
   color: ghostwhite;
   text-decoration: none; }
 
-.msg-container {
-  text-align: center;
-  margin-top: 10px;
-  color: red; }
-
 .mdc-drawer-app-content {
   flex: auto;
   overflow: auto; }
+
+.responsive-image {
+  max-width: 100%;
+  height: auto; }
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; }
+
+.my-card {
+  min-width: 350px;
+  min-height: 250px;
+  margin: 20px 20px; }
+
+.my-card_media {
+  background-image: url("https://via.placeholder.com/350x250"); }
 
 .main-content {
   overflow: auto;
@@ -2999,10 +3018,11 @@ footer {
 .main-container {
   display: flex; }
 
-.home-content-container {
-  margin: 0 auto; }
+#home-content-container {
+  padding: 0 50px;
+  margin: 30px auto; }
 
-.home-content-container section {
+#home-content-container section {
   padding-top: 25px; }
 
 .menu-container {
@@ -3010,28 +3030,18 @@ footer {
   flex: 10%;
   max-width: 300px; }
 
-.side-menu {
+.page-menu {
   padding: 20px;
-  margin: 0 auto;
+  margin: 0 auto; }
+
+#page-menu-content {
   position: fixed; }
 
 .menu-title {
-  align-self: center;
-  margin: 5px auto; }
+  padding-left: 10px; }
 
 .section-title {
   text-align: center; }
-
-.card-container {
-  display: flex;
-  flex-wrap: wrap; }
-
-.my-card {
-  min-width: 250px;
-  margin: 10px; }
-
-.my-card_media {
-  background-image: url("https://via.placeholder.com/350x250"); }
 
 .auth-form {
   margin-top: 50px; }
@@ -3121,12 +3131,18 @@ xl, extra-large: 1920px or larger
     max-width: 900px; }
   .menu-container {
     display: none; }
+  .my-card {
+    min-width: 250px;
+    min-height: 150px; }
   .card-container {
     justify-content: center; } }
 
 @media only screen and (min-width: 961px) and (max-width: 1280px) {
   .home-content-container {
-    max-width: 600px; } }
+    max-width: 600px; }
+  .my-card {
+    min-width: 250px;
+    min-height: 150px; } }
 
 @media only screen and (min-width: 1280px) and (max-width: 1600px) {
   .home-content-container {

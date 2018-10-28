@@ -9,31 +9,34 @@
 <div class="main-container"> <!-- flex container -->
     <div class="menu-container"> <!-- flex el -->
 
-        <nav class="side-menu mdc-drawer mdc-drawer--permanent">
-            <h1 class="menu-title">HOME</h1>
-            <div class="mdc-drawer__content">
-                <nav class="mdc-list">
-                    <a class="mdc-list-item" href="#section1">
-                        Section One
-                    </a>
-                    <a class="mdc-list-item" href="#section2">
-                        Section Two
-                    </a>
-                    <a class="mdc-list-item" href="#section3">
-                        Section Three
-                    </a>
-                </nav>
+        <nav class="page-menu mdc-drawer mdc-drawer--permanent">
+            <div id="page-menu-content"> <!-- fixed positioning -->
+                <h3 class="menu-title">
+                    <i class="fas fa-home"></i>
+                    Home
+                </h3>
+                <div class="mdc-drawer__content">
+                    <nav class="mdc-list">
+                        <a class="mdc-list-item" href="#section1">
+                            Section One
+                        </a>
+                        <a class="mdc-list-item" href="#section2">
+                            Section Two
+                        </a>
+                        <a class="mdc-list-item" href="#section3">
+                            Section Three
+                        </a>
+                    </nav>
+                </div>
             </div>
         </nav>
 
     </div>
 
-    <div class="home-content-container"> <!-- flex el -->
+    <div id="home-content-container"> <!-- flex el -->
         <section id="section1">
             <h1 class="section-title">Section One</h1>
             <div class="card-container"> <!-- flex container -->
-            {{template "card.html"}}
-            {{template "card.html"}}
             {{template "card.html"}}
             {{template "card.html"}}
             </div>
@@ -44,16 +47,12 @@
             <div class="card-container"> <!-- flex container -->
             {{template "card.html"}}
             {{template "card.html"}}
-            {{template "card.html"}}
-            {{template "card.html"}}
             </div>
         </section>
 
         <section id="section3">
             <h1 class="section-title">Section Three</h1>
             <div class="card-container"> <!-- flex container -->
-            {{template "card.html"}}
-            {{template "card.html"}}
             {{template "card.html"}}
             {{template "card.html"}}
             </div>
