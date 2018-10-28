@@ -6,19 +6,63 @@
 @import "@material/list/mdc-list";
 @import "@material/snackbar/mdc-snackbar";
 @import "instagram-filters";
+@import "@material/elevation/mdc-elevation";
 
-//global
+//TODO REFACTOR:
+// - UTILIZE SCSS TO ORGANIZE AND RE-USE STYLES
+// - REFACTOR CLASSES INTO ID'S WHERE APPLICABLE
+// - CONSIDER REMOVING CUSTOM FLEXBOX LAYOUT AND USE MDC GRID
+
+// GLOBAL / COMMON
 body {
   font-family: 'Roboto';
   margin: 0;
-  display: flex;
+  min-height: 100%;
+  width: 100%;
 }
 
 #main-menu {
   position: fixed;
 }
 
-// common
+#app-bar {
+  z-index: 1000000000000;
+}
+
+#main-content-container {
+  min-height: 100vh;
+}
+
+footer {
+  height: 100px;
+  padding: 10px 0 10px 40px;
+  background: #333333;
+}
+
+#footer-link-list {
+  list-style: none;
+}
+
+#footer-link-list ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+#footer-link-list li {
+  float: left;
+}
+
+#footer-link-list li a {
+  display: block;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  color: white;
+}
+
 .style-ribbon {
   width: 100%;
   height: 45vh;
@@ -31,18 +75,34 @@ body {
   text-decoration: none;
 }
 
-.msg-container {
-  text-align: center;
-  margin-top: 10px;
-  color: red;
-}
-
 .mdc-drawer-app-content {
   flex: auto;
   overflow: auto;
 }
 
-// home
+.responsive-image {
+  max-width: 100%;
+  height: auto;
+}
+
+// CARDS
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.my-card {
+  min-width: 350px;
+  min-height: 250px;
+  margin: 20px 20px;
+}
+
+.my-card_media {
+  background-image: url("https://via.placeholder.com/350x250");
+}
+
+// HOME
 .main-content {
   overflow: auto;
   height: 100%;
@@ -52,11 +112,12 @@ body {
   display: flex;
 }
 
-.home-content-container {
-  margin: 0 auto;
+#home-content-container {
+  padding: 0 50px;
+  margin: 30px auto;
 }
 
-.home-content-container section {
+#home-content-container section {
   padding-top: 25px;
 }
 
@@ -66,34 +127,21 @@ body {
   max-width: 300px;
 }
 
-.side-menu {
+.page-menu {
   padding: 20px;
   margin: 0 auto;
+}
+
+#page-menu-content {
   position: fixed;
 }
 
 .menu-title {
-  align-self: center;
-  margin: 5px auto;
+  padding-left: 10px;
 }
 
 .section-title {
   text-align: center;
-}
-
-//card layout
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.my-card {
-  min-width: 250px;
-  margin: 10px;
-}
-
-.my-card_media {
-  background-image: url("https://via.placeholder.com/350x250");
 }
 
 // login & register
@@ -151,6 +199,8 @@ body {
 }
 
 .article-content {
+  @include mdc-elevation(4);
+
   max-width: 675px;
   border-radius: 6px;
   padding: 50px;
@@ -160,6 +210,11 @@ body {
 
 .article-content h3 {
   margin-top: 48px;
+}
+
+.article-list-container {
+  margin: 0 auto;
+  max-width: 900px;
 }
 
 /* Responsive layout Grid
@@ -208,6 +263,11 @@ xl, extra-large: 1920px or larger
     display: none;
   }
 
+  .my-card {
+    min-width: 250px;
+    min-height: 150px;
+  }
+
   .card-container {
     justify-content: center;
   }
@@ -217,6 +277,11 @@ xl, extra-large: 1920px or larger
 @media only screen and (min-width: 961px) and (max-width: 1280px) {
   .home-content-container {
     max-width: 600px;
+  }
+
+  .my-card {
+    min-width: 250px;
+    min-height: 150px;
   }
 }
 
