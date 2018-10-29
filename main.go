@@ -16,8 +16,9 @@ var main_logger = utils.NewLogger("main")
 func main() {
 	r := gin.Default()
 
-	// Templates Folder
-	r.LoadHTMLGlob(utils.TemplatesDir + "/**/*")
+	// Template Functions and Template Folder
+	endpoints.AddTemplateFunctions(r)
+	r.LoadHTMLGlob(utils.TemplatesDir + "/**/*") // Order matters
 
 	// Static Files
 	r.StaticFS("/static", http.Dir(utils.StaticDir))

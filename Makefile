@@ -13,12 +13,3 @@ build:
 
 run: build-ui build
 	$(BASEDIR)/kamestery.com
-
-deploy-dev: build-ui
-	up dev
-
-deploy-stage: build-ui
-	up stage
-
-deploy-prod: build-ui
-	up prod

@@ -12,7 +12,7 @@
             </span>
         </section>
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
-            {{with .user_kam}}
+            {{with UserKm .reqCtx}}
                 <a href="#profile" class="mdc-top-app-bar__action-item" aria-label="Profile"
                    alt="Profile">{{ .Userid }}</a><!-- TODO: Fix the styling and the link for the user display and profile -->
             {{else}}
@@ -21,7 +21,7 @@
                 <a href="/user/login" class="material-icons mdc-top-app-bar__action-item" aria-label="Login"
                    alt="Login">account_circle</a>
             {{end}}
-            {{if .user_kam}}
+            {{if UserKm .reqCtx}}
                 <form action="/user/logout" method="post">
                     <input type="hidden" name="_csrf" value="{{ .csrf }}">
                     <button class="mdc-button mdc-button--raised login">

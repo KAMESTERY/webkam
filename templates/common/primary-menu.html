@@ -7,14 +7,29 @@
                 <i class="material-icons mdc-list-item__graphic" aria-hidden="true">home</i>
                 <span class="mdc-list-item__text">Home</span>
             </a>
-            <a class="mdc-list-item" href="/user/register">
-                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">person_add</i>
-                <span class="mdc-list-item__text">Register</span>
-            </a>
-            <a class="mdc-list-item" href="/user/login">
-                <i class="material-icons mdc-list-item__graphic" aria-hidden="true">person</i>
-                <span class="mdc-list-item__text">Login</span>
-            </a>
+            {{with UserKm .reqCtx}}
+                <a class="mdc-list-item" href="#profile">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">person_add</i>
+                    <span class="mdc-list-item__text">{{ .Userid }}</span><!-- TODO: Fix the styling and the link for the user display and profile -->
+                </a>
+            {{else}}
+                <a class="mdc-list-item" href="/user/register">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">person_add</i>
+                    <span class="mdc-list-item__text">Register</span>
+                </a>
+                <a class="mdc-list-item" href="/user/login">
+                    <i class="material-icons mdc-list-item__graphic" aria-hidden="true">person</i>
+                    <span class="mdc-list-item__text">Login</span>
+                </a>
+            {{end}}
+            {{if UserKm .reqCtx}}
+                <form action="/user/logout" method="post">
+                    <input type="hidden" name="_csrf" value="{{ .csrf }}">
+                    <button class="mdc-button mdc-button--raised login">
+                        Logout
+                    </button>
+                </form>
+            {{end}}
         </div>
     </div>
 </aside>

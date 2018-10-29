@@ -1,14 +1,10 @@
 package endpoints
 
 import (
-	"github.com/gin-contrib/sessions"
+	"github.com/gin-gonic/gin"
 	"github.com/utrack/gin-csrf"
-	"kamestery.com/models"
 	"kamestery.com/utils"
 	"net/http"
-	"strings"
-
-	"github.com/gin-gonic/gin"
 )
 
 var response_logger = utils.NewLogger("entpointresponse")
@@ -59,15 +55,9 @@ func render500(c *gin.Context, data gin.H) {
 }
 
 func addMetadata(c *gin.Context, data gin.H) {
-	session := sessions.Default(c)
+	// Add Request Context
+	data[REQ_CTX] = c
 	// Add CSRF Token
 	data[CSRF] = csrf.GetToken(c)
-	// Add Claims
-	if claimsJson := session.Get(USER_KAM); claimsJson != nil {
-		response_logger.Debugf("CLAIMS_JSON:::: %+s", claimsJson)
-		var claims models.Claims
-		utils.DecodeJson(strings.NewReader(claimsJson.(string)), &claims)
-		data[USER_KAM] = claims
-	}
 	response_logger.Debugf("RESPONSE_DATA:::: %+v", data)
 }

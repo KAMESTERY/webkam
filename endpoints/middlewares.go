@@ -19,7 +19,7 @@ func IncludeCommonMiddlewares(r *gin.Engine) {
 		Secret: "secret123",
 		ErrorFunc: func(c *gin.Context) {
 			render403(c, gin.H{
-				"message": "CSRF token mismatch",
+				"message": "REQ_CTX token mismatch",
 			})
 			c.Abort()
 		},
