@@ -3004,9 +3004,7 @@ footer {
   justify-content: center; }
 
 .my-card {
-  min-width: 350px;
-  min-height: 250px;
-  margin: 20px 20px; }
+  margin: 20px; }
 
 .my-card_media {
   background-image: url("https://via.placeholder.com/350x250"); }
@@ -3114,7 +3112,7 @@ xl, extra-large: 1920px or larger
     flex-direction: column; }
   .menu-container {
     display: none; }
-  .home-content-container {
+  #home-content-container {
     margin: 0;
     padding: 20px; }
   .card-container {
@@ -3127,7 +3125,7 @@ xl, extra-large: 1920px or larger
     margin: 20px; } }
 
 @media only screen and (min-width: 601px) and (max-width: 960px) {
-  .home-content-container {
+  #home-content-container {
     max-width: 900px; }
   .menu-container {
     display: none; }
@@ -3138,16 +3136,16 @@ xl, extra-large: 1920px or larger
     justify-content: center; } }
 
 @media only screen and (min-width: 961px) and (max-width: 1280px) {
-  .home-content-container {
+  #home-content-container {
     max-width: 600px; }
   .my-card {
     min-width: 250px;
     min-height: 150px; } }
 
 @media only screen and (min-width: 1280px) and (max-width: 1600px) {
-  .home-content-container {
+  #home-content-container {
     max-width: 900px; } }
 
 @media only screen and (min-width: 1601px) and (max-width: 1920px) {
-  .home-content-container {
+  #home-content-container {
     max-width: 1200px; } }
