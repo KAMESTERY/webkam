@@ -93,9 +93,7 @@ footer {
 }
 
 .my-card {
-  min-width: 350px;
-  min-height: 250px;
-  margin: 20px 20px;
+  margin: 20px;
 }
 
 .my-card_media {
@@ -236,7 +234,7 @@ xl, extra-large: 1920px or larger
     display: none;
   }
 
-  .home-content-container {
+  #home-content-container {
     margin: 0;
     padding: 20px;
   }
@@ -255,7 +253,7 @@ xl, extra-large: 1920px or larger
 }
 
 @media only screen and (min-width: 601px) and (max-width: 960px) {
-  .home-content-container {
+  #home-content-container {
     max-width: 900px;
   }
 
@@ -275,7 +273,7 @@ xl, extra-large: 1920px or larger
 }
 
 @media only screen and (min-width: 961px) and (max-width: 1280px) {
-  .home-content-container {
+  #home-content-container {
     max-width: 600px;
   }
 
@@ -286,14 +284,14 @@ xl, extra-large: 1920px or larger
 }
 
 @media only screen and (min-width: 1280px) and (max-width: 1600px) {
-  .home-content-container {
+  #home-content-container {
     max-width: 900px;
   }
 }
 
 @media only screen and (min-width: 1601px) and (max-width: 1920px) {
 
-  .home-content-container {
+  #home-content-container {
     max-width: 1200px;
   }
 }
