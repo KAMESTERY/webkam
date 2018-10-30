@@ -9,7 +9,7 @@ require (
 	github.com/gin-gonic/gin v1.3.0
 	github.com/go-playground/locales v0.12.1 // indirect
 	github.com/go-playground/universal-translator v0.16.0 // indirect
-	github.com/golang/protobuf v1.2.0 // indirect
+	github.com/golang/protobuf v1.2.0
 	github.com/gorilla/sessions v1.1.3 // indirect
 	github.com/json-iterator/go v1.1.5 // indirect
 	github.com/mattn/go-isatty v0.0.4 // indirect
@@ -23,7 +23,9 @@ require (
 	github.com/ugorji/go/codec v0.0.0-20181012064053-8333dd449516 // indirect
 	github.com/utrack/gin-csrf v0.0.0-20170409081402-402f6eaad1b1
 	golang.org/x/arch v0.0.0-20180920145803-b19384d3c130 // indirect
+	golang.org/x/net v0.0.0-20181029044818-c44066c5c816
 	golang.org/x/sys v0.0.0-20181011152604-fa43e7bc11ba // indirect
+	google.golang.org/grpc v1.16.0
 	gopkg.in/go-playground/validator.v8 v8.18.2 // indirect
 	gopkg.in/go-playground/validator.v9 v9.21.0
 	gopkg.in/yaml.v2 v2.2.1 // indirect

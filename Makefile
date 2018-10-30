@@ -11,5 +11,9 @@ build-ui:
 build:
 	go build
 
+gen-code:
+	@echo "Generating Go code..."
+	@protoc -I svc/ svc/authkm.proto --go_out=plugins=grpc:grpc/gen
+
 run: build-ui build
 	$(BASEDIR)/kamestery.com
