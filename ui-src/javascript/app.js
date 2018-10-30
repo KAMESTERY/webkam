@@ -71,6 +71,11 @@ document.addEventListener("DOMContentLoaded", () => {
         new MDCRipple(cancelEl);
     }
 
+    let fabRippleEl = document.querySelector('.mdc-fab');
+    if (fabRippleEl) {
+        new MDCTextField(fabRippleEl);
+    }
+
     console.log('Starting load');
 
 // login/register

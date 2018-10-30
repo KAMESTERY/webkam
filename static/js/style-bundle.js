@@ -5266,6 +5266,11 @@ document.addEventListener("DOMContentLoaded", function () {
         new _ripple.MDCRipple(cancelEl);
     }
 
+    var fabRippleEl = document.querySelector('.mdc-fab');
+    if (fabRippleEl) {
+        new _textfield.MDCTextField(fabRippleEl);
+    }
+
     console.log('Starting load');
 
     // login/register

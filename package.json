@@ -28,5 +28,8 @@
     "sass-loader": "^7.1.0",
     "webpack": "^3.12.0",
     "webpack-dev-server": "^2.11.3"
+  },
+  "dependencies": {
+    "@material/fab": "^0.40.1"
   }
 }
