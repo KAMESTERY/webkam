@@ -47,17 +47,7 @@ func authenticate(c *gin.Context) {
 	}
 
 	//TODO: Not Ready for Prime Time Yet
-	token := models.Authenticate(user)
-
-	if token == "" {
-		session.AddFlash("Could not Log You in!") //TODO: Revisit this!
-		login_error(c, nil, session.Flashes())
-		return
-	}
-
-	user_logger.Debugf("AUTH_TOKEN:::: %s", token)
-
-	claims := models.GetClaims(token)
+	claims := models.Authenticate(c, user)
 
 	if !claims.Ok() {
 		session.AddFlash("Could not Log You in!") //TODO: Revisit this!
@@ -67,7 +57,7 @@ func authenticate(c *gin.Context) {
 
 	user_logger.Debugf("CLAIMS:::: %+v", claims)
 
-	session.Set(TOKEN_KAM, token)
+	session.Set(TOKEN_KAM, claims.Token)
 	jsonClaims := utils.ToJsonString(claims)
 	session.Set(USER_KAM, jsonClaims)
 	session.Save()
@@ -121,13 +111,16 @@ func enroll(c *gin.Context) {
 	}
 
 	//TODO: Not Ready for Prime Time Yet
-	ok := models.Enroll(user)
+	ok, msg := models.Enroll(c, user)
 
 	if !ok {
-		session.AddFlash("Could not Enroll You!") //TODO: Revisit this!
+		session.AddFlash("Could not Enroll You! " + msg) //TODO: Revisit this!
 		register_error(c, nil, session.Flashes())
 		return
 	}
+
+	session.AddFlash("You are now Enrolled! " + msg)
+
 	user_logger.Debugf("ENROLLMENT_STATUS:::: %+v", ok)
 
 	c.Redirect(http.StatusFound, "/")

@@ -1,56 +1,23 @@
 package models
 
 import (
-	"bytes"
-	"fmt"
+	"context"
+	"kamestery.com/grpc"
+	pb "kamestery.com/grpc/gen"
 	"kamestery.com/utils"
-	"net/http"
-	"strings"
-)
-
-const (
-	registerQuery = `
-mutation RegisterUser {
-  register(
-    userId: "%s",
-    email: "%s",
-    username: "%s",
-    password: "%s"
-  )
-}
-`
-	loginQuery = `
-query LoginUser{
-  login(
-    userId: "%s",
-    email: "%s",
-    password: "%s"
-  )
-}
-`
-	getClaims = `
-query GetClaims{
-  getClaims(
-    token: "%s"
-  ) {
-    userId,
-    email,
-    role
-  }
-}
-`
 )
 
 var user_logger = utils.NewLogger("modelsuser")
 
 type Claims struct {
-	Userid string `json:"userId"`
+	Token  string
+	UserId string `json:"userId"`
 	Email  string `json:"email"`
-	Role   int64 `json:"role"`
+	Role   int32  `json:"role"`
 }
 
 func (c *Claims) Ok() (ok bool) {
-	ok = c.Userid != "" && c.Email != ""
+	ok = c.Token != "" && c.UserId != "" && c.Email != ""
 	return
 }
 
@@ -72,87 +39,58 @@ type User struct {
 	ConfirmPassword string `form:"confirm-password" binding:"required" validate:"required,min=8,max=120"`
 }
 
-func GetClaims(token string) (claims Claims) {
-	c := &http.Client{
-		Timeout: HTTP_CLIENT_TIMEOUT,
+func Authenticate(ctx context.Context, creds Credentials) (claims Claims) {
+
+	grpcConn, connErr := grpc.NewGrpcConn()
+	if connErr != nil {
+		user_logger.Errorf("GRPC_CONN_ERROR:::: %+v", connErr)
+		return
 	}
-	qryData := fmt.Sprintf(
-		getClaims,
-		token,
-	)
-	resp, err := c.Post(utils.BackendGQL, "application/json", newQuery(qryData))
-	if err == nil {
-		resp_struct := &struct {
-			Data struct {
-				Claims Claims `json:"getClaims"`
-			} `json:"data"`
-		}{}
-		utils.DecodeJson(resp.Body, resp_struct)
-		claims = resp_struct.Data.Claims
+	defer grpcConn.Close()
+
+	authKamClient := pb.NewAuthKamClient(grpcConn)
+
+	userCredentialsReq := &pb.UserCredentialsReq{
+		Email:    creds.Email,
+		Password: creds.Password,
 	}
+
+	authClaimsResp, authErr := authKamClient.Authenticate(ctx, userCredentialsReq)
+	if authErr != nil {
+		user_logger.Errorf("AUTHENTICATION_ERROR:::: %+v", authErr)
+		return
+	}
+
+	claims.Token = authClaimsResp.Token
+	claims.Email = authClaimsResp.Email
+	claims.UserId = authClaimsResp.UserId
+	claims.Role = authClaimsResp.Role
+
 	return
 }
 
-func Authenticate(creds Credentials) (token string) {
-	c := &http.Client{
-		Timeout: HTTP_CLIENT_TIMEOUT,
-	}
-	qryData := fmt.Sprintf(
-		loginQuery,
-		creds.Email,
-		creds.Email,
-		creds.Password,
-	)
-	resp, err := c.Post(utils.BackendGQL, "application/json", newQuery(qryData))
-	if err == nil {
-		resp_struct := &struct {
-			Data struct {
-				Token string `json:"login"`
-			} `json:"data"`
-		}{}
-		utils.DecodeJson(resp.Body, resp_struct)
-		token = resp_struct.Data.Token
-	}
-	return
-}
+func Enroll(ctx context.Context, user User) (ok bool, msg string) {
 
-func Enroll(user User) (ok bool) {
-	ok = true
-	c := &http.Client{
-		Timeout: HTTP_CLIENT_TIMEOUT,
+	grpcConn, connErr := grpc.NewGrpcConn()
+	if connErr != nil {
+		user_logger.Errorf("GRPC_CONN_ERROR:::: %+v", connErr)
+		return
 	}
-	user.Userid = user.Email //TODO: Revisit this!! Backend also uses Email value as Userid
-	qryData := fmt.Sprintf(
-		registerQuery,
-		user.Userid,
-		user.Email,
-		user.Username,
-		user.Password,
-	)
-	resp, err := c.Post(utils.BackendGQL, "application/json", newQuery(qryData))
-	if err == nil {
-		resp_struct := &struct {
-			Data struct {
-				Register string `json:"register"`
-			} `json:"data"`
-		}{}
-		utils.DecodeJson(resp.Body, resp_struct)
-		if status := resp_struct.Data.Register; status == "" {
-			ok = false
-		}
-	}
-	return
-}
+	defer grpcConn.Close()
 
-func newQuery(queryString string) *strings.Reader {
-	buffer := new(bytes.Buffer)
-	query := struct {
-		Query string `json:"query"`
-	}{
-		Query: queryString,
+	authKamClient := pb.NewAuthKamClient(grpcConn)
+
+	userEnrollReq := &pb.UserEnrollReq{
+		Username: user.Username,
+		Email: user.Email,
+		Password: user.Password,
 	}
-	utils.EncodeJson(buffer, query)
-	json := buffer.String()
-	user_logger.Debugf("GQL_QUERY:::: %s", json)
-	return strings.NewReader(json)
+
+	enrollStatusResp, enrollErr := authKamClient.Enroll(ctx, userEnrollReq)
+	if enrollErr != nil {
+		user_logger.Errorf("ENROLLMENT_ERROR:::: %+v", enrollErr)
+		return
+	}
+
+	return enrollStatusResp.Success, enrollStatusResp.Message
 }

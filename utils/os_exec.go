@@ -14,9 +14,16 @@ func ExecBin(relativeBinPath string, args ...string) {
 		osexec_logger.Fatalf("FILE_DOES_NOT_EXISTS_ERROR:::: %s", fullBinPath)
 		return
 	}
-	osexec_logger.Info("......................................................................")
-	cmd := exec.Command(fullBinPath, args...)
+	osexec_logger.Infof("............fullBinPath......====>.......%s.............................................", fullBinPath)
+	exec.Command("cp", fullBinPath, "/tmp").Start()
 
+	osexec_logger.Info("......................................................................")
+
+	execBinPath := "/tmp"+relativeBinPath
+	osexec_logger.Infof("..........execBinPath......====>.......%s...............................................", execBinPath)
+	cmd := exec.Command(execBinPath, args...)
+
+	osexec_logger.Info("......................................................................")
 	// Create stdout, stderr streams of type io.Reader
 	stdout, err := cmd.StdoutPipe()
 	checkError(err)
