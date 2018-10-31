@@ -10,7 +10,7 @@
             {{with UserKm .reqCtx}}
                 <a class="mdc-list-item" href="#profile">
                     <i class="material-icons mdc-list-item__graphic" aria-hidden="true">person_add</i>
-                    <span class="mdc-list-item__text">{{ .Userid }}</span><!-- TODO: Fix the styling and the link for the user display and profile -->
+                    <span class="mdc-list-item__text">{{ .UserId }}</span><!-- TODO: Fix the styling and the link for the user display and profile -->
                 </a>
             {{else}}
                 <a class="mdc-list-item" href="/user/register">

@@ -2,17 +2,27 @@ package endpoints
 
 import (
 	"github.com/gin-contrib/sessions"
+	"github.com/gin-gonic/gin"
 	"kamestery.com/utils"
 	"net/http"
-
-	"github.com/gin-gonic/gin"
+	"os"
 )
 
-var public_logger = utils.NewLogger("entpointpublic")
+var (
+	public_logger = utils.NewLogger("entpointpublic")
+	lastDeployed = func() string {
+		lDpl := os.Getenv("LAST_DEPLOYED")
+		if len(lDpl) == 0 {
+			lDpl = "Mon, 02 Jan 2006 15:04:05 -0700"
+		}
+		return lDpl
+	}
+)
 
 func ping(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"message": "pong",
+		"lastDeployed": lastDeployed(),
 	})
 }
 

@@ -1,0 +1,39 @@
+
+syntax = "proto3";
+
+package authkm;
+
+// The AuthKam Service Definition.
+service AuthKam {
+    // Authenticate
+    rpc Authenticate (UserCredentialsReq) returns (AuthClaimsResp) {}
+    // Enroll
+    rpc Enroll (UserEnrollReq) returns (EnrollStatusResp) {}
+}
+
+// The authentication request message containing the user's credentials
+message UserCredentialsReq {
+    string email = 1;
+    string password = 2;
+}
+
+// The response message containing the user's authentication claims
+message AuthClaimsResp {
+    string token = 1;
+    string user_id = 2;
+	string email = 3;
+	int32 role = 4;
+}
+
+// The enrollment request message containing the user's details
+message UserEnrollReq {
+    string username = 1;
+    string email = 2;
+    string password = 3;
+}
+
+// The response containing the user's enrollment status
+message EnrollStatusResp {
+    bool success = 1;
+    string message = 2;
+}

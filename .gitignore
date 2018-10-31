@@ -10,6 +10,7 @@ kamestery.com
 vendor
 bin
 server
+worker-rpc
 # Clojure
 pom.xml
 pom.xml.asc

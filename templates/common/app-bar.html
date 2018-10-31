@@ -14,7 +14,7 @@
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
             {{with UserKm .reqCtx}}
                 <a href="#profile" class="mdc-top-app-bar__action-item" aria-label="Profile"
-                   alt="Profile">{{ .Userid }}</a><!-- TODO: Fix the styling and the link for the user display and profile -->
+                   alt="Profile">{{ .UserId }}</a><!-- TODO: Fix the styling and the link for the user display and profile -->
             {{else}}
                 <a href="/user/register" class="material-icons mdc-top-app-bar__action-item" aria-label="Register"
                    alt="Register">person_add</a>
