@@ -58,9 +58,22 @@
             </div>
         </section>
     </div>
-    <button id="mobile_menu_btn" class="mdc-fab" aria-label="Mobile Menu">
-        <span class="mdc-fab__icon material-icons">view_list</span>
-    </button>
+
+    <div id="mobile_menu" class="toolbar mdc-menu-surface--anchor">
+        <button id="mobile_menu_btn" class="mdc-fab" aria-label="View List">
+            <span class="mdc-fab__icon material-icons">view_list</span>
+        </button>
+        <div class="mdc-menu mdc-menu-surface" tabindex="-1">
+            <div>
+                <ul id="mobile_menu_list" class="mdc-list">
+                    <a class="mdc-list-item" href="#section1">Section One</a>
+                    <a class="mdc-list-item" href="#section2">Section Two</a>
+                    <a class="mdc-list-item" href="#section3">Section Three</a>
+                </ul>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <!-- Embed Footer -->
