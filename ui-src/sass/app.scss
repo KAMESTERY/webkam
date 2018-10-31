@@ -7,6 +7,10 @@
 @import "@material/snackbar/mdc-snackbar";
 @import "instagram-filters";
 @import "@material/elevation/mdc-elevation";
+@import "@material/fab/mdc-fab";
+@import "@material/list/mdc-list";
+@import "@material/menu-surface/mdc-menu-surface";
+@import "@material/menu/mdc-menu";
 
 //TODO REFACTOR:
 // - UTILIZE SCSS TO ORGANIZE AND RE-USE STYLES
@@ -15,7 +19,7 @@
 
 // GLOBAL / COMMON
 body {
-  font-family: 'Roboto';
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   min-height: 100%;
   width: 100%;
@@ -31,6 +35,14 @@ body {
 
 #main-content-container {
   min-height: 100vh;
+}
+
+#mobile_menu_btn {
+  display: none;
+}
+
+#mobile_menu {
+  display: none;
 }
 
 footer {
@@ -239,6 +251,24 @@ xl, extra-large: 1920px or larger
     padding: 20px;
   }
 
+  #mobile_menu {
+    display: block;
+    position: fixed;
+    bottom: 100px;
+    right: 220px;
+  }
+
+  #mobile_menu_list {
+    width: 175px;
+  }
+
+  #mobile_menu_btn {
+    display: block;
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+  }
+
   .card-container {
     justify-content: center;
     max-width: 600px;
@@ -250,6 +280,25 @@ xl, extra-large: 1920px or larger
   .my-card {
     margin: 20px;
   }
+
+  footer {
+    padding: 20px 0;
+  }
+
+  #footer-link-list {
+    margin: 0;
+    padding: 0;
+  }
+
+  #footer-link-list li {
+    float: none;
+    margin: 5px auto;
+  }
+
+  #footer-link-list li a {
+    padding: 0;
+  }
+
 }
 
 @media only screen and (min-width: 601px) and (max-width: 960px) {
@@ -284,12 +333,21 @@ xl, extra-large: 1920px or larger
 }
 
 @media only screen and (min-width: 1280px) and (max-width: 1600px) {
+  .my-card {
+    min-width: 350px;
+    min-height: 250px;
+  }
+
   #home-content-container {
     max-width: 900px;
   }
 }
 
 @media only screen and (min-width: 1601px) and (max-width: 1920px) {
+  .my-card {
+    min-width: 350px;
+    min-height: 250px;
+  }
 
   #home-content-container {
     max-width: 1200px;

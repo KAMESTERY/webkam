@@ -4,6 +4,8 @@ import {MDCTextField} from '@material/textfield';
 import {MDCTopAppBar} from "@material/top-app-bar";
 import {MDCDrawer} from "@material/drawer";
 import {MDCSnackbar} from '@material/snackbar';
+import {MDCMenu} from '@material/menu';
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -21,10 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-    }
-    let drawerEl = document.querySelector('.mdc-drawer');
-    if (drawerEl) {
-        const drawer = MDCDrawer.attachTo(drawerEl);
     }
 
     console.log('Global Styles loaded');
@@ -69,6 +67,18 @@ document.addEventListener("DOMContentLoaded", () => {
     let cancelEl = document.querySelector('.cancel');
     if (cancelEl) {
         new MDCRipple(cancelEl);
+    }
+
+    let fabRippleEl = document.querySelector('.mdc-fab');
+    if (fabRippleEl) {
+        const fabRipple = new MDCRipple(fabRippleEl);
+        let menuEl = document.querySelector('.mdc-menu');
+        if (menuEl) {
+            const menu = new MDCMenu(menuEl);
+            fabRipple.listen('click', () => {
+                menu.open = !menu.open;
+            });
+        }
     }
 
     console.log('Starting load');
