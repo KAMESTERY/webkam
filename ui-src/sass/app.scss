@@ -319,6 +319,25 @@ xl, extra-large: 1920px or larger
     justify-content: center;
   }
 
+  #mobile_menu {
+    display: block;
+    position: fixed;
+    bottom: 100px;
+    right: 220px;
+  }
+
+  #mobile_menu_list {
+    width: 175px;
+  }
+
+  #mobile_menu_btn {
+    display: block;
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+  }
+
+
 }
 
 @media only screen and (min-width: 961px) and (max-width: 1280px) {
