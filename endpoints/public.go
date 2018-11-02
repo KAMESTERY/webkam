@@ -19,7 +19,7 @@ var (
 	}
 )
 
-func ping(c *gin.Context) {
+func appinfo(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{
 		"message": "pong",
 		"lastDeployed": lastDeployed(),

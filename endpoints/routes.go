@@ -11,7 +11,7 @@ func InitializeRoutes(r *gin.Engine) {
 	routes_logger.Debug("Attaching routes...")
 	
 	// Request Routing
-	r.GET("/ping", ping)
+	r.GET("/appinfo", appinfo)
 	r.GET("/", home)
 
 	// todo move to user routes
