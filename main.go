@@ -30,8 +30,8 @@ func main() {
 	// Initialize Routes
 	endpoints.InitializeRoutes(r)
 
-	// Start RPC Server
-	go utils.ExecBin("worker-rpc")
+	//// Start RPC Server
+	//go utils.ExecBin("worker-rpc")
 
 	// Server Configuration
 	port := os.Getenv("PORT")

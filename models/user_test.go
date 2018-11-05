@@ -1,6 +1,7 @@
 package models
 
 import (
+	"context"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/suite"
 	"testing"
@@ -35,9 +36,12 @@ func (uts *UserTestSuite) TestLogin() {
 		Password: "hhhhhhhh",
 	}
 
-	token := Authenticate(creds)
+	claims := Authenticate(context.Background(), creds)
 
-	assert.True(len(token) > 0)
+	assert.True(claims.Email == creds.Email)
+	assert.True(claims.Role < 0)
+	assert.True(len(claims.UserId) > 0)
+	assert.True(len(claims.Token) > 0)
 }
 
 func (uts *UserTestSuite) TestEnroll() {
@@ -53,7 +57,8 @@ func (uts *UserTestSuite) TestEnroll() {
 		Password: "tttttttt",
 	}
 
-	ok := Enroll(user)
+	ok, msg := Enroll(context.Background(), user)
 
 	assert.True(!ok)
+	assert.True(len(msg) == 0)
 }

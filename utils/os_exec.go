@@ -19,7 +19,7 @@ func ExecBin(relativeBinPath string, args ...string) {
 
 	osexec_logger.Info("......................................................................")
 
-	execBinPath := "/tmp"+relativeBinPath
+	execBinPath := "/tmp/"+relativeBinPath
 	osexec_logger.Infof("..........execBinPath......====>.......%s...............................................", execBinPath)
 	cmd := exec.Command(execBinPath, args...)
 

@@ -2,8 +2,8 @@ package models
 
 import (
 	"context"
-	"kamestery.com/grpc"
-	pb "kamestery.com/grpc/gen"
+	"github.com/KAMESTERY/middlewarekam/grpc"
+	pb "github.com/KAMESTERY/middlewarekam/grpc"
 	"kamestery.com/utils"
 )
 

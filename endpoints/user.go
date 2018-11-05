@@ -6,6 +6,7 @@ import (
 	"gopkg.in/go-playground/validator.v9"
 	"kamestery.com/models"
 	"kamestery.com/utils"
+	mutils "github.com/KAMESTERY/middlewarekam/utils"
 	"net/http"
 )
 
@@ -30,6 +31,7 @@ func login_error(c *gin.Context, validationErrors []validator.FieldError, flashe
 func authenticate(c *gin.Context) {
 
 	user_logger.Debugf("LOGGING IN using BACKEND URL: %+v", utils.BackendGQL)
+	user_logger.Debugf("LOGGING IN using BACKEND RPC URL: %+v", mutils.BackendRPC)
 
 	session := sessions.Default(c)
 
@@ -94,6 +96,7 @@ func register_error(c *gin.Context, validationErrors []validator.FieldError, fla
 func enroll(c *gin.Context) {
 
 	user_logger.Debugf("ENROLLING using BACKEND URL: %+v", utils.BackendGQL)
+	user_logger.Debugf("LOGGING IN using BACKEND RPC URL: %+v", mutils.BackendRPC)
 
 	session := sessions.Default(c)
 
