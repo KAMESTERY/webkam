@@ -3,6 +3,12 @@ github.com/KAMESTERY/middlewarekam v0.0.0-20181105164558-4c0b2bc9ea50 h1:td5z68w
 github.com/KAMESTERY/middlewarekam v0.0.0-20181105164558-4c0b2bc9ea50/go.mod h1:H97k4Ngq87qcdA8gxv+zVdwN9RInqE9SpC6NHyfdTGg=
 github.com/KAMESTERY/middlewarekam v0.0.0-20181106164806-3bd3f3d27a85 h1:r0ZNb7+Wug3uqEMnLwK4ciJyixWPS0SP77tDMAxPe60=
 github.com/KAMESTERY/middlewarekam v0.0.0-20181106164806-3bd3f3d27a85/go.mod h1:H97k4Ngq87qcdA8gxv+zVdwN9RInqE9SpC6NHyfdTGg=
+github.com/KAMESTERY/middlewarekam v0.0.0-20181112002822-69733f8af089 h1:nzzYoEpevM+e+J8aVHQP33C9+iYoY3Bbd3bZV3cxv1I=
+github.com/KAMESTERY/middlewarekam v0.0.0-20181112002822-69733f8af089/go.mod h1:H97k4Ngq87qcdA8gxv+zVdwN9RInqE9SpC6NHyfdTGg=
+github.com/KAMESTERY/middlewarekam v0.0.0-20181119230758-3d03b7afa7f7 h1:dKxrnuvnMHQYFjzpqgswjXAf03ti5XMdV4BNqYU1gm4=
+github.com/KAMESTERY/middlewarekam v0.0.0-20181119230758-3d03b7afa7f7/go.mod h1:Uzixpb4T23DJC8Ru5/h7Em4W2ZfP7vMh28PaTxR7k6g=
+github.com/Machiel/slugify v1.0.1 h1:EfWSlRWstMadsgzmiV7d0yVd2IFlagWH68Q+DcYCm4E=
+github.com/Machiel/slugify v1.0.1/go.mod h1:fTFGn5uWEynW4CUMG7sWkYXOf1UgDxyTM3DbR6Qfg3k=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
@@ -47,12 +53,15 @@ github.com/stretchr/testify v1.2.2 h1:bSDNvY7ZPG5RlJ8otE/7V6gMiyenm9RtJ7IUVIAoJ1
 github.com/stretchr/testify v1.2.2/go.mod h1:a8OnRcib4nhh0OaRAV+Yts87kKdq0PP7pXfy6kDkUVs=
 github.com/ugorji/go/codec v0.0.0-20181012064053-8333dd449516 h1:tYsnVMTj4SrtarTPEquseLh3QgR7mEY3WSPW7x2c9hk=
 github.com/ugorji/go/codec v0.0.0-20181012064053-8333dd449516/go.mod h1:VFNgLljTbGfSG7qAOspJ7OScBnGdDN/yBr0sguwnwf0=
+github.com/ugorji/go/codec v0.0.0-20181022190402-e5e69e061d4f h1:y3Vj7GoDdcBkxFa2RUUFKM25TrBbWVDnjRDI0u975zQ=
+github.com/ugorji/go/codec v0.0.0-20181022190402-e5e69e061d4f/go.mod h1:VFNgLljTbGfSG7qAOspJ7OScBnGdDN/yBr0sguwnwf0=
 github.com/utrack/gin-csrf v0.0.0-20170409081402-402f6eaad1b1 h1:sA5y+RUWxd6DrLcAqmKEcz7M5afkqMUY852GLkKtFSk=
 github.com/utrack/gin-csrf v0.0.0-20170409081402-402f6eaad1b1/go.mod h1:cXQUe6ePttXxHqegnNf2NPranom3DyQGPmohW3+CQpA=
 golang.org/x/lint v0.0.0-20180702182130-06c8688daad7/go.mod h1:UVdnD1Gm6xHRNCYTkRU2/jEulfH38KcIWyp/GAMgvoE=
 golang.org/x/net v0.0.0-20180826012351-8a410e7b638d/go.mod h1:mL1N/T3taQHkDXs73rZJwtUhF3w3ftmwwsq0BUmARs4=
 golang.org/x/net v0.0.0-20181029044818-c44066c5c816 h1:mVFkLpejdFLXVUv9E42f3XJVfMdqd0IVLVIVLjZWn5o=
 golang.org/x/net v0.0.0-20181029044818-c44066c5c816/go.mod h1:mL1N/T3taQHkDXs73rZJwtUhF3w3ftmwwsq0BUmARs4=
+golang.org/x/net v0.0.0-20181113165502-88d92db4c548/go.mod h1:mL1N/T3taQHkDXs73rZJwtUhF3w3ftmwwsq0BUmARs4=
 golang.org/x/oauth2 v0.0.0-20180821212333-d2e6202438be/go.mod h1:N/0e6XlmueqKjAGxoOufVs8QHGRruUQn6yWY3a++T0U=
 golang.org/x/sync v0.0.0-20180314180146-1d60e4601c6f h1:wMNYb4v58l5UBM7MYRLPG6ZhfOqbKu7X5eyFl8ZhKvA=
 golang.org/x/sync v0.0.0-20180314180146-1d60e4601c6f/go.mod h1:RxMgew5VJxzue5/jJTE5uejpjVlOe/izrB70Jof72aM=
@@ -75,6 +84,8 @@ gopkg.in/go-playground/validator.v8 v8.18.2 h1:lFB4DoMU6B626w8ny76MV7VX6W2VHct2G
 gopkg.in/go-playground/validator.v8 v8.18.2/go.mod h1:RX2a/7Ha8BgOhfk7j780h4/u/RRjR0eouCJSH80/M2Y=
 gopkg.in/go-playground/validator.v9 v9.22.0 h1:voA791S2rJ6IWnusR9SL0Z/2e+DrfKlLXaEr+jRHf5Y=
 gopkg.in/go-playground/validator.v9 v9.22.0/go.mod h1:+c9/zcJMFNgbLvly1L1V+PpxWdVbfP1avr/N00E2vyQ=
+gopkg.in/go-playground/validator.v9 v9.23.0 h1:oq297iqu7qsywIbeW5DBUTtV1nV750Y4q+H8MnDh0Yc=
+gopkg.in/go-playground/validator.v9 v9.23.0/go.mod h1:+c9/zcJMFNgbLvly1L1V+PpxWdVbfP1avr/N00E2vyQ=
 gopkg.in/yaml.v2 v2.2.1 h1:mUhvW9EsL+naU5Q3cakzfE91YhliOondGd6ZrsDBHQE=
 gopkg.in/yaml.v2 v2.2.1/go.mod h1:hI93XBmqTisBFMUTm0b8Fm+jr3Dg1NNxqwp+5A1VGuI=
 honnef.co/go/tools v0.0.0-20180728063816-88497007e858/go.mod h1:rf3lG4BRIbNafJWhAfAdb/ePZxsR/4RtNHQocxwk9r4=

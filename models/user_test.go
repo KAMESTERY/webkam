@@ -57,8 +57,7 @@ func (uts *UserTestSuite) TestEnroll() {
 		Password: "tttttttt",
 	}
 
-	ok, msg := Enroll(context.Background(), user)
+	ok := Enroll(context.Background(), user)
 
 	assert.True(!ok)
-	assert.True(len(msg) == 0)
 }

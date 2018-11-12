@@ -114,15 +114,15 @@ func enroll(c *gin.Context) {
 	}
 
 	//TODO: Not Ready for Prime Time Yet
-	ok, msg := models.Enroll(c, user)
+	ok := models.Enroll(c, user)
 
 	if !ok {
-		session.AddFlash("Could not Enroll You! " + msg) //TODO: Revisit this!
+		session.AddFlash("Could not Enroll You! ") //TODO: Revisit this!
 		register_error(c, nil, session.Flashes())
 		return
 	}
 
-	session.AddFlash("You are now Enrolled! " + msg)
+	session.AddFlash("You are now Enrolled! ")
 
 	user_logger.Debugf("ENROLLMENT_STATUS:::: %+v", ok)
 

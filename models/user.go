@@ -2,8 +2,7 @@ package models
 
 import (
 	"context"
-	"github.com/KAMESTERY/middlewarekam/grpc"
-	pb "github.com/KAMESTERY/middlewarekam/grpc"
+	"github.com/KAMESTERY/middlewarekam/auth"
 	"kamestery.com/utils"
 )
 
@@ -41,56 +40,31 @@ type User struct {
 
 func Authenticate(ctx context.Context, creds Credentials) (claims Claims) {
 
-	grpcConn, connErr := grpc.NewGrpcConn()
-	if connErr != nil {
-		user_logger.Errorf("GRPC_CONN_ERROR:::: %+v", connErr)
-		return
+	authClient := auth.NewAuthKamClient()
+	user_creds_req := auth.UserCredentialsReq{
+		creds.Email,
+		creds.Password,
 	}
-	defer grpcConn.Close()
+	auth_claims_resp, _ := authClient.Authenticate(ctx, &user_creds_req) //TODO: Revisit this!!!!
 
-	authKamClient := pb.NewAuthKamClient(grpcConn)
-
-	userCredentialsReq := &pb.UserCredentialsReq{
-		Email:    creds.Email,
-		Password: creds.Password,
-	}
-
-	authClaimsResp, authErr := authKamClient.Authenticate(ctx, userCredentialsReq)
-	if authErr != nil {
-		user_logger.Errorf("AUTHENTICATION_ERROR:::: %+v", authErr)
-		return
-	}
-
-	claims.Token = authClaimsResp.Token
-	claims.Email = authClaimsResp.Email
-	claims.UserId = authClaimsResp.UserId
-	claims.Role = authClaimsResp.Role
+	claims.Token = auth_claims_resp.Token
+	claims.Email = auth_claims_resp.Email
+	claims.UserId = auth_claims_resp.UserId
+	claims.Role = auth_claims_resp.Role
 
 	return
 }
 
-func Enroll(ctx context.Context, user User) (ok bool, msg string) {
+func Enroll(ctx context.Context, user User) (ok bool) {
 
-	grpcConn, connErr := grpc.NewGrpcConn()
-	if connErr != nil {
-		user_logger.Errorf("GRPC_CONN_ERROR:::: %+v", connErr)
-		return
+	authClient := auth.NewAuthKamClient()
+	user_enroll_req := auth.UserEnrollReq{
+		user.Username,
+		user.Email,
+		user.Password,
 	}
-	defer grpcConn.Close()
+	enroll_status_resp, _ := authClient.Enroll(ctx, &user_enroll_req) //TODO: Revisit this!!!!
+	ok = enroll_status_resp.Success //TODO: Revisit this!!!!
 
-	authKamClient := pb.NewAuthKamClient(grpcConn)
-
-	userEnrollReq := &pb.UserEnrollReq{
-		Username: user.Username,
-		Email: user.Email,
-		Password: user.Password,
-	}
-
-	enrollStatusResp, enrollErr := authKamClient.Enroll(ctx, userEnrollReq)
-	if enrollErr != nil {
-		user_logger.Errorf("ENROLLMENT_ERROR:::: %+v", enrollErr)
-		return
-	}
-
-	return enrollStatusResp.Success, enrollStatusResp.Message
+	return
 }
