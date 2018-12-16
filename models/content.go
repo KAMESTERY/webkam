@@ -14,8 +14,8 @@ func GetUserContent(ctx context.Context) (claims ct.Content) {
 
 	contentId := []*ct.Identification{
 		{
-			UserId:     "\"user_id\":\"derektaylor.us@gmail.com\"",
-			Identifier: "\"identifier\":\"com.kamestery.devdata.derektaylor.us@gmail.com.sample-title-document\"",
+			UserId:     "derektaylor.us@gmail.com",
+			Identifier: "com.kamestery.devdata.derektaylor.us@gmail.com.sample-title-document",
 		},
 	}
 
