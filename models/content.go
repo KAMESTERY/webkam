@@ -2,20 +2,37 @@ package models
 
 import (
 	"context"
+	"github.com/KAMESTERY/middlewarekam/auth"
 	ct "github.com/KAMESTERY/middlewarekam/content"
 	"kamestery.com/utils"
 )
 
 var content_logger = utils.NewLogger("modelscontent")
 
-func GetUserContent(ctx context.Context) (claims ct.Content) {
+const content_id = "com.kamestery.devdata.derektaylor.us@gmail.com.sample-title-document"
+const email = "derektaylor.us@gmail.com"
+const password = "12345678"
+
+//func GetUserContent(ctx context.Context, creds Credentials) (content *ct.Content) {
+func GetUserContent(ctx context.Context) (content *ct.Content) {
+
+	authClient := auth.NewAuthKamClient()
+
+	user_creds_req := auth.UserCredentialsReq{
+		Email:    email,
+		Password: password,
+		//creds.Email,
+		//creds.Password,
+	}
+	auth_claims_resp, _ := authClient.Authenticate(context.Background(), &user_creds_req)
+	token := auth_claims_resp.Token
 
 	contentKamClient := ct.NewContentKamClient()
 
 	contentId := []*ct.Identification{
 		{
-			UserId:     "derektaylor.us@gmail.com",
-			Identifier: "com.kamestery.devdata.derektaylor.us@gmail.com.sample-title-document",
+			UserId:     email,
+			Identifier: content_id,
 		},
 	}
 
@@ -23,12 +40,11 @@ func GetUserContent(ctx context.Context) (claims ct.Content) {
 		ItemIds: contentId,
 	}
 
-	content, contentErr := contentKamClient.Get(ctx, "derektaylor.us@gmail.com", "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6Ik1VTFRJX0dFTklVU19LSUQifQ.eyJ0b2tlbiI6bnVsbCwidXNlcl9pZCI6ImRlcmVrdGF5bG9yLnVzQGdtYWlsLmNvbSIsImVtYWlsIjoiZGVyZWt0YXlsb3IudXNAZ21haWwuY29tIiwicm9sZSI6LTk5OTl9.Divhp4awnNVk2_UDiU4bDPHbOV6geQDlhGhu-P7hMmU7clovoSuTE3TS4q0uc09pjfOfUuS3mWxwmiFT_Q7OJg", contentHandles)
+	content, contentErr := contentKamClient.Get(ctx, email, token, contentHandles)
 
 	if contentErr != nil {
 		content_logger.Errorf("CONTENT_ERROR:::: %+v", contentErr)
-		return
 	}
 
-	return *content
+	return
 }
