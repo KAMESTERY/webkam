@@ -23,10 +23,11 @@ func content(c *gin.Context) {
 
 	userContent := models.GetUserContent(c)
 	user_logger.Infof("USER CONTENT:::: %+v", userContent)
+	user_logger.Infof("USER DOCUMENTS:::: %+v", userContent.Documents)
 
 	render(c, gin.H{
 		"title": "Content",
 		"flashes": session.Flashes(),
-		"content": userContent,
+		"documents": userContent.Documents,
 	}, "public/content.html")
 }
