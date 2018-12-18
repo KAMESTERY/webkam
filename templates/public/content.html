@@ -1,12 +1,14 @@
 <!-- login.html -->
 
-{{ define "public/article.html" }}
+{{ define "public/content.html" }}
 
 <!-- BEGIN COMMON TEMPLATE CODE -->
 {{ template "global-header.html" . }}
 <!-- END COMMON TEMPLATE CODE -->
 
 <div class="style-ribbon"></div>
+
+{{range .documents }}
 
 <section class="article-main mdc-layout-grid"> <!-- removed: (mdc-layout-grid)-->
     <div class="article-container mdc-layout-grid__inner">
@@ -15,7 +17,8 @@
             <div id="article-header-img">
                 <img class="responsive-image" src="https://via.placeholder.com/750x250" alt="media image">
             </div>
-            <h1>How to install MDL</h1>
+            <h1>{{.Title}}</h1>
+            <p>{{.Body}}</p>
             <p>
                 Cillum dolor esse sit incididunt velit eiusmod magna ad nostrud officia aute dolor dolor. Magna esse
                 ullamco pariatur adipisicing consectetur eu commodo officia. Ex cillum consequat mollit minim elit est
@@ -37,6 +40,8 @@
     </div>
 </section>
 
+{{end}}
+
 <section class="article-list-container">
     <h3 class="section-title">More</h3>
     <div class="card-container"> <!-- flex container -->
@@ -44,7 +49,6 @@
     {{template "card.html"}}
     </div>
 </section>
-
 
 
 <!-- Embed Footer -->

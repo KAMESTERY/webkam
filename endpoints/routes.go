@@ -14,9 +14,6 @@ func InitializeRoutes(r *gin.Engine) {
 	r.GET("/appinfo.json", appinfo)
 	r.GET("/", home)
 
-	// todo move to user routes
-	r.GET("/article", article)
-
 	// User Routes
 	user_routes := r.Group("/user")
 	{
@@ -25,5 +22,6 @@ func InitializeRoutes(r *gin.Engine) {
 		user_routes.POST("/logout", logout)
 		user_routes.GET("/register", register)
 		user_routes.POST("/register", enroll)
+		user_routes.GET("/content", content)
 	}
 }
