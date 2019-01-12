@@ -104,12 +104,9 @@ footer {
   justify-content: center;
 }
 
-.my-card {
+.document-card {
   margin: 20px;
-}
-
-.my-card_media {
-  background-image: url("//via.placeholder.com/350x250");
+  padding: 10px;
 }
 
 // HOME
@@ -277,7 +274,7 @@ xl, extra-large: 1920px or larger
     flex-wrap: nowrap;
   }
 
-  .my-card {
+  .document-card {
     margin: 20px;
   }
 
@@ -310,7 +307,7 @@ xl, extra-large: 1920px or larger
     display: none;
   }
 
-  .my-card {
+  .document-card {
     min-width: 250px;
     min-height: 150px;
   }
@@ -345,14 +342,14 @@ xl, extra-large: 1920px or larger
     max-width: 600px;
   }
 
-  .my-card {
+  .document-card {
     min-width: 250px;
     min-height: 150px;
   }
 }
 
 @media only screen and (min-width: 1280px) and (max-width: 1600px) {
-  .my-card {
+  .document-card {
     min-width: 350px;
     min-height: 250px;
   }
@@ -363,7 +360,7 @@ xl, extra-large: 1920px or larger
 }
 
 @media only screen and (min-width: 1601px) and (max-width: 1920px) {
-  .my-card {
+  .document-card {
     min-width: 350px;
     min-height: 250px;
   }

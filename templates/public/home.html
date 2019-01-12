@@ -30,31 +30,45 @@
                 </div>
             </div>
         </nav>
-
     </div>
 
     <div id="home-content-container"> <!-- flex el -->
         <section id="section1">
             <h1 class="section-title">Section One</h1>
             <div class="card-container"> <!-- flex container -->
-            {{template "card.html"}}
-            {{template "card.html"}}
+            {{ range .documents}}
+                <div class="document-card mdc-card">
+                    <div class="mdc-card__primary-action mdc-ripple-upgraded" tabindex="0">
+                        <div class="mdc-card"></div>
+                            <h2>{{.Title}}</h2>
+                            <p>author: {{.Metadata.Identification.UserId}}</p>
+                        <div>
+                        {{.Body}}
+                        </div>
+                    </div>
+                    <div class="mdc-card__actions">
+                        <div class="mdc-card__action-buttons">
+                            <!-- TODO: REPLACE HARDCODED TOPIC 'default' -->
+                            <a class="mdc-button mdc-card__action mdc-card__action--button"
+                               href="/content/development/{{.Slug}}">
+                                Read Article
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {{end}}
             </div>
         </section>
 
         <section id="section2">
             <h1 class="section-title">Section Two</h1>
             <div class="card-container"> <!-- flex container -->
-            {{template "card.html"}}
-            {{template "card.html"}}
             </div>
         </section>
 
         <section id="section3">
             <h1 class="section-title">Section Three</h1>
             <div class="card-container"> <!-- flex container -->
-            {{template "card.html"}}
-            {{template "card.html"}}
             </div>
         </section>
     </div>

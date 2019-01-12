@@ -6,8 +6,5 @@ const (
 	SESSION_KAM = "sessionkam"
 	TOKEN_KAM   = "token_kam"
 	USER_KAM    = "user_kam"
-
-
-	// TODO: REMOVE
-	SAMPLE_CONTENT = "{\"item_ids\":[{\"user_id\":\"derektaylor.us@gmail.com\",\"identifier\":\"com.kamestery.devdata.derektaylor.us@gmail.com.sample-title-document\"}],\"message\":\"\"}"
+	DEFAULT_CATEGORY = "development"
 )
