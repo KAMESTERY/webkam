@@ -32,16 +32,20 @@
         </nav>
     </div>
 
+{{ $content_map := getLatestContentMapByTopic "development" }}
+    <!--BEGIN CONTENT LOOP -->
+{{ range $topic, $content := $content_map }}
+
     <div id="home-content-container"> <!-- flex el -->
         <section id="section1">
-            <h1 class="section-title">Section One</h1>
+            <h1 class="section-title">{{$topic}}</h1>
             <div class="card-container"> <!-- flex container -->
-            {{ range .documents}}
+            {{ range $content.Documents}}
                 <div class="document-card mdc-card">
                     <div class="mdc-card__primary-action mdc-ripple-upgraded" tabindex="0">
                         <div class="mdc-card"></div>
-                            <h2>{{.Title}}</h2>
-                            <p>author: {{.Metadata.Identification.UserId}}</p>
+                        <h2>{{.Title}}</h2>
+                        <p>author: {{.Metadata.Identification.UserId}}</p>
                         <div>
                         {{.Body}}
                         </div>
@@ -59,19 +63,8 @@
             {{end}}
             </div>
         </section>
-
-        <section id="section2">
-            <h1 class="section-title">Section Two</h1>
-            <div class="card-container"> <!-- flex container -->
-            </div>
-        </section>
-
-        <section id="section3">
-            <h1 class="section-title">Section Three</h1>
-            <div class="card-container"> <!-- flex container -->
-            </div>
-        </section>
     </div>
+{{ end }}
 
 
     <div id="mobile_menu" class="toolbar mdc-menu-surface--anchor">

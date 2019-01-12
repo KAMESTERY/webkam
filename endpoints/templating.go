@@ -1,6 +1,8 @@
 package endpoints
 
 import (
+	"context"
+	contenu "github.com/KAMESTERY/middlewarekam/content"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"html/template"
@@ -35,6 +37,30 @@ func AddTemplateFunctions(r *gin.Engine) {
 				return claims
 			}
 			return nil // Return nothing here, otherwise it may seem that user is logged in
+		},
+		"listLatestContentByTopic": func(topics ...string) (content_list []contenu.Content) {
+			contentKamClient := contenu.NewContentKamClient()
+
+			for _, topic := range topics {
+				content, err := contentKamClient.Latest(context.Background(), topic, 0)
+				if err != nil {
+					templating_logger.Warnf("WARNING:::: No content found for topic: %+s", topic)
+				}
+				content_list = append(content_list, *content)
+			}
+			return
+		},
+		"getLatestContentMapByTopic": func(topics ...string) (content_map map[string]contenu.Content) {
+			contentKamClient := contenu.NewContentKamClient()
+			content_map = make(map[string]contenu.Content)
+			for _, topic := range topics {
+				content, err := contentKamClient.Latest(context.Background(), topic, 0)
+				if err != nil {
+					templating_logger.Warnf("WARNING:::: No content found for topic: %+s", topic)
+				}
+				content_map[topic] = *content
+			}
+			return
 		},
 	})
 }

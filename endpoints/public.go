@@ -37,7 +37,6 @@ func home(c *gin.Context) {
 
 	contentKamClient := contenu.NewContentKamClient()
 
-	// TODO: REPLACE HARD CODED TOPIC
 	content, err := contentKamClient.Latest(c, DEFAULT_CATEGORY, 0)
 	if err != nil {
 		session.AddFlash("Could not Enroll You!") //TODO: Revisit this!
