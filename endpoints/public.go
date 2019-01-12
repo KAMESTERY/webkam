@@ -1,6 +1,8 @@
 package endpoints
 
 import (
+	contenu "github.com/KAMESTERY/middlewarekam/content"
+	mutil "github.com/KAMESTERY/middlewarekam/utils"
 	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 	"kamestery.com/utils"
@@ -33,8 +35,44 @@ func home(c *gin.Context) {
 		public_logger.Debugf("AUTH_TOKEN:::: %s", token.(string))
 	}
 
+	contentKamClient := contenu.NewContentKamClient()
+
+	// TODO: REPLACE HARD CODED TOPIC
+	content, err := contentKamClient.Latest(c, DEFAULT_CATEGORY, 0)
+	if err != nil {
+		session.AddFlash("Could not Enroll You!") //TODO: Revisit this!
+		register_error(c, nil, session.Flashes())
+		return
+	}
+
 	render(c, gin.H{
 		"title": "Kamestery Web App :-)",
 		"flashes": session.Flashes(),
+		"documents": content.Documents,
 	}, "public/home.html")
+}
+
+func content(c *gin.Context) {
+
+	session := sessions.Default(c)
+	if token := session.Get(TOKEN_KAM); token != nil {
+		public_logger.Debugf("AUTH_TOKEN:::: %s", token.(string))
+	}
+
+	contentKamClient := contenu.NewContentKamClient()
+
+	topic := mutil.Slugify(c.Param("topic"))
+	identifier := mutil.ToNamespace(mutil.Namespace, topic, c.Param("title"))
+
+	content, err := contentKamClient.One(c, identifier)
+	if err != nil {
+		session.AddFlash("Could not Enroll You!") //TODO: Revisit this!
+		register_error(c, nil, session.Flashes())
+		return
+	}
+
+	render(c, gin.H{
+		"flashes": session.Flashes(),
+		"documents": content.Documents,
+	}, "public/content.html")
 }

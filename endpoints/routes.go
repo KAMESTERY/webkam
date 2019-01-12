@@ -13,6 +13,7 @@ func InitializeRoutes(r *gin.Engine) {
 	// Request Routing
 	r.GET("/appinfo.json", appinfo)
 	r.GET("/", home)
+	r.GET("/content/:topic/:title", content)
 
 	// User Routes
 	user_routes := r.Group("/user")
@@ -22,6 +23,5 @@ func InitializeRoutes(r *gin.Engine) {
 		user_routes.POST("/logout", logout)
 		user_routes.GET("/register", register)
 		user_routes.POST("/register", enroll)
-		user_routes.GET("/content", content)
 	}
 }
