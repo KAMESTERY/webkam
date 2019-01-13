@@ -32,11 +32,11 @@
         </nav>
     </div>
 
-{{ $content_map := getLatestContentMapByTopic "development" }}
-    <!--BEGIN CONTENT LOOP -->
-{{ range $topic, $content := $content_map }}
 
     <div id="home-content-container"> <!-- flex el -->
+    {{ $content_map := getLatestContentMapByTopic "development" "history"}}
+        <!--BEGIN CONTENT LOOP -->
+    {{ range $topic, $content := $content_map }}
         <section id="section1">
             <h1 class="section-title">{{$topic}}</h1>
             <div class="card-container"> <!-- flex container -->
@@ -63,9 +63,8 @@
             {{end}}
             </div>
         </section>
+    {{ end }}
     </div>
-{{ end }}
-
 
     <div id="mobile_menu" class="toolbar mdc-menu-surface--anchor">
         <button id="mobile_menu_btn" class="mdc-fab" aria-label="View List">
