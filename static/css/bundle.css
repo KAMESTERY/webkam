@@ -3713,6 +3713,15 @@ footer {
 .view-button {
   text-align: center; }
 
+.user-profile-btn {
+  text-decoration: none;
+  color: white;
+  margin-right: 20px; }
+
+.logout-btn {
+  color: white;
+  border-color: white; }
+
 .card-container {
   display: flex;
   flex-wrap: wrap;

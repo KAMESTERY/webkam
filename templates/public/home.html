@@ -76,7 +76,7 @@
             <div>
                 <ul id="mobile_menu_list" class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
                 {{ range $a, $topic := getTopics}}
-                    <li role="menuitem" class="mdc-list-item" onclick="location.href='{{getTopicSectionId $topic}}'">
+                    <li role="menuitem" class="mdc-list-item" onclick="location.href='#{{getTopicSectionId $topic}}'">
                     {{$topic}}
                     </li>
                 {{end}}

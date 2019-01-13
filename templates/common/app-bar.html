@@ -13,7 +13,7 @@
         </section>
         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
             {{with UserKm .reqCtx}}
-                <a href="#profile" class="mdc-top-app-bar__action-item" aria-label="Profile"
+                <a href="#profile" class="user-profile-btn" aria-label="Profile"
                    alt="Profile">{{ .UserId }}</a><!-- TODO: Fix the styling and the link for the user display and profile -->
             {{else}}
                 <a href="/user/register" class="material-icons mdc-top-app-bar__action-item" aria-label="Register"
@@ -24,7 +24,7 @@
             {{if UserKm .reqCtx}}
                 <form action="/user/logout" method="post">
                     <input type="hidden" name="_csrf" value="{{ .csrf }}">
-                    <button class="mdc-button mdc-button--raised login">
+                    <button class="mdc-button mdc-button--raised mdc-button--accent login">
                         Logout
                     </button>
                 </form>
