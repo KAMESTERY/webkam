@@ -12,14 +12,14 @@
         <nav class="page-menu mdc-drawer mdc-drawer--permanent">
             <div id="page-menu-content"> <!-- fixed positioning -->
                 <h3 class="menu-title">
-                    {{/*<i class="fas fa-home"></i>*/}}
+                {{/*<i class="fas fa-home"></i>*/}}
                     Topics
                 </h3>
                 <div class="mdc-drawer__content">
                     <nav class="mdc-list">
                     {{ range $a, $topic := getTopics}}
                         <a class="mdc-list-item" href="#{{getTopicSectionId $topic}}">
-                            {{$topic}}
+                        {{$topic}}
                         </a>
                     {{end}}
                     </nav>
@@ -29,13 +29,15 @@
     </div>
 
     <div id="home-content-container"> <!-- flex el -->
-    {{ $content_map := getLatestContentMapByTopic "development" "history"}}
+    {{ $content_map := getLatestContentMapByTopic getTopics}}
         <!--BEGIN CONTENT LOOP -->
     {{ range $topic, $content := $content_map }}
+    {{if $content.Documents}}
 
         <section id="{{getTopicSectionId $topic}}">
             <h1 class="section-title">{{$topic}}</h1>
             <div class="card-container"> <!-- flex container -->
+
             {{ range $content.Documents}}
                 <div class="document-card mdc-card">
                     <div class="mdc-card__primary-action mdc-ripple-upgraded" tabindex="0">
@@ -59,6 +61,7 @@
             {{end}}
             </div>
         </section>
+    {{end}}
     {{ end }}
     </div>
 

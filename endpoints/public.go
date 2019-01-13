@@ -35,19 +35,9 @@ func home(c *gin.Context) {
 		public_logger.Debugf("AUTH_TOKEN:::: %s", token.(string))
 	}
 
-	contentKamClient := contenu.NewContentKamClient()
-
-	content, err := contentKamClient.Latest(c, DEFAULT_CATEGORY, 0)
-	if err != nil {
-		session.AddFlash("Could not Enroll You!") //TODO: Revisit this!
-		register_error(c, nil, session.Flashes())
-		return
-	}
-
 	render(c, gin.H{
 		"title": "Kamestery Web App :-)",
 		"flashes": session.Flashes(),
-		"documents": content.Documents,
 	}, "public/home.html")
 }
 
