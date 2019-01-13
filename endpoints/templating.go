@@ -42,7 +42,7 @@ func AddTemplateFunctions(r *gin.Engine) {
 			contentKamClient := contenu.NewContentKamClient()
 
 			for _, topic := range topics {
-				content, err := contentKamClient.Latest(context.Background(), topic, 0)
+				content, err := contentKamClient.Latest(context.Background(), topic, 6)
 				if err != nil {
 					templating_logger.Warnf("WARNING:::: No content found for topic: %+s", topic)
 				}
@@ -50,16 +50,24 @@ func AddTemplateFunctions(r *gin.Engine) {
 			}
 			return
 		},
-		"getLatestContentMapByTopic": func(topics ...string) (content_map map[string]contenu.Content) {
+		"getLatestContentMapByTopic": func(topics [5]string) (content_map map[string]contenu.Content) {
 			contentKamClient := contenu.NewContentKamClient()
 			content_map = make(map[string]contenu.Content)
 			for _, topic := range topics {
-				content, err := contentKamClient.Latest(context.Background(), topic, 0)
+				content, err := contentKamClient.Latest(context.Background(), topic, 6)
 				if err != nil {
 					templating_logger.Warnf("WARNING:::: No content found for topic: %+s", topic)
 				}
 				content_map[topic] = *content
 			}
+			return
+		},
+		"getTopics": func() (topic_list [5]string) {
+			topic_list = contenu.TOPICS
+			return
+		},
+		"getTopicSectionId": func(topic string) (topic_section string) {
+			topic_section = topic + "-section"
 			return
 		},
 	})
