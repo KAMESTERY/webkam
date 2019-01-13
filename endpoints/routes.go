@@ -14,6 +14,7 @@ func InitializeRoutes(r *gin.Engine) {
 	r.GET("/appinfo.json", appinfo)
 	r.GET("/", home)
 	r.GET("/content/:topic/:title", content)
+	r.GET("/content/:topic", content_list)
 
 	// User Routes
 	user_routes := r.Group("/user")

@@ -3710,6 +3710,9 @@ footer {
   max-width: 100%;
   height: auto; }
 
+.view-button {
+  text-align: center; }
+
 .card-container {
   display: flex;
   flex-wrap: wrap;
