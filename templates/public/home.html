@@ -12,32 +12,28 @@
         <nav class="page-menu mdc-drawer mdc-drawer--permanent">
             <div id="page-menu-content"> <!-- fixed positioning -->
                 <h3 class="menu-title">
-                    <i class="fas fa-home"></i>
-                    Home
+                    {{/*<i class="fas fa-home"></i>*/}}
+                    Topics
                 </h3>
                 <div class="mdc-drawer__content">
                     <nav class="mdc-list">
-                        <a class="mdc-list-item" href="#section1">
-                            Section One
+                    {{ range $a, $topic := getTopics}}
+                        <a class="mdc-list-item" href="#{{getTopicSectionId $topic}}">
+                            {{$topic}}
                         </a>
-                        <a class="mdc-list-item" href="#section2">
-                            Section Two
-                        </a>
-                        <a class="mdc-list-item" href="#section3">
-                            Section Three
-                        </a>
+                    {{end}}
                     </nav>
                 </div>
             </div>
         </nav>
     </div>
 
-
     <div id="home-content-container"> <!-- flex el -->
     {{ $content_map := getLatestContentMapByTopic "development" "history"}}
         <!--BEGIN CONTENT LOOP -->
     {{ range $topic, $content := $content_map }}
-        <section id="section1">
+
+        <section id="{{getTopicSectionId $topic}}">
             <h1 class="section-title">{{$topic}}</h1>
             <div class="card-container"> <!-- flex container -->
             {{ range $content.Documents}}
@@ -54,7 +50,7 @@
                         <div class="mdc-card__action-buttons">
                             <!-- TODO: REPLACE HARDCODED TOPIC 'default' -->
                             <a class="mdc-button mdc-card__action mdc-card__action--button"
-                               href="/content/development/{{.Slug}}">
+                               href="/content/{{.Metadata.Identification.Identifier}}/{{.Slug}}">
                                 Read Article
                             </a>
                         </div>
@@ -73,9 +69,11 @@
         <div class="mdc-menu mdc-menu-surface" tabindex="-1">
             <div>
                 <ul id="mobile_menu_list" class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
-                    <li role="menuitem" class="mdc-list-item" onclick="location.href='#section1'"> Section One</li>
-                    <li role="menuitem" class="mdc-list-item" onclick="location.href='#section2'"> Section Two</li>
-                    <li role="menuitem" class="mdc-list-item" onclick="location.href='#section3'"> Section Three</li>
+                {{ range $a, $topic := getTopics}}
+                    <li role="menuitem" class="mdc-list-item" onclick="location.href='{{getTopicSectionId $topic}}'">
+                    {{$topic}}
+                    </li>
+                {{end}}
                 </ul>
             </div>
 

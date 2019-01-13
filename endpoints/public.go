@@ -61,7 +61,8 @@ func content(c *gin.Context) {
 	contentKamClient := contenu.NewContentKamClient()
 
 	topic := mutil.Slugify(c.Param("topic"))
-	identifier := mutil.ToNamespace(mutil.Namespace, topic, c.Param("title"))
+	title := mutil.Slugify(c.Param("title"))
+	identifier := mutil.ToNamespace(mutil.Namespace, topic, title)
 
 	content, err := contentKamClient.One(c, identifier)
 	if err != nil {

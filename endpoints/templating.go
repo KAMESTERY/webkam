@@ -62,5 +62,13 @@ func AddTemplateFunctions(r *gin.Engine) {
 			}
 			return
 		},
+		"getTopics": func() (topic_list [5]string) {
+			topic_list = contenu.TOPICS
+			return
+		},
+		"getTopicSectionId": func(topic string) (topic_section string) {
+			topic_section = topic + "-section"
+			return
+		},
 	})
 }
