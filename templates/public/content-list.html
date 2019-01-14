@@ -1,6 +1,6 @@
 <!-- home.html -->
 
-{{ define "public/home.html" }}
+{{ define "public/content-list.html" }}
 
 <!-- BEGIN COMMON TEMPLATE CODE -->
 {{ template "global-header.html" . }}
@@ -13,15 +13,13 @@
             <div id="page-menu-content"> <!-- fixed positioning -->
                 <h3 class="menu-title">
                 {{/*<i class="fas fa-home"></i>*/}}
-                    Topics
+                    Tags
                 </h3>
                 <div class="mdc-drawer__content">
                     <nav class="mdc-list">
-                    {{ range $a, $topic := getTopics}}
-                        <a class="mdc-list-item" href="#{{getTopicSectionId $topic}}">
-                        {{$topic}}
+                        <a class="mdc-list-item" href="#tag1">
+                            Tag 1
                         </a>
-                    {{end}}
                     </nav>
                 </div>
             </div>
@@ -29,16 +27,12 @@
     </div>
 
     <div id="home-content-container"> <!-- flex el -->
-    {{ $content_map := getLatestContentMapByTopic getTopics}}
-        <!--BEGIN CONTENT LOOP -->
-    {{ range $topic, $content := $content_map }}
-    {{if $content.Documents}}
 
-        <section id="{{getTopicSectionId $topic}}">
-            <h1 class="section-title">{{$topic}}</h1>
+        <section id="{{getTopicSectionId .topic}}">
+            <h1 class="section-title">{{.topic}}</h1>
             <div class="card-container"> <!-- flex container -->
 
-            {{ range $content.Documents}}
+            {{ range .documents}}
                 <div class="document-card mdc-card">
                     <div class="mdc-card__primary-action mdc-ripple-upgraded" tabindex="0">
                         <div class="mdc-card"></div>
@@ -61,11 +55,6 @@
             {{end}}
             </div>
         </section>
-        <div class="view-button">
-            <a class="mdc-button" href="/content/{{$topic}}">View All</a>
-        </div>
-    {{end}}
-    {{ end }}
     </div>
 
     <div id="mobile_menu" class="toolbar mdc-menu-surface--anchor">
@@ -76,7 +65,7 @@
             <div>
                 <ul id="mobile_menu_list" class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
                 {{ range $a, $topic := getTopics}}
-                    <li role="menuitem" class="mdc-list-item" onclick="location.href='#{{getTopicSectionId $topic}}'">
+                    <li role="menuitem" class="mdc-list-item" onclick="location.href='{{getTopicSectionId $topic}}'">
                     {{$topic}}
                     </li>
                 {{end}}

@@ -38,7 +38,7 @@ func AddTemplateFunctions(r *gin.Engine) {
 			}
 			return nil // Return nothing here, otherwise it may seem that user is logged in
 		},
-		"listLatestContentByTopic": func(topics ...string) (content_list []contenu.Content) {
+		"listLatestContentByTopic": func(topics []string) (content_list []contenu.Content) {
 			contentKamClient := contenu.NewContentKamClient()
 
 			for _, topic := range topics {
