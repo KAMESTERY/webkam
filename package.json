@@ -30,6 +30,7 @@
     "webpack-dev-server": "^2.11.3"
   },
   "dependencies": {
+    "@material/chips": "^0.43.0",
     "@material/fab": "^0.40.1"
   }
 }

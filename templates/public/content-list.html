@@ -28,8 +28,8 @@
 
     <div id="home-content-container"> <!-- flex el -->
 
-        <section id="{{getTopicSectionId .topic}}">
-            <h1 class="section-title">{{.topic}}</h1>
+        <section id="{{getTopicSectionId .title}}">
+            <h1 class="section-title">{{.title}}</h1>
             <div class="card-container"> <!-- flex container -->
 
             {{ range .documents}}
@@ -64,11 +64,12 @@
         <div class="mdc-menu mdc-menu-surface" tabindex="-1">
             <div>
                 <ul id="mobile_menu_list" class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
-                {{ range $a, $topic := getTopics}}
-                    <li role="menuitem" class="mdc-list-item" onclick="location.href='{{getTopicSectionId $topic}}'">
-                    {{$topic}}
-                    </li>
-                {{end}}
+                    {{/*TODO: UPDATE MOBILE MENU */}}
+                {{/*{{ range $a, $topic := getTopics}}*/}}
+                    {{/*<li role="menuitem" class="mdc-list-item" onclick="location.href='{{getTopicSectionId $topic}}'">*/}}
+                    {{/*{{$topic}}*/}}
+                    {{/*</li>*/}}
+                {{/*{{end}}*/}}
                 </ul>
             </div>
 
