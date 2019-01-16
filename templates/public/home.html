@@ -9,6 +9,8 @@
 <div class="main-container"> <!-- flex container -->
     <div class="menu-container"> <!-- flex el -->
 
+        {{ $content_map := getLatestContentMapByTopic getTopics}}
+
         <nav class="page-menu mdc-drawer mdc-drawer--permanent">
             <div id="page-menu-content"> <!-- fixed positioning -->
                 <h3 class="menu-title">
@@ -22,6 +24,17 @@
                         {{$topic}}
                         </a>
                     {{end}}
+                    <h4 class="menu-title">
+                        {{/*<i class="fas fa-home"></i>*/}}
+                        Tags
+                    </h4>
+                    <div class="mdc-list">
+                        {{range $i, $topic_tag := TopicTags $content_map}}
+                            <a class="mdc-list-item" href="/content-list-tag{{$topic_tag}}">
+                                {{$topic_tag}}
+                            </a>
+                        {{end}}
+                    </div>
                     </nav>
                 </div>
             </div>
@@ -29,7 +42,6 @@
     </div>
 
     <div id="home-content-container"> <!-- flex el -->
-    {{ $content_map := getLatestContentMapByTopic getTopics}}
         <!--BEGIN CONTENT LOOP -->
     {{ range $topic, $content := $content_map }}
     {{if $content.Documents}}
@@ -63,7 +75,6 @@
                     </div>
                     <div class="mdc-card__actions">
                         <div class="mdc-card__action-buttons">
-                            <!-- TODO: REPLACE HARDCODED TOPIC 'default' -->
                             <a class="mdc-button mdc-card__action mdc-card__action--button"
                                href="/content/{{$topic}}/{{.Slug}}">
                                 Read Article
