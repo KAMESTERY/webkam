@@ -66,7 +66,7 @@ func content(c *gin.Context) {
 		"documents": content.Documents,
 	}, "public/content.html")
 }
-func content_list(c *gin.Context) {
+func listContentByTopic(c *gin.Context) {
 
 	session := sessions.Default(c)
 	if token := session.Get(TOKEN_KAM); token != nil {
@@ -86,7 +86,33 @@ func content_list(c *gin.Context) {
 
 	render(c, gin.H{
 		"flashes":   session.Flashes(),
-		"topic": topic,
+		"title": topic,
+		"documents": content.Documents,
+	}, "public/content-list.html")
+}
+
+func listContentByTag(c *gin.Context) {
+
+	session := sessions.Default(c)
+	if token := session.Get(TOKEN_KAM); token != nil {
+		public_logger.Debugf("AUTH_TOKEN:::: %s", token.(string))
+	}
+
+	contentKamClient := contenu.NewContentKamClient()
+
+	tag := mutil.Slugify(c.Param("tag"))
+	topic := mutil.Slugify(c.Param("topic"))
+	content, err := contentKamClient.ByTag(c, topic, 0, tag)
+
+	if err != nil {
+		session.AddFlash("Could not Enroll You!") //TODO: Revisit this!
+		register_error(c, nil, session.Flashes())
+		return
+	}
+
+	render(c, gin.H{
+		"flashes":   session.Flashes(),
+		"title": topic + ": " + tag,
 		"documents": content.Documents,
 	}, "public/content-list.html")
 }

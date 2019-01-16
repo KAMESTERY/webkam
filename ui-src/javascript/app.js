@@ -5,6 +5,7 @@ import {MDCTopAppBar} from "@material/top-app-bar";
 import {MDCDrawer} from "@material/drawer";
 import {MDCSnackbar} from '@material/snackbar';
 import {MDCMenu} from '@material/menu';
+import {MDCChipSet} from '@material/chips';
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -112,6 +113,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log('login/register page Styles loaded');
 });
+
+// CONTENT
+let chipSetEl = document.querySelector('.mdc-chip-set');
+if (chipSetEl) {
+    const chipSet = new MDCChipSet(chipSetEl);
+}
 
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);

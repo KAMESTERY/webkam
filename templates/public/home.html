@@ -37,22 +37,35 @@
         <section id="{{getTopicSectionId $topic}}">
             <h1 class="section-title">{{$topic}}</h1>
             <div class="card-container"> <!-- flex container -->
-
+                <!--BEGIN DOCUMENT LOOP -->
             {{ range $content.Documents}}
                 <div class="document-card mdc-card">
-                    <div class="mdc-card__primary-action mdc-ripple-upgraded" tabindex="0">
-                        <div class="mdc-card"></div>
-                        <h2>{{.Title}}</h2>
-                        <p>author: {{.Metadata.Identification.UserId}}</p>
-                        <div>
-                        {{.Body}}
+                    <div class="mdc-card__primary-action" tabindex="0">
+                        <div class="document-card-content">
+                            <h2>{{.Title}}</h2>
+                            <p>author: {{.Metadata.Identification.UserId}}</p>
+                            <div>
+                            {{.Body}}
+                            </div>
+                        </div>
+                    {{$topic := .Metadata.Identification.Identifier}}
+                        <div class="mdc-chip-set">
+                        {{range $i, $tag := .Metadata.Identification.Tags}}
+                        <div class="mdc-chip" tabindex="{{$i}}">
+                            <div class="mdc-chip__text">
+                                <a class="tag-link" href="/content-list-tag/{{$topic}}/{{$tag}}">
+                                {{$tag}}
+                                </a>
+                            </div>
+                        {{end}}
+                        </div>
                         </div>
                     </div>
                     <div class="mdc-card__actions">
                         <div class="mdc-card__action-buttons">
                             <!-- TODO: REPLACE HARDCODED TOPIC 'default' -->
                             <a class="mdc-button mdc-card__action mdc-card__action--button"
-                               href="/content/{{.Metadata.Identification.Identifier}}/{{.Slug}}">
+                               href="/content/{{$topic}}/{{.Slug}}">
                                 Read Article
                             </a>
                         </div>
@@ -62,9 +75,11 @@
             </div>
         </section>
         <div class="view-button">
-            <a class="mdc-button" href="/content/{{$topic}}">View All</a>
+            <a class="mdc-button" href="/content-list-topic/{{$topic}}">View All</a>
         </div>
+
     {{end}}
+        <!--END CONTENT LOOP -->
     {{ end }}
     </div>
 

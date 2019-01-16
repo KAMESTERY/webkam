@@ -11,6 +11,7 @@
 @import "@material/list/mdc-list";
 @import "@material/menu-surface/mdc-menu-surface";
 @import "@material/menu/mdc-menu";
+@import "@material/chips/mdc-chips";
 
 //TODO REFACTOR:
 // - UTILIZE SCSS TO ORGANIZE AND RE-USE STYLES
@@ -96,6 +97,7 @@ footer {
   max-width: 100%;
   height: auto;
 }
+
 // BUTTONS
 .view-button {
   text-align: center;
@@ -116,7 +118,16 @@ footer {
 
 .document-card {
   margin: 20px;
-  padding: 10px;
+}
+
+.document-card-content {
+  padding: 20px;
+  text-align: left;
+}
+
+.tag-link {
+  text-decoration: none;
+  color: rebeccapurple;
 }
 
 // HOME
@@ -343,7 +354,6 @@ xl, extra-large: 1920px or larger
     bottom: 60px;
     right: 20px;
   }
-
 
 }
 
