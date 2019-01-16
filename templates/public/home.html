@@ -63,7 +63,7 @@
                     {{$topic := .Metadata.Identification.Identifier}}
                         <div class="mdc-chip-set">
                         {{range $i, $tag := .Metadata.Identification.Tags}}
-                            <div class="mdc-chip" tabindex="{{$i}}">
+                            <div class="mdc-chip tag-chip" tabindex="{{$i}}">
                                 <div class="mdc-chip__text">
                                     <a class="tag-link" href="/content-list-tag/{{$topic}}/{{$tag}}">
                                     {{$tag}}
