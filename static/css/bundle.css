@@ -3964,7 +3964,8 @@ footer {
   height: auto; }
 
 .view-button {
-  text-align: center; }
+  text-align: center;
+  margin: 30px auto; }
 
 .user-profile-btn {
   text-decoration: none;
@@ -4018,6 +4019,9 @@ footer {
 
 .section-title {
   text-align: center; }
+
+.section-divider {
+  border-width: .5px; }
 
 .auth-form {
   margin-top: 50px; }
