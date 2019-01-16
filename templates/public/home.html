@@ -63,19 +63,18 @@
                     {{$topic := .Metadata.Identification.Identifier}}
                         <div class="mdc-chip-set">
                         {{range $i, $tag := .Metadata.Identification.Tags}}
-                        <div class="mdc-chip" tabindex="{{$i}}">
-                            <div class="mdc-chip__text">
-                                <a class="tag-link" href="/content-list-tag/{{$topic}}/{{$tag}}">
-                                {{$tag}}
-                                </a>
+                            <div class="mdc-chip" tabindex="{{$i}}">
+                                <div class="mdc-chip__text">
+                                    <a class="tag-link" href="/content-list-tag/{{$topic}}/{{$tag}}">
+                                    {{$tag}}
+                                    </a>
+                                </div>
                             </div>
-                        </div>
                         {{end}}
                         </div>
                     </div>
                     <div class="mdc-card__actions">
                         <div class="mdc-card__action-buttons">
-                            <!-- TODO: REPLACE HARDCODED TOPIC 'default' -->
                             <a class="mdc-button mdc-card__action mdc-card__action--button"
                                href="/content/{{$topic}}/{{.Slug}}">
                                 Read Article
@@ -87,9 +86,9 @@
             </div>
         </section>
         <div class="view-button">
-            <a class="mdc-button" href="/content-list-topic/{{$topic}}">View All</a>
+            <a class="mdc-button mdc-button--raised" href="/content-list-topic/{{$topic}}">View All</a>
         </div>
-
+        <hr class="section-divider">
     {{end}}
         <!--END CONTENT LOOP -->
     {{ end }}

@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 43);
+/******/ 	return __webpack_require__(__webpack_require__.s = 41);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1225,11 +1225,11 @@ var _foundation = __webpack_require__(2);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _adapter = __webpack_require__(19);
+var _adapter = __webpack_require__(18);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _constants = __webpack_require__(52);
+var _constants = __webpack_require__(50);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1413,11 +1413,11 @@ var _foundation = __webpack_require__(2);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _adapter = __webpack_require__(20);
+var _adapter = __webpack_require__(19);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _constants = __webpack_require__(53);
+var _constants = __webpack_require__(51);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1576,121 +1576,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 /**
  * @license
- * Copyright 2016 Google Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-
-/**
- * @template A
- */
-var MDCFoundation = function () {
-  _createClass(MDCFoundation, null, [{
-    key: "cssClasses",
-
-    /** @return enum{cssClasses} */
-    get: function get() {
-      // Classes extending MDCFoundation should implement this method to return an object which exports every
-      // CSS class the foundation class needs as a property. e.g. {ACTIVE: 'mdc-component--active'}
-      return {};
-    }
-
-    /** @return enum{strings} */
-
-  }, {
-    key: "strings",
-    get: function get() {
-      // Classes extending MDCFoundation should implement this method to return an object which exports all
-      // semantic strings as constants. e.g. {ARIA_ROLE: 'tablist'}
-      return {};
-    }
-
-    /** @return enum{numbers} */
-
-  }, {
-    key: "numbers",
-    get: function get() {
-      // Classes extending MDCFoundation should implement this method to return an object which exports all
-      // of its semantic numbers as constants. e.g. {ANIMATION_DELAY_MS: 350}
-      return {};
-    }
-
-    /** @return {!Object} */
-
-  }, {
-    key: "defaultAdapter",
-    get: function get() {
-      // Classes extending MDCFoundation may choose to implement this getter in order to provide a convenient
-      // way of viewing the necessary methods of an adapter. In the future, this could also be used for adapter
-      // validation.
-      return {};
-    }
-
-    /**
-     * @param {A=} adapter
-     */
-
-  }]);
-
-  function MDCFoundation() {
-    var adapter = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    _classCallCheck(this, MDCFoundation);
-
-    /** @protected {!A} */
-    this.adapter_ = adapter;
-  }
-
-  _createClass(MDCFoundation, [{
-    key: "init",
-    value: function init() {
-      // Subclasses should override this method to perform initialization routines (registering events, etc.)
-    }
-  }, {
-    key: "destroy",
-    value: function destroy() {
-      // Subclasses should override this method to perform de-initialization routines (de-registering events, etc.)
-    }
-  }]);
-
-  return MDCFoundation;
-}();
-
-exports.default = MDCFoundation;
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * @license
  * Copyright 2018 Google Inc.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1766,6 +1651,12 @@ var MDCDrawerAdapter = function () {
     key: "elementHasClass",
     value: function elementHasClass(element, className) {}
 
+    /** @return {!ClientRect} */
+
+  }, {
+    key: "computeBoundingRect",
+    value: function computeBoundingRect() {}
+
     /**
      * Saves the focus of currently active element.
      */
@@ -1830,7 +1721,7 @@ var MDCDrawerAdapter = function () {
 exports.default = MDCDrawerAdapter;
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1847,9 +1738,9 @@ var _foundation = __webpack_require__(0);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _adapter = __webpack_require__(38);
+var _adapter = __webpack_require__(36);
 
-var _constants = __webpack_require__(39);
+var _constants = __webpack_require__(37);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2553,7 +2444,7 @@ exports.MDCMenuSurfaceFoundation = MDCMenuSurfaceFoundation;
 exports.AnchorMargin = AnchorMargin;
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2570,15 +2461,15 @@ var _component = __webpack_require__(1);
 
 var _component2 = _interopRequireDefault(_component);
 
-var _adapter = __webpack_require__(14);
+var _adapter = __webpack_require__(13);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _foundation = __webpack_require__(46);
+var _foundation = __webpack_require__(44);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _util = __webpack_require__(15);
+var _util = __webpack_require__(14);
 
 var util = _interopRequireWildcard(_util);
 
@@ -2824,7 +2715,7 @@ exports.RippleCapableSurface = RippleCapableSurface;
 exports.util = util;
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3011,7 +2902,7 @@ var MDCRippleAdapter = function () {
 exports.default = MDCRippleAdapter;
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3181,7 +3072,7 @@ exports.getMatchesProperty = getMatchesProperty;
 exports.getNormalizedEventCoords = getNormalizedEventCoords;
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3362,7 +3253,7 @@ var MDCRippleAdapter = function () {
 exports.default = MDCRippleAdapter;
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3421,7 +3312,7 @@ exports.strings = strings;
 exports.numbers = numbers;
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3727,7 +3618,7 @@ exports.NativeInputType = NativeInputType;
 exports.FoundationMapType = FoundationMapType;
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3838,7 +3729,7 @@ var MDCTextFieldHelperTextAdapter = function () {
 exports.default = MDCTextFieldHelperTextAdapter;
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3950,7 +3841,7 @@ var MDCTextFieldIconAdapter = function () {
 exports.default = MDCTextFieldIconAdapter;
 
 /***/ }),
-/* 21 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4059,7 +3950,7 @@ var MDCFoundation = function () {
 exports.default = MDCFoundation;
 
 /***/ }),
-/* 22 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4171,7 +4062,7 @@ var MDCLineRippleAdapter = function () {
 exports.default = MDCLineRippleAdapter;
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4280,7 +4171,7 @@ var MDCFoundation = function () {
 exports.default = MDCFoundation;
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4382,7 +4273,7 @@ var MDCFloatingLabelAdapter = function () {
 exports.default = MDCFloatingLabelAdapter;
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4491,7 +4382,7 @@ var MDCFoundation = function () {
 exports.default = MDCFoundation;
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4602,7 +4493,7 @@ var MDCNotchedOutlineAdapter = function () {
 exports.default = MDCNotchedOutlineAdapter;
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4643,7 +4534,7 @@ exports.cssClasses = cssClasses;
 exports.strings = strings;
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4655,15 +4546,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _adapter = __webpack_require__(11);
+var _adapter = __webpack_require__(10);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _foundation = __webpack_require__(10);
+var _foundation = __webpack_require__(0);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _constants = __webpack_require__(29);
+var _constants = __webpack_require__(28);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -4700,85 +4591,28 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var MDCDismissibleDrawerFoundation = function (_MDCFoundation) {
   _inherits(MDCDismissibleDrawerFoundation, _MDCFoundation);
 
-  _createClass(MDCDismissibleDrawerFoundation, null, [{
-    key: 'strings',
-
-    /** @return enum {string} */
-    get: function get() {
-      return _constants.strings;
-    }
-
-    /** @return enum {string} */
-
-  }, {
-    key: 'cssClasses',
-    get: function get() {
-      return _constants.cssClasses;
-    }
-  }, {
-    key: 'defaultAdapter',
-    get: function get() {
-      return (/** @type {!MDCDrawerAdapter} */{
-          addClass: function addClass() /* className: string */{},
-          removeClass: function removeClass() /* className: string */{},
-          hasClass: function hasClass() /* className: string */{},
-          elementHasClass: function elementHasClass() /* element: !Element, className: string */{},
-          notifyClose: function notifyClose() {},
-          notifyOpen: function notifyOpen() {},
-          saveFocus: function saveFocus() {},
-          restoreFocus: function restoreFocus() {},
-          focusActiveNavigationItem: function focusActiveNavigationItem() {},
-          trapFocus: function trapFocus() {},
-          releaseFocus: function releaseFocus() {}
-        }
-      );
-    }
-  }]);
-
-  function MDCDismissibleDrawerFoundation(adapter) {
+  function MDCDismissibleDrawerFoundation() {
     _classCallCheck(this, MDCDismissibleDrawerFoundation);
 
-    /** @private {number} */
-    var _this = _possibleConstructorReturn(this, (MDCDismissibleDrawerFoundation.__proto__ || Object.getPrototypeOf(MDCDismissibleDrawerFoundation)).call(this, Object.assign(MDCDismissibleDrawerFoundation.defaultAdapter, adapter)));
-
-    _this.animationFrame_ = 0;
-
-    /** @private {number} */
-    _this.animationTimer_ = 0;
-    return _this;
+    return _possibleConstructorReturn(this, (MDCDismissibleDrawerFoundation.__proto__ || Object.getPrototypeOf(MDCDismissibleDrawerFoundation)).apply(this, arguments));
   }
 
   _createClass(MDCDismissibleDrawerFoundation, [{
-    key: 'destroy',
-    value: function destroy() {
-      if (this.animationFrame_) {
-        cancelAnimationFrame(this.animationFrame_);
-      }
-      if (this.animationTimer_) {
-        clearTimeout(this.animationTimer_);
-      }
-    }
+    key: 'open',
+
 
     /**
      * Function to open the drawer.
      */
-
-  }, {
-    key: 'open',
     value: function open() {
-      var _this2 = this;
-
       if (this.isOpen() || this.isOpening() || this.isClosing()) {
         return;
       }
 
       this.adapter_.addClass(_constants.cssClasses.OPEN);
       this.adapter_.addClass(_constants.cssClasses.ANIMATE);
-
-      // Wait a frame once display is no longer "none", to establish basis for animation
-      this.runNextAnimationFrame_(function () {
-        _this2.adapter_.addClass(_constants.cssClasses.OPENING);
-      });
+      this.adapter_.computeBoundingRect(); // Force reflow.
+      this.adapter_.addClass(_constants.cssClasses.OPENING);
 
       this.adapter_.saveFocus();
     }
@@ -4902,24 +4736,39 @@ var MDCDismissibleDrawerFoundation = function (_MDCFoundation) {
       this.adapter_.removeClass(OPENING);
       this.adapter_.removeClass(CLOSING);
     }
+  }], [{
+    key: 'strings',
 
-    /**
-     * Runs the given logic on the next animation frame, using setTimeout to factor in Firefox reflow behavior.
-     * @param {Function} callback
-     * @private
-     */
+    /** @return enum {string} */
+    get: function get() {
+      return _constants.strings;
+    }
+
+    /** @return enum {string} */
 
   }, {
-    key: 'runNextAnimationFrame_',
-    value: function runNextAnimationFrame_(callback) {
-      var _this3 = this;
-
-      cancelAnimationFrame(this.animationFrame_);
-      this.animationFrame_ = requestAnimationFrame(function () {
-        _this3.animationFrame_ = 0;
-        clearTimeout(_this3.animationTimer_);
-        _this3.animationTimer_ = setTimeout(callback, 0);
-      });
+    key: 'cssClasses',
+    get: function get() {
+      return _constants.cssClasses;
+    }
+  }, {
+    key: 'defaultAdapter',
+    get: function get() {
+      return (/** @type {!MDCDrawerAdapter} */{
+          addClass: function addClass() /* className: string */{},
+          removeClass: function removeClass() /* className: string */{},
+          hasClass: function hasClass() /* className: string */{},
+          elementHasClass: function elementHasClass() /* element: !Element, className: string */{},
+          computeBoundingRect: function computeBoundingRect() {},
+          notifyClose: function notifyClose() {},
+          notifyOpen: function notifyOpen() {},
+          saveFocus: function saveFocus() {},
+          restoreFocus: function restoreFocus() {},
+          focusActiveNavigationItem: function focusActiveNavigationItem() {},
+          trapFocus: function trapFocus() {},
+          releaseFocus: function releaseFocus() {}
+        }
+      );
     }
   }]);
 
@@ -4929,7 +4778,7 @@ var MDCDismissibleDrawerFoundation = function (_MDCFoundation) {
 exports.default = MDCDismissibleDrawerFoundation;
 
 /***/ }),
-/* 29 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4983,7 +4832,7 @@ exports.cssClasses = cssClasses;
 exports.strings = strings;
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4995,130 +4844,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * @license
- * Copyright 2016 Google Inc.
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-
-/**
- * @template A
- */
-var MDCFoundation = function () {
-  _createClass(MDCFoundation, null, [{
-    key: "cssClasses",
-
-    /** @return enum{cssClasses} */
-    get: function get() {
-      // Classes extending MDCFoundation should implement this method to return an object which exports every
-      // CSS class the foundation class needs as a property. e.g. {ACTIVE: 'mdc-component--active'}
-      return {};
-    }
-
-    /** @return enum{strings} */
-
-  }, {
-    key: "strings",
-    get: function get() {
-      // Classes extending MDCFoundation should implement this method to return an object which exports all
-      // semantic strings as constants. e.g. {ARIA_ROLE: 'tablist'}
-      return {};
-    }
-
-    /** @return enum{numbers} */
-
-  }, {
-    key: "numbers",
-    get: function get() {
-      // Classes extending MDCFoundation should implement this method to return an object which exports all
-      // of its semantic numbers as constants. e.g. {ANIMATION_DELAY_MS: 350}
-      return {};
-    }
-
-    /** @return {!Object} */
-
-  }, {
-    key: "defaultAdapter",
-    get: function get() {
-      // Classes extending MDCFoundation may choose to implement this getter in order to provide a convenient
-      // way of viewing the necessary methods of an adapter. In the future, this could also be used for adapter
-      // validation.
-      return {};
-    }
-
-    /**
-     * @param {A=} adapter
-     */
-
-  }]);
-
-  function MDCFoundation() {
-    var adapter = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-    _classCallCheck(this, MDCFoundation);
-
-    /** @protected {!A} */
-    this.adapter_ = adapter;
-  }
-
-  _createClass(MDCFoundation, [{
-    key: "init",
-    value: function init() {
-      // Subclasses should override this method to perform initialization routines (registering events, etc.)
-    }
-  }, {
-    key: "destroy",
-    value: function destroy() {
-      // Subclasses should override this method to perform de-initialization routines (de-registering events, etc.)
-    }
-  }]);
-
-  return MDCFoundation;
-}();
-
-exports.default = MDCFoundation;
-
-/***/ }),
-/* 31 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _foundation = __webpack_require__(30);
+var _foundation = __webpack_require__(0);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _adapter = __webpack_require__(32);
+var _adapter = __webpack_require__(30);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _constants = __webpack_require__(33);
+var _constants = __webpack_require__(31);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -5480,7 +5214,7 @@ var MDCListFoundation = function (_MDCFoundation) {
 exports.default = MDCListFoundation;
 
 /***/ }),
-/* 32 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5633,7 +5367,7 @@ var MDCListAdapter = function () {
 exports.default = MDCListAdapter;
 
 /***/ }),
-/* 33 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5688,14 +5422,14 @@ exports.strings = strings;
 exports.cssClasses = cssClasses;
 
 /***/ }),
-/* 34 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var tabbable = __webpack_require__(80);
-var xtend = __webpack_require__(81);
+var tabbable = __webpack_require__(76);
+var xtend = __webpack_require__(77);
 
 var listeningFocusTrap = null;
 
@@ -5955,7 +5689,7 @@ function delay(fn) {
 module.exports = focusTrap;
 
 /***/ }),
-/* 35 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5966,11 +5700,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.MDCComponent = exports.MDCFoundation = undefined;
 
-var _foundation = __webpack_require__(36);
+var _foundation = __webpack_require__(34);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _component = __webpack_require__(83);
+var _component = __webpack_require__(79);
 
 var _component2 = _interopRequireDefault(_component);
 
@@ -6003,7 +5737,7 @@ exports.MDCFoundation = _foundation2.default;
 exports.MDCComponent = _component2.default;
 
 /***/ }),
-/* 36 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6118,7 +5852,7 @@ var MDCFoundation = function () {
 exports.default = MDCFoundation;
 
 /***/ }),
-/* 37 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6169,7 +5903,7 @@ exports.cssClasses = cssClasses;
 exports.strings = strings;
 
 /***/ }),
-/* 38 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6388,7 +6122,7 @@ var MDCMenuSurfaceAdapter = function () {
 exports.MDCMenuSurfaceAdapter = MDCMenuSurfaceAdapter;
 
 /***/ }),
-/* 39 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6487,7 +6221,7 @@ exports.CornerBit = CornerBit;
 exports.Corner = Corner;
 
 /***/ }),
-/* 40 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6503,11 +6237,11 @@ var _foundation = __webpack_require__(0);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _adapter = __webpack_require__(41);
+var _adapter = __webpack_require__(39);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _constants = __webpack_require__(42);
+var _constants = __webpack_require__(40);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -6854,7 +6588,7 @@ var MDCListFoundation = function (_MDCFoundation) {
 exports.default = MDCListFoundation;
 
 /***/ }),
-/* 41 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6997,7 +6731,7 @@ var MDCListAdapter = function () {
 exports.default = MDCListAdapter;
 
 /***/ }),
-/* 42 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7050,39 +6784,39 @@ exports.strings = strings;
 exports.cssClasses = cssClasses;
 
 /***/ }),
-/* 43 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(44);
-module.exports = __webpack_require__(45);
+__webpack_require__(42);
+module.exports = __webpack_require__(43);
 
 
 /***/ }),
-/* 44 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "static/css/bundle.css";
 
 /***/ }),
-/* 45 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var _ripple = __webpack_require__(13);
+var _ripple = __webpack_require__(12);
 
-var _textfield = __webpack_require__(48);
+var _textfield = __webpack_require__(46);
 
-var _topAppBar = __webpack_require__(68);
+var _topAppBar = __webpack_require__(66);
 
-var _drawer = __webpack_require__(72);
+var _drawer = __webpack_require__(70);
 
-var _snackbar = __webpack_require__(82);
+var _snackbar = __webpack_require__(78);
 
-var _menu = __webpack_require__(87);
+var _menu = __webpack_require__(83);
 
-var _chips = __webpack_require__(93);
+var _chips = __webpack_require__(89);
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -7243,7 +6977,7 @@ window.onbeforeunload = function () {
 };
 
 /***/ }),
-/* 46 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7259,13 +6993,13 @@ var _foundation = __webpack_require__(0);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _adapter = __webpack_require__(14);
+var _adapter = __webpack_require__(13);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _constants = __webpack_require__(47);
+var _constants = __webpack_require__(45);
 
-var _util = __webpack_require__(15);
+var _util = __webpack_require__(14);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8051,7 +7785,7 @@ var MDCRippleFoundation = function (_MDCFoundation) {
 exports.default = MDCRippleFoundation;
 
 /***/ }),
-/* 47 */
+/* 45 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8116,7 +7850,7 @@ exports.strings = strings;
 exports.numbers = numbers;
 
 /***/ }),
-/* 48 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8135,27 +7869,27 @@ var _component = __webpack_require__(5);
 
 var _component2 = _interopRequireDefault(_component);
 
-var _index = __webpack_require__(49);
+var _index = __webpack_require__(47);
 
 var _util = __webpack_require__(7);
 
-var _constants = __webpack_require__(17);
+var _constants = __webpack_require__(16);
 
-var _adapter = __webpack_require__(18);
+var _adapter = __webpack_require__(17);
 
-var _foundation = __webpack_require__(54);
+var _foundation = __webpack_require__(52);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _index2 = __webpack_require__(55);
+var _index2 = __webpack_require__(53);
 
-var _index3 = __webpack_require__(59);
+var _index3 = __webpack_require__(57);
 
-var _index4 = __webpack_require__(60);
+var _index4 = __webpack_require__(58);
 
-var _index5 = __webpack_require__(61);
+var _index5 = __webpack_require__(59);
 
-var _index6 = __webpack_require__(65);
+var _index6 = __webpack_require__(63);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -8747,7 +8481,7 @@ exports.MDCTextFieldIcon = _index4.MDCTextFieldIcon;
 exports.MDCTextFieldIconFoundation = _index4.MDCTextFieldIconFoundation;
 
 /***/ }),
-/* 49 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8764,11 +8498,11 @@ var _component = __webpack_require__(5);
 
 var _component2 = _interopRequireDefault(_component);
 
-var _adapter = __webpack_require__(16);
+var _adapter = __webpack_require__(15);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _foundation = __webpack_require__(50);
+var _foundation = __webpack_require__(48);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -9006,7 +8740,7 @@ exports.RippleCapableSurface = RippleCapableSurface;
 exports.util = util;
 
 /***/ }),
-/* 50 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9022,11 +8756,11 @@ var _foundation = __webpack_require__(2);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _adapter = __webpack_require__(16);
+var _adapter = __webpack_require__(15);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _constants = __webpack_require__(51);
+var _constants = __webpack_require__(49);
 
 var _util = __webpack_require__(7);
 
@@ -9780,7 +9514,7 @@ var MDCRippleFoundation = function (_MDCFoundation) {
 exports.default = MDCRippleFoundation;
 
 /***/ }),
-/* 51 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9839,7 +9573,7 @@ exports.strings = strings;
 exports.numbers = numbers;
 
 /***/ }),
-/* 52 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9881,7 +9615,7 @@ exports.strings = strings;
 exports.cssClasses = cssClasses;
 
 /***/ }),
-/* 53 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9916,7 +9650,7 @@ var strings = {
 exports.strings = strings;
 
 /***/ }),
-/* 54 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9940,9 +9674,9 @@ var _foundation5 = __webpack_require__(9);
 
 var _foundation6 = _interopRequireDefault(_foundation5);
 
-var _adapter = __webpack_require__(18);
+var _adapter = __webpack_require__(17);
 
-var _constants = __webpack_require__(17);
+var _constants = __webpack_require__(16);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10488,7 +10222,7 @@ var MDCTextFieldFoundation = function (_MDCFoundation) {
 exports.default = MDCTextFieldFoundation;
 
 /***/ }),
-/* 55 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10501,15 +10235,15 @@ exports.MDCLineRippleFoundation = exports.MDCLineRipple = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _component = __webpack_require__(56);
+var _component = __webpack_require__(54);
 
 var _component2 = _interopRequireDefault(_component);
 
-var _adapter = __webpack_require__(22);
+var _adapter = __webpack_require__(21);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _foundation = __webpack_require__(57);
+var _foundation = __webpack_require__(55);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -10631,7 +10365,7 @@ exports.MDCLineRipple = MDCLineRipple;
 exports.MDCLineRippleFoundation = _foundation2.default;
 
 /***/ }),
-/* 56 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10658,7 +10392,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * limitations under the License.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
-var _foundation = __webpack_require__(21);
+var _foundation = __webpack_require__(20);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -10809,7 +10543,7 @@ var MDCComponent = function () {
 exports.default = MDCComponent;
 
 /***/ }),
-/* 57 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10821,15 +10555,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _foundation = __webpack_require__(21);
+var _foundation = __webpack_require__(20);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _adapter = __webpack_require__(22);
+var _adapter = __webpack_require__(21);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _constants = __webpack_require__(58);
+var _constants = __webpack_require__(56);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -10979,7 +10713,7 @@ var MDCLineRippleFoundation = function (_MDCFoundation) {
 exports.default = MDCLineRippleFoundation;
 
 /***/ }),
-/* 58 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11014,7 +10748,7 @@ var cssClasses = {
 exports.cssClasses = cssClasses;
 
 /***/ }),
-/* 59 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11031,7 +10765,7 @@ var _component = __webpack_require__(5);
 
 var _component2 = _interopRequireDefault(_component);
 
-var _adapter = __webpack_require__(19);
+var _adapter = __webpack_require__(18);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
@@ -11135,7 +10869,7 @@ exports.MDCTextFieldHelperText = MDCTextFieldHelperText;
 exports.MDCTextFieldHelperTextFoundation = _foundation2.default;
 
 /***/ }),
-/* 60 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11152,7 +10886,7 @@ var _component = __webpack_require__(5);
 
 var _component2 = _interopRequireDefault(_component);
 
-var _adapter = __webpack_require__(20);
+var _adapter = __webpack_require__(19);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
@@ -11256,7 +10990,7 @@ exports.MDCTextFieldIcon = MDCTextFieldIcon;
 exports.MDCTextFieldIconFoundation = _foundation2.default;
 
 /***/ }),
-/* 61 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11269,15 +11003,15 @@ exports.MDCFloatingLabelFoundation = exports.MDCFloatingLabel = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _component = __webpack_require__(62);
+var _component = __webpack_require__(60);
 
 var _component2 = _interopRequireDefault(_component);
 
-var _adapter = __webpack_require__(24);
+var _adapter = __webpack_require__(23);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _foundation = __webpack_require__(63);
+var _foundation = __webpack_require__(61);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -11398,7 +11132,7 @@ exports.MDCFloatingLabel = MDCFloatingLabel;
 exports.MDCFloatingLabelFoundation = _foundation2.default;
 
 /***/ }),
-/* 62 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11425,7 +11159,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * limitations under the License.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
-var _foundation = __webpack_require__(23);
+var _foundation = __webpack_require__(22);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -11576,7 +11310,7 @@ var MDCComponent = function () {
 exports.default = MDCComponent;
 
 /***/ }),
-/* 63 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11588,15 +11322,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _foundation = __webpack_require__(23);
+var _foundation = __webpack_require__(22);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _adapter = __webpack_require__(24);
+var _adapter = __webpack_require__(23);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _constants = __webpack_require__(64);
+var _constants = __webpack_require__(62);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11753,7 +11487,7 @@ var MDCFloatingLabelFoundation = function (_MDCFoundation) {
 exports.default = MDCFloatingLabelFoundation;
 
 /***/ }),
-/* 64 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11788,7 +11522,7 @@ var cssClasses = {
 exports.cssClasses = cssClasses;
 
 /***/ }),
-/* 65 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11801,19 +11535,19 @@ exports.MDCNotchedOutlineFoundation = exports.MDCNotchedOutline = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _component = __webpack_require__(66);
+var _component = __webpack_require__(64);
 
 var _component2 = _interopRequireDefault(_component);
 
-var _adapter = __webpack_require__(26);
+var _adapter = __webpack_require__(25);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _foundation = __webpack_require__(67);
+var _foundation = __webpack_require__(65);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _constants = __webpack_require__(27);
+var _constants = __webpack_require__(26);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -11926,7 +11660,7 @@ exports.MDCNotchedOutline = MDCNotchedOutline;
 exports.MDCNotchedOutlineFoundation = _foundation2.default;
 
 /***/ }),
-/* 66 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11953,7 +11687,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * limitations under the License.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
-var _foundation = __webpack_require__(25);
+var _foundation = __webpack_require__(24);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -12104,7 +11838,7 @@ var MDCComponent = function () {
 exports.default = MDCComponent;
 
 /***/ }),
-/* 67 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12116,15 +11850,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _foundation = __webpack_require__(25);
+var _foundation = __webpack_require__(24);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _adapter = __webpack_require__(26);
+var _adapter = __webpack_require__(25);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _constants = __webpack_require__(27);
+var _constants = __webpack_require__(26);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -12274,7 +12008,7 @@ var MDCNotchedOutlineFoundation = function (_MDCFoundation) {
 exports.default = MDCNotchedOutlineFoundation;
 
 /***/ }),
-/* 68 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12297,7 +12031,7 @@ var _component = __webpack_require__(1);
 
 var _component2 = _interopRequireDefault(_component);
 
-var _index = __webpack_require__(13);
+var _index = __webpack_require__(12);
 
 var _constants = __webpack_require__(4);
 
@@ -12305,15 +12039,15 @@ var _foundation = __webpack_require__(6);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _foundation3 = __webpack_require__(69);
+var _foundation3 = __webpack_require__(67);
 
 var _foundation4 = _interopRequireDefault(_foundation3);
 
-var _foundation5 = __webpack_require__(70);
+var _foundation5 = __webpack_require__(68);
 
 var _foundation6 = _interopRequireDefault(_foundation5);
 
-var _foundation7 = __webpack_require__(71);
+var _foundation7 = __webpack_require__(69);
 
 var _foundation8 = _interopRequireDefault(_foundation7);
 
@@ -12509,7 +12243,7 @@ exports.MDCFixedTopAppBarFoundation = _foundation4.default;
 exports.MDCShortTopAppBarFoundation = _foundation6.default;
 
 /***/ }),
-/* 69 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12629,7 +12363,7 @@ var MDCFixedTopAppBarFoundation = function (_MDCTopAppBarFoundati) {
 exports.default = MDCFixedTopAppBarFoundation;
 
 /***/ }),
-/* 70 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12759,7 +12493,7 @@ var MDCShortTopAppBarFoundation = function (_MDCTopAppBarBaseFoun) {
 exports.default = MDCShortTopAppBarFoundation;
 
 /***/ }),
-/* 71 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13041,7 +12775,7 @@ var MDCTopAppBarFoundation = function (_MDCTopAppBarBaseFoun) {
 exports.default = MDCTopAppBarFoundation;
 
 /***/ }),
-/* 72 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13054,33 +12788,33 @@ exports.util = exports.MDCModalDrawerFoundation = exports.MDCDismissibleDrawerFo
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _index = __webpack_require__(73);
+var _index = __webpack_require__(71);
 
-var _foundation = __webpack_require__(28);
+var _foundation = __webpack_require__(27);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _foundation3 = __webpack_require__(75);
+var _foundation3 = __webpack_require__(72);
 
 var _foundation4 = _interopRequireDefault(_foundation3);
 
-var _adapter = __webpack_require__(11);
+var _adapter = __webpack_require__(10);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _index2 = __webpack_require__(76);
+var _index2 = __webpack_require__(73);
 
-var _foundation5 = __webpack_require__(31);
+var _foundation5 = __webpack_require__(29);
 
 var _foundation6 = _interopRequireDefault(_foundation5);
 
-var _constants = __webpack_require__(29);
+var _constants = __webpack_require__(28);
 
-var _util = __webpack_require__(79);
+var _util = __webpack_require__(75);
 
 var util = _interopRequireWildcard(_util);
 
-var _focusTrap = __webpack_require__(34);
+var _focusTrap = __webpack_require__(32);
 
 var _focusTrap2 = _interopRequireDefault(_focusTrap);
 
@@ -13251,6 +12985,9 @@ var MDCDrawer = function (_MDCComponent) {
         elementHasClass: function elementHasClass(element, className) {
           return element.classList.contains(className);
         },
+        computeBoundingRect: function computeBoundingRect() {
+          return _this3.root_.getBoundingClientRect();
+        },
         saveFocus: function saveFocus() {
           _this3.previousFocus_ = document.activeElement;
         },
@@ -13332,7 +13069,7 @@ exports.MDCModalDrawerFoundation = _foundation4.default;
 exports.util = util;
 
 /***/ }),
-/* 73 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13343,11 +13080,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.MDCComponent = exports.MDCFoundation = undefined;
 
-var _foundation = __webpack_require__(10);
+var _foundation = __webpack_require__(0);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _component = __webpack_require__(74);
+var _component = __webpack_require__(1);
 
 var _component2 = _interopRequireDefault(_component);
 
@@ -13380,191 +13117,7 @@ exports.MDCFoundation = _foundation2.default;
 exports.MDCComponent = _component2.default;
 
 /***/ }),
-/* 74 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @license
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Copyright 2016 Google Inc.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Permission is hereby granted, free of charge, to any person obtaining a copy
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * of this software and associated documentation files (the "Software"), to deal
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * in the Software without restriction, including without limitation the rights
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * copies of the Software, and to permit persons to whom the Software is
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * furnished to do so, subject to the following conditions:
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * The above copyright notice and this permission notice shall be included in
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * all copies or substantial portions of the Software.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * THE SOFTWARE.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
-
-var _foundation = __webpack_require__(10);
-
-var _foundation2 = _interopRequireDefault(_foundation);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * @template F
- */
-var MDCComponent = function () {
-  _createClass(MDCComponent, null, [{
-    key: 'attachTo',
-
-    /**
-     * @param {!Element} root
-     * @return {!MDCComponent}
-     */
-    value: function attachTo(root) {
-      // Subclasses which extend MDCBase should provide an attachTo() method that takes a root element and
-      // returns an instantiated component with its root set to that element. Also note that in the cases of
-      // subclasses, an explicit foundation class will not have to be passed in; it will simply be initialized
-      // from getDefaultFoundation().
-      return new MDCComponent(root, new _foundation2.default());
-    }
-
-    /**
-     * @param {!Element} root
-     * @param {F=} foundation
-     * @param {...?} args
-     */
-
-  }]);
-
-  function MDCComponent(root) {
-    var foundation = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
-
-    _classCallCheck(this, MDCComponent);
-
-    /** @protected {!Element} */
-    this.root_ = root;
-
-    for (var _len = arguments.length, args = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
-      args[_key - 2] = arguments[_key];
-    }
-
-    this.initialize.apply(this, args);
-    // Note that we initialize foundation here and not within the constructor's default param so that
-    // this.root_ is defined and can be used within the foundation class.
-    /** @protected {!F} */
-    this.foundation_ = foundation === undefined ? this.getDefaultFoundation() : foundation;
-    this.foundation_.init();
-    this.initialSyncWithDOM();
-  }
-
-  _createClass(MDCComponent, [{
-    key: 'initialize',
-    value: function initialize() /* ...args */{}
-    // Subclasses can override this to do any additional setup work that would be considered part of a
-    // "constructor". Essentially, it is a hook into the parent constructor before the foundation is
-    // initialized. Any additional arguments besides root and foundation will be passed in here.
-
-
-    /**
-     * @return {!F} foundation
-     */
-
-  }, {
-    key: 'getDefaultFoundation',
-    value: function getDefaultFoundation() {
-      // Subclasses must override this method to return a properly configured foundation class for the
-      // component.
-      throw new Error('Subclasses must override getDefaultFoundation to return a properly configured ' + 'foundation class');
-    }
-  }, {
-    key: 'initialSyncWithDOM',
-    value: function initialSyncWithDOM() {
-      // Subclasses should override this method if they need to perform work to synchronize with a host DOM
-      // object. An example of this would be a form control wrapper that needs to synchronize its internal state
-      // to some property or attribute of the host DOM. Please note: this is *not* the place to perform DOM
-      // reads/writes that would cause layout / paint, as this is called synchronously from within the constructor.
-    }
-  }, {
-    key: 'destroy',
-    value: function destroy() {
-      // Subclasses may implement this method to release any resources / deregister any listeners they have
-      // attached. An example of this might be deregistering a resize event from the window object.
-      this.foundation_.destroy();
-    }
-
-    /**
-     * Wrapper method to add an event listener to the component's root element. This is most useful when
-     * listening for custom events.
-     * @param {string} evtType
-     * @param {!Function} handler
-     */
-
-  }, {
-    key: 'listen',
-    value: function listen(evtType, handler) {
-      this.root_.addEventListener(evtType, handler);
-    }
-
-    /**
-     * Wrapper method to remove an event listener to the component's root element. This is most useful when
-     * unlistening for custom events.
-     * @param {string} evtType
-     * @param {!Function} handler
-     */
-
-  }, {
-    key: 'unlisten',
-    value: function unlisten(evtType, handler) {
-      this.root_.removeEventListener(evtType, handler);
-    }
-
-    /**
-     * Fires a cross-browser-compatible custom event from the component root of the given type,
-     * with the given data.
-     * @param {string} evtType
-     * @param {!Object} evtData
-     * @param {boolean=} shouldBubble
-     */
-
-  }, {
-    key: 'emit',
-    value: function emit(evtType, evtData) {
-      var shouldBubble = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-
-      var evt = void 0;
-      if (typeof CustomEvent === 'function') {
-        evt = new CustomEvent(evtType, {
-          detail: evtData,
-          bubbles: shouldBubble
-        });
-      } else {
-        evt = document.createEvent('CustomEvent');
-        evt.initCustomEvent(evtType, shouldBubble, false, evtData);
-      }
-
-      this.root_.dispatchEvent(evt);
-    }
-  }]);
-
-  return MDCComponent;
-}();
-
-exports.default = MDCComponent;
-
-/***/ }),
-/* 75 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13576,11 +13129,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _adapter = __webpack_require__(11);
+var _adapter = __webpack_require__(10);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _foundation = __webpack_require__(28);
+var _foundation = __webpack_require__(27);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -13664,7 +13217,7 @@ var MDCModalDrawerFoundation = function (_MDCDismissibleDrawer) {
 exports.default = MDCModalDrawerFoundation;
 
 /***/ }),
-/* 76 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -13677,21 +13230,21 @@ exports.MDCListFoundation = exports.MDCList = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _component = __webpack_require__(77);
+var _component = __webpack_require__(1);
 
 var _component2 = _interopRequireDefault(_component);
 
-var _foundation = __webpack_require__(31);
+var _foundation = __webpack_require__(29);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _adapter = __webpack_require__(32);
+var _adapter = __webpack_require__(30);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _ponyfill = __webpack_require__(78);
+var _ponyfill = __webpack_require__(74);
 
-var _constants = __webpack_require__(33);
+var _constants = __webpack_require__(31);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -14025,191 +13578,7 @@ exports.MDCList = MDCList;
 exports.MDCListFoundation = _foundation2.default;
 
 /***/ }),
-/* 77 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }(); /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * @license
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Copyright 2016 Google Inc.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * Permission is hereby granted, free of charge, to any person obtaining a copy
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * of this software and associated documentation files (the "Software"), to deal
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * in the Software without restriction, including without limitation the rights
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * copies of the Software, and to permit persons to whom the Software is
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * furnished to do so, subject to the following conditions:
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * The above copyright notice and this permission notice shall be included in
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * all copies or substantial portions of the Software.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      *
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      * THE SOFTWARE.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      */
-
-var _foundation = __webpack_require__(30);
-
-var _foundation2 = _interopRequireDefault(_foundation);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * @template F
- */
-var MDCComponent = function () {
-  _createClass(MDCComponent, null, [{
-    key: 'attachTo',
-
-    /**
-     * @param {!Element} root
-     * @return {!MDCComponent}
-     */
-    value: function attachTo(root) {
-      // Subclasses which extend MDCBase should provide an attachTo() method that takes a root element and
-      // returns an instantiated component with its root set to that element. Also note that in the cases of
-      // subclasses, an explicit foundation class will not have to be passed in; it will simply be initialized
-      // from getDefaultFoundation().
-      return new MDCComponent(root, new _foundation2.default());
-    }
-
-    /**
-     * @param {!Element} root
-     * @param {F=} foundation
-     * @param {...?} args
-     */
-
-  }]);
-
-  function MDCComponent(root) {
-    var foundation = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : undefined;
-
-    _classCallCheck(this, MDCComponent);
-
-    /** @protected {!Element} */
-    this.root_ = root;
-
-    for (var _len = arguments.length, args = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
-      args[_key - 2] = arguments[_key];
-    }
-
-    this.initialize.apply(this, args);
-    // Note that we initialize foundation here and not within the constructor's default param so that
-    // this.root_ is defined and can be used within the foundation class.
-    /** @protected {!F} */
-    this.foundation_ = foundation === undefined ? this.getDefaultFoundation() : foundation;
-    this.foundation_.init();
-    this.initialSyncWithDOM();
-  }
-
-  _createClass(MDCComponent, [{
-    key: 'initialize',
-    value: function initialize() /* ...args */{}
-    // Subclasses can override this to do any additional setup work that would be considered part of a
-    // "constructor". Essentially, it is a hook into the parent constructor before the foundation is
-    // initialized. Any additional arguments besides root and foundation will be passed in here.
-
-
-    /**
-     * @return {!F} foundation
-     */
-
-  }, {
-    key: 'getDefaultFoundation',
-    value: function getDefaultFoundation() {
-      // Subclasses must override this method to return a properly configured foundation class for the
-      // component.
-      throw new Error('Subclasses must override getDefaultFoundation to return a properly configured ' + 'foundation class');
-    }
-  }, {
-    key: 'initialSyncWithDOM',
-    value: function initialSyncWithDOM() {
-      // Subclasses should override this method if they need to perform work to synchronize with a host DOM
-      // object. An example of this would be a form control wrapper that needs to synchronize its internal state
-      // to some property or attribute of the host DOM. Please note: this is *not* the place to perform DOM
-      // reads/writes that would cause layout / paint, as this is called synchronously from within the constructor.
-    }
-  }, {
-    key: 'destroy',
-    value: function destroy() {
-      // Subclasses may implement this method to release any resources / deregister any listeners they have
-      // attached. An example of this might be deregistering a resize event from the window object.
-      this.foundation_.destroy();
-    }
-
-    /**
-     * Wrapper method to add an event listener to the component's root element. This is most useful when
-     * listening for custom events.
-     * @param {string} evtType
-     * @param {!Function} handler
-     */
-
-  }, {
-    key: 'listen',
-    value: function listen(evtType, handler) {
-      this.root_.addEventListener(evtType, handler);
-    }
-
-    /**
-     * Wrapper method to remove an event listener to the component's root element. This is most useful when
-     * unlistening for custom events.
-     * @param {string} evtType
-     * @param {!Function} handler
-     */
-
-  }, {
-    key: 'unlisten',
-    value: function unlisten(evtType, handler) {
-      this.root_.removeEventListener(evtType, handler);
-    }
-
-    /**
-     * Fires a cross-browser-compatible custom event from the component root of the given type,
-     * with the given data.
-     * @param {string} evtType
-     * @param {!Object} evtData
-     * @param {boolean=} shouldBubble
-     */
-
-  }, {
-    key: 'emit',
-    value: function emit(evtType, evtData) {
-      var shouldBubble = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-
-      var evt = void 0;
-      if (typeof CustomEvent === 'function') {
-        evt = new CustomEvent(evtType, {
-          detail: evtData,
-          bubbles: shouldBubble
-        });
-      } else {
-        evt = document.createEvent('CustomEvent');
-        evt.initCustomEvent(evtType, shouldBubble, false, evtData);
-      }
-
-      this.root_.dispatchEvent(evt);
-    }
-  }]);
-
-  return MDCComponent;
-}();
-
-exports.default = MDCComponent;
-
-/***/ }),
-/* 78 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14280,7 +13649,7 @@ exports.closest = closest;
 exports.matches = matches;
 
 /***/ }),
-/* 79 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14291,7 +13660,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.createFocusTrapInstance = undefined;
 
-var _focusTrap = __webpack_require__(34);
+var _focusTrap = __webpack_require__(32);
 
 var _focusTrap2 = _interopRequireDefault(_focusTrap);
 
@@ -14337,7 +13706,7 @@ function createFocusTrapInstance(surfaceEl) {
 exports.createFocusTrapInstance = createFocusTrapInstance;
 
 /***/ }),
-/* 80 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14491,7 +13860,7 @@ function UntouchabilityChecker(elementDocument) {
 // getComputedStyle accurately reflects `visibility: hidden` of ancestors
 // but not `display: none`, so we need to recursively check parents.
 UntouchabilityChecker.prototype.hasDisplayNone = function hasDisplayNone(node, nodeComputedStyle) {
-  if (node.nodeType !== Node.ELEMENT_NODE) return false;
+  if (node === this.doc.documentElement) return false;
 
   // Search for a cached result.
   var cached = find(this.cache, function (item) {
@@ -14524,7 +13893,7 @@ UntouchabilityChecker.prototype.isUntouchable = function isUntouchable(node) {
 module.exports = tabbable;
 
 /***/ }),
-/* 81 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14551,7 +13920,7 @@ function extend() {
 }
 
 /***/ }),
-/* 82 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14564,13 +13933,13 @@ exports.MDCSnackbar = exports.MDCSnackbarFoundation = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _index = __webpack_require__(35);
+var _index = __webpack_require__(33);
 
-var _foundation = __webpack_require__(84);
+var _foundation = __webpack_require__(80);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _index2 = __webpack_require__(86);
+var _index2 = __webpack_require__(82);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -14725,7 +14094,7 @@ var MDCSnackbar = exports.MDCSnackbar = function (_MDCComponent) {
 }(_index.MDCComponent);
 
 /***/ }),
-/* 83 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14758,7 +14127,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       * THE SOFTWARE.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       */
 
-var _foundation = __webpack_require__(36);
+var _foundation = __webpack_require__(34);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
@@ -14909,7 +14278,7 @@ var MDCComponent = function () {
 exports.default = MDCComponent;
 
 /***/ }),
-/* 84 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14921,9 +14290,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _index = __webpack_require__(35);
+var _index = __webpack_require__(33);
 
-var _constants = __webpack_require__(85);
+var _constants = __webpack_require__(81);
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -15229,7 +14598,7 @@ var MDCSnackbarFoundation = function (_MDCFoundation) {
 exports.default = MDCSnackbarFoundation;
 
 /***/ }),
-/* 85 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15283,7 +14652,7 @@ var numbers = exports.numbers = {
 };
 
 /***/ }),
-/* 86 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15443,7 +14812,7 @@ exports.getCorrectEventName = getCorrectEventName;
 exports.getCorrectPropertyName = getCorrectPropertyName;
 
 /***/ }),
-/* 87 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15462,15 +14831,15 @@ var _component = __webpack_require__(1);
 
 var _component2 = _interopRequireDefault(_component);
 
-var _foundation = __webpack_require__(88);
+var _foundation = __webpack_require__(84);
 
-var _constants = __webpack_require__(37);
+var _constants = __webpack_require__(35);
 
-var _index = __webpack_require__(90);
+var _index = __webpack_require__(86);
 
-var _foundation2 = __webpack_require__(12);
+var _foundation2 = __webpack_require__(11);
 
-var _index2 = __webpack_require__(92);
+var _index2 = __webpack_require__(88);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15787,7 +15156,7 @@ exports.AnchorMargin = _foundation2.AnchorMargin;
 exports.Corner = _index.Corner;
 
 /***/ }),
-/* 88 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15804,13 +15173,13 @@ var _foundation = __webpack_require__(0);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _adapter = __webpack_require__(89);
+var _adapter = __webpack_require__(85);
 
-var _constants = __webpack_require__(37);
+var _constants = __webpack_require__(35);
 
-var _foundation3 = __webpack_require__(12);
+var _foundation3 = __webpack_require__(11);
 
-var _foundation4 = __webpack_require__(40);
+var _foundation4 = __webpack_require__(38);
 
 var _foundation5 = _interopRequireDefault(_foundation4);
 
@@ -16099,7 +15468,7 @@ var MDCMenuFoundation = function (_MDCFoundation) {
 exports.MDCMenuFoundation = MDCMenuFoundation;
 
 /***/ }),
-/* 89 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16286,7 +15655,7 @@ var MDCMenuAdapter = function () {
 exports.MDCMenuAdapter = MDCMenuAdapter;
 
 /***/ }),
-/* 90 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16305,15 +15674,15 @@ var _component = __webpack_require__(1);
 
 var _component2 = _interopRequireDefault(_component);
 
-var _util = __webpack_require__(91);
+var _util = __webpack_require__(87);
 
 var util = _interopRequireWildcard(_util);
 
-var _foundation = __webpack_require__(12);
+var _foundation = __webpack_require__(11);
 
-var _adapter = __webpack_require__(38);
+var _adapter = __webpack_require__(36);
 
-var _constants = __webpack_require__(39);
+var _constants = __webpack_require__(37);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -16690,7 +16059,7 @@ exports.CornerBit = _constants.CornerBit;
 exports.util = util;
 
 /***/ }),
-/* 91 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16746,7 +16115,7 @@ function getTransformPropertyName(globalObj) {
 exports.getTransformPropertyName = getTransformPropertyName;
 
 /***/ }),
-/* 92 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16763,15 +16132,15 @@ var _component = __webpack_require__(1);
 
 var _component2 = _interopRequireDefault(_component);
 
-var _foundation = __webpack_require__(40);
+var _foundation = __webpack_require__(38);
 
 var _foundation2 = _interopRequireDefault(_foundation);
 
-var _adapter = __webpack_require__(41);
+var _adapter = __webpack_require__(39);
 
 var _adapter2 = _interopRequireDefault(_adapter);
 
-var _constants = __webpack_require__(42);
+var _constants = __webpack_require__(40);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -17077,7 +16446,7 @@ exports.MDCList = MDCList;
 exports.MDCListFoundation = _foundation2.default;
 
 /***/ }),
-/* 93 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -20660,10 +20029,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   );
 });
 //# sourceMappingURL=mdc.chips.js.map
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(94)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(90)(module)))
 
 /***/ }),
-/* 94 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

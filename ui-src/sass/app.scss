@@ -101,6 +101,7 @@ footer {
 // BUTTONS
 .view-button {
   text-align: center;
+  margin: 60px auto;
 }
 
 .user-profile-btn {
@@ -142,11 +143,11 @@ footer {
 
 #home-content-container {
   padding: 0 50px;
-  margin: 30px auto;
+  margin: 0 auto;
 }
 
 #home-content-container section {
-  padding-top: 25px;
+  padding-top: 60px;
 }
 
 .menu-container {
@@ -170,6 +171,10 @@ footer {
 
 .section-title {
   text-align: center;
+}
+
+.section-divider {
+  border-width: .5px;
 }
 
 // login & register
