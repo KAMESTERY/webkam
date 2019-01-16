@@ -70,5 +70,20 @@ func AddTemplateFunctions(r *gin.Engine) {
 			topic_section = topic + "-section"
 			return
 		},
+		"TopicTags": func(content_map map[string]contenu.Content) (allTopicTags []string) {
+			topicTagsMap := make(map[string]string)
+			for topic, cnt := range content_map {
+				for _, doc := range cnt.Documents {
+					for _, tag := range doc.Metadata.Identification.Tags {
+						tt := "/" + topic + "/" + tag
+						topicTagsMap[tt] = tt
+					}
+				}
+			}
+			for _, tt := range topicTagsMap {
+				allTopicTags = append(allTopicTags, tt)
+			}
+			return
+		},
 	})
 }
