@@ -1,7 +1,6 @@
 cloud.google.com/go v0.26.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
-github.com/KAMESTERY/middlewarekam v0.0.0-20190115022240-035f84570b9d/go.mod h1:cPvFzQ4qVa3Wzpg7bLjbTcAdC6tms2oHK7NJI/o+Ea0=
-github.com/KAMESTERY/middlewarekam v0.0.0-20190116095738-cce28c3baadf h1:4hOvId9PD16/RqK/rcwA5I/Fh+OMv2CEHkXpKa8P5FQ=
-github.com/KAMESTERY/middlewarekam v0.0.0-20190116095738-cce28c3baadf/go.mod h1:cPvFzQ4qVa3Wzpg7bLjbTcAdC6tms2oHK7NJI/o+Ea0=
+github.com/KAMESTERY/middlewarekam v0.0.0-20190120224321-26468e0de8d2 h1:bTZywz7C/iCCBRRENgmcyZ8HXoSsPUeptqJxUK4qTKM=
+github.com/KAMESTERY/middlewarekam v0.0.0-20190120224321-26468e0de8d2/go.mod h1:cPvFzQ4qVa3Wzpg7bLjbTcAdC6tms2oHK7NJI/o+Ea0=
 github.com/Machiel/slugify v1.0.1 h1:EfWSlRWstMadsgzmiV7d0yVd2IFlagWH68Q+DcYCm4E=
 github.com/Machiel/slugify v1.0.1/go.mod h1:fTFGn5uWEynW4CUMG7sWkYXOf1UgDxyTM3DbR6Qfg3k=
 github.com/boj/redistore v0.0.0-20180917114910-cd5dcc76aeff/go.mod h1:+RTT1BOk5P97fT2CiHkbFQwkK3mjsFAP6zCYV2aXtjw=
