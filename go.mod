@@ -1,7 +1,7 @@
 module kamestery.com
 
 require (
-	github.com/KAMESTERY/middlewarekam v0.0.0-20190116095738-cce28c3baadf
+	github.com/KAMESTERY/middlewarekam v0.0.0-20190120224321-26468e0de8d2
 	github.com/dchest/uniuri v0.0.0-20160212164326-8902c56451e9 // indirect
 	github.com/gin-contrib/sessions v0.0.0-20190101140330-dc5246754963
 	github.com/gin-gonic/gin v1.3.0
