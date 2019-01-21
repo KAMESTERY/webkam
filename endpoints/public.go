@@ -56,7 +56,7 @@ func content(c *gin.Context) {
 
 	content, err := contentKamClient.One(c, identifier)
 	if err != nil {
-		session.AddFlash("Could not Enroll You!") //TODO: Revisit this!
+		session.AddFlash("ERROR RETRIEVING CONTENT:::: identifier: %s", identifier)
 		register_error(c, nil, session.Flashes())
 		return
 	}
