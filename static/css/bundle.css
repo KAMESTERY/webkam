@@ -4002,11 +4002,11 @@ footer {
 .main-container {
   display: flex; }
 
-#home-content-container {
+.content-container {
   padding: 0 50px;
   margin: 0 auto; }
 
-#home-content-container section {
+.content-container section {
   padding-top: 60px; }
 
 .menu-container {
@@ -4101,7 +4101,7 @@ xl, extra-large: 1920px or larger
     flex-direction: column; }
   .menu-container {
     display: none; }
-  #home-content-container {
+  .content-container {
     margin: 0;
     padding: 20px; }
   #mobile_menu {
@@ -4136,7 +4136,7 @@ xl, extra-large: 1920px or larger
     padding: 0; } }
 
 @media only screen and (min-width: 601px) and (max-width: 960px) {
-  #home-content-container {
+  .content-container {
     max-width: 900px; }
   .menu-container {
     display: none; }
@@ -4159,7 +4159,7 @@ xl, extra-large: 1920px or larger
     right: 20px; } }
 
 @media only screen and (min-width: 961px) and (max-width: 1280px) {
-  #home-content-container {
+  .content-container {
     max-width: 600px; }
   .document-card {
     min-width: 250px;
@@ -4169,12 +4169,12 @@ xl, extra-large: 1920px or larger
   .document-card {
     min-width: 350px;
     min-height: 250px; }
-  #home-content-container {
+  .content-container {
     max-width: 900px; } }
 
 @media only screen and (min-width: 1601px) and (max-width: 1920px) {
   .document-card {
     min-width: 350px;
     min-height: 250px; }
-  #home-content-container {
+  .content-container {
     max-width: 1200px; } }

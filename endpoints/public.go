@@ -1,6 +1,7 @@
 package endpoints
 
 import (
+	"context"
 	contenu "github.com/KAMESTERY/middlewarekam/content"
 	mutil "github.com/KAMESTERY/middlewarekam/utils"
 	"github.com/gin-contrib/sessions"
@@ -88,31 +89,23 @@ func listContentByTopic(c *gin.Context) {
 		"flashes":   session.Flashes(),
 		"title": topic,
 		"documents": content.Documents,
-	}, "public/content-list.html")
+	}, "public/content-topic-list.html")
 }
 
 func listContentByTag(c *gin.Context) {
 
-	session := sessions.Default(c)
-	if token := session.Get(TOKEN_KAM); token != nil {
-		public_logger.Debugf("AUTH_TOKEN:::: %s", token.(string))
-	}
-
 	contentKamClient := contenu.NewContentKamClient()
+	content_map := make(map[string]contenu.Content)
 
-	tag := mutil.Slugify(c.Param("tag"))
-	topic := mutil.Slugify(c.Param("topic"))
-	content, err := contentKamClient.ByTag(c, topic, 0, tag)
-
-	if err != nil {
-		session.AddFlash("Could not Enroll You!") //TODO: Revisit this!
-		register_error(c, nil, session.Flashes())
-		return
+	for _, topic := range contenu.TOPICS {
+		content, err := contentKamClient.ByTag(context.Background(), topic, 6, c.Param("tag"))
+		if err != nil {
+			templating_logger.Warnf("WARNING:::: No content found for topic: %+s", topic)
+		}
+		content_map[topic] = *content
 	}
 
 	render(c, gin.H{
-		"flashes":   session.Flashes(),
-		"title": topic + ": " + tag,
-		"documents": content.Documents,
-	}, "public/content-list.html")
+		"contentMap": content_map,
+	}, "public/content-tag-list.html")
 }

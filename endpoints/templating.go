@@ -50,10 +50,10 @@ func AddTemplateFunctions(r *gin.Engine) {
 			}
 			return
 		},
-		"getLatestContentMapByTopic": func(topics [5]string) (content_map map[string]contenu.Content) {
+		"getLatestContentMapByTopic": func() (content_map map[string]contenu.Content) {
 			contentKamClient := contenu.NewContentKamClient()
 			content_map = make(map[string]contenu.Content)
-			for _, topic := range topics {
+			for _, topic := range contenu.TOPICS {
 				content, err := contentKamClient.Latest(context.Background(), topic, 6)
 				if err != nil {
 					templating_logger.Warnf("WARNING:::: No content found for topic: %+s", topic)
@@ -70,18 +70,17 @@ func AddTemplateFunctions(r *gin.Engine) {
 			topic_section = topic + "-section"
 			return
 		},
-		"TopicTags": func(content_map map[string]contenu.Content) (allTopicTags []string) {
-			topicTagsMap := make(map[string]string)
-			for topic, cnt := range content_map {
+		"AllTags": func(content_map map[string]contenu.Content) (tagList []string) {
+			tagSet := utils.NewSet()
+			for _, cnt := range content_map {
 				for _, doc := range cnt.Documents {
 					for _, tag := range doc.Metadata.Identification.Tags {
-						tt := "/" + topic + "/" + tag
-						topicTagsMap[tt] = tt
+						tagSet.Add(tag)
 					}
 				}
 			}
-			for _, tt := range topicTagsMap {
-				allTopicTags = append(allTopicTags, tt)
+			for _, tag := range tagSet.List() {
+				tagList = append(tagList, tag)
 			}
 			return
 		},
