@@ -93,12 +93,13 @@ func listContentByTopic(c *gin.Context) {
 }
 
 func listContentByTag(c *gin.Context) {
+	tag := c.Param("tag")
 
 	contentKamClient := contenu.NewContentKamClient()
 	content_map := make(map[string]contenu.Content)
 
 	for _, topic := range contenu.TOPICS {
-		content, err := contentKamClient.ByTag(context.Background(), topic, 6, c.Param("tag"))
+		content, err := contentKamClient.ByTag(context.Background(), topic, 0, tag)
 		if err != nil {
 			templating_logger.Warnf("WARNING:::: No content found for topic: %+s", topic)
 		}
@@ -107,5 +108,6 @@ func listContentByTag(c *gin.Context) {
 
 	render(c, gin.H{
 		"contentMap": content_map,
+		"tag": tag,
 	}, "public/content-tag-list.html")
 }

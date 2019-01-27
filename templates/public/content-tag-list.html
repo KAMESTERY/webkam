@@ -42,6 +42,7 @@
 
     <div class="content-container"> <!-- flex el -->
         <!--BEGIN CONTENT LOOP -->
+        <h1 class="section-title">Documents for tag: {{.tag}}</h1>
     {{ range $topic, $content := $content_map }}
     {{if $content.Documents}}
         <section id="{{getTopicSectionId $topic}}">
