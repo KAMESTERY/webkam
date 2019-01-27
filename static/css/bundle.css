@@ -4011,7 +4011,6 @@ footer {
 
 .menu-container {
   display: flex;
-  flex: 10%;
   max-width: 300px; }
 
 .page-menu {

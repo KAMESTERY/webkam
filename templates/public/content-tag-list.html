@@ -9,7 +9,7 @@
 <div class="main-container"> <!-- flex container -->
     <div class="menu-container"> <!-- flex el -->
 
-    {{ $content_map := .contentMap }}
+    {{$content_map := getLatestContentMapByTopic}}
 
         <nav class="page-menu mdc-drawer mdc-drawer--permanent">
             <div id="page-menu-content"> <!-- fixed positioning -->
@@ -18,23 +18,23 @@
                     <div class="mdc-list">
                         <h3 class="menu-title">Topics</h3>
                     {{ range $a, $topic := getTopics}}
-                        <a class="mdc-list-item side-menu-item" href="#{{getTopicSectionId $topic}}">
+                        <a class="mdc-list-item side-menu-item" href="/content-list-topic/{{$topic}}">
                         {{$topic}}
                         </a>
                     {{end}}
                     </div>
 
                     <hr class="section-divider">
-                    <!--
-                        <div class="mdc-list">
-                            <h4 class="menu-title">Tags</h4>
-                        {{range $i, $tag := AllTags $content_map}}
-                            <a class="mdc-list-item" href="/content-list-tag/{{$tag}}">
-                            {{$tag}}
-                            </a>
-                        {{end}}
+
+                    <div class="mdc-list">
+                        <h4 class="menu-title">Tags</h4>
+                    {{range $i, $tag := AllTags $content_map}}
+                        <a class="side-menu-item mdc-list-item" href="/content-list-tag/{{$tag}}">
+                        {{$tag}}
+                        </a>
+                    {{end}}
                     </div>
-                    -->
+
                 </div>
             </div>
         </nav>
