@@ -4015,11 +4015,18 @@ footer {
   max-width: 300px; }
 
 .page-menu {
-  padding: 20px;
-  margin: 0 auto; }
+  padding: 10px 20px;
+  width: 200px; }
+
+#page-menu-content {
+  position: fixed; }
+
+.side-menu-item {
+  height: 24px !important; }
 
 .menu-title {
-  padding-left: 10px; }
+  padding-left: 10px;
+  margin: 0; }
 
 .section-title {
   text-align: center; }

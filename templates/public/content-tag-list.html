@@ -18,7 +18,7 @@
                     <div class="mdc-list">
                         <h3 class="menu-title">Topics</h3>
                     {{ range $a, $topic := getTopics}}
-                        <a class="mdc-list-item" href="#{{getTopicSectionId $topic}}">
+                        <a class="mdc-list-item side-menu-item" href="#{{getTopicSectionId $topic}}">
                         {{$topic}}
                         </a>
                     {{end}}

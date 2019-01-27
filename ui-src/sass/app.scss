@@ -165,12 +165,22 @@ footer {
 }
 
 .page-menu {
-  padding: 0 20px;
-  margin: 0 auto;
+  padding: 10px 20px;
+  width: 200px;
+  //margin: 0 auto;
+}
+
+#page-menu-content {
+  position: fixed;
+}
+
+.side-menu-item{
+  height: 24px !important;
 }
 
 .menu-title {
   padding-left: 10px;
+  margin: 0;
 }
 
 .section-title {

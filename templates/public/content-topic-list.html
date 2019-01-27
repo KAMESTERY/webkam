@@ -6,6 +6,7 @@
 {{ template "global-header.html" . }}
 <!-- END COMMON TEMPLATE CODE -->
 
+{{$content_map := getLatestContentMapByTopic}}
 <div class="main-container"> <!-- flex container -->
     <div class="menu-container"> <!-- flex el -->
 
@@ -16,7 +17,7 @@
                     <div class="mdc-list">
                         <h3 class="menu-title">Topics</h3>
                     {{ range $a, $topic := getTopics}}
-                        <a class="mdc-list-item" href="/content-list-topic/{{$topic}}">
+                        <a class="side-menu-item mdc-list-item" href="/content-list-topic/{{$topic}}">
                         {{$topic}}
                         </a>
                     {{end}}
@@ -26,8 +27,8 @@
 
                     <div class="mdc-list">
                         <h4 class="menu-title">Tags</h4>
-                    {{range $i, $tag := AllTags getLatestContentMapByTopic}}
-                        <a class="mdc-list-item" href="/content-list-tag/{{$tag}}">
+                    {{range $i, $tag := AllTags $content_map}}
+                        <a class="side-menu-item mdc-list-item" href="/content-list-tag/{{$tag}}">
                         {{$tag}}
                         </a>
                     {{end}}
