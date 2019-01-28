@@ -1,57 +1,52 @@
 <!-- home.html -->
 
-{{ define "public/content-list.html" }}
+{{ define "public/content-topic-list.html" }}
 
 <!-- BEGIN COMMON TEMPLATE CODE -->
 {{ template "global-header.html" . }}
 <!-- END COMMON TEMPLATE CODE -->
 
+{{$content_map := getLatestContentMapByTopic}}
 <div class="main-container"> <!-- flex container -->
     <div class="menu-container"> <!-- flex el -->
 
         <nav class="page-menu mdc-drawer mdc-drawer--permanent">
             <div id="page-menu-content"> <!-- fixed positioning -->
-                <h3 class="menu-title">
-                {{/*<i class="fas fa-home"></i>*/}}
-                    Tags
-                </h3>
                 <div class="mdc-drawer__content">
-                    <nav class="mdc-list">
-                        <a class="mdc-list-item" href="#tag1">
-                            Tag 1
+
+                    <div class="mdc-list">
+                        <h3 class="menu-title">Topics</h3>
+                    {{ range $a, $topic := getTopics}}
+                        <a class="side-menu-item mdc-list-item" href="/content-list-topic/{{$topic}}">
+                        {{$topic}}
                         </a>
-                    </nav>
+                    {{end}}
+                    </div>
+
+                    <hr class="section-divider">
+
+                    <div class="mdc-list">
+                        <h4 class="menu-title">Tags</h4>
+                    {{range $i, $tag := AllTags $content_map}}
+                        <a class="side-menu-item mdc-list-item" href="/content-list-tag/{{$tag}}">
+                        {{$tag}}
+                        </a>
+                    {{end}}
+                    </div>
+
                 </div>
             </div>
         </nav>
     </div>
 
-    <div id="home-content-container"> <!-- flex el -->
+    <div class="content-container"> <!-- flex el -->
 
         <section id="{{getTopicSectionId .title}}">
             <h1 class="section-title">{{.title}}</h1>
             <div class="card-container"> <!-- flex container -->
 
             {{ range .documents}}
-                <div class="document-card mdc-card">
-                    <div class="mdc-card__primary-action mdc-ripple-upgraded" tabindex="0">
-                        <div class="mdc-card"></div>
-                        <h2>{{.Title}}</h2>
-                        <p>author: {{.Metadata.Identification.UserId}}</p>
-                        <div>
-                        {{.Body}}
-                        </div>
-                    </div>
-                    <div class="mdc-card__actions">
-                        <div class="mdc-card__action-buttons">
-                            <!-- TODO: REPLACE HARDCODED TOPIC 'default' -->
-                            <a class="mdc-button mdc-card__action mdc-card__action--button"
-                               href="/content/{{.Metadata.Identification.Identifier}}/{{.Slug}}">
-                                Read Article
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                {{ template "document-card.html" . }}
             {{end}}
             </div>
         </section>
@@ -64,7 +59,7 @@
         <div class="mdc-menu mdc-menu-surface" tabindex="-1">
             <div>
                 <ul id="mobile_menu_list" class="mdc-list" role="menu" aria-hidden="true" aria-orientation="vertical">
-                    {{/*TODO: UPDATE MOBILE MENU */}}
+                {{/*TODO: UPDATE MOBILE MENU */}}
                 {{/*{{ range $a, $topic := getTopics}}*/}}
                     {{/*<li role="menuitem" class="mdc-list-item" onclick="location.href='{{getTopicSectionId $topic}}'">*/}}
                     {{/*{{$topic}}*/}}

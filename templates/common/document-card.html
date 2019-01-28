@@ -1,0 +1,36 @@
+{{ define "document-card.html" }}
+<div class="document-card mdc-card">
+    <div class="mdc-card__primary-action" tabindex="0">
+        <div class="document-card-content">
+            <h2>{{.Title}}</h2>
+            <p>author: {{.Metadata.Identification.UserId}}</p>
+            <div>
+            {{.Body}}
+            </div>
+        </div>
+    {{$topic := .Metadata.Identification.Identifier}}
+        <div class="mdc-chip-set">
+        {{range $i, $tag := .Metadata.Identification.Tags}}
+            <div class="mdc-chip tag-chip" tabindex="{{$i}}">
+                <div class="mdc-chip__text">
+                    <a class="tag-link" href="/content-list-tag/{{$tag}}">
+                    {{$tag}}
+                    </a>
+                </div>
+            </div>
+        {{end}}
+        </div>
+    </div>
+    <div class="mdc-card__actions">
+        <div class="mdc-card__action-buttons">
+            <a class="mdc-button mdc-card__action mdc-card__action--button"
+               href="/content/{{$topic}}/{{.Slug}}">
+                Read Article
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+{{ end }}

@@ -149,32 +149,38 @@ footer {
   display: flex;
 }
 
-#home-content-container {
+.content-container {
   padding: 0 50px;
   margin: 0 auto;
 }
 
-#home-content-container section {
+.content-container section {
   padding-top: 60px;
 }
 
 .menu-container {
   display: flex;
-  flex: 10%;
+  //flex: 10%;
   max-width: 300px;
 }
 
 .page-menu {
-  padding: 20px;
-  margin: 0 auto;
+  padding: 10px 20px;
+  width: 200px;
+  //margin: 0 auto;
 }
 
 #page-menu-content {
   position: fixed;
 }
 
+.side-menu-item{
+  height: 24px !important;
+}
+
 .menu-title {
   padding-left: 10px;
+  margin: 0;
 }
 
 .section-title {
@@ -277,7 +283,7 @@ xl, extra-large: 1920px or larger
     display: none;
   }
 
-  #home-content-container {
+  .content-container {
     margin: 0;
     padding: 20px;
   }
@@ -333,7 +339,7 @@ xl, extra-large: 1920px or larger
 }
 
 @media only screen and (min-width: 601px) and (max-width: 960px) {
-  #home-content-container {
+  .content-container {
     max-width: 900px;
   }
 
@@ -371,7 +377,7 @@ xl, extra-large: 1920px or larger
 }
 
 @media only screen and (min-width: 961px) and (max-width: 1280px) {
-  #home-content-container {
+  .content-container {
     max-width: 600px;
   }
 
@@ -387,7 +393,7 @@ xl, extra-large: 1920px or larger
     min-height: 250px;
   }
 
-  #home-content-container {
+  .content-container {
     max-width: 900px;
   }
 }
@@ -398,7 +404,7 @@ xl, extra-large: 1920px or larger
     min-height: 250px;
   }
 
-  #home-content-container {
+  .content-container {
     max-width: 1200px;
   }
 }
