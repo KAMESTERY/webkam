@@ -62,7 +62,7 @@ func AddTemplateFunctions(r *gin.Engine) {
 			}
 			return
 		},
-		"getTopics": func() (topic_list [5]string) {
+		"getTopics": func() (topic_list [6]string) {
 			topic_list = contenu.TOPICS
 			return
 		},
