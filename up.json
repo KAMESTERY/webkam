@@ -1,0 +1,42 @@
+{
+    "name": "web-utils",
+    "lambda": {
+        "memory": 1536,
+        "warm": true,
+        "warm_count": 10,
+        "warm_rate": "30m",
+        "policy": [
+            {
+                "Effect": "Allow",
+                "Resource": "*",
+                "Action": [
+                    "dynamodb:GetItem",
+                    "dynamodb:BatchGetItem",
+                    "dynamodb:Query",
+                    "dynamodb:Scan",
+                    "dynamodb:PutItem",
+                    "dynamodb:UpdateItem",
+                    "dynamodb:DeleteItem",
+                    "dynamodb:BatchWriteItem",
+                    "dynamodb:GetRecords",
+                    "dynamodb:GetShardIterator",
+                    "dynamodb:DescribeTable",
+                    "dynamodb:DescribeLimits",
+                    "dynamodb:DescribeTimeToLive",
+                    "dynamodb:DescribeStream",
+                    "dynamodb:ListStreams",
+                    "dynamodb:TagResource",
+                    "dynamodb:UntagResource",
+                    "dynamodb:ListTagsOfResource",
+                    "dynamodb:ListTables"
+                ]
+            }
+        ]
+    },
+    "cors": {
+        "enable": true,
+        "allowed_methods": ["HEAD", "GET", "POST", "PUT", "PATCH", "DELETE"],
+        "allowed_headers": ["*"],
+        "allow_credentials": true
+    }
+}

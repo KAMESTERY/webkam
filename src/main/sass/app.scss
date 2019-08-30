@@ -1,0 +1,306 @@
+@import "@material/textfield/mdc-text-field";
+@import "@material/top-app-bar/mdc-top-app-bar";
+@import "@material/card/mdc-card";
+@import "@material/button/mdc-button";
+@import "@material/drawer/mdc-drawer";
+//@import "@material/snackbar/mdc-snackbar";
+//@import "instagram-filters";
+@import "@material/elevation/mdc-elevation";
+//@import "@material/fab/mdc-fab";
+@import "@material/list/mdc-list";
+@import "@material/menu-surface/mdc-menu-surface";
+@import "@material/menu/mdc-menu";
+//@import "@material/chips/mdc-chips";
+@import "@material/icon-button/mdc-icon-button";
+
+// GLOBAL
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#app-bar {
+  z-index: 1001;
+  top: 0;
+  left: 0;
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: #232b2b;
+  color: white;
+  width: 100%;
+  text-align: center;
+  z-index: 1000;
+}
+
+.main-container {
+
+  padding-top: 64px;
+  height: 100vh;
+}
+
+.content-container {
+  margin: 0 auto 75px;
+}
+
+// SIDEBAR
+.menu-container {
+  display: flex;
+  max-width: 300px;
+}
+
+.page-menu-content {
+  position: fixed;
+}
+
+.side-bar-title {
+  margin: 15px 0 0 15px;
+}
+
+#side-bar {
+  width: 175px;
+  border: none;
+  padding: 10px;
+}
+
+#side-bar li {
+  margin: -5px 10px;
+}
+
+// CARDS
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.document-card {
+  margin: 20px;
+  max-width: 350px;
+}
+
+.document-card-content {
+  padding: 20px 20px 5px;
+  text-align: left;
+}
+
+.form-card {
+  width: 375px;
+  margin: 0 auto;
+}
+
+// FORM
+.form-field {
+  display: flex;
+  margin: 15px 15px;
+}
+
+.form-content {
+  //padding: 16px;
+}
+
+.form-title {
+  text-align: center;
+}
+
+.form-container {
+  margin: 100px auto 0;
+}
+
+// LAYOUT HELPER
+.text-decoration-none {
+  text-decoration: none;
+}
+
+.spacer-top-100 {
+  margin-top: 100px;
+}
+
+.spacer-top-50 {
+  margin-top: 50px;
+}
+.spacer-top-25 {
+  margin-top: 25px;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.center {
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+}
+
+// login & register
+.auth-form {
+  margin-top: 50px;
+}
+
+.center-container {
+  margin-top: 75px;
+}
+
+.center-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.email,
+.confirm-password,
+.username,
+.password {
+  display: block;
+  width: 300px;
+  margin: 20px auto;
+}
+
+.form-button-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 300px;
+  margin: auto;
+}
+
+.form-button-container button {
+  margin: 3px;
+}
+
+
+/* Responsive layout Grid
+
+xs, extra-small: 0px or larger
+sm, small: 600px or larger
+md, medium: 960px or larger
+lg, large: 1280px or larger
+xl, extra-large: 1920px or larger
+
+*/
+
+@media only screen and (min-width: 0) and (max-width: 600px) {
+  .main-container {
+    flex-direction: column;
+  }
+
+  .menu-container {
+    display: none;
+  }
+
+  .content-container {
+    margin: 0;
+    padding: 20px;
+  }
+
+  #mobile_menu {
+    display: block;
+    position: fixed;
+    bottom: 100px;
+    right: 220px;
+  }
+
+  #mobile_menu_list {
+    width: 175px;
+  }
+
+  #mobile_menu_btn {
+    display: block;
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+  }
+
+  .card-container {
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+
+  .document-card {
+    margin: 20px;
+  }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 960px) {
+  .content-container {
+    max-width: 900px;
+  }
+
+  .menu-container {
+    display: none;
+  }
+
+  .document-card {
+    min-width: 250px;
+    min-height: 150px;
+  }
+
+  .card-container {
+    justify-content: center;
+  }
+
+  #mobile_menu {
+    display: block;
+    position: fixed;
+    bottom: 100px;
+    right: 220px;
+  }
+
+  #mobile_menu_list {
+    width: 175px;
+  }
+
+  #mobile_menu_btn {
+    display: block;
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+  }
+
+}
+
+@media only screen and (min-width: 961px) and (max-width: 1280px) {
+  .content-container {
+    max-width: 600px;
+  }
+
+  .document-card {
+    min-width: 250px;
+    min-height: 150px;
+  }
+}
+
+@media only screen and (min-width: 1280px) and (max-width: 1600px) {
+  .document-card {
+    min-width: 350px;
+    min-height: 250px;
+  }
+
+  .content-container {
+    max-width: 900px;
+  }
+}
+
+@media only screen and (min-width: 1601px) and (max-width: 1920px) {
+  .document-card {
+    min-width: 350px;
+    min-height: 250px;
+  }
+
+  .content-container {
+    max-width: 1200px;
+  }
+}
