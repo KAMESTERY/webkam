@@ -1,11 +1,12 @@
-node_modules/
-public/js
-dist
+src
+
 /target
 /checkouts
 /src/gen
 /static/js/cljs-runtime
-dist/
+/src
+/node_modules
+
 pom.xml
 pom.xml.asc
 *.iml

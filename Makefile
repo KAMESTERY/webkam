@@ -1,19 +1,21 @@
-
 BASEDIR=$(PWD)
 
-all: build-ui build
+deps:
+	rm -rf $(PWD)/node_modules; npm i
 
-build-ui:
-	npm i
-	npm run build
-	clj -m cljs.main -O advanced -o $(BASEDIR)/static/js/ui.js -c hello-world.core
+node-repl:
+	npx shadow-cljs node-repl app
 
-build:
-	go build
+compile:
+	npx shadow-cljs compile app web
 
-gen-code:
-	@echo "Generating Go code..."
-	@protoc -I svc/ svc/authkm.proto --go_out=plugins=grpc:grpc/gen
+release:
+	npx shadow-cljs release app web
 
-run: build-ui build
-	$(BASEDIR)/kamestery.com
+deploy:
+	gcloud app deploy -v dev
+
+webpack-dev:
+	webpack -d
+	cp $(BASEDIR)/dist/static/css/bundle.css $(BASEDIR)/static/css
+	cp $(BASEDIR)/dist/static/js/bundle.js $(BASEDIR)/static/js

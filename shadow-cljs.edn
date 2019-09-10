@@ -1,0 +1,40 @@
+;; shadow-cljs configuration
+{:source-paths
+ ["src/dev"
+  "src/main"
+  "src/test"]
+
+ :dependencies
+ [[cljs-http "0.1.46"]
+  [bidi "2.1.6"]
+  [lambdaisland/uri "1.1.0"]
+  [org.clojure/core.match "0.3.0"]
+  [reagent "0.8.1" :exclusions [cljsjs/react cljsjs/react-dom]]
+  [reagent-forms "0.5.43"]
+  [reagent-utils "0.3.3"]
+  [re-frame "0.10.5"]
+  [secretary "1.2.3"]
+  [com.rpl/specter "1.1.2"]
+  [com.taoensso/timbre "4.10.0"]
+  [cider/cider-nrepl "0.22.0-beta11"]]
+
+ :builds
+ {:app
+  {:main core/main
+   :target :node-script
+   :output-to "app.js"
+   :compiler-options {:optimizations :simple
+                      :infer-externs :all
+                      :output-feature-set :es7
+                      :fn-invoke-direct true}}
+  :web
+  {:target :browser
+   :output-dir "static/js"
+   :asset-path "/js"
+   :modules {:main {:init-fn ui.core/start}}
+   :compiler-options {:optimizations :advanced
+                      :infer-externs :all
+                      :output-feature-set :es7
+                      :fn-invoke-direct true}}
+  }
+ }

@@ -1,0 +1,16 @@
+runtime: nodejs10
+
+# runtime: nodejs
+# env: flex
+
+manual_scaling:
+  instances: 1
+resources:
+ cpu: .9
+ memory_gb: 0.18
+ disk_size_gb: 10
+
+# automatic_scaling:
+#     min_num_instances: 1
+#     max_num_instances: 16
+#     cool_down_period_sec: 180
