@@ -5,7 +5,8 @@
             [clojure.string :refer [lower-case]]
             [clojure.walk :refer [keywordize-keys]]
             [taoensso.timbre :as log]
-            ["express" :as express]))
+            ["express" :as express]
+            ["serve-static" :as serve-static]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Constructors

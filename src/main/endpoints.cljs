@@ -8,7 +8,10 @@
             [cljs.nodejs :as nodejs]
             [util.os :as os]
             [express.web-api :as web]
-            [ui.templates :as tmpl]))
+            [ui.templates.common :as common]
+            [ui.templates.home :as homeviews]
+            [ui.templates.user :as userviews]
+            [ui.services.usersvc :as usersvc]))
 
 (defn handle-response [response grab-data-fn]
   (let [status (:status response)]
@@ -22,9 +25,9 @@
 
 (defn render-widget
   [req]
-  (web/send :html [tmpl/default-template-ui
+  (web/send :html [common/default-template-ui
                    {:title "SS Reacting"
-                    :content [tmpl/hello-ui {:upper-bound 8}]
+                    :content [common/hello-ui {:upper-bound 8}]
                     :script "/js/main.js"
                     }]))
 
@@ -32,10 +35,10 @@
 (defn home!
   [req]
   (do
-    (pprint req)
-    (web/send :html [tmpl/default-template-ui
+;    (log/debug req)
+    (web/send :html [common/default-template-ui
                      {:title "Welcome to Kamestery!"
-                      :content [tmpl/home-ui]
+                      :content [homeviews/home-ui]
                       }])))
 
 ;; user
@@ -43,17 +46,31 @@
   [req]
   (let [{:keys [csrf-token]} req]
     (web/send :html
-              [tmpl/default-template-ui
+              [common/default-template-ui
                {:title   "User Login"
-                :content [tmpl/login-ui csrf-token]}])))
+                :content [userviews/login-ui csrf-token]}])))
 
 
 (defn authenticate [req]
   (let [{:keys [body]} req]
     (do
       (log/debug body)
-      (web/send :proceed "Home" {:headers {:location (web/path-for :home)}
-                                 :status 301}))))
+      (usersvc/authenticate body)
+      (web/redirect :home))))
+
+(defn user-register
+  [req]
+  (let [{:keys [csrf-token]} req]
+    (web/send :html
+              [common/default-template-ui
+               {:title   "User Registration"
+                :content [userviews/register-ui csrf-token]}])))
+
+(defn enroll [req]
+  (let [{:keys [body csrf-token]} req]
+    (do
+      (log/debug body)
+      (web/redirect :home))))
 
 ;; Application LifeCycle
 (defn app-start

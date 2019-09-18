@@ -3,11 +3,14 @@ BASEDIR=$(PWD)
 deps:
 	rm -rf $(PWD)/node_modules; npm i
 
+compile:
+	npx shadow-cljs compile app web
+
 node-repl:
 	npx shadow-cljs node-repl app
 
-compile:
-	npx shadow-cljs compile app web
+watch:
+	npx shadow-cljs watch app web
 
 release:
 	npx shadow-cljs release app web
