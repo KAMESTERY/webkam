@@ -7,10 +7,12 @@
             [endpoints :as ep]
             [routing :refer [routing-data]]
             ["morgan" :as logger]
+            ["serve-static" :as serve-static]
             ["xhr2" :as xhr2]
             ["body-parser" :as body-parser]
             ["cookie-parser" :as cookie-parser]
-            ["csurf" :as csurf]))
+            ["csurf" :as csurf]
+            ["helmet" :as helmet]))
 
 (nodejs/enable-util-print!)
 
@@ -58,8 +60,8 @@
     (log/debug "Static Folder: " staticFolder)
     (log/debug "Port Number: " portNumber)
     (-> (ex/app)
-        (ex/static staticFolder)
-        ;;(ex/static (if-let [STATIC (os/env "STATIC")] STATIC "static") "/public")
+        (ex/with-middleware (serve-static staticFolder (clj->js {:index false})))
+        (ex/with-middleware (helmet))
         (ex/with-middleware (logger "combined")) ;; Logger
         (ex/with-middleware (body-parser/json)) ;; support json encoded bodies
         (ex/with-middleware (body-parser/urlencoded (clj->js {:extended true}))) ;; support encoded bodies

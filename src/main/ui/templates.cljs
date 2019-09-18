@@ -139,7 +139,6 @@
    [:form.spacer-top-50 {:action "/user/authenticate", :method "post"}
     [:h2.center-text "Login"]
     [:input {:type "hidden", :name "_csrf", :value csrf-token}]
-    [:p "token" csrf-token]
     [:div.mdc-text-field.mdc-text-field--box.email
      [:input.mdc-text-field__input {:type "email", :id "email-input", :name "email"}]
      [:label {:class "mdc-floating-label", :for "email-input"} "Email"]

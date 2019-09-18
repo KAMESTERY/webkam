@@ -12,6 +12,7 @@ pom.xml.asc
 *.jar
 *.log
 .shadow-cljs
+.cpcache
 .idea
 .lein-*
 .nrepl-*

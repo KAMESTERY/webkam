@@ -5,8 +5,7 @@
             [clojure.string :refer [lower-case]]
             [clojure.walk :refer [keywordize-keys]]
             [taoensso.timbre :as log]
-            ["express" :as express]
-            ["serve-static" :as serve-static]))
+            ["express" :as express]))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Constructors
@@ -137,17 +136,3 @@
 (defn disabled?
   [app key]
   (.disabled app key))
-
-;(defn static
-;  ([app path]
-;   (use app ((aget express "static") path)))
-;  ([app path mount]
-;   (use app mount ((aget express "static") path))))
-
-(defn static
-  [app path]
-  (let [webdir (str js/__dirname "/" path)]
-    (log/debug "WEBDIR:" webdir)
-    (with-middleware app (serve-static webdir (clj->js {:index false})))
-    ))
-

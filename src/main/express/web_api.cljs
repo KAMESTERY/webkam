@@ -22,6 +22,8 @@
 (defn- render
   ([body] (pr-str body))
   ([format body]
+  (log/debug "Format: " format)
+  (log/debug "Body: " body)
    (condp = format
      :html (str
             "<!DOCTYPE html>"
@@ -32,15 +34,21 @@
 
 (defn- build-response
   ([body]
+    (identity
+      {:status 200
+      :headers {}
+      :body (render body)}))
+  ([fmt body]
    (identity
     {:status 200
      :headers {}
-     :body (apply render body)}))
-  ([body options]
+     :body (render fmt body)}))
+  ([fmt body options]
+  (log/debug "Options: " options)
    (let [{:keys [headers status] :or {headers {}, status 200}} options]
      {:status status
       :headers headers
-      :body (apply render body)})))
+      :body (render fmt body)})))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -132,4 +140,4 @@
 
 (defn send
   [& data]
-  (apply build-response [data]))
+  (apply build-response data))

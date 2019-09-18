@@ -49,11 +49,11 @@
 
 
 (defn authenticate [req]
-  (let [{:keys [body csrf-token]} req]
+  (let [{:keys [body]} req]
     (do
-      (pprint body)
-      (pprint csrf-token)
-      (home! req))))
+      (log/debug body)
+      (web/send :proceed "Home" {:headers {:location (web/path-for :home)}
+                                 :status 301}))))
 
 ;; Application LifeCycle
 (defn app-start
