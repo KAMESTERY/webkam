@@ -10,6 +10,13 @@
                   {"" :login}}
     "user/authenticate" {:post
                   {"" :authenticate}}
+    "user/register" {:get
+                         {"" :register}}
+    "user/enroll" {:post
+                         {"" :enroll}}
+    ;content
+    ["content/" :topic "/" :title] {:get
+                        {"" :get-document}}
     ;; app life-cycle
     "_ah/start" {:get
                  {"" :start}}

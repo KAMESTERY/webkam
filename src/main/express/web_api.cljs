@@ -141,3 +141,8 @@
 (defn send
   [& data]
   (apply build-response data))
+
+(defn redirect [route-key]
+  (send :proceed (name route-key)
+            {:headers {:location (path-for route-key)}
+             :status  301}))

@@ -31,6 +31,16 @@
 (defmethod handle :login [req-data]
   (ep/user-login (:req req-data)))
 
+(defmethod handle :register [req-data]
+  (ep/user-register (:req req-data)))
+
+(defmethod handle :enroll [req-data]
+  (ep/enroll (:req req-data)))
+
+;; content
+(defmethod handle :document [req-data]
+  (ep/document (:req req-data)))
+
 ;; app life-cycle
 (defmethod handle :start [req-data]
   (ep/app-start (:req req-data)))
