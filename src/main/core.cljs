@@ -1,7 +1,7 @@
 (ns core
+  (:require-macros [util.macros :as m])
   (:require [cljs.nodejs :as nodejs]
             [taoensso.timbre :as log]
-            [util.os :as os]
             [express.sugar :as ex]
             [express.web-api :as web]
             [endpoints :as ep]
@@ -55,8 +55,8 @@
    handle))
 
 (defn main []
-  (let [staticFolder (if-let [STATIC (os/env "STATIC")] STATIC "static")
-        portNumber (if-let [PORT (os/env "PORT")] PORT 8080)]
+  (let [staticFolder (if-let [STATIC (m/env-var"STATIC")] STATIC "static")
+        portNumber (if-let [PORT (m/env-var "PORT")] PORT 8080)]
     (log/debug "Static Folder: " staticFolder)
     (log/debug "Port Number: " portNumber)
     (-> (ex/app)
