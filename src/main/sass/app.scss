@@ -42,13 +42,17 @@ footer {
 }
 
 .main-container {
-
   padding-top: 64px;
   height: 100vh;
 }
 
 .content-container {
   margin: 0 auto 75px;
+}
+
+.responsive-image {
+  max-width: 100%;
+  height: auto;
 }
 
 // SIDEBAR
@@ -143,6 +147,16 @@ footer {
   text-align: center;
 }
 
+.section-divider-50 {
+  border-width: .5px;
+  margin: 50px auto;
+}
+
+.section-divider-10 {
+  border-width: .5px;
+  margin: 10px 15px;
+}
+
 // login & register
 .auth-form {
   margin-top: 50px;
@@ -178,6 +192,40 @@ footer {
   margin: 3px;
 }
 
+//TODO APPLY MOBILE FIRST PRINCIPLE
+// content
+.article-main {
+
+}
+
+.article-header {
+  padding-left: 40px;
+}
+
+.article-container {
+  max-width: 900px;
+  min-width: 400px;
+  width: calc(100% - 16px);
+  margin: 0 auto;
+}
+
+.article-content {
+  @include mdc-elevation(4);
+  max-width: 675px;
+  border-radius: 6px;
+  padding: 20px;
+  background: white;
+  margin: 0 auto;
+}
+
+.article-content h3 {
+  margin-top: 48px;
+}
+
+.article-list-container {
+  margin: 0 auto;
+  max-width: 900px;
+}
 
 /* Responsive layout Grid
 
@@ -244,7 +292,7 @@ xl, extra-large: 1920px or larger
   }
 
   .document-card {
-    min-width: 250px;
+    min-width: 300px;
     min-height: 150px;
   }
 

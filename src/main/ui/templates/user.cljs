@@ -1,6 +1,7 @@
 (ns ui.templates.user
   (:require [taoensso.timbre :as log]
-            [express.web-api :refer [path-for]]))
+            [bidi.bidi :refer [path-for]]
+            [express.web-api :refer [cached-routes]]))
 
 
 (defn login-ui [csrf-token]
@@ -13,7 +14,7 @@
      [:label.mdc-floating-label {:for "email-input"} "Email"]
      [:div.mdc-line-ripple]]
     [:div.mdc-text-field.mdc-text-field--box.password
-     [:input.mdc-text-field__input {:type "password", :id "password-input", :name "password" , :minlength "8"}]
+     [:input.mdc-text-field__input {:type "password", :id "password-input", :name "password" , :minLength "8"}]
      [:label.mdc-floating-label {:for "password-input"} "Password"]
      [:div.mdc-line-ripple]]
     [:div.form-button-container
@@ -34,11 +35,11 @@
      [:label.mdc-floating-label {:for "email-input"} "Email"]
      [:div.mdc-line-ripple]]
     [:div.mdc-text-field.mdc-text-field--box.password
-     [:input.mdc-text-field__input {:type "password", :id "password-input", :name "password", :minlength "8"}]
+     [:input.mdc-text-field__input {:type "password", :id "password-input", :name "password", :minLength "8"}]
      [:label.mdc-floating-label {:for "password-input"} "Password"]
      [:div.mdc-line-ripple]]
     [:div.mdc-text-field.mdc-text-field--box.confirm-password
-     [:input.mdc-text-field__input {:type "password", :id "confirm-password-input", :name "confirm-password", :minlength "8"}]
+     [:input.mdc-text-field__input {:type "password", :id "confirm-password-input", :name "confirm-password", :minLength "8"}]
      [:label.mdc-floating-label {:for "confirm-password-input"} "Confirm Password"]
      [:div.mdc-line-ripple]]
     [:div.form-button-container

@@ -1,0 +1,28 @@
+{:paths
+ ["src/dev"
+  "src/main"
+  "src/test"]
+
+ :deps
+ {outcastgeek/fast-twitch {:git/url "https://github.com/outcastgeek/fast-twitch"
+                           :sha "4e8a6cf90cbb670725bd54679801663c3361d15c"}
+  cljs-http {:mvn/version "0.1.46"}
+  org.clojure/core.match {:mvn/version "0.3.0"}
+  reagent {:mvn/version "0.8.1"
+           :exclusions [cljsjs/react cljsjs/react-dom]}
+  reagent-forms {:mvn/version "0.5.43"}
+  reagent-utils {:mvn/version "0.3.3"}
+  re-frame {:mvn/version "0.10.5"}
+  secretary {:mvn/version "1.2.3"}
+  com.rpl/specter {:mvn/version "1.1.2"}
+  com.taoensso/timbre {:mvn/version "4.10.0"}
+  thheller/shadow-cljs {:mvn/version "2.8.52"}}
+
+ :aliases
+ {:dev
+  {:extra-deps
+   {cider/cider-nrepl {:mvn/version "0.22.0-beta11"}}}
+  :prod
+  {:extra-deps
+   {cider/cider-nrepl {:mvn/version "0.22.0-beta11"}}}}
+ }

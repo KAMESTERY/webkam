@@ -9,8 +9,11 @@ compile:
 node-repl:
 	npx shadow-cljs node-repl app
 
-watch:
+watch-cljs:
 	npx shadow-cljs watch app web
+
+server-repl:
+	nodemon start
 
 release:
 	npx shadow-cljs release app web
@@ -18,7 +21,7 @@ release:
 deploy:
 	gcloud app deploy -v dev
 
-webpack-dev:
+webpack:
 	webpack -d
 	cp $(BASEDIR)/dist/static/css/bundle.css $(BASEDIR)/static/css
 	cp $(BASEDIR)/dist/static/js/bundle.js $(BASEDIR)/static/js

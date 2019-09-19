@@ -1,6 +1,7 @@
 (ns ui.templates.common
   (:require [taoensso.timbre :as log]
-            [express.web-api :refer [path-for]]))
+            [bidi.bidi :refer [path-for]]
+            [express.web-api :refer [cached-routes]]))
 
 (defn top-app-bar []
   [:header.mdc-top-app-bar
@@ -10,14 +11,14 @@
      [:a.material-icons.mdc-top-app-bar__navigation-icon.mdc-icon-button
       {:href "#"}
       "menu"]
-     [:a.mdc-top-app-bar__title {:href (path-for :home)} [:strong "KAMESTERY"]]]
+     [:a.mdc-top-app-bar__title {:href (path-for @cached-routes :home)} [:strong "KAMESTERY"]]]
     [:section.mdc-top-app-bar__section.mdc-top-app-bar__section--align-end
      {:role "toolbar"}
      [:a.material-icons.mdc-top-app-bar__action-item.mdc-icon-button
-      {:href (path-for :login) :aria-label "Login"}
+      {:href (path-for @cached-routes :login) :aria-label "Login"}
       "account_circle"]
      [:a.material-icons.mdc-top-app-bar__action-item.mdc-icon-button
-      {:href (path-for :register) :aria-label "Register"}
+      {:href (path-for @cached-routes :register) :aria-label "Register"}
       "person_add"]]]])
 
 (defn side-bar []
@@ -35,7 +36,19 @@
       [:li.mdc-list-item
        [:span.mdc-list-item__text "language"]]
       [:li.mdc-list-item
-       [:span.mdc-list-item__text "education"]]]]]])
+       [:span.mdc-list-item__text "education"]]]
+    [:hr.section-divider-10]
+     [:h3.side-bar-title "Tags"]
+     [:ul.mdc-list
+      [:li.mdc-list-item
+       {:tab-index 0}
+       [:span.mdc-list-item__text "trending"]]
+      [:li.mdc-list-item
+       [:span.mdc-list-item__text "pan-african"]]
+      [:li.mdc-list-item
+       [:span.mdc-list-item__text "latest"]]
+      [:li.mdc-list-item
+       [:span.mdc-list-item__text "wubba lubba dub dub"]]]]]])
 
 (defn default-template-ui [data]
   (let [{:keys [content script title]} data]
@@ -90,3 +103,14 @@
             [:li {:key n} n])]
      [un-bouton-ui {:text "React!!"}]]))
 
+(defn doc-card []
+  [:div.mdc-card.document-card
+   [:div
+    [:div.document-card-content
+     [:h2 "Document Title"]
+     [:p "author: name"]
+     [:div "body"]
+     [:div.mdc-card__actions.spacer-top-25
+      [:div.mdc-card__action-buttons
+       [:a.mdc-button.mdc-card__action.mdc-card__action--button {:href (path-for @cached-routes :document :topic "foo" :title "bar")}
+        [:span.mdc-button__label "Read Article"]]]]]]])

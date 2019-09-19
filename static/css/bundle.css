@@ -3169,6 +3169,10 @@ footer {
 .content-container {
   margin: 0 auto 75px; }
 
+.responsive-image {
+  max-width: 100%;
+  height: auto; }
+
 .menu-container {
   display: flex;
   max-width: 300px; }
@@ -3235,6 +3239,15 @@ footer {
 .section-title {
   text-align: center; }
 
+.section-divider-50 {
+  border-width: .5px;
+  margin: 50px auto; }
+
+.section-divider-10 {
+  border-width: .5px;
+  margin: 10px auto;
+  padding: 0 50px; }
+
 .auth-form {
   margin-top: 50px; }
 
@@ -3262,6 +3275,30 @@ footer {
 
 .form-button-container button {
   margin: 3px; }
+
+.article-header {
+  padding-left: 40px; }
+
+.article-container {
+  max-width: 900px;
+  min-width: 400px;
+  width: calc(100% - 16px);
+  margin: 0 auto; }
+
+.article-content {
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  max-width: 675px;
+  border-radius: 6px;
+  padding: 20px;
+  background: white;
+  margin: 0 auto; }
+
+.article-content h3 {
+  margin-top: 48px; }
+
+.article-list-container {
+  margin: 0 auto;
+  max-width: 900px; }
 
 /* Responsive layout Grid
 
@@ -3307,7 +3344,7 @@ xl, extra-large: 1920px or larger
   .menu-container {
     display: none; }
   .document-card {
-    min-width: 250px;
+    min-width: 300px;
     min-height: 150px; }
   .card-container {
     justify-content: center; }
