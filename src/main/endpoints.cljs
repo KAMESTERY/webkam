@@ -1,7 +1,9 @@
 (ns endpoints
   (:require-macros [cljs.core.async.macros :refer [alt! go]])
   (:require [cljs-http.client :as http]
-            [cljs.core.async :as async :refer [<! put! chan close! timeout]]
+            [cljs.core.async
+             :as    async
+             :refer [<! put! chan close! timeout]]
             [clojure.pprint :refer [pprint]]
             [taoensso.timbre :as log]
             [com.rpl.specter :as s]
@@ -11,7 +13,10 @@
             [ui.templates.common :as common]
             [ui.templates.home :as homeviews]
             [ui.templates.user :as userviews]
-            [ui.services.usersvc :as usersvc]))
+            [ui.templates.content :as contentviews]
+            [services.usersvc :as usersvc]
+            [services.contentsvc :as contentsvc]
+            [services.authsvc :as authsvc]))
 
 (defn handle-response [response grab-data-fn]
   (let [status (:status response)]
@@ -25,21 +30,20 @@
 
 (defn render-widget
   [req]
-  (web/send :html [common/default-template-ui
-                   {:title "SS Reacting"
-                    :content [common/hello-ui {:upper-bound 8}]
-                    :script "/js/main.js"
-                    }]))
+  (web/send :html
+            [common/default-template-ui
+             {:title   "SS Reacting"
+              :content [common/hello-ui {:upper-bound 8}]
+              :script  "/js/main.js"}]))
 
 ;; public
 (defn home!
   [req]
   (do
-;    (log/debug req)
-    (web/send :html [common/default-template-ui
-                     {:title "Welcome to Kamestery!"
-                      :content [homeviews/home-ui]
-                      }])))
+    (web/send :html
+              [common/default-template-ui
+               {:title   "Welcome to Kamestery!"
+                :content [homeviews/home-ui]}])))
 
 ;; user
 (defn user-login
@@ -69,8 +73,22 @@
 (defn enroll [req]
   (let [{:keys [body csrf-token]} req]
     (do
-      (log/debug body)
-      (web/redirect :home))))
+      (usersvc/enroll body)
+      (web/redirect :login))))
+
+;; content
+(defn document [req]
+  (let [title   (-> req :route-params :title)
+        topic   (-> req :route-params :topic)
+        content (contentsvc/get-document title topic)
+        document (-> content :documents first)]
+    (do
+      (log/debug "CONTENT:::" content)
+      (log/debug "DOC:::" document)
+      (web/send :html
+                [common/default-template-ui
+                 {:title   title
+                  :content [contentviews/document-ui document]}]))))
 
 ;; Application LifeCycle
 (defn app-start

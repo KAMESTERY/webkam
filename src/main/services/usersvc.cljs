@@ -1,19 +1,17 @@
-(ns ui.services.usersvc
-  (:require [taoensso.timbre :as log]))
+(ns services.usersvc
+  (:require [taoensso.timbre :as log]
+            [services.authsvc :as authsvc]))
 
 (defn authenticate [data]
   (let [{:keys [email password]} data]
     (do
       (log/debug email)
       (log/debug password)
-      {:token  "xxx-yyy-zzz"
-       :userId "user"
-       :email  "user@mail.com"
-       :role   1})))
+      (authsvc/set-claims! (authsvc/get-claims)))))
 
 (defn enroll [data]
   (do
-    (log/debug data)
+    (log/debug (str "ENROLLING:: " data))
     {:user_id "dev_user"
      :email "user@mail.com"
      :username "user"
