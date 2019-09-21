@@ -33,7 +33,7 @@ module.exports = [{
     output: {
         // This is necessary for webpack to compile
         // But we never use style-bundle.js
-        filename: 'static/js/bundle.js',
+        filename: '../static/js/bundle.js',
     },
     module: {
         rules: [
@@ -43,7 +43,7 @@ module.exports = [{
                     {
                         loader: 'file-loader',
                         options: {
-                            name: 'static/css/bundle.css',
+                            name: '../static/css/bundle.css',
                         },
                     },
                     {loader: 'extract-loader'},

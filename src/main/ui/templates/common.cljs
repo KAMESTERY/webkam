@@ -36,7 +36,8 @@
       [:li.mdc-list-item
        [:span.mdc-list-item__text "language"]]
       [:li.mdc-list-item
-       [:span.mdc-list-item__text "education"]]]
+       ;; TACHYONS STYLES + MATERIAL STYLE
+       [:span.orange..b.ttu.mdc-list-item__text "styled by:: tachyons"]]]
     [:hr.section-divider-10]
      [:h3.side-bar-title "Tags"]
      [:ul.mdc-list
@@ -61,6 +62,7 @@
      [:link {:rel "stylesheet" :href "/css/bundle.css"}]
      [:link {:rel "stylesheet" :href "https://fonts.googleapis.com/icon?family=Material+Icons"}]
      [:link {:rel "stylesheet", :href "https://fonts.googleapis.com/css?family=Roboto&display=swap"}]
+     [:link {:rel "stylesheet", :href "https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"}]
      [:body
       [top-app-bar]
       [:div.main-container
