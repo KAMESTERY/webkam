@@ -21,7 +21,6 @@ release:
 deploy:
 	gcloud app deploy -v dev
 
-webpack:
-	webpack -d
-	cp $(BASEDIR)/dist/static/css/bundle.css $(BASEDIR)/static/css
-	cp $(BASEDIR)/dist/static/js/bundle.js $(BASEDIR)/static/js
+commit:
+	git add -A
+	git commit -m "wip"
