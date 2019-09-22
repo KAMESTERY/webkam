@@ -1,4 +1,4 @@
-(ns ui.templates.common
+(ns ui.components.common
   (:require [taoensso.timbre :as log]
             [bidi.bidi :refer [path-for]]
             [express.web-api :refer [cached-routes]]))

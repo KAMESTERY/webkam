@@ -1,6 +1,6 @@
-(ns ui.templates.content
+(ns ui.components.content
   (:require [taoensso.timbre :as log]
-            [ui.templates.common :as common]
+            [ui.components.common :as common]
             [bidi.bidi :refer [path-for]]
             [express.web-api :refer [cached-routes]]))
 

@@ -1,6 +1,6 @@
 (ns ui.core
     (:require [reagent.core :as r]
-              [ui.templates.common :as common]))
+              [ui.components.common :as common]))
 
 (enable-console-print!)
 

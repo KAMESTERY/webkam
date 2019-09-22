@@ -10,13 +10,8 @@
             [cljs.nodejs :as nodejs]
             [util.os :as os]
             [express.web-api :as web]
-            [ui.templates.common :as common]
-            [ui.templates.home :as homeviews]
-            [ui.templates.user :as userviews]
-            [ui.templates.content :as contentviews]
-            [services.usersvc :as usersvc]
-            [services.contentsvc :as contentsvc]
-            [services.authsvc :as authsvc]))
+            [ui.components.core :as cmpt]
+            [services.core :as svc]))
 
 (defn handle-response [response grab-data-fn]
   (let [status (:status response)]
@@ -28,67 +23,59 @@
       404 ["Could not Find Anything"]
       500 ["Something Broke"])))
 
-(defn render-widget
-  [req]
-  (web/send :html
-            [common/default-template-ui
-             {:title   "SS Reacting"
-              :content [common/hello-ui {:upper-bound 8}]
-              :script  "/js/main.js"}]))
-
 ;; public
 (defn home!
   [req]
   (do
     (web/send :html
-              [common/default-template-ui
+              [cmpt/default-template
                {:title   "Welcome to Kamestery!"
-                :content [homeviews/home-ui]}])))
+                :content [cmpt/home]}])))
 
 ;; user
 (defn user-login
   [req]
   (let [{:keys [csrf-token]} req]
     (web/send :html
-              [common/default-template-ui
+              [cmpt/default-template
                {:title   "User Login"
-                :content [userviews/login-ui csrf-token]}])))
+                :content [cmpt/login csrf-token]}])))
 
 
 (defn authenticate [req]
   (let [{:keys [body]} req]
     (do
       (log/debug body)
-      (usersvc/authenticate body)
+      (svc/authenticate body)
       (web/redirect :home))))
 
 (defn user-register
   [req]
   (let [{:keys [csrf-token]} req]
     (web/send :html
-              [common/default-template-ui
+              [cmpt/default-template
                {:title   "User Registration"
-                :content [userviews/register-ui csrf-token]}])))
+                :content [cmpt/register csrf-token]}])))
 
 (defn enroll [req]
   (let [{:keys [body csrf-token]} req]
     (do
-      (usersvc/enroll body)
+      (svc/enroll body)
       (web/redirect :login))))
 
 ;; content
 (defn document [req]
   (let [title   (-> req :route-params :title)
         topic   (-> req :route-params :topic)
-        content (contentsvc/get-document title topic)
+        content (svc/get-document title topic)
         document (-> content :documents first)]
     (do
       (log/debug "CONTENT:::" content)
       (log/debug "DOC:::" document)
       (web/send :html
-                [common/default-template-ui
+                [cmpt/default-template
                  {:title   title
-                  :content [contentviews/document-ui document]}]))))
+                  :content [cmpt/document document]}]))))
 
 ;; Application LifeCycle
 (defn app-start
