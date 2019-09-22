@@ -6,7 +6,7 @@
 
 (defn login-ui [csrf-token]
   [:div.content-container
-   [:form.spacer-top-50 {:action "/user/authenticate", :method "post"}
+   [:form.mt5.mb6 {:action (path-for @cached-routes :authenticate), :method "post"}
     [:h2.center-text "Login"]
     [:input {:type "hidden", :name "_csrf", :value csrf-token}]
     [:div.mdc-text-field.mdc-text-field--box.email
@@ -23,7 +23,7 @@
 
 (defn register-ui [csrf-token]
   [:div.content-container
-   [:form.spacer-top-50 {:action "/user/enroll", :method "post"}
+   [:form.mt5.mb6 {:action (path-for @cached-routes :enroll), :method "post"}
     [:h2.center-text "Register"]
     [:input {:type "hidden", :name "_csrf", :value csrf-token}]
     [:div.mdc-text-field.mdc-text-field--box.username

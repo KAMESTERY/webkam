@@ -5,10 +5,12 @@
             [ui.templates.common :as common]))
 
 (defn home-ui []
- [:div.content-container
+ [:div.center.mt0.mb5.mw8.pl5
   [:section
    [:h1.section-title "title"]
    [:div.card-container
+    [common/doc-card]
+    [common/doc-card]
     [common/doc-card]
     [common/doc-card]
     [common/doc-card]
@@ -19,17 +21,23 @@
     [common/doc-card]
     [common/doc-card]
     [common/doc-card]
-    [common/doc-card]]]
-  [:section
-   [:h1.section-title "title"]
-   [:div.card-container
-    [common/doc-card]
     [common/doc-card]
     [common/doc-card]
     [common/doc-card]]]
   [:section
    [:h1.section-title "title"]
    [:div.card-container
+    [common/doc-card]
+    [common/doc-card]
+    [common/doc-card]
+    [common/doc-card]
+    [common/doc-card]
+    [common/doc-card]]]
+  [:section
+   [:h1.section-title "title"]
+   [:div.card-container
+    [common/doc-card]
+    [common/doc-card]
     [common/doc-card]
     [common/doc-card]
     [common/doc-card]

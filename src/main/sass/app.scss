@@ -24,20 +24,10 @@ a {
   color: inherit;
 }
 
-#app-bar {
-  z-index: 1001;
-  top: 0;
-  left: 0;
-}
-
 footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
+  position: absolute;
   background-color: #232b2b;
   color: white;
-  width: 100%;
-  text-align: center;
   z-index: 1000;
 }
 
@@ -55,29 +45,8 @@ footer {
   height: auto;
 }
 
-// SIDEBAR
-.menu-container {
-  display: flex;
-  max-width: 300px;
-}
 
-.page-menu-content {
-  position: fixed;
-}
 
-.side-bar-title {
-  margin: 15px 0 0 15px;
-}
-
-#side-bar {
-  width: 175px;
-  border: none;
-  padding: 10px;
-}
-
-#side-bar li {
-  margin: -5px 10px;
-}
 
 // CARDS
 .card-container {
