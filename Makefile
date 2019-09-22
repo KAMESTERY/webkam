@@ -1,6 +1,6 @@
 BASEDIR=$(PWD)
 APPNAME=webkam
-PROJECTID=webkam
+PROJECTID=kamestery
 
 system-prep:
 	curl -O https://download.clojure.org/install/linux-install-1.10.1.469.sh
