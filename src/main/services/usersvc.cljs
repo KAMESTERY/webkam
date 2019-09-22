@@ -1,13 +1,36 @@
 (ns services.usersvc
-  (:require [taoensso.timbre :as log]
-            [services.authsvc :as authsvc]))
+  (:require [taoensso.timbre :as log]))
+
+(def auth-key (str "KAM_AUTH_STORAGE_KEY"))
+
+;; claims
+(defn get-claims []
+  {:token  "xxx-yyy-zzz"
+   :userId "user"
+   :email  "user@mail.com"
+   :role   1})
+
+(defn set-claims! [claims]
+  (log/debug (str "STORING CLAIMS::::" claims)))
+
+;(defn remove-claims! []
+;  (remove-item! auth-key))
+
+(defn logged-in? []
+  (let [claims (get-claims)]
+    (boolean
+     (and
+      (:email claims)
+      (:role claims)
+      (:token claims)
+      (:userId claims)))))
 
 (defn authenticate [data]
   (let [{:keys [email password]} data]
     (do
       (log/debug email)
       (log/debug password)
-      (authsvc/set-claims! (authsvc/get-claims)))))
+      (set-claims! (get-claims)))))
 
 (defn enroll [data]
   (do
