@@ -8,38 +8,32 @@
             [taoensso.timbre :as log]
             [com.rpl.specter :as s]
             [cljs.nodejs :as nodejs]
-            [util.os :as os]
-            [express.web-api :as web]
-            [ui.components.core :as cmpt]
+            [bidi.bidi :refer [path-for]]
+            [fast-twitch.nav :refer [cached-routes]]
+            [fast-twitch.os :as os]
+            [fast-twitch.web-api :as web]
+            [ui.components.core :as c]
+            [ui.pages.core :as p]
+            [ui.templates.core :as t]
             [services.core :as svc]))
 
-(defn handle-response [response grab-data-fn]
-  (let [status (:status response)]
-    (prn "Status: " status)
-    (condp = status
-      200 (grab-data-fn response)
-      401 ["Ouch!!!!"]
-      403 ["Remote Service Denied Access"]
-      404 ["Could not Find Anything"]
-      500 ["Something Broke"])))
-
-;; public
-(defn home!
+(defn home
   [req]
-  (do
+  (let [data {}]
     (web/send :html
-              [cmpt/default-template
+              [t/default-template-ui
                {:title   "Welcome to Kamestery!"
-                :content [cmpt/home]}])))
+                :content [p/home data]}])))
 
 ;; user
 (defn user-login
   [req]
-  (let [{:keys [csrf-token]} req]
+  (let [{:keys [csrf-token]} req
+        data {:csrf-token csrf-token}]
     (web/send :html
-              [cmpt/default-template
+              [t/default-template-ui
                {:title   "User Login"
-                :content [cmpt/login csrf-token]}])))
+                :content [p/login data]}])))
 
 
 (defn authenticate [req]
@@ -51,11 +45,12 @@
 
 (defn user-register
   [req]
-  (let [{:keys [csrf-token]} req]
+  (let [{:keys [csrf-token]} req
+        data {:csrf-token csrf-token}]
     (web/send :html
-              [cmpt/default-template
+              [t/default-template-ui
                {:title   "User Registration"
-                :content [cmpt/register csrf-token]}])))
+                :content [p/register data]}])))
 
 (defn enroll [req]
   (let [{:keys [body csrf-token]} req]
@@ -65,17 +60,44 @@
 
 ;; content
 (defn document [req]
-  (let [title   (-> req :route-params :title)
-        topic   (-> req :route-params :topic)
-        content (svc/get-document title topic)
-        document (-> content :documents first)]
-    (do
-      (log/debug "CONTENT:::" content)
-      (log/debug "DOC:::" document)
-      (web/send :html
-                [cmpt/default-template
-                 {:title   title
-                  :content [cmpt/document document]}]))))
+  (go
+   (let [title   (-> req :route-params :title)
+         topic   (-> req :route-params :topic)]
+     (alt!
+      (svc/get-document topic title)
+      ([resp]
+        (do (log/debug "RESPONSE::::" resp)
+          (web/send :html
+                    [t/default-template-ui
+                     {:title title
+                      :content [p/document resp]}])))
+      (timeout 2000)
+      (do
+        (log/debug "ERROR:::")
+        (web/send :html
+                  [t/default-template-ui
+                   {:title title
+                    :content [p/home {}]}]))))))
+
+(defn list-content [req]
+  (go
+   (let [topic   (-> req :route-params :topic)]
+     (alt!
+      (svc/list-content topic)
+      ([resp]
+        (do
+          (log/debug "RESONSE::::" resp)
+          (web/send :html
+                    [t/default-template-ui
+                     {:title topic
+                      :content [p/content resp]}])))
+      (timeout 2000)
+      (do
+        (log/debug "ERROR:::")
+        (web/send :html
+                  [t/default-template-ui
+                   {:title title
+                    :content [p/home {}]}]))))))
 
 ;; Application LifeCycle
 (defn app-start

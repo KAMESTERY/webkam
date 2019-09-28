@@ -1,9 +1,9 @@
 (ns core
-  (:require-macros [util.macros :as m])
+  (:require-macros [fast-twitch.macros :as m])
   (:require [cljs.nodejs :as nodejs]
             [taoensso.timbre :as log]
-            [express.sugar :as ex]
-            [express.web-api :as web]
+            [fast-twitch.sugar :as ex]
+            [fast-twitch.web-api :as web]
             [endpoints :as ep]
             [routing :refer [routing-data]]
             ["morgan" :as logger]
@@ -22,7 +22,7 @@
 
 ;; public
 (defmethod handle :home [req-data]
-  (ep/home! (:req req-data)))
+  (ep/home (:req req-data)))
 
 ;; user
 (defmethod handle :authenticate [req-data]
@@ -40,6 +40,9 @@
 ;; content
 (defmethod handle :document [req-data]
   (ep/document (:req req-data)))
+
+(defmethod handle :list-content-by-topic [req-data]
+  (ep/list-content (:req req-data)))
 
 ;; app life-cycle
 (defmethod handle :start [req-data]

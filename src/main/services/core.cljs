@@ -18,3 +18,9 @@
 
 (defn get-document [title topic]
   (c/get-document title topic))
+
+(defn list-content [topic]
+  (c/list-content topic))
+
+(defn topics []
+  (c/get-topics))
