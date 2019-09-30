@@ -5,7 +5,7 @@
 
  :deps
  {outcastgeek/fast-twitch {:git/url "https://github.com/outcastgeek/fast-twitch"
-                           :sha "da2ce45c1c5ee798c04f66822db666fdcb619809"}
+                           :sha "0a756f0dee3ab853be1638cbafe984ba29534f81"}
   cljs-http {:mvn/version "0.1.46"}
   org.clojure/core.match {:mvn/version "0.3.0"}
   reagent {:mvn/version "0.8.1"

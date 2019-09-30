@@ -1,36 +1,17 @@
 (ns ui.components.core
-  (:require [ui.components.common :as g]
-            [ui.components.home :as h]
-            [ui.components.user :as u]
-            [ui.components.content :as c]))
+  (:require
+    [ui.components.nav :as n]
+    [ui.components.footer :as f]
+    [ui.components.card :as c]))
 
-;; common
-(defn top-app-bar [data]
-  (g/top-app-bar))
+(defn top-app-bar []
+  (n/top-app-bar))
 
-(defn side-bar [data]
-  (g/side-bar))
+(defn side-bar []
+  (n/side-bar))
 
-(defn footer [data]
-  (g/footer))
+(defn doc-card [document]
+  (c/doc-card document))
 
-(defn default-template [data]
-  (g/default-template-ui data))
-
-(defn doc-card [data]
-  (g/doc-card))
-
-;; home
-(defn home [data]
-  (h/home-ui))
-
-;; user
-(defn login [data]
-  (u/login-ui data))
-
-(defn register [data]
-  (u/register-ui data))
-
-;; content
-(defn document [data]
-  (c/document-ui))
+(defn footer [& content]
+  (f/footer content))
