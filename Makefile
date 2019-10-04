@@ -18,7 +18,7 @@ node-repl:
 	npx shadow-cljs node-repl app
 
 watch-cljs:
-	npx shadow-cljs watch app web
+	npm run start-dev
 
 server-repl:
 	nodemon start

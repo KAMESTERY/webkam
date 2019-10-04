@@ -18,3 +18,4 @@
          [:a.mdc-button.mdc-card__action.mdc-card__action--button
           {:href (path-for @cached-routes :document :topic Identifier :title Title)}
           [:span.mdc-button__label "Read Article"]]]]]]]))
+

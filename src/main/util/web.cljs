@@ -12,6 +12,7 @@
       500 ["Something Broke"])))
 
 (defn url-config []
-  (let [namespace (if-let [DATA_NAMEPSACE (m/env-var "DATA_NAMESPACE")] DATA_NAMEPSACE "com.kamestery.devdata")
-        url       (if-let [URL_ROOT (m/env-var "URL_ROOT")] URL_ROOT "https://data-dev.kamestery.com/")]
+  (let [namespace (if-let [NAMEPSACE (m/env-var "NAMESPACE")] NAMEPSACE "com.kamestery.devdata")
+        url       (if-let [BACKEND (m/env-var "BACKEND")] BACKEND "https://data-dev.kamestery.com/gql")]
     {:namespace namespace :url url}))
+

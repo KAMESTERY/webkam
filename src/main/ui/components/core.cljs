@@ -14,4 +14,4 @@
   (c/doc-card document))
 
 (defn footer [& content]
-  (f/footer content))
+  (apply f/footer content))

@@ -15,7 +15,8 @@
             [ui.components.core :as c]
             [ui.pages.core :as p]
             [ui.templates.core :as t]
-            [services.core :as svc]))
+            [services.core :as svc :refer [<get-document
+                                           <list-content]]))
 
 (defn home
   [req]
@@ -64,7 +65,7 @@
    (let [title   (-> req :route-params :title)
          topic   (-> req :route-params :topic)]
      (alt!
-      (svc/get-document topic title)
+      (<get-document topic title)
       ([resp]
         (do (log/debug "RESPONSE::::" resp)
           (web/send :html
@@ -83,7 +84,7 @@
   (go
    (let [topic   (-> req :route-params :topic)]
      (alt!
-      (svc/list-content topic)
+      (<list-content topic)
       ([resp]
         (do
           (log/debug "RESONSE::::" resp)
@@ -96,7 +97,7 @@
         (log/debug "ERROR:::")
         (web/send :html
                   [t/default-template-ui
-                   {:title title
+                   {:title "List of Content"
                     :content [p/home {}]}]))))))
 
 ;; Application LifeCycle

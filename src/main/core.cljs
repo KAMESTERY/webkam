@@ -54,10 +54,6 @@
 (defmethod handle :stop [req-data]
   (ep/app-stop (:req req-data)))
 
-;; reference
-(defmethod handle :react [req-data]
-  (ep/render-widget (:req req-data)))
-
 ;; default
 (defmethod handle :default [_]
   (web/send "Not Found"))
