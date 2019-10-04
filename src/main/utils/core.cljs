@@ -1,4 +1,4 @@
-(ns util.web
+(ns utils.core
   (:require-macros [fast-twitch.macros :as m]))
 
 (defn handle-response [response grab-data-fn]
@@ -15,4 +15,10 @@
   (let [namespace (if-let [NAMEPSACE (m/env-var "NAMESPACE")] NAMEPSACE "com.kamestery.devdata")
         url       (if-let [BACKEND (m/env-var "BACKEND")] BACKEND "https://data-dev.kamestery.com/gql")]
     {:namespace namespace :url url}))
+
+(defn encode-base64 [s]
+  (.toString (js/Buffer. s) "base64"))
+
+(defn decode-base64 [d]
+  (.toString (js/Buffer. d "base64") "utf-8"))
 

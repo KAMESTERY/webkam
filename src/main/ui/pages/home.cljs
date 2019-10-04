@@ -6,17 +6,16 @@
             [services.core :as s]))
 
 (defn home-ui [data]
-  ;; todo pass in content and iterate over it
-  (let [document {:Identifier "africa" :Title "talk-is-cheap"}]
+  (let [topics (keys data)]
     [:<>
      [c/side-bar]
-     [:div.center.mt0.mb5.mw8.pl5
-      [:section
-       [:h1.section-title "Title"]
-       [:div.card-container
-        [c/doc-card document]
-        [c/doc-card document]
-        [c/doc-card document]
-        [c/doc-card document]
-        [c/doc-card document]
-        [c/doc-card document]]]]]))
+     (for [topic topics]
+       ^{:key topic}
+       [:div.center.mt0.mb5.mw8.pl5
+        [:section
+         [:h1.section-title "Title"]
+         [:div.card-container
+          (for [doc (-> data topic)]
+            ^{:key doc}
+            [c/doc-card doc])]]])]))
+

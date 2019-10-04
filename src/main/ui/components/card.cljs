@@ -5,17 +5,19 @@
 
 (defn doc-card
   [document]
-  (let [{:keys [Title Identifier]} document]
+  (log/debug "Document: " document)
+  (let [{:keys [Title Identifier
+                Slug UserID]} document]
     [:div.mdc-card.document-card
      [:input {:type "hidden" :name "topic" :value Identifier}]
      [:div
       [:div.document-card-content
        [:h2 Title]
-       [:p "author: name"]
+       [:p (str "author:" UserID)]
        [:div "body"]
        [:div.mdc-card__actions.spacer-top-25
         [:div.mdc-card__action-buttons
          [:a.mdc-button.mdc-card__action.mdc-card__action--button
-          {:href (path-for @cached-routes :document :topic Identifier :title Title)}
+          {:href (path-for @cached-routes :document :topic Identifier :title Slug)}
           [:span.mdc-button__label "Read Article"]]]]]]]))
 

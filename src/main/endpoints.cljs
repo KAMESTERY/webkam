@@ -16,15 +16,28 @@
             [ui.pages.core :as p]
             [ui.templates.core :as t]
             [services.core :as svc :refer [<get-document
-                                           <list-content]]))
+                                           <get-document-and-related
+                                           <list-content
+                                           <list-topics]]))
 
 (defn home
   [req]
-  (let [data {}]
-    (web/send :html
-              [t/default-template-ui
-               {:title   "Welcome to Kamestery!"
-                :content [p/home data]}])))
+  (go
+    (alt!
+      (apply <list-topics (svc/topics))
+      ([data]
+       (web/send :html
+                 [t/default-template-ui
+                  {:title   "Welcome to Kamestery!"
+                   :content [p/home data]}]))
+      (timeout 8000)
+      (do
+        (log/debug "ERROR:::")
+        (web/send :html
+                  [t/default-template-ui
+                   {:title   "Welcome to Kamestery!"
+                    :content [p/home []]}])))
+    ))
 
 ;; user
 (defn user-login
@@ -65,7 +78,7 @@
    (let [title   (-> req :route-params :title)
          topic   (-> req :route-params :topic)]
      (alt!
-      (<get-document topic title)
+       (<get-document-and-related topic title)
       ([resp]
         (do (log/debug "RESPONSE::::" resp)
           (web/send :html
@@ -78,7 +91,7 @@
         (web/send :html
                   [t/default-template-ui
                    {:title title
-                    :content [p/home {}]}]))))))
+                    :content [p/home []]}]))))))
 
 (defn list-content [req]
   (go

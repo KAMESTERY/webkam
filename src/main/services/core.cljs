@@ -19,8 +19,14 @@
 (defn <get-document [title topic]
   (c/<get-document title topic))
 
+(defn <get-document-and-related [title topic]
+  (c/<get-document-and-related title topic))
+
 (defn <list-content [topic]
   (c/<list-content topic))
+
+(defn <list-topics [& topics]
+  (apply c/<list-topics topics))
 
 (defn topics []
   (c/get-topics))
