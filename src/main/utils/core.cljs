@@ -1,5 +1,6 @@
 (ns utils.core
-  (:require-macros [fast-twitch.macros :as m]))
+  (:require-macros [fast-twitch.macros :as m])
+  (:require [clojure.string :as str]))
 
 (defn handle-response [response grab-data-fn]
   (let [status (:status response)]
@@ -21,4 +22,7 @@
 
 (defn decode-base64 [d]
   (.toString (js/Buffer. d "base64") "utf-8"))
+
+(defn date-formatter [timestap]
+  (first (str/split timestap #" ")))
 
