@@ -5,12 +5,10 @@
             [fast-twitch.nav :refer [cached-routes]]))
 
 (defn top-app-bar []
-  [:header.mdc-top-app-bar.z-999.top-0.left-0
+  [:header.mdc-top-app-bar.z-999.top-0.left-0 {:id "app-bar"}
    [:div.mdc-top-app-bar__row
     [:section.mdc-top-app-bar__section.mdc-top-app-bar__section--align-start
-     [:a.material-icons.mdc-top-app-bar__navigation-icon.mdc-icon-button
-      {:href "#"}
-      "menu"]
+     [:a.material-icons.mdc-top-app-bar__navigation-icon {:href "#" :id "menu-btn"} "menu"]
      [:a.mdc-top-app-bar__title {:href (path-for @cached-routes :home)} [:strong "KAMESTERY"]]]
     [:section.mdc-top-app-bar__section.mdc-top-app-bar__section--align-end
      {:role "toolbar"}
@@ -21,30 +19,14 @@
       {:href (path-for @cached-routes :register) :aria-label "Register"}
       "person_add"]]]])
 
-(defn side-bar []
-  (let [link {:class ["" "mh0"]}
-        topics (s/topics)]
-    [:div.flex
-     [:aside.mdc-drawer.pl2.pt2
-      [:div.mdc-drawer__content.fixed
+(defn menu []
+  (let [topics (s/topics)]
+    [:aside.mdc-drawer.mdc-drawer--dismissible.mdc-top-app-bar--fixed-adjust.bn
+     [:div.mdc-drawer__content
+      [:div.mdc-list
        [:h3.mt3.mr0.mb0.ml3 "Topics"]
-
-       [:nav.mdc-list
-        (for [t topics] ^{:key t}
-                        [:a.mdc-list-item
-                         (merge {:href (path-for @cached-routes :list-content-by-topic :topic t)} link)
-                         [:span.mdc-list-item__text t]])]
-
-       [:hr.section-divider-10]
-       [:h3.mt3.mr0.mb0.ml3 "Tags"]
-       [:ul.mdc-list
-        [:li.mdc-list-item.mv2.mh0
-         {:tab-index 0}
-         [:span.mdc-list-item__text "trending"]]
-        [:li.mdc-list-item.mv2.mh0
-         [:span.mdc-list-item__text "pan-african"]]
-        [:li.mdc-list-item.mv2.mh0
-         [:span.mdc-list-item__text "latest"]]
-        [:li.mdc-list-item.mv2.mh0
-         [:span.mdc-list-item__text "wubba lubba dub dub"]]]]]]))
-
+       (for [t topics]
+         ^{:key t}
+         [:a.mdc-list-item
+          {:href (path-for @cached-routes :list-content-by-topic :topic t)}
+          [:span.mdc-list-item__text t]])]]]))

@@ -7,11 +7,14 @@
 (defn top-app-bar []
   (n/top-app-bar))
 
-(defn side-bar []
-  (n/side-bar))
+(defn menu []
+  (n/menu))
 
 (defn doc-card [document]
   (c/doc-card document))
+
+(defn topic-card [topic]
+  (c/topic-card topic))
 
 (defn footer [& content]
   (apply f/footer content))

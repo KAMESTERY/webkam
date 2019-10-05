@@ -2,40 +2,64 @@
   (:require [taoensso.timbre :as log]
             [ui.components.core :as c]
             [bidi.bidi :refer [path-for]]
+            [clojure.string :as str]
             [fast-twitch.nav :refer [cached-routes]]
             [utils.core :as utils]))
 
+
+(defn tags [tags]
+  [:div.mdc-chip-set.m0
+   (for [tag tags]
+     ^{:key tag}
+     [:button.mdc-chip.pv0.h-50.ml0
+      [:span.mdc-chip__text.f7.primary.w-100 tag]])])
+
+(defn icon-button [icon label]
+  [:button.mdc-fab.mdc-fab--extended.bg-primary.h-50.mr2 {:aria-label label}
+   [:span.mdc-fab__icon.material-icons icon]
+   [:span.mdc-fab__label label]]
+  )
+
 (defn document-ui [data]
   (let [{:keys [doc related]} data
-        {:keys [Title Body]} doc]
+        {:keys [Title Identifier Slug UserID CreatedAt Body Tags]} doc
+        date (utils/date-formatter CreatedAt)]
     (do (log/debug data)
-      [:div.content-container
-       [:section.article-main.mdc-layout-grid.spacer-top-25
-        [:div.article-container.mdc-layout-grid__inner
-         [:div.mdc-layout-grid__cell.mdc-layout-grid__cell--span-8]
-         [:div.article-content.mdc-layout-grid__cell.mdc-layout-grid__cell--span-8
-          [:div#article-header-img
-           [:img.responsive-image
+      [:<>
+       [:div
+        [:section.mt4.mw-vw-100
+         [:div.mdc-card.mh2
+          [:div
+           [:img.w-100.h-auto
             {:alt "media image",
-             :src "https://via.placeholder.com/750x350"}]]
-          [:h1 Title]
-          [:p (utils/decode-base64 Body)]]]]
-       [:hr.section-divider-50]
-       [:section
-        [:h3.section-title "Related Content"]
-        [:div.card-container
-         (for [sibling related :when (not= sibling doc)]
-           ^{:key sibling}
-           [c/doc-card sibling])]]
+             :src "https://via.placeholder.com/750x300"}]
+           [:div.ph4.pv3
+            [:h2.f2.mb2 Title]
+            [:p.mt0.mb4
+             [:span.f5.gray UserID]
+             [:span.f5.gray "  |  " date]]
+            [:div.mv2
+             [icon-button "audiotrack" "Audio"]
+             [icon-button "play_arrow" "Video"]]
+            [:div [:p.tw.f5.mt4.mb4 Body]]
+            [tags Tags]]]]]
+        [:section.mv3.pv3.subtl-bg
+         [:h3.tc.primary "Related Content"]
+         [:div
+          (for [sibling related :when (not= sibling doc)]
+            ^{:key sibling}
+            [c/doc-card sibling])]]]
        ])))
 
 (defn content-list-ui [data]
-  (let []
-    [:div.content-container
-     [:section
-      [:h3.section-title "Topic"]
-      [:div.card-container
-       (for [doc data]
-         ^{:key doc}
-         [c/doc-card doc])]]]))
-
+  (let [{:keys [content topic]} data]
+    [:<>
+     ;     [c/side-bar]
+     [:div.mv5.mw-vw-100
+      [:section
+       [:h2.tc.primary (str/capitalize (name topic))]
+       [:div.flex.flex-wrap.justify-center
+        (for [doc content]
+          ^{:key doc}
+          [c/doc-card
+           doc])]]]]))

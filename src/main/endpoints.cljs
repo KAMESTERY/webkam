@@ -101,10 +101,11 @@
       ([resp]
         (do
           (log/debug "RESONSE::::" resp)
-          (web/send :html
-                    [t/default-template-ui
-                     {:title topic
-                      :content [p/content resp]}])))
+          (let [data {:content resp :topic topic}]
+            (web/send :html
+                      [t/default-template-ui
+                       {:title topic
+                        :content [p/content data]}]))))
       (timeout 2000)
       (do
         (log/debug "ERROR:::")

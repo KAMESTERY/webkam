@@ -1,3 +1,9 @@
+$mdc-theme-primary: #8B008B;
+$mdc-theme-on-primary: #feeae6;
+//$mdc-theme-secondary: #feeae6;
+//$mdc-theme-on-secondary: #442b2d;
+
+
 @import "@material/textfield/mdc-text-field";
 @import "@material/top-app-bar/mdc-top-app-bar";
 @import "@material/card/mdc-card";
@@ -6,17 +12,68 @@
 //@import "@material/snackbar/mdc-snackbar";
 //@import "instagram-filters";
 @import "@material/elevation/mdc-elevation";
-//@import "@material/fab/mdc-fab";
 @import "@material/list/mdc-list";
 @import "@material/menu-surface/mdc-menu-surface";
 @import "@material/menu/mdc-menu";
-//@import "@material/chips/mdc-chips";
+@import "@material/chips/mdc-chips";
 @import "@material/icon-button/mdc-icon-button";
+@import "@material/fab/mdc-fab";
+
+// TODO REFACTOR
+// BEGIN DRAWER STYLES
+.mdc-drawer-app-content {
+  flex: auto;
+  //overflow: auto;
+  position: relative;
+}
+
+.main-content {
+  overflow: auto;
+  height: 100%;
+}
+
+.app-bar {
+  position: absolute;
+}
+
+// only apply this style if below top app bar
+.mdc-top-app-bar {
+  z-index: 7;
+}
+// END DRAWER STYLES
+
+// COLOR SCHEME (SHOULD ALIGN WITH MDC THEME DEFINED ABOVE)
+.primary {
+  color: #8B008B;
+}
+
+.bg-primary {
+  background-color: #8B008B;
+}
+
+.cta-bg{
+  background-color: #8b4b00;
+}
+// TACHYON ADD ON
+.tw{
+  overflow-wrap: break-word;
+}
+
+.mw4-5 {
+  max-width: 21.875rem;
+}
+
+.mw-vw-100 {
+  max-width: 100vw;
+}
 
 // GLOBAL
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
+  // styles added for drawer
+  display: flex;
+  //height: 100vh;
 }
 
 a {
@@ -28,7 +85,11 @@ footer {
   position: absolute;
   background-color: #232b2b;
   color: white;
-  z-index: 1000;
+  //z-index: 1000;
+}
+
+.stl-bg {
+  background: url("https://www.toptal.com/designers/subtlepatterns/patterns/swirl.png");
 }
 
 .main-container {
@@ -46,8 +107,6 @@ footer {
 }
 
 
-
-
 // CARDS
 .card-container {
   display: flex;
@@ -59,6 +118,8 @@ footer {
   margin: 20px;
   max-width: 350px;
 }
+
+
 
 .document-card-content {
   padding: 20px 20px 5px;
@@ -100,6 +161,7 @@ footer {
 .spacer-top-50 {
   margin-top: 50px;
 }
+
 .spacer-top-25 {
   margin-top: 25px;
 }
@@ -110,10 +172,6 @@ footer {
 
 .center {
   margin: 0 auto;
-}
-
-.section-title {
-  text-align: center;
 }
 
 .section-divider-50 {

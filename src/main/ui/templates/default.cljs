@@ -2,7 +2,8 @@
   (:require [taoensso.timbre :as log]
             [bidi.bidi :refer [path-for]]
             [ui.components.core :as c]
-            ))
+            [fast-twitch.nav :refer [cached-routes]]
+            [fast-twitch.preload :refer [quick-img quick-css]]))
 
 (defn default-template-ui [data]
   (let [{:keys [content script title]} data]
@@ -17,10 +18,16 @@
      [:link {:rel "stylesheet" :href "https://fonts.googleapis.com/icon?family=Material+Icons"}]
      [:link {:rel "stylesheet", :href "https://fonts.googleapis.com/css?family=Roboto&display=swap"}]
      [:link {:rel "stylesheet", :href "https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"}]
+
+     ;; Preloads
+     [quick-css "//unpkg.com/tachyons/css/tachyons.min.css"]
+
      [:body
       [c/top-app-bar]
-      [:div.pt5.vh-100
-       content
+      [c/menu]
+;      [:div.mdc-drawer-scrim]
+      [:div.pt4.mdc-drawer-app-content.mdc-top-app-bar--fixed-adjust
+       [:main.main-content {:id "main-content"} content]
        [c/footer]]
       [:script {:type "text/javascript" :src script}]
       [:script {:type "text/javascript" :src "/js/bundle.js"}]]]))

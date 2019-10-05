@@ -4,7 +4,7 @@
             [fast-twitch.nav :refer [cached-routes]]))
 
 (defn footer []
-  [:footer.pa4.pa5-l.white-50.bt.b--black-10.bg-dark-gray.z-9999
+  [:footer.pa4.pa5-l.white-50.bt.b--black-10.bg-dark-gray
    [:section {:class "cf mb5"}
     [:div.mb4.mb0-ns.w-100.w-50-l.fr
      [:a.white-50.f3.f2-ns.fw6.tl.link.dim.dib.pv3.mt2.mb4.mb0-l {, :href "mailto:hello@impossible.com"} "mail@kamestery.com"]]
