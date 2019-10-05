@@ -1,6 +1,7 @@
 (ns utils.core
   (:require-macros [fast-twitch.macros :as m])
-  (:require [clojure.string :as str]))
+  (:require [clojure.string :as str]
+            ["moment" :as moment]))
 
 (defn handle-response [response grab-data-fn]
   (let [status (:status response)]
@@ -23,6 +24,15 @@
 (defn decode-base64 [d]
   (.toString (js/Buffer. d "base64") "utf-8"))
 
-(defn date-formatter [timestap]
-  (first (str/split timestap #" ")))
+(defn date-format [timestamp & {:keys [format]
+                                :or {format "MM-DD-YYYY"}}]
+  (-> timestamp
+      moment/utc
+      (.format format)))
+
+(defn date-from-now [timestamp & {:keys [no-suffix]
+                                  :or {no-suffix false}}]
+  (-> timestamp
+      moment/utc
+      (.fromNow true)))
 

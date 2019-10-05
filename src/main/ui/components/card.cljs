@@ -2,7 +2,8 @@
   (:require [taoensso.timbre :as log]
             [bidi.bidi :refer [path-for]]
             [clojure.string :as str]
-            [fast-twitch.nav :refer [cached-routes]]))
+            [fast-twitch.nav :refer [cached-routes]]
+            [utils.core :as utils]))
 
 (defn tags [tags]
   [:div.mdc-chip-set.m0
@@ -13,8 +14,7 @@
 
 (defn doc-card
   [document]
-  (let [{:keys [Title Identifier Slug UserID CreatedAt Body Tags]} document
-        date (first (str/split CreatedAt #" "))]
+  (let [{:keys [Title Identifier Slug UserID CreatedAt UpdatedAt Body Tags]} document]
     [:div.mdc-card.mh4.mv4.mw4-5
      [:input {:type "hidden" :name "topic" :value Identifier}]
      [:div
@@ -25,8 +25,8 @@
        [:h2.f4.mb0 Title]
        [:p.mt0
         [:span.f7 UserID]
-        [:span.f7 "  |  " date]]
-       [:p.tw.f6 Body]
+        [:span.f7 "  |  Created: " (utils/date-from-now CreatedAt) "  |  Updated: " (utils/date-format UpdatedAt)]]
+       [:p.tw.f6 (utils/decode-base64 Body)] ;; The Body is Base64 Encoded and Needs to be Decoded
        [tags Tags]
        [:div.mdc-card__actions.mt2
         [:div.mdc-card__action-buttons.w-100

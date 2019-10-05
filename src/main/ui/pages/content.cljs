@@ -22,34 +22,33 @@
 
 (defn document-ui [data]
   (let [{:keys [doc related]} data
-        {:keys [Title Identifier Slug UserID CreatedAt Body Tags]} doc
-        date (utils/date-formatter CreatedAt)]
+        {:keys [Title Identifier Slug UserID CreatedAt UpdatedAt Body Tags]} doc]
     (do (log/debug data)
-      [:<>
-       [:div
-        [:section.mt4.mw-vw-100
-         [:div.mdc-card.mh2
-          [:div
-           [:img.w-100.h-auto
-            {:alt "media image",
-             :src "https://via.placeholder.com/750x300"}]
-           [:div.ph4.pv3
-            [:h2.f2.mb2 Title]
-            [:p.mt0.mb4
-             [:span.f5.gray UserID]
-             [:span.f5.gray "  |  " date]]
-            [:div.mv2
-             [icon-button "audiotrack" "Audio"]
-             [icon-button "play_arrow" "Video"]]
-            [:div [:p.tw.f5.mt4.mb4 Body]]
-            [tags Tags]]]]]
-        [:section.mv3.pv3.subtl-bg
-         [:h3.tc.primary "Related Content"]
+        [:<>
          [:div
-          (for [sibling related :when (not= sibling doc)]
-            ^{:key sibling}
-            [c/doc-card sibling])]]]
-       ])))
+          [:section.mt4.mw-vw-100
+           [:div.mdc-card.mh2
+            [:div
+             [:img.w-100.h-auto
+              {:alt "media image",
+               :src "https://via.placeholder.com/750x300"}]
+             [:div.ph4.pv3
+              [:h2.f2.mb2 Title]
+              [:p.mt0.mb4
+               [:span.f5.gray UserID]
+               [:span.f5.gray "  |  Created: " (utils/date-from-now CreatedAt) "  |  Updated: " (utils/date-format UpdatedAt)]]
+              [:div.mv2
+               [icon-button "audiotrack" "Audio"]
+               [icon-button "play_arrow" "Video"]]
+              [:div [:p.tw.f5.mt4.mb4 (utils/decode-base64 Body)]] ;; The Body is Base64 Encoded and Needs to be Decoded
+              [tags Tags]]]]]
+          [:section.mv3.pv3.subtl-bg
+           [:h3.tc.primary "Related Content"]
+           [:div
+            (for [sibling related :when (not= sibling doc)]
+              ^{:key sibling}
+              [c/doc-card sibling])]]]
+         ])))
 
 (defn content-list-ui [data]
   (let [{:keys [content topic]} data]
