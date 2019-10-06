@@ -5,7 +5,8 @@
 
  :deps
  {outcastgeek/fast-twitch {:git/url "https://github.com/outcastgeek/fast-twitch"
-                           :sha "0a756f0dee3ab853be1638cbafe984ba29534f81"}
+                           :sha "504bbeb4a2a7be3b5d6fbac040850a88d42751f8"}
+  ;;outcastgeek/fast-twitch {:local/root "/path/to/fast-twitch"}
   cljs-http {:mvn/version "0.1.46"}
   district0x/graphql-query {:mvn/version "1.0.6"}
   org.clojure/core.match {:mvn/version "0.3.0"}

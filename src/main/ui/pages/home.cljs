@@ -3,8 +3,7 @@
             [bidi.bidi :refer [path-for]]
             [fast-twitch.nav :refer [cached-routes]]
             [clojure.string :as str]
-            [ui.components.core :as c]
-            [services.core :as s]))
+            [ui.components.core :as c]))
 
 (defn- hero []
   [:article.mw7.center.ph3.ph5-ns.tc.br2.pv5.mb4.stl-bg

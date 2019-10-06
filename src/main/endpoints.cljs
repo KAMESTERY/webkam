@@ -36,7 +36,17 @@
         (web/send :html
                   [t/default-template-ui
                    {:title   "Welcome to Kamestery!"
-                    :content [p/home []]}])))
+                    :content [p/home []]
+                    :script "/js/main.js"}])))
+    ))
+
+(defn home-json
+  [req]
+  (go
+    (web/send :json
+              (<! (apply <list-topics (svc/topics)))
+              {:headers {:Content-Type "application/javascript"}
+               :status  200})
     ))
 
 ;; user
@@ -75,44 +85,62 @@
 ;; content
 (defn document [req]
   (go
-   (let [title   (-> req :route-params :title)
-         topic   (-> req :route-params :topic)]
-     (alt!
-       (<get-document-and-related topic title)
-      ([resp]
-        (do (log/debug "RESPONSE::::" resp)
+    (let [{:keys [title topic]} (-> req :route-params)]
+      (alt!
+        (<get-document-and-related topic title)
+        ([resp]
+         (do (log/debug "RESPONSE::::" resp)
+             (web/send :html
+                       [t/default-template-ui
+                        {:title title
+                         :content [p/document resp]}])))
+        (timeout 2000)
+        (do
+          (log/debug "ERROR:::")
           (web/send :html
                     [t/default-template-ui
                      {:title title
-                      :content [p/document resp]}])))
-      (timeout 2000)
-      (do
-        (log/debug "ERROR:::")
-        (web/send :html
-                  [t/default-template-ui
-                   {:title title
-                    :content [p/home []]}]))))))
+                      :content [p/home []]}]))))))
+
+(defn document-json
+  [req]
+  (go
+    (let [{:keys [title topic]} (-> req :route-params)]
+      (web/send :json
+                (<! (<get-document-and-related topic title))
+                {:headers {:Content-Type "application/javascript"}
+                 :status  200}))
+    ))
 
 (defn list-content [req]
   (go
-   (let [topic   (-> req :route-params :topic)]
-     (alt!
-      (<list-content topic)
-      ([resp]
+    (let [topic   (-> req :route-params :topic)]
+      (alt!
+        (<list-content topic)
+        ([resp]
+         (do
+           (log/debug "RESONSE::::" resp)
+           (let [data {:content resp :topic topic}]
+             (web/send :html
+                       [t/default-template-ui
+                        {:title topic
+                         :content [p/content data]}]))))
+        (timeout 2000)
         (do
-          (log/debug "RESONSE::::" resp)
-          (let [data {:content resp :topic topic}]
-            (web/send :html
-                      [t/default-template-ui
-                       {:title topic
-                        :content [p/content data]}]))))
-      (timeout 2000)
-      (do
-        (log/debug "ERROR:::")
-        (web/send :html
-                  [t/default-template-ui
-                   {:title "List of Content"
-                    :content [p/home {}]}]))))))
+          (log/debug "ERROR:::")
+          (web/send :html
+                    [t/default-template-ui
+                     {:title "List of Content"
+                      :content [p/home {}]}]))))))
+
+(defn list-content-json [req]
+  (go
+    (let [topic   (-> req :route-params :topic)]
+      (web/send :json
+                (<! (<list-content topic)
+                    {:headers {:Content-Type "application/javascript"}
+                     :status  200})))
+    ))
 
 ;; Application LifeCycle
 (defn app-start

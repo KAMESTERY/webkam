@@ -24,6 +24,9 @@
 (defmethod handle :home [req-data]
   (ep/home (:req req-data)))
 
+(defmethod handle :home-json [req-data]
+  (ep/home-json (:req req-data)))
+
 ;; user
 (defmethod handle :authenticate [req-data]
   (ep/authenticate (:req req-data)))
@@ -41,8 +44,14 @@
 (defmethod handle :document [req-data]
   (ep/document (:req req-data)))
 
+(defmethod handle :document-json [req-data]
+  (ep/document-json (:req req-data)))
+
 (defmethod handle :list-content-by-topic [req-data]
   (ep/list-content (:req req-data)))
+
+(defmethod handle :list-content-by-topic-json [req-data]
+  (ep/list-content-json (:req req-data)))
 
 ;; app life-cycle
 (defmethod handle :start [req-data]
