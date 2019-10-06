@@ -4,10 +4,10 @@
             [fast-twitch.nav :refer [cached-routes]]))
 
 (defn footer []
-  [:footer.pa4.pa5-l.white-50.bt.b--black-10.bg-dark-gray
-   [:section {:class "cf mb5"}
+  [:footer.pa4.pa5-l.white-50.bt.b--black-10.bg-dark-gray.absolute
+   [:section.cf.mb5
     [:div.mb4.mb0-ns.w-100.w-50-l.fr
-     [:a.white-50.f3.f2-ns.fw6.tl.link.dim.dib.pv3.mt2.mb4.mb0-l {, :href "mailto:hello@impossible.com"} "mail@kamestery.com"]]
+     [:a.white-50.f3.f2-ns.fw6.tl.link.dim.dib.pv3.mt2.mb4.mb0-l {:href "mailto:hello@impossible.com"} "mail@kamestery.com"]]
     [:div.mb4.mb0-ns.fl.w-100.w-50-l
      [:p.white.f4.fw6.mb2.f6.mt0 "Sign up for our newsletter."]
      [:input {:placeholder "Email Address", :class "mw-100 w-100 w5-ns f5 input-reset ba b--black-20 pv3 ph4 border-box"}]
@@ -17,7 +17,7 @@
      [:p.f6.white-50.dib.pr3.mb3
       {:dangerouslySetInnerHTML {:__html "Copyright &copy; 2019 OUCASTGEEK INC. All rights reserved."}}]]
     [:div.db.dtc-ns.black-70.v-mid
-     [:a {:href "https://www.facebook.com/", :class "link dim dib mr3 white-50", :title "Impossible Labs on Facebook"}
+     [:a.link.dim.dib.mr3.white-50 {:href "https://www.facebook.com/", :title "Impossible Labs on Facebook"}
       [:svg.db.w2.h2 {, :data-icon "facebook", :viewBox "0 0 32 32", :fill "currentColor"}
        [:title "facebook icon"]
        [:path {:d "M8 12 L13 12 L13 8 C13 2 17 1 24 2 L24 7 C20 7 19 7 19 10 L19 12 L24 12 L23 18 L19 18 L19 30 L13 30 L13 18 L8 18 z"}]]]
