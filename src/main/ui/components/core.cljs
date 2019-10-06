@@ -10,6 +10,10 @@
 (defn menu []
   (n/menu))
 
+
+(defn doc-card-lg [document]
+  (c/doc-card-lg document))
+
 (defn doc-card [document]
   (c/doc-card document))
 

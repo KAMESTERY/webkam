@@ -1,16 +1,15 @@
+// MDC THEME(S)
 $mdc-theme-primary: #8B008B;
 $mdc-theme-on-primary: #feeae6;
 //$mdc-theme-secondary: #feeae6;
 //$mdc-theme-on-secondary: #442b2d;
 
-
+// MDC IMPORTS
 @import "@material/textfield/mdc-text-field";
 @import "@material/top-app-bar/mdc-top-app-bar";
 @import "@material/card/mdc-card";
 @import "@material/button/mdc-button";
 @import "@material/drawer/mdc-drawer";
-//@import "@material/snackbar/mdc-snackbar";
-//@import "instagram-filters";
 @import "@material/elevation/mdc-elevation";
 @import "@material/list/mdc-list";
 @import "@material/menu-surface/mdc-menu-surface";
@@ -19,363 +18,98 @@ $mdc-theme-on-primary: #feeae6;
 @import "@material/icon-button/mdc-icon-button";
 @import "@material/fab/mdc-fab";
 
-// TODO REFACTOR
-// BEGIN DRAWER STYLES
-.mdc-drawer-app-content {
-  flex: auto;
-  //overflow: auto;
-  position: relative;
-}
-
-.main-content {
-  overflow: auto;
-  height: 100%;
-}
-
-.app-bar {
-  position: absolute;
-}
-
-// only apply this style if below top app bar
-.mdc-top-app-bar {
-  z-index: 7;
-}
-// END DRAWER STYLES
-
-// COLOR SCHEME (SHOULD ALIGN WITH MDC THEME DEFINED ABOVE)
+// COLOR SCHEME
+// NOTE: SHOULD ALIGN WITH MDC THEME DEFINED ABOVE
 .primary {
   color: #8B008B;
 }
-
 .bg-primary {
   background-color: #8B008B;
 }
 
-.cta-bg{
-  background-color: #8b4b00;
-}
-// TACHYON ADD ON
-.tw{
+// TACHYONS ++
+// STYLES THAT ARE NOT IN TACHYONS LIBRARY
+.tw {
   overflow-wrap: break-word;
 }
-
 .mw4-5 {
   max-width: 21.875rem;
 }
 
-.mw-vw-100 {
-  max-width: 100vw;
+.mht-1 {
+  max-height: 1.75rem;
+}
+
+.invisible-scrollbar {
+  overflow: auto;
+}
+
+.invisible-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+// SECTION DIVIDERS
+.sec-hr-xs {
+  border-width: .5px;
+  margin: 1rem auto;
+  width: 100%;
+  opacity: .5;
+}
+.sec-hr-sm {
+  border-width: .5px;
+  margin: 1.25rem auto;
+  width: 100%;
+  opacity: .5;
+}
+.sec-hr-lg {
+  border-width: .5px;
+  margin: 1.5rem auto;
+  width: 100%;
+  opacity: .5;
+}
+.sec-hr-xl {
+  border-width: .5px;
+  margin: 2rem auto;
+  width: 100%;
+  opacity: .5;
 }
 
 // GLOBAL
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
-  // styles added for drawer
   display: flex;
-  //height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-
 a {
   text-decoration: none;
   color: inherit;
 }
-
-footer {
-  position: absolute;
-  background-color: #232b2b;
-  color: white;
-  //z-index: 1000;
-}
-
 .stl-bg {
   background: url("https://www.toptal.com/designers/subtlepatterns/patterns/swirl.png");
 }
 
-.main-container {
-  padding-top: 64px;
-  height: 100vh;
-}
-
-.content-container {
-  margin: 0 auto 75px;
-}
-
-.responsive-image {
-  max-width: 100%;
-  height: auto;
-}
-
-
-// CARDS
-.card-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.document-card {
-  margin: 20px;
-  max-width: 350px;
-}
-
-
-
-.document-card-content {
-  padding: 20px 20px 5px;
-  text-align: left;
-}
-
-.form-card {
-  width: 375px;
-  margin: 0 auto;
-}
-
-// FORM
-.form-field {
-  display: flex;
-  margin: 15px 15px;
-}
-
-.form-content {
-  //padding: 16px;
-}
-
-.form-title {
-  text-align: center;
-}
-
-.form-container {
-  margin: 100px auto 0;
-}
-
-// LAYOUT HELPER
-.text-decoration-none {
-  text-decoration: none;
-}
-
-.spacer-top-100 {
-  margin-top: 100px;
-}
-
-.spacer-top-50 {
-  margin-top: 50px;
-}
-
-.spacer-top-25 {
-  margin-top: 25px;
-}
-
-.center-text {
-  text-align: center;
-}
-
-.center {
-  margin: 0 auto;
-}
-
-.section-divider-50 {
-  border-width: .5px;
-  margin: 50px auto;
-}
-
-.section-divider-10 {
-  border-width: .5px;
-  margin: 10px 15px;
-}
-
-// login & register
-.auth-form {
-  margin-top: 50px;
-}
-
-.center-container {
-  margin-top: 75px;
-}
-
-.center-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-.email,
-.confirm-password,
-.username,
-.password {
-  display: block;
-  width: 300px;
-  margin: 20px auto;
-}
-
-.form-button-container {
-  display: flex;
-  justify-content: flex-end;
-  width: 300px;
-  margin: auto;
-}
-
-.form-button-container button {
-  margin: 3px;
-}
-
-//TODO APPLY MOBILE FIRST PRINCIPLE
-// content
-.article-main {
-
-}
-
-.article-header {
-  padding-left: 40px;
-}
-
-.article-container {
-  max-width: 900px;
-  min-width: 400px;
-  width: calc(100% - 16px);
-  margin: 0 auto;
-}
-
-.article-content {
-  @include mdc-elevation(4);
-  max-width: 675px;
-  border-radius: 6px;
-  padding: 20px;
-  background: white;
-  margin: 0 auto;
-}
-
-.article-content h3 {
-  margin-top: 48px;
-}
-
-.article-list-container {
-  margin: 0 auto;
-  max-width: 900px;
-}
-
-/* Responsive layout Grid
-
+/*
+RESPONSIVE GRID LAYOUT
+NOTE: ONLY USE IF DESIRED RESULT CAN'T BE IMPL W/ TACHYONS
 xs, extra-small: 0px or larger
 sm, small: 600px or larger
 md, medium: 960px or larger
 lg, large: 1280px or larger
 xl, extra-large: 1920px or larger
-
 */
-
 @media only screen and (min-width: 0) and (max-width: 600px) {
-  .main-container {
-    flex-direction: column;
-  }
-
-  .menu-container {
-    display: none;
-  }
-
-  .content-container {
-    margin: 0;
-    padding: 20px;
-  }
-
-  #mobile_menu {
-    display: block;
-    position: fixed;
-    bottom: 100px;
-    right: 220px;
-  }
-
-  #mobile_menu_list {
-    width: 175px;
-  }
-
-  #mobile_menu_btn {
-    display: block;
-    position: fixed;
-    bottom: 60px;
-    right: 20px;
-  }
-
-  .card-container {
-    justify-content: center;
-    max-width: 600px;
-    margin: 0 auto;
-    flex-direction: column;
-    flex-wrap: nowrap;
-  }
-
-  .document-card {
-    margin: 20px;
-  }
 }
 
 @media only screen and (min-width: 601px) and (max-width: 960px) {
-  .content-container {
-    max-width: 900px;
-  }
-
-  .menu-container {
-    display: none;
-  }
-
-  .document-card {
-    min-width: 300px;
-    min-height: 150px;
-  }
-
-  .card-container {
-    justify-content: center;
-  }
-
-  #mobile_menu {
-    display: block;
-    position: fixed;
-    bottom: 100px;
-    right: 220px;
-  }
-
-  #mobile_menu_list {
-    width: 175px;
-  }
-
-  #mobile_menu_btn {
-    display: block;
-    position: fixed;
-    bottom: 60px;
-    right: 20px;
-  }
-
 }
 
 @media only screen and (min-width: 961px) and (max-width: 1280px) {
-  .content-container {
-    max-width: 600px;
-  }
-
-  .document-card {
-    min-width: 250px;
-    min-height: 150px;
-  }
 }
 
 @media only screen and (min-width: 1280px) and (max-width: 1600px) {
-  .document-card {
-    min-width: 350px;
-    min-height: 250px;
-  }
-
-  .content-container {
-    max-width: 900px;
-  }
 }
 
 @media only screen and (min-width: 1601px) and (max-width: 1920px) {
-  .document-card {
-    min-width: 350px;
-    min-height: 250px;
-  }
-
-  .content-container {
-    max-width: 1200px;
-  }
 }
