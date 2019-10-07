@@ -3579,6 +3579,17 @@ a.mdc-list-item {
   .mdc-fab.mdc-ripple-upgraded {
     --mdc-ripple-fg-opacity: 0.24; }
 
+.mdc-text-field--with-leading-icon .mdc-text-field__icon,
+.mdc-text-field--with-trailing-icon .mdc-text-field__icon {
+  position: absolute;
+  bottom: 16px;
+  cursor: pointer; }
+
+.mdc-text-field__icon:not([tabindex]),
+.mdc-text-field__icon[tabindex="-1"] {
+  cursor: default;
+  pointer-events: none; }
+
 .primary {
   color: #8B008B; }
 
@@ -3647,3 +3658,14 @@ md, medium: 960px or larger
 lg, large: 1280px or larger
 xl, extra-large: 1920px or larger
 */
+@media only screen and (min-width: 961px) and (max-width: 1280px) {
+  .menu-adjust {
+    padding-left: 25%; } }
+
+@media only screen and (min-width: 1280px) and (max-width: 1600px) {
+  .menu-adjust {
+    padding-left: 20%; } }
+
+@media only screen and (min-width: 1601px) and (max-width: 1920px) {
+  .menu-adjust {
+    padding-left: 20%; } }

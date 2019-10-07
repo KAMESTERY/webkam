@@ -27,7 +27,7 @@
       [c/menu]
 ;      [:div.mdc-drawer-scrim]
       [:div.pt4.flex-auto.relative.mdc-top-app-bar--fixed-adjust
-       [:main.overflow-auto.h-100 {:id "main-content"} content]
+       [:main.overflow-auto.h-100.menu-adjust {:id "main-content"} content]
        [c/footer]]
       [:script {:type "text/javascript" :src script}]
       [:script {:type "text/javascript" :src "/js/bundle.js"}]]]))

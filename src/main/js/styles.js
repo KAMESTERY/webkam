@@ -6,6 +6,8 @@ import {MDCList} from "@material/list";
 import {MDCDrawer} from "@material/drawer";
 import {MDCSelect} from '@material/select';
 import {MDCChipSet} from '@material/chips';
+import {MDCTextFieldIcon} from '@material/textfield/icon';
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -49,5 +51,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const dropdowns = [].map.call(document.querySelectorAll('.mdc-select'), function (el) {
         return new MDCSelect(el);
     });
+
+    let textFieldIconEl = document.querySelector('.mdc-text-field-icon');
+    if(textFieldIconEl) {
+        const icon = new MDCTextFieldIcon(textFieldIconEl);
+    }
 
 });

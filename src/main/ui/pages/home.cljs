@@ -8,7 +8,7 @@
 (defn- hero []
   [:article.mw7.center.tc.br2.pt5.pb3.mb4.stl-bg
    [:h1.fw6.f3.lh-title.mt0.mb3 "Welcome to Kamestery!"]
-   [:h2.fw2.f4.lh-copy.mt0.mb3
+   [:h2.fw2.f4.lh-copy.mt0.mb3.center.mw6
     "We want you to be involved. This text needs to\n    be longer for testing sake."]
    [:p.fw1.f5.mt0.mb3 "Sign up for beta access or learn more about x."]
    [:div

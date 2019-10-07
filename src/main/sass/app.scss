@@ -17,6 +17,7 @@ $mdc-theme-on-primary: #feeae6;
 @import "@material/chips/mdc-chips";
 @import "@material/icon-button/mdc-icon-button";
 @import "@material/fab/mdc-fab";
+@import "@material/textfield/icon/mdc-text-field-icon";
 
 // COLOR SCHEME
 // NOTE: SHOULD ALIGN WITH MDC THEME DEFINED ABOVE
@@ -47,6 +48,8 @@ $mdc-theme-on-primary: #feeae6;
 .invisible-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+// STRUCTURE ADJUSTMENT
 
 // SECTION DIVIDERS
 .sec-hr-xs {
@@ -106,10 +109,19 @@ xl, extra-large: 1920px or larger
 }
 
 @media only screen and (min-width: 961px) and (max-width: 1280px) {
+  .menu-adjust {
+    padding-left: 25%;
+  }
 }
 
 @media only screen and (min-width: 1280px) and (max-width: 1600px) {
+  .menu-adjust {
+    padding-left: 20%;
+  }
 }
 
 @media only screen and (min-width: 1601px) and (max-width: 1920px) {
+  .menu-adjust {
+    padding-left: 20%;
+  }
 }
