@@ -9,7 +9,7 @@
   (let [{:keys [csrf-token]} data
         text-field {:class (styles/text-field)}]
     [:div.vh-100
-     [:form.mt5.ph3.w-30.center
+     [:form.mt5.ph3.w-40-ns.w-50-m.center
       {:action (path-for @cached-routes :authenticate), :method "post"}
       [:h2.tc "Login"]
       [:input {:type "hidden", :name "_csrf", :value csrf-token}]
@@ -30,7 +30,7 @@
 (let [{:keys [csrf-token]} data
       text-field {:class (styles/text-field)}]
   [:div.vh-100
-   [:form.mt5.ph3.w-30.center
+   [:form.mt5.ph3.w-40-ns.w-50-m.center
     {:action (path-for @cached-routes :enroll), :method "post"}
     [:h2.tc "Register"]
     [:input {:type "hidden", :name "_csrf", :value csrf-token}]

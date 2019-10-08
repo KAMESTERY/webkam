@@ -24,8 +24,13 @@ $mdc-theme-on-primary: #feeae6;
 .primary {
   color: #8B008B;
 }
+
 .bg-primary {
   background-color: #8B008B;
+}
+
+.bg-light {
+  background-color: #f8f3ff;
 }
 
 // TACHYONS ++
@@ -33,6 +38,7 @@ $mdc-theme-on-primary: #feeae6;
 .tw {
   overflow-wrap: break-word;
 }
+
 .mw4-5 {
   max-width: 21.875rem;
 }
@@ -58,18 +64,21 @@ $mdc-theme-on-primary: #feeae6;
   width: 100%;
   opacity: .5;
 }
+
 .sec-hr-sm {
   border-width: .5px;
   margin: 1.25rem auto;
   width: 100%;
   opacity: .5;
 }
+
 .sec-hr-lg {
   border-width: .5px;
   margin: 1.5rem auto;
   width: 100%;
   opacity: .5;
 }
+
 .sec-hr-xl {
   border-width: .5px;
   margin: 2rem auto;
@@ -84,13 +93,19 @@ body {
   display: flex;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f9f9fa;
+  background-image: url("https://www.transparenttextures.com/patterns/fake-luxury.png");
 }
+
 a {
   text-decoration: none;
   color: inherit;
 }
+
 .stl-bg {
-  background: url("https://www.toptal.com/designers/subtlepatterns/patterns/swirl.png");
+  //background-color: #f8f3ff;
+  background:linear-gradient(0deg, rgba(27, 27, 27, 0.9), rgba(21, 0, 13, 0.9)),url("http://s3.amazonaws.com/enactus/assets/enactus-org/wp-content/uploads/2012/09/11135825/country_page_banner-placeholder_0034_egypt.jpg");
+  background-size: cover;
 }
 
 /*
@@ -110,18 +125,18 @@ xl, extra-large: 1920px or larger
 
 @media only screen and (min-width: 961px) and (max-width: 1280px) {
   .menu-adjust {
-    padding-left: 25%;
+    padding-left: 20%;
   }
 }
 
 @media only screen and (min-width: 1280px) and (max-width: 1600px) {
   .menu-adjust {
-    padding-left: 20%;
+    padding-left: 15%;
   }
 }
 
 @media only screen and (min-width: 1601px) and (max-width: 1920px) {
   .menu-adjust {
-    padding-left: 20%;
+    padding-left: 12%;
   }
 }
