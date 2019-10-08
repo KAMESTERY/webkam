@@ -20,7 +20,7 @@
 (defn doc-card
   [document]
   (let [{:keys [Title Identifier Slug UserID CreatedAt UpdatedAt Body Tags]} document]
-    [:div.mdc-card.mv4.w-40-ns.mh2-ns
+    [:div.mdc-card.mv3.w-40-ns.mh3-ns
      [:input {:type "hidden" :name "topic" :value Identifier}]
      [:div
       [:img.w-100.h-auto

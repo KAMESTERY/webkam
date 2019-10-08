@@ -27,9 +27,11 @@
 (defn content-list-ui [data]
   (let [{:keys [content topic]} data]
     [:<>
-     [:div.mv5.ph1
+     [:div
+      [:article.mw7.center.tc.br2.pt5.pb3.mb
+       [:h1.fw6.f3.lh-title.mt0.mb3.primary (str/upper-case (name topic))]]]
+     [:div.ph1.mb4
       [:section
-       [:h2.tc.primary (str/capitalize (name topic))]
        [:div.flex.flex-wrap.justify-center
         (for [doc content]
           ^{:key doc}

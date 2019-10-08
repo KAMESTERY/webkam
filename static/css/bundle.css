@@ -3614,6 +3614,9 @@ a.mdc-list-item {
 .invisible-scrollbar::-webkit-scrollbar {
   display: none; }
 
+.w-48 {
+  width: 48%; }
+
 .sec-hr-xs {
   border-width: .5px;
   margin: 1rem auto;
@@ -3652,7 +3655,7 @@ a {
   color: inherit; }
 
 .stl-bg {
-  background: linear-gradient(0deg, rgba(27, 27, 27, 0.9), rgba(21, 0, 13, 0.9)), url("http://s3.amazonaws.com/enactus/assets/enactus-org/wp-content/uploads/2012/09/11135825/country_page_banner-placeholder_0034_egypt.jpg");
+  background: linear-gradient(0deg, rgba(27, 27, 27, 0.9), rgba(21, 0, 13, 0.9));
   background-size: cover; }
 
 /*
@@ -3664,14 +3667,28 @@ md, medium: 960px or larger
 lg, large: 1280px or larger
 xl, extra-large: 1920px or larger
 */
+@media only screen and (min-width: 0) and (max-width: 600px) {
+  .card-width {
+    width: 100%; } }
+
+@media only screen and (min-width: 601px) and (max-width: 960px) {
+  .card-width {
+    width: 100%; } }
+
 @media only screen and (min-width: 961px) and (max-width: 1280px) {
   .menu-adjust {
-    padding-left: 20%; } }
+    padding-left: 20%; }
+  .card-width {
+    width: 48%; } }
 
 @media only screen and (min-width: 1280px) and (max-width: 1600px) {
   .menu-adjust {
-    padding-left: 15%; } }
+    padding-left: 15%; }
+  .card-width {
+    width: 48%; } }
 
 @media only screen and (min-width: 1601px) and (max-width: 1920px) {
   .menu-adjust {
-    padding-left: 12%; } }
+    padding-left: 12%; }
+  .card-width {
+    width: 48%; } }

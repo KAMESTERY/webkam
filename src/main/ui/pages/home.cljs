@@ -28,7 +28,7 @@
        ^{:key topic}
        [:div.center.mt0.pb3.mw8
         [:section
-         [:h2.tc.primary.mv0 (str/capitalize (name topic))]
+         [:h3.tc.primary.mv0 (str/upper-case (name topic))]
          [:div.flex.flex-wrap.justify-center.ph1
           (for [doc (-> data topic)]
             ^{:key doc}
