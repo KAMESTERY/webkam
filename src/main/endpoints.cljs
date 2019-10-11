@@ -8,10 +8,9 @@
             [taoensso.timbre :as log]
             [com.rpl.specter :as s]
             [cljs.nodejs :as nodejs]
-            [bidi.bidi :refer [path-for]]
-            [fast-twitch.nav :refer [cached-routes]]
             [fast-twitch.os :as os]
             [fast-twitch.web-api :as web]
+            [routing :refer [path-js]]
             [ui.components.core :as c]
             [ui.pages.core :as p]
             [ui.templates.core :as t]
@@ -30,14 +29,20 @@
                  [t/default-template-ui
                   {:title   "Welcome to Kamestery!"
                    :content [p/home data]}]))
-      (timeout 8000)
+      (timeout 2000)
       (do
-        (log/debug "ERROR:::")
+        (log/warn "WARN::: Home Timeout")
         (web/send :html
                   [t/default-template-ui
                    {:title   "Welcome to Kamestery!"
                     :content [p/home []]
-                    :script "/js/main.js"}])))
+                    :script (path-js "main.js")}])))
+    ;;;; COMMENT OUT THE ALT! BLOCK ABOVE AND UNCOMMENT BELOW FOR CLIENTSIDE RENDERING ONLY
+    ;; (web/send :html
+    ;;           [t/default-template-ui
+    ;;            {:title   "Welcome to Kamestery!"
+    ;;             :content [p/home []]
+    ;;             :script (path-js "main.js")}])
     ))
 
 (defn home-json
@@ -45,7 +50,7 @@
   (go
     (web/send :json
               (<! (apply <list-topics (svc/topics)))
-              {:headers {:Content-Type "application/javascript"}
+              {:headers {:Content-Type "application/json"}
                :status  200})
     ))
 
@@ -96,11 +101,12 @@
                          :content [p/document resp]}])))
         (timeout 2000)
         (do
-          (log/debug "ERROR:::")
+          (log/warn "WARN::: Document Timeout")
           (web/send :html
                     [t/default-template-ui
                      {:title title
-                      :content [p/home []]}]))))))
+                      :content [p/home []]
+                      :script (path-js "main.js")}]))))))
 
 (defn document-json
   [req]
@@ -108,7 +114,7 @@
     (let [{:keys [title topic]} (-> req :route-params)]
       (web/send :json
                 (<! (<get-document-and-related topic title))
-                {:headers {:Content-Type "application/javascript"}
+                {:headers {:Content-Type "application/json"}
                  :status  200}))
     ))
 
@@ -127,18 +133,19 @@
                          :content [p/content data]}]))))
         (timeout 2000)
         (do
-          (log/debug "ERROR:::")
+          (log/warn "WARN::: List Content Timeout")
           (web/send :html
                     [t/default-template-ui
                      {:title "List of Content"
-                      :content [p/home {}]}]))))))
+                      :content [p/home {}]
+                      :script (path-js "main.js")}]))))))
 
 (defn list-content-json [req]
   (go
     (let [topic   (-> req :route-params :topic)]
       (web/send :json
                 (<! (<list-content topic)
-                    {:headers {:Content-Type "application/javascript"}
+                    {:headers {:Content-Type "application/json"}
                      :status  200})))
     ))
 

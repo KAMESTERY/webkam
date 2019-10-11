@@ -23,7 +23,10 @@ watch-cljs:
 server-repl:
 	nodemon start
 
-release:
+webpack-release:
+	npx webpack --mode production --config webpack.config.js
+
+release: webpack-release
 	npx shadow-cljs release app web
 
 commit:

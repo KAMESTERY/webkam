@@ -1,8 +1,8 @@
 (ns ui.components.card
-  (:require [taoensso.timbre :as log]
+  (:require [clojure.string :as str]
+            [taoensso.timbre :as log]
             [bidi.bidi :refer [path-for]]
-            [clojure.string :as str]
-            [fast-twitch.nav :refer [cached-routes]]
+            [routing :refer [routing-data]]
             [utils.core :as utils]))
 
 (defn tags [tags]
@@ -39,7 +39,7 @@
        [:div.mdc-card__actions.mt2.pa0
         [:div.mdc-card__action-buttons.w-100
          [:a.mdc-button.mdc-button--raised.w-100
-          {:href (path-for @cached-routes :document :topic Identifier :title Slug)}
+          {:href (path-for routing-data :document :topic Identifier :title Slug)}
           [:span.mdc-button__label "View Document"]]]]]]]))
 
 (defn doc-card-lg [document]
@@ -48,7 +48,7 @@
      [:div
       [:img.w-100.h-auto
        {:alt "media image",
-        :src "https://via.placeholder.com/750x300"}]
+        :src "//via.placeholder.com/750x300"}]
       [:div.ph3.pv3
        [:h2.f2.mt0.mb1 Title]
        [:p.mt0.mb2
@@ -74,5 +74,5 @@
     [:div.mdc-card__actions
      [:div.mdc-card__action-buttons.w-100
       [:a.mdc-button.mdc-button--raised.w-100
-       {:href (path-for @cached-routes :list-content-by-topic :topic topic)}
+       {:href (path-for routing-data :list-content-by-topic :topic topic)}
        [:span.mdc-button__label "View Topic"]]]]]])

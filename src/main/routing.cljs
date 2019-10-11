@@ -1,4 +1,5 @@
-(ns routing)
+(ns routing
+  (:require [bidi.bidi :refer [path-for]]))
 
 (def routing-data
   ["/"
@@ -31,6 +32,12 @@
                                     {"" :list-content-by-tag}}
     ["content-list-tag/json/" :tag]     {:get
                                          {"" :list-content-by-tag-json}}
+    ["img/" :name] {:get
+                    {"" :image}}
+    ["js/" :name] {:get
+                   {"" :javascript}}
+    ["css/" :name] {:get
+                    {"" :style}}
     ;; app life-cycle
     "_ah/start"                    {:get
                                     {"" :start}}
@@ -41,4 +48,13 @@
     ;; reference
     "react"                        {:get
                                     {"" :react}}}])
+
+(defn path-img [name]
+  (path-for routing-data :image :name name))
+
+(defn path-js [name]
+  (path-for routing-data :javascript :name name))
+
+(defn path-css [name]
+  (path-for routing-data :style :name name))
 

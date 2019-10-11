@@ -1,9 +1,8 @@
 (ns ui.templates.default
   (:require [taoensso.timbre :as log]
-            [bidi.bidi :refer [path-for]]
+            [routing :refer [path-css path-js]]
             [ui.components.core :as c]
-            [fast-twitch.nav :refer [cached-routes]]
-            [fast-twitch.preload :refer [quick-img quick-css]]))
+            [fast-twitch.preload :refer [quick-css quick-img quick-js]]))
 
 (defn default-template-ui [data]
   (let [{:keys [content script title]} data]
@@ -14,13 +13,21 @@
       [:meta {:http-equiv "content-type" :content "text/html; charset=UTF-8"}]
       [:meta {:content "width=device-width, initial-scale=1.0", :name "viewport"}]
       [:title (str "KAMESTERY | " title)]]
-     [:link {:rel "stylesheet" :href "/css/bundle.css"}]
-     [:link {:rel "stylesheet" :href "https://fonts.googleapis.com/icon?family=Material+Icons"}]
-     [:link {:rel "stylesheet", :href "https://fonts.googleapis.com/css?family=Roboto&display=swap"}]
-     [:link {:rel "stylesheet", :href "https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"}]
 
      ;; Preloads
-     [quick-css "//unpkg.com/tachyons/css/tachyons.min.css"]
+     [quick-css "//fonts.googleapis.com/icon?family=Material+Icons"]
+     [quick-css "//fonts.googleapis.com/css?family=Roboto&display=swap"]
+     ;;[quick-css "//unpkg.com/tachyons@4.10.0/css/tachyons.min.css"]
+     [quick-css "//unpkg.com/tachyons/css/tachyons.min.css"] ;; always latest version
+     [quick-css (path-css "bundle.css")]
+     [quick-js (path-js "bundle.js")]
+
+     ;; Style
+     [:link {:rel "stylesheet" :href "//fonts.googleapis.com/icon?family=Material+Icons"}]
+     [:link {:rel "stylesheet" :href "//fonts.googleapis.com/css?family=Roboto&display=swap"}]
+     ;; [:link {:rel "stylesheet" :href "//unpkg.com/tachyons@4.10.0/css/tachyons.min.css"}]
+     [:link {:rel "stylesheet" :href "//unpkg.com/tachyons/css/tachyons.min.css"}] ;; always latest version
+     [:link {:rel "stylesheet" :href (path-css "bundle.css")}]
 
      [:body
       [c/top-app-bar]
@@ -28,6 +35,7 @@
 ;      [:div.mdc-drawer-scrim]
       [:div.pt4.flex-auto.relative.mdc-top-app-bar--fixed-adjust
        [:main.overflow-auto.h-100.menu-adjust {:id "main-content"} content]
-       [c/footer]]
+       [c/footer "&copy; 2019" "OUCASTGEEK INC." "All rights reserved."]]
+      [:script {:type "text/javascript" :src (path-js "bundle.js")}]
       [:script {:type "text/javascript" :src script}]
-      [:script {:type "text/javascript" :src "/js/bundle.js"}]]]))
+      ]]))

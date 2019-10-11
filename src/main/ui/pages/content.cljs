@@ -1,9 +1,9 @@
 (ns ui.pages.content
-  (:require [taoensso.timbre :as log]
-            [ui.components.core :as c]
+  (:require [clojure.string :as str]
+            [taoensso.timbre :as log]
             [bidi.bidi :refer [path-for]]
-            [clojure.string :as str]
-            [fast-twitch.nav :refer [cached-routes]]
+            [routing :refer [routing-data]]
+            [ui.components.core :as c]
             [utils.core :as utils]))
 
 (defn document-ui [data]

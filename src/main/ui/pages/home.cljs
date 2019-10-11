@@ -1,8 +1,8 @@
 (ns ui.pages.home
-  (:require [taoensso.timbre :as log]
+  (:require [clojure.string :as str]
+            [taoensso.timbre :as log]
             [bidi.bidi :refer [path-for]]
-            [fast-twitch.nav :refer [cached-routes]]
-            [clojure.string :as str]
+            [routing :refer [routing-data]]
             [ui.components.core :as c]))
 
 (defn- hero []
@@ -13,7 +13,7 @@
    [:p.fw1.f5.mt0.mb3 "Sign up for beta access or learn more about x."]
    [:div
     [:a.mdc-button.mdc-button--raised.f6.grow.pv2.ph3.dib.mr3
-     {:href "#"}
+     {:href (path-for routing-data :login)}
      "Sign Up"]
     [:a.mdc-button.mdc-button--outlined.f6.grow.pv2.ph3.dib.mr3
      {:href "#"}

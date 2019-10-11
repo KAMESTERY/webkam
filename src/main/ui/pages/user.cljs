@@ -2,7 +2,7 @@
   (:require [taoensso.timbre :as log]
             [ui.components.core :as c]
             [bidi.bidi :refer [path-for]]
-            [fast-twitch.nav :refer [cached-routes]]
+            [routing :refer [routing-data]]
             [ui.styles.core :as styles]))
 
 (defn login-ui [data]
@@ -10,7 +10,7 @@
         text-field {:class (styles/text-field)}]
     [:div.vh-100
      [:form.mt5.ph3.w-30.center
-      {:action (path-for @cached-routes :authenticate), :method "post"}
+      {:action (path-for routing-data :authenticate), :method "post"}
       [:h2.tc "Login"]
       [:input {:type "hidden", :name "_csrf", :value csrf-token}]
       [:div text-field
@@ -31,7 +31,7 @@
       text-field {:class (styles/text-field)}]
   [:div.vh-100
    [:form.mt5.ph3.w-30.center
-    {:action (path-for @cached-routes :enroll), :method "post"}
+    {:action (path-for routing-data :enroll), :method "post"}
     [:h2.tc "Register"]
     [:input {:type "hidden", :name "_csrf", :value csrf-token}]
     [:div text-field
