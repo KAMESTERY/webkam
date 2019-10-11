@@ -20,7 +20,7 @@
                                            <list-content
                                            <list-topics]]))
 
-(defn home
+(defn home-SAVE
   [req]
   (go
     (alt!
@@ -36,9 +36,17 @@
         (web/send :html
                   [t/default-template-ui
                    {:title   "Welcome to Kamestery!"
-                    :content [p/home []]
+                    :content ["Loading..."]
                     :script "/js/main.js"}])))
     ))
+
+(defn home
+  [req]
+  (web/send :html
+            [t/default-template-ui
+             {:title   "Welcome to Kamestery!"
+              :content [:h4 "LOADING"]
+              :script "/js/main.js"}]))
 
 (defn home-json
   [req]
