@@ -20,12 +20,12 @@
 (defn doc-card
   [document]
   (let [{:keys [Title Identifier Slug UserID CreatedAt UpdatedAt Body Tags]} document]
-    [:div.mdc-card.mv4.mw4-5.mh2
+    [:div.mdc-card.mv3.w-40-ns.mh3-ns
      [:input {:type "hidden" :name "topic" :value Identifier}]
      [:div
-      [:img.w-100.h-auto
+      [:img.w-100
        {:alt "media image",
-        :src "https://via.placeholder.com/350x150"}]
+        :src "//via.placeholder.com/300x100"}]
       [:div.ph3.pv2
        [:h2.f4.mb0 Title]
        [:p.mt0

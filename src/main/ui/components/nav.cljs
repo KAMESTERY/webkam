@@ -12,7 +12,7 @@
      [:a.material-icons.mdc-top-app-bar__navigation-icon.dn-l
       {:href "#" :id "menu-btn"}
       "menu"]
-     [:a.mdc-top-app-bar__title
+     [:a.mdc-top-app-bar__title.pl0-l
       {:href (path-for routing-data :home)}
       [:strong "KAMESTERY"]]]
     [:section.mdc-top-app-bar__section.mdc-top-app-bar__section--align-end
@@ -49,7 +49,8 @@
 
 (defn menu-fixed [topics]
   [:div.dn.db-l
-   [:aside.mdc-drawer.mdc-top-app-bar--fixed-adjust.fixed.bg-near-white.mw4-5
+   [:aside.mdc-drawer.mdc-top-app-bar--fixed-adjust.fixed.bg-near-white
+    {:id "side-bar-fixed"}
     [menu-list topics]]])
 
 

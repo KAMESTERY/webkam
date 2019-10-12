@@ -11,13 +11,13 @@
         {:keys [Title Identifier Slug UserID CreatedAt UpdatedAt Body Tags]} doc]
     (do (log/debug data)
       [:<>
-       [:div.ph3
+       [:div.ph1
         [:section.mt4
          [c/doc-card-lg doc]]
         [:hr.sec-hr-xl]
         [:section
          [:h3.tc.primary.mt0 "Related Content"]
-         [:div.flex.flex-wrap.justify-center.ph3
+         [:div.flex.flex-wrap.justify-center.ph1
           (for [sibling related
                 :when   (not= sibling doc)]
             ^{:key sibling}
@@ -27,10 +27,12 @@
 (defn content-list-ui [data]
   (let [{:keys [content topic]} data]
     [:<>
-     [:div.mv5
+     [:div
+      [:article.mw7.center.tc.br2.pt5.pb3.mb
+       [:h1.fw6.f3.lh-title.mt0.mb3.primary (str/upper-case (name topic))]]]
+     [:div.ph1.mb4
       [:section
-       [:h2.tc.primary (str/capitalize (name topic))]
-       [:div.flex.flex-wrap.justify-center.ph3
+       [:div.flex.flex-wrap.justify-center
         (for [doc content]
           ^{:key doc}
           [c/doc-card
