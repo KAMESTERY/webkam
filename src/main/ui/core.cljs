@@ -13,7 +13,7 @@
 
 (rf/reg-event-db
  :page
- [(when ^boolean goog.DEBUG re-frame.core/debug)]   ;;  <----  conditional! 
+ [(when ^boolean goog.DEBUG re-frame.core/debug)]   ;;  <----  conditional!
  (fn [db [_ new-page]]
    (assoc db :page new-page )))
 

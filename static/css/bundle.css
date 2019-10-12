@@ -3596,6 +3596,9 @@ a.mdc-list-item {
 .bg-primary {
   background-color: #8B008B; }
 
+.bg-light {
+  background-color: #f8f3ff; }
+
 .tw {
   overflow-wrap: break-word; }
 
@@ -3610,6 +3613,17 @@ a.mdc-list-item {
 
 .invisible-scrollbar::-webkit-scrollbar {
   display: none; }
+
+.w-48 {
+  width: 48%; }
+
+.mw-200 {
+  width: 12.5rem; }
+
+#side-bar-fixed {
+  max-width: 12.5rem;
+  min-width: 11rem;
+  width: 15%; }
 
 .sec-hr-xs {
   border-width: .5px;
@@ -3640,14 +3654,17 @@ body {
   margin: 0;
   display: flex;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f9f9fa;
+  background-image: url("https://www.transparenttextures.com/patterns/fake-luxury.png"); }
 
 a {
   text-decoration: none;
   color: inherit; }
 
 .stl-bg {
-  background: url("https://www.toptal.com/designers/subtlepatterns/patterns/swirl.png"); }
+  background: linear-gradient(0deg, rgba(27, 27, 27, 0.9), rgba(21, 0, 13, 0.9));
+  background-size: cover; }
 
 /*
 RESPONSIVE GRID LAYOUT
@@ -3660,12 +3677,12 @@ xl, extra-large: 1920px or larger
 */
 @media only screen and (min-width: 961px) and (max-width: 1280px) {
   .menu-adjust {
-    padding-left: 25%; } }
+    padding-left: 15%; } }
 
 @media only screen and (min-width: 1280px) and (max-width: 1600px) {
   .menu-adjust {
-    padding-left: 20%; } }
+    padding-left: 13%; } }
 
 @media only screen and (min-width: 1601px) and (max-width: 1920px) {
   .menu-adjust {
-    padding-left: 20%; } }
+    padding-left: 11%; } }
