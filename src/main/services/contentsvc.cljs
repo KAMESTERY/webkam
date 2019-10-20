@@ -7,7 +7,7 @@
              :as    async
              :refer [<! put! chan close! timeout pipeline-async to-chan]]
             [fast-twitch.web-api :as web]
-            [utils.core :as utils]
+            [services.urls :as urls]
             ["slugify" :as slugify]))
 
 (defn get-topics []
@@ -17,7 +17,7 @@
   "[topic title] Retrieve document by topic and title."
   [topic title]
   (log/debug "Retrieving Content from Topic: " topic " with Title: " title)
-  (let [{:keys [url namespace]} (utils/url-config)
+  (let [{:keys [url namespace]} (urls/url-config)
         query-str (graphql-query {:queries
                                   [[:getdocument
                                     {:dockey {:Topic (str namespace ":##:" (slugify topic))
@@ -43,7 +43,7 @@
   "[topic title] Retrieve document and related by topic and title."
   [topic title]
   (log/debug "Retrieving Content from Topic: " topic " with Title: " title)
-  (let [{:keys [url namespace]} (utils/url-config)
+  (let [{:keys [url namespace]} (urls/url-config)
         query-str (graphql-query {:queries
                                   [{:query/alias :doc
                                     :query/data
@@ -76,7 +76,7 @@
 (defn <list-content
   [topic]
   (log/debug "Listing Content from Topic: " topic)
-  (let [{:keys [url namespace]} (utils/url-config)
+  (let [{:keys [url namespace]} (urls/url-config)
         query-str (graphql-query {:queries
                                   [[:querydocument
                                     {:docquery {:Name (str namespace ":##:" (slugify topic))}}
@@ -97,7 +97,7 @@
 
 (defn <list-topics [& topics]
   (log/debug "Listing Content from Topics: " topics)
-  (let [{:keys [url namespace]} (utils/url-config)
+  (let [{:keys [url namespace]} (urls/url-config)
         query-str (graphql-query {:queries
                                   (into []
                                         (map #(hash-map

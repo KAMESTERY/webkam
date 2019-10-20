@@ -4,8 +4,8 @@
              :as    async
              :refer [<! take! put! chan close! timeout pipeline-async to-chan]]
             [taoensso.timbre :as log]
-            [bidi.bidi :as bidi :refer [path-for]]
-            [bidi.router :as br]
+            [bidi.bidi :as bidi :refer [path-for
+                                        match-route]]
             [routing :refer [routing-data]]
             [reagent.core :as r]
             [re-frame.core :as rf :refer [subscribe dispatch]]
@@ -20,38 +20,8 @@
  :current-page
  [(when ^boolean goog.DEBUG re-frame.core/debug)]   ;;  <----  conditional!
  (fn [db [_ current-page-data]]
-   (go
-     (let [{page :page data-chan :data-chan} current-page-data
-           page-data (<! data-chan)]
-       (println "New Page Data: " page-data)
-       (assoc db :page page :page-data @d)))
-   db))
-
-;; (rf/reg-event-db
-;;  :current-page
-;;  [(when ^boolean goog.DEBUG re-frame.core/debug)]   ;;  <----  conditional!
-;;  (fn [db [_ current-page-data]]
-;;    (let [d (atom nil)]
-;;      (go
-;;        (let [{page :page data-chan :data-chan} current-page-data
-;;              page-data (<! data-chan)]
-;;          (println "New Page Data: " page-data)
-;;          (reset! d page-data)))
-;;      (while (nil? d)
-;;        (js/setTimeout (fn []) 10))
-;;      (assoc db :page page :page-data @d))))
-
-;;;; Effects Handlers
-
-(rf/reg-event-fx
- :render-page
- [(when ^boolean goog.DEBUG re-frame.core/debug)]   ;;  <----  conditional!
- (fn [cofx [_ page]]
-   (let [fetch-target (-> (name page)
-                          (str "-json")
-                          keyword)]
-     {:dispatch [:current-page {:page page :data-chan (<fetch fetch-target)}]}
-     )))
+   (let [{page :page data :data} current-page-data]
+     (assoc db :page page :data data))))
 
 ;;;; Subcription Handlers
 
@@ -59,43 +29,68 @@
 (rf/reg-sub
  :current-page
  (fn [db _]
-   (select-keys db [:page :page-data])))
+   (select-keys db [:page :data])))
 
 ;;;; Pages
 
-(defmulti page identity)
+;; UI
 
-(defmethod page :home [data]
-  (println "Home Data: " data)
-  [p/home data])
+(defmulti page (fn [m] (:page m)))
 
-(defmethod page :login []
+(defmethod page :home [m]
+  [p/home (:data m)])
+
+(defmethod page :login [m]
   [p/login []])
 
-(defmethod page :register []
+(defmethod page :register [m]
   [p/register []])
 
-(defmethod page :default []
-  [p/home []])
+(defmethod page :default [m]
+  [p/home (:data m)])
 
-;;;; Routing
-;; (def router
-;;   (br/start-router! routing-data
-;;                     {:default-location {:handler :home}
-;;                      :on-navigate #(dispatch [:render-page %])}))
+;; Rendering
 
-;;;; Rendering
-(defn current-page [data]
-  (let [{activep :page page-data :page-data} @data]
-    (println "Current Page: " activep)
-    ;;(br/set-location! router {:handler activep})
-    [page activep page-data]))
+(defmulti render-page identity)
+
+(defmethod render-page :home []
+  (go
+    (let [data (<! (<fetch :home-json))]
+      (rf/dispatch [:current-page {:page :home
+                                   :data data}])
+      )))
+
+(defmethod render-page :login []
+  (rf/dispatch [:current-page {:page :login}]))
+
+(defmethod render-page :register []
+  (rf/dispatch [:current-page {:page :register}]))
+
+(defmethod render-page :default []
+  (go
+    (let [data (<! (<fetch :home-json))]
+      (rf/dispatch [:current-page {:page :home
+                                   :data data}])
+      )))
+
+;;;; Location
+
+(defn current-route []
+  (let [path (.. js/window -location -pathname)
+        route (match-route routing-data path)]
+    ;; (println "Matched Route: " (match-route routing-data "/"))
+    ;; (println "Path for: :login" (path-for routing-data :login))
+    ;; (println "Current Path: " path)
+    ;; (println "Current Route: " route)
+    (or
+     (:handler route) :home)))
 
 (defn start []
-  (do
-    (rf/dispatch-sync [:render-page :home])
+  (go
+    (<! (render-page
+         (current-route)))
     (r/render-component
-     [current-page (subscribe [:current-page])]
+     [page @(subscribe [:current-page])]
      (.getElementById js/document "main-content"))))
 
 (start)
