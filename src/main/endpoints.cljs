@@ -20,31 +20,31 @@
                                            <list-topics]]))
 
 (defn home
-      [req]
-      (go
-        (alt!
-          (apply <list-topics (svc/topics))
-          ([data]
-           (web/send :html
-                     [t/default-template-ui
-                      {:title   "Welcome to Kamestery!"
-                       :content [p/home data]}]))
-          (timeout 2000)
-          (do
-            (log/warn "WARN::: Home Timeout")
-            (web/send :html
-                      [t/default-template-ui
-                       {:title   "Welcome to Kamestery!"
-                        :content [p/home []]
-                        :script (path-js "main.js")}])))
-        )
-      ;; COMMENT OUT THE ALT! BLOCK ABOVE AND UNCOMMENT BELOW FOR CLIENTSIDE RENDERING ONLY
-      ;(web/send :html
-      ;          [t/default-template-ui
-      ;           {:title   "Welcome to Kamestery!"
-      ;            :content [p/home []]
-      ;            :script  (path-js "main.js")}])
-      )
+  [req]
+  (go
+    (alt!
+      (apply <list-topics (svc/topics))
+      ([data]
+       (web/send :html
+                 [t/default-template-ui
+                  {:title   "Welcome to Kamestery!"
+                   :content [p/home data]}]))
+      (timeout 2000)
+      (do
+        (log/warn "WARN::: Home Timeout")
+        (web/send :html
+                  [t/default-template-ui
+                   {:title   "Welcome to Kamestery!"
+                    :content [p/home []]
+                    :script (path-js "main.js")}])))
+    )
+  ;; COMMENT OUT THE ALT! BLOCK ABOVE AND UNCOMMENT BELOW FOR CLIENTSIDE RENDERING ONLY
+  ;(web/send :html
+  ;          [t/default-template-ui
+  ;           {:title   "Welcome to Kamestery!"
+  ;            :content [p/home []]
+  ;            :script  (path-js "main.js")}])
+  )
 
 (defn home-json
   [req]
@@ -63,8 +63,8 @@
     (web/send :html
               [t/default-template-ui
                {:title   "User Login"
-                :content [p/login data]}])))
-
+                :content [p/login data]
+                :script (path-js "main.js")}])))
 
 (defn authenticate [req]
   (let [{:keys [body]} req]
@@ -80,7 +80,8 @@
     (web/send :html
               [t/default-template-ui
                {:title   "User Registration"
-                :content [p/register data]}])))
+                :content [p/register data]
+                :script (path-js "main.js")}])))
 
 (defn enroll [req]
   (let [{:keys [body csrf-token]} req]
@@ -93,7 +94,7 @@
   (go
     (let [{:keys [title topic]} (-> req :route-params)]
       (alt!
-        (<get-document-and-related topic title)
+        (<get-document-and-related title topic)
         ([resp]
          (do (log/debug "RESPONSE::::" resp)
              (web/send :html
@@ -106,15 +107,22 @@
           (web/send :html
                     [t/default-template-ui
                      {:title title
-                      :content [p/home []]
-                      :script (path-js "main.js")}]))))))
+                      :content [p/document []]
+                      :script (path-js "main.js")}])))
+         ;; COMMENT OUT THE ALT! BLOCK ABOVE AND UNCOMMENT BELOW FOR CLIENTSIDE RENDERING ONLY
+         ;(web/send :html
+         ;          [t/default-template-ui
+         ;           {:title title
+         ;            :content [p/document []]
+         ;            :script (path-js "main.js")}])
+         )))
 
 (defn document-json
   [req]
   (go
-    (let [{:keys [title topic]} (-> req :route-params)]
+    (let [route-params (:route-params m)]
       (web/send :json
-                (<! (<get-document-and-related topic title))
+                (<! (<get-document-and-related title topic))
                 {:headers {:Content-Type "application/json"}
                  :status  200}))
     ))
@@ -140,11 +148,12 @@
                      {:title "List of Content"
                       :content [p/home {}]
                       :script (path-js "main.js")}])))
-      ;   (web/send :html
-      ;             [t/default-template-ui
-      ;              {:title "List of Content"
-      ;               :content [p/home {}]
-      ;               :script (path-js "main.js")}])
+     ;; COMMENT OUT THE ALT! BLOCK ABOVE AND UNCOMMENT BELOW FOR CLIENTSIDE RENDERING ONLY
+     ;    (web/send :html
+     ;              [t/default-template-ui
+     ;               {:title "List of Content"
+     ;                :content [p/content {}]
+     ;                :script (path-js "main.js")}])
          )))
 
 (defn list-content-json [req]

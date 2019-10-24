@@ -21,5 +21,23 @@
                    (apply path-for routing-data params)))
           raw-data (-> res :body clj->json)
           data (t/read r raw-data)]
-      data)))
+      (do
+        (println "response::" res)
+        (println "raw-data::" raw-data)
+        (if data
+          (println "transformed::" data)
+          (println "No data returned!!"))
+          data))))
 
+(defn <fetch-raw [& params]
+      (go
+        (let [r (t/reader :json)
+              res (<! (http/get
+                        (apply path-for routing-data params)))
+              raw-data (-> res :body)
+              data (t/read r raw-data)]
+             (do
+               (println "response::" res)
+               (println "raw-data::" raw-data)
+               (println "transformed::" data)
+               data))))

@@ -1,4 +1,4 @@
-(ns ui.components.icons)
+(ns ui.widgets.icons)
 
 (defn facebook [fill]
   [:svg.db.w2.h2 {, :data-icon "facebook", :viewBox "0 0 32 32", :fill fill}

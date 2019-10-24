@@ -33,8 +33,8 @@
       [c/top-app-bar]
       [c/menu]
       [:div.pt4.flex-auto.relative.mdc-top-app-bar--fixed-adjust
-       [:main.overflow-auto.menu-adjust.h-100 {:id "main-content"} content]
-       [c/footer "&copy; 2019" "OUCASTGEEK INC." "All rights reserved."]]
+       [:main.overflow-auto.menu-adjust.h-100 {:id "main-content"} content]]
+      [c/footer "&copy; 2019" "OUCASTGEEK INC." "All rights reserved."]
       [:script {:type "text/javascript" :src (path-js "bundle.js")}]
       [:script {:type "text/javascript" :src script}]
       ]]))
