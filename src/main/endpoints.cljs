@@ -1,5 +1,6 @@
 (ns endpoints
-  (:require-macros [cljs.core.async.macros :refer [alt! go]])
+  (:require-macros [cljs.core.async.macros :refer [alt! go]]
+                   [fast-twitch.macros :as m])
   (:require [cljs-http.client :as http]
             [cljs.core.async
              :as    async
@@ -19,6 +20,11 @@
                                            <list-content
                                            <list-topics]]))
 
+(defn- on-timeout [default]
+   """ Control the Timeout from an Environment Variable """
+   (let [t (if-let [TIMEOUT (m/env-var "TIMEOUT")] TIMEOUT default)]
+        (timeout t)))
+
 (defn home
       [req]
       (go
@@ -29,7 +35,7 @@
                      [t/default-template-ui
                       {:title   "Welcome to Kamestery!"
                        :content [p/home data]}]))
-          (timeout 2000)
+          (on-timeout 2000)
           (do
             (log/warn "WARN::: Home Timeout")
             (web/send :html
@@ -37,14 +43,7 @@
                        {:title   "Welcome to Kamestery!"
                         :content [p/home []]
                         :script (path-js "main.js")}])))
-        )
-      ;; COMMENT OUT THE ALT! BLOCK ABOVE AND UNCOMMENT BELOW FOR CLIENTSIDE RENDERING ONLY
-      ;(web/send :html
-      ;          [t/default-template-ui
-      ;           {:title   "Welcome to Kamestery!"
-      ;            :content [p/home []]
-      ;            :script  (path-js "main.js")}])
-      )
+        ))
 
 (defn home-json
   [req]
@@ -100,7 +99,7 @@
                        [t/default-template-ui
                         {:title title
                          :content [p/document resp]}])))
-        (timeout 2000)
+        (on-timeout 2000)
         (do
           (log/warn "WARN::: Document Timeout")
           (web/send :html
@@ -132,7 +131,7 @@
                        [t/default-template-ui
                         {:title topic
                          :content [p/content data]}]))))
-        (timeout 2000)
+        (on-timeout 2000)
         (do
           (log/warn "WARN::: List Content Timeout")
           (web/send :html
@@ -140,11 +139,6 @@
                      {:title "List of Content"
                       :content [p/home {}]
                       :script (path-js "main.js")}])))
-      ;   (web/send :html
-      ;             [t/default-template-ui
-      ;              {:title "List of Content"
-      ;               :content [p/home {}]
-      ;               :script (path-js "main.js")}])
          )))
 
 (defn list-content-json [req]
