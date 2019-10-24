@@ -5,7 +5,7 @@
              :refer [<! take! put! chan close! timeout pipeline-async to-chan]]
             [taoensso.timbre :as log]
             [bidi.bidi :as bidi :refer [path-for
-                                        match-route]]
+                                        match-route*]]
             [routing :refer [routing-data]]
             [reagent.core :as r]
             [re-frame.core :as rf :refer [subscribe dispatch]]
@@ -51,22 +51,36 @@
 
 ;; Rendering
 
-(defmulti render-page identity)
+(defmulti render-page (fn [m] (:handler m)))
 
-(defmethod render-page :home []
+(defmethod render-page :home [m]
   (go
     (let [data (<! (<fetch :home-json))]
       (rf/dispatch [:current-page {:page :home
                                    :data data}])
       )))
 
-(defmethod render-page :login []
+(defmethod render-page :list-content-by-topic [m]
+           (go
+             (let [data (<! (<fetch :list-content-by-topic-json :topic (-> m :route-params :topic)))]
+                  (rf/dispatch [:current-page {:page :list-content-by-topic
+                                               :data data}])
+                  )))
+
+(defmethod render-page :list-content-by-tag [m]
+           (go
+             (let [data (<! (<fetch :list-content-by-tag-json :tag (-> m :route-params :tag)))]
+                  (rf/dispatch [:current-page {:page :list-content-by-tag
+                                               :data data}])
+                  )))
+
+(defmethod render-page :login [m]
   (rf/dispatch [:current-page {:page :login}]))
 
-(defmethod render-page :register []
+(defmethod render-page :register [m]
   (rf/dispatch [:current-page {:page :register}]))
 
-(defmethod render-page :default []
+(defmethod render-page :default [m]
   (go
     (let [data (<! (<fetch :home-json))]
       (rf/dispatch [:current-page {:page :home
@@ -77,13 +91,10 @@
 
 (defn current-route []
   (let [path (.. js/window -location -pathname)
-        route (match-route routing-data path)]
-    ;; (println "Matched Route: " (match-route routing-data "/"))
-    ;; (println "Path for: :login" (path-for routing-data :login))
-    ;; (println "Current Path: " path)
-    ;; (println "Current Route: " route)
+        route (match-route* routing-data path {:request-method :get})]
+     (println "Matched Route: " route)
     (or
-     (:handler route) :home)))
+     route {:handler :home})))
 
 (defn start []
   (go

@@ -20,30 +20,31 @@
                                            <list-topics]]))
 
 (defn home
-  [req]
-  (go
-    (alt!
-      (apply <list-topics (svc/topics))
-      ([data]
-       (web/send :html
-                 [t/default-template-ui
-                  {:title   "Welcome to Kamestery!"
-                   :content [p/home data]}]))
-      (timeout 2000)
-      (do
-        (log/warn "WARN::: Home Timeout")
-        (web/send :html
-                  [t/default-template-ui
-                   {:title   "Welcome to Kamestery!"
-                    :content [p/home []]
-                    :script (path-js "main.js")}])))
-    ;;;; COMMENT OUT THE ALT! BLOCK ABOVE AND UNCOMMENT BELOW FOR CLIENTSIDE RENDERING ONLY
-    ;; (web/send :html
-    ;;           [t/default-template-ui
-    ;;            {:title   "Welcome to Kamestery!"
-    ;;             :content [p/home []]
-    ;;             :script (path-js "main.js")}])
-    ))
+      [req]
+      (go
+        (alt!
+          (apply <list-topics (svc/topics))
+          ([data]
+           (web/send :html
+                     [t/default-template-ui
+                      {:title   "Welcome to Kamestery!"
+                       :content [p/home data]}]))
+          (timeout 2000)
+          (do
+            (log/warn "WARN::: Home Timeout")
+            (web/send :html
+                      [t/default-template-ui
+                       {:title   "Welcome to Kamestery!"
+                        :content [p/home []]
+                        :script (path-js "main.js")}])))
+        )
+      ;; COMMENT OUT THE ALT! BLOCK ABOVE AND UNCOMMENT BELOW FOR CLIENTSIDE RENDERING ONLY
+      ;(web/send :html
+      ;          [t/default-template-ui
+      ;           {:title   "Welcome to Kamestery!"
+      ;            :content [p/home []]
+      ;            :script  (path-js "main.js")}])
+      )
 
 (defn home-json
   [req]
@@ -138,7 +139,13 @@
                     [t/default-template-ui
                      {:title "List of Content"
                       :content [p/home {}]
-                      :script (path-js "main.js")}]))))))
+                      :script (path-js "main.js")}])))
+      ;   (web/send :html
+      ;             [t/default-template-ui
+      ;              {:title "List of Content"
+      ;               :content [p/home {}]
+      ;               :script (path-js "main.js")}])
+         )))
 
 (defn list-content-json [req]
   (go
