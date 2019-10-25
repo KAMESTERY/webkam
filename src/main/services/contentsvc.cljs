@@ -40,8 +40,8 @@
     ))
 
 (defn <get-document-and-related
-  "[topic title] Retrieve document and related by topic and title."
-  [topic title]
+  "[title topic] Retrieve document and related by topic and title."
+  [title topic]
   (log/debug "Retrieving Content from Topic: " topic " with Title: " title)
   (let [{:keys [url namespace]} (urls/url-config)
         query-str (graphql-query {:queries

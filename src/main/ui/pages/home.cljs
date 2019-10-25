@@ -3,6 +3,7 @@
             [taoensso.timbre :as log]
             [bidi.bidi :refer [path-for]]
             [routing :refer [routing-data]]
+            [ui.widgets.core :as w]
             [ui.components.core :as c]))
 
 (defn- hero []
@@ -13,24 +14,23 @@
    "We want you to be involved. This text needs to\n    be longer for testing sake."]
   [:p.fw1.f5.mt0.mb4 "Sign up for beta access or learn more about x."]
   [:div
-   [:a.f6.br-pill.bg-primary.no-underline.ba.b--purple.grow.pv2.ph3.dib.mr3
-    {:href (path-for routing-data :login)}
-    "Sign Up"]
-   [:a.f6.br-pill.bg-light.no-underline.ba.b--purple.grow.pv2.ph3.dib.mr3.primary
-    {:href "#"}
-    "Learn More"]]]])
+   [w/button {:value "SIGN UP" :class ["mr3 bg-primary"] :href (path-for routing-data :register)}]
+   [w/button {:value "LEARN MORE" :class ["near-white mr3 ba"] :href "#"}]]]])
 
 (defn home-ui [data]
   (let [topics (keys data)]
     [:<>
      [hero]
-     (for [topic topics]
-       ^{:key topic}
-       [:div.center.mt0.pb3.mw8
-        [:section
-         [:h3.tc.primary.mt0.mb2 (str/upper-case (name topic))]
-         [:div.flex.flex-wrap.justify-center.ph1
-          (for [doc (-> data topic)]
-            ^{:key doc}
-            [c/doc-card doc])
-          [:hr.sec-hr-xs]]]])]))
+     (if topics
+       (for [topic topics]
+            ^{:key topic}
+            [:div.center.mt0.pb3.mw8
+             [:section
+              [:h2.f3.lh-solid.tc.mt0.mb2 (str/capitalize (name topic))]
+              [:div.flex.flex-wrap.justify-center.ph1
+               (for [doc (-> data topic)]
+                    ^{:key doc}
+                    [c/doc-card doc])
+               [:hr.sec-hr-xs]]]])
+       [:div.vh-100 [:h2.mt7.tc "Loading..."]])
+     ]))

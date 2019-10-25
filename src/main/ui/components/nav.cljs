@@ -1,6 +1,7 @@
 (ns ui.components.nav
   (:require [taoensso.timbre :as log]
             [bidi.bidi :refer [path-for]]
+            [ui.widgets.core :as w]
             [routing :refer [routing-data]]
             [services.core :as s]))
 
@@ -17,12 +18,7 @@
       [:strong "KAMESTERY"]]]
     [:section.mdc-top-app-bar__section.mdc-top-app-bar__section--align-end
      {:role "toolbar"}
-     [:a.material-icons.mdc-top-app-bar__action-item.mdc-icon-button
-      {:href (path-for routing-data :login) :aria-label "Login"}
-      "account_circle"]
-     [:a.material-icons.mdc-top-app-bar__action-item.mdc-icon-button
-      {:href (path-for routing-data :register) :aria-label "Register"}
-      "person_add"]]]])
+     [w/user-actions]]]])
 
 (defn menu-list [topics]
   [:<>
@@ -31,11 +27,7 @@
     [:h6.mdc-drawer__subtitle "user@example.com"]]
    [:div.mdc-drawer__content.mt3
     [:h3.mt3.mr0.mb1.ml3 "Topics"]
-    [:div.ph3.mv2.mw4-5 {:class "mdc-text-field mdc-text-field--with-trailing-icon"}
-     [:input {:type "text", :id "my-input", :class "mdc-text-field__input"}]
-     [:label {:for "my-input", :class "mdc-floating-label"} "Find a topic"]
-     [:i {:class "material-icons mdc-text-field__icon", :tabindex "0", :role "button"} "search"]
-     [:div {:class "mdc-line-ripple"}]]
+    [w/search-input "topic-menu-search" "Find a topic" ["ph3" "mv2" "mw4-5"]]
     [:div.mdc-list
      (for [t topics]
        ^{:key t}
@@ -44,15 +36,14 @@
         [:span.mdc-list-item__text t]])]]])
 
 (defn menu-mobile [topics]
-  [:aside.mdc-drawer.mdc-drawer--dismissible.mdc-top-app-bar--fixed-adjust.dn-l.bg-near-white
+  [:aside.mdc-drawer.mdc-drawer--dismissible.mdc-top-app-bar--fixed-adjust.dn-l
    [menu-list topics]])
 
 (defn menu-fixed [topics]
   [:div.dn.db-l
-   [:aside.mdc-drawer.mdc-top-app-bar--fixed-adjust.fixed.bg-near-white
+   [:aside.mdc-drawer.mdc-top-app-bar--fixed-adjust.fixed
     {:id "side-bar-fixed"}
     [menu-list topics]]])
-
 
 (defn menu []
   (let [topics (s/topics)]

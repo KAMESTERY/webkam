@@ -62,8 +62,8 @@
     (web/send :html
               [t/default-template-ui
                {:title   "User Login"
-                :content [p/login data]}])))
-
+                :content [p/login data]
+                :script (path-js "main.js")}])))
 
 (defn authenticate [req]
   (let [{:keys [body]} req]
@@ -79,7 +79,8 @@
     (web/send :html
               [t/default-template-ui
                {:title   "User Registration"
-                :content [p/register data]}])))
+                :content [p/register data]
+                :script (path-js "main.js")}])))
 
 (defn enroll [req]
   (let [{:keys [body csrf-token]} req]
@@ -105,7 +106,7 @@
           (web/send :html
                     [t/default-template-ui
                      {:title title
-                      :content [p/home []]
+                      :content [p/document []]
                       :script (path-js "main.js")}]))))))
 
 (defn document-json
@@ -137,7 +138,7 @@
           (web/send :html
                     [t/default-template-ui
                      {:title "List of Content"
-                      :content [p/home {}]
+                      :content [p/content {}]
                       :script (path-js "main.js")}])))
          )))
 

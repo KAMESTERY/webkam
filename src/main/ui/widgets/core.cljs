@@ -1,31 +1,60 @@
 (ns ui.widgets.core
-  (:require [taoensso.timbre :as log]))
+  (:require [taoensso.timbre :as log]
+            [utils.core :as util]
+            [ui.widgets.material :as m]
+            [ui.widgets.icons :as icons]
+            [ui.widgets.user_actions :as u]
+            [ui.widgets.buttons :as btn]
+            [ui.widgets.img :refer [img]]))
 
-;;;;;;;;;;;;;;;;;;;;;; Widgets
-(defn raw-str-widget-ui [data]
-  (log/debug "Raw Stringing...")
-  (let [{:keys [text]} data]
-    ;;[:div text]
-    [:div
-     [:br]
-     [:strong text]]))
+(defn tags [tags]
+  [:div.mdc-chip-set.ma0.pa0.invisible-scrollbar.mht-1
+   (for [tag tags]
+     ^{:key tag}
+     [:button.mdc-chip.pv0.h-50
+      [:span.mdc-chip__text.f7.primary.w-100.b (str "#" tag)]])])
 
-(defn un-bouton-ui [data]
-  (log/debug "Buttoning ...")
-  (let [{:keys [text]} data]
-    [:div
-     [:hr]
-     [:input
-      {:type  "submit"
-       :class "btn btn-default"
-       :value text}]]))
+(defn search-input [id display override-styles]
+  (let [base-styles ["mdc-text-field" "mdc-text-field--with-trailing-icon"]
+        styles (util/merge-styles base-styles override-styles)]
+    [:div styles
+     [:input.mdc-text-field__input {:type "text", :id id}]
+     [:label.mdc-floating-label {:for id} display]
+     [:i.material-icons.mdc-text-field__icon
+      {:tabindex "0", :role "button"}
+      "search"]
+     [:div {:class "mdc-line-ripple"}]]))
 
+(defn user-actions []
+  (u/user-actions))
 
-(defn hello-ui [data]
-  (log/debug "Rendering ...")
-  (let [{:keys [upper-bound]} data]
-    [:div
-     "Hello world!"
-     [:ul (for [n (range 1 upper-bound)]
-            [:li {:key n} n])]
-     [un-bouton-ui {:text "React!!"}]]))
+; SVG - ICONS
+(defn facebook-icon [fill]
+  (icons/facebook fill))
+
+(defn medium-icon [fill]
+  (icons/medium fill))
+
+(defn linkedin-icon [fill]
+  (icons/linkedin fill))
+
+(defn twitter-icon [fill]
+  (icons/twitter fill))
+
+; MATERIAL
+(defn icon-button [& content]
+  (apply m/icon-button content))
+
+(defn mdc-icon [& content]
+  (apply m/mdc-icon content))
+
+(defn mdc-button [attr]
+  (m/mdc-button attr))
+
+;; IMG
+(defn image [atr]
+  (img atr))
+
+;; BUTTONS
+(defn button [attr]
+  (btn/btn attr))

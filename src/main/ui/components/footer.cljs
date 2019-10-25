@@ -2,10 +2,10 @@
   (:require [taoensso.timbre :as log]
             [bidi.bidi :refer [path-for]]
             [routing :refer [routing-data]]
-            [ui.components.icons :as icons]))
+            [ui.widgets.core :as w]))
 
 (defn footer [copyright company notice]
-  [:footer.pa4.pa5-l.white-50.bt.b--black-10.bg-dark-gray.absolute.z-999
+  [:footer.pa4.pa5-l.white-50.bt.b--black-10.bg-dark-gray.absolute.z-999.stl-bg
    [:section.cf.mb5
     [:div.mb4.mb0-ns.w-100.w-50-l.fr
      [:a.white-50.f3.f2-ns.fw6.tl.link.dim.dib.pv3.mt2.mb4.mb0-l {:href "mailto:hello@impossible.com"} "mail@kamestery.com"]]
@@ -19,10 +19,10 @@
       {:dangerouslySetInnerHTML {:__html (str copyright " " company " " notice)}}]]
     [:div.db.dtc-ns.black-70.v-mid
      [:a.link.dim.dib.mr3.white-50 {:href "https://www.facebook.com/", :title "Impossible Labs on Facebook"}
-      [icons/facebook "currentColor"]]
+      [w/facebook-icon "currentColor"]]
      [:a {:href "https://twitter.com/", :class "link dim dib mr3 white-50"}
-      [icons/twitter "currentColor"]]
+      [w/twitter-icon "currentColor"]]
      [:a {:href "https://medium.com/", :class "link dim dib mr3 white-50", :title "Impossible Labs on Medium"}
-      [icons/medium "currentColor"]]
+      [w/medium-icon "currentColor"]]
      [:a {:href "https://www.linkedin.com/company/", :class "link dim dib white-50"}
-      [icons/linkedin "currentColor"]]]]])
+      [w/linkedin-icon "currentColor"]]]]])

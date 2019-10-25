@@ -99,15 +99,14 @@ $mdc-theme-on-primary: #feeae6;
   opacity: .5;
 }
 
-// GLOBAL
+// LIGHT
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
-  display: flex;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #f9f9fa;
-  background-image: url("https://www.transparenttextures.com/patterns/fake-luxury.png");
+  //background-image: url("https://www.transparenttextures.com/patterns/fake-luxury.png");
 }
 
 a {
@@ -117,9 +116,57 @@ a {
 
 .stl-bg {
   //background-color: #f8f3ff;
-  background:linear-gradient(0deg, rgba(27, 27, 27, 0.9), rgba(21, 0, 13, 0.9));
-  background-size: cover;
+  background:linear-gradient(0deg, rgba(27, 27, 27, 0.9), rgba(21, 0, 13, 0.9)),url("https://www.transparenttextures.com/patterns/fake-brick.png");
+  //background-size: cover;
 }
+
+
+@media (prefers-color-scheme: dark)
+{
+  // COLOR SCHEME
+  // NOTE: SHOULD ALIGN WITH MDC THEME DEFINED ABOVE
+  .primary {
+    color: #fcfcfa;
+  }
+
+  .bg-primary {
+    background-color: #8b008b;
+  }
+
+  #side-bar-fixed {
+    color: #fcfcfa
+  }
+
+  // DARK
+  body {
+    background-color: #2d2a2e;
+    color: #fcfcfa;
+    //background-image: url("https://www.transparenttextures.com/patterns/fake-luxury.png");
+  }
+
+  #app-bar {
+    background-color: #190019;
+  }
+
+  .mdc-card {
+    background-color: #252326;
+    background-color: var(--mdc-theme-surface, #252326);
+  }
+
+  .mdc-chip {
+    background-color: #3b3539;
+  }
+
+  .mdc-drawer {
+    background-color: #252326;
+  }
+
+  .mdc-drawer .mdc-list-item, .mdc-drawer .mdc-drawer__subtitle {
+    color: #fcfcfa;
+  }
+}
+
+
 
 /*
 RESPONSIVE GRID LAYOUT
@@ -150,6 +197,6 @@ xl, extra-large: 1920px or larger
 
 @media only screen and (min-width: 1601px) and (max-width: 1920px) {
   .menu-adjust {
-    padding-left: 11%;
+    padding-left: 10%;
   }
 }
