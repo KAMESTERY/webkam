@@ -5,6 +5,7 @@
             [routing :refer [routing-data]]
             [ui.styles.core :as styles]))
 
+;; TODO REFACTOR MDC TEXT INPUT INTO A WIDGET
 (defn login-ui [data]
   (let [{:keys [csrf-token]} data
         text-field {:class (styles/text-field)}]
@@ -26,6 +27,7 @@
        [:button.mdc-button {:type "button"} "Cancel"]
        [:button.mdc-button.mdc-button--raised.ml1 {:type "submit"} "Login"]]]]))
 
+;; TODO REFACTOR MDC TEXT INPUT INTO A WIDGET
 (defn register-ui [data]
 (let [{:keys [csrf-token]} data
       text-field {:class (styles/text-field)}]

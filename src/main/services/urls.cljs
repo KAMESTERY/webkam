@@ -3,6 +3,6 @@
 
 (defn url-config []
   (let [namespace (if-let [NAMEPSACE (m/env-var "NAMESPACE")] NAMEPSACE "com.kamestery.devdata")
-        url       (if-let [BACKEND (m/env-var "BACKEND")] BACKEND "https://data-dev.kamestery.com/gql")]
+        url       (if-let [BACKEND (m/env-var "BACKEND")] BACKEND "https://localhost:8000/gql")]
     {:namespace namespace :url url}))
 
