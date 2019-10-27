@@ -62,8 +62,8 @@
     (web/send :html
               [t/default-template-ui
                {:title   "User Login"
-                :content [p/login data]}])))
-
+                :content [p/login data]
+                :script (path-js "main.js")}])))
 
 (defn authenticate [req]
   (let [{:keys [body]} req]
@@ -79,7 +79,8 @@
     (web/send :html
               [t/default-template-ui
                {:title   "User Registration"
-                :content [p/register data]}])))
+                :content [p/register data]
+                :script (path-js "main.js")}])))
 
 (defn enroll [req]
   (let [{:keys [body csrf-token]} req]
@@ -105,7 +106,7 @@
           (web/send :html
                     [t/default-template-ui
                      {:title title
-                      :content [p/home []]
+                      :content [p/document []]
                       :script (path-js "main.js")}]))))))
 
 (defn document-json
@@ -113,7 +114,7 @@
   (go
     (let [{:keys [title topic]} (-> req :route-params)]
       (web/send :json
-                (<! (<get-document-and-related topic title))
+                (<! (<get-document-and-related title topic))
                 {:headers {:Content-Type "application/json"}
                  :status  200}))
     ))
@@ -137,7 +138,7 @@
           (web/send :html
                     [t/default-template-ui
                      {:title "List of Content"
-                      :content [p/home {}]
+                      :content [p/content {}]
                       :script (path-js "main.js")}])))
          )))
 
@@ -145,9 +146,9 @@
   (go
     (let [topic   (-> req :route-params :topic)]
       (web/send :json
-                (<! (<list-content topic)
-                    {:headers {:Content-Type "application/json"}
-                     :status  200})))
+                (<! (<list-content topic))
+                {:headers {:Content-Type "application/json"}
+                 :status  200}))
     ))
 
 ;; Application LifeCycle

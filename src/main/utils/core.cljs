@@ -31,3 +31,6 @@
       moment/utc
       (.fromNow true)))
 
+(defn merge-styles [base override]
+  (let [merged-styles (into [] (concat base override))]
+    {:class merged-styles}))

@@ -10,15 +10,11 @@
 (defn menu []
   (n/menu))
 
-
 (defn doc-card-lg [document]
   (c/doc-card-lg document))
 
 (defn doc-card [document]
   (c/doc-card document))
-
-(defn topic-card [topic]
-  (c/topic-card topic))
 
 (defn footer [& content]
   (apply f/footer content))

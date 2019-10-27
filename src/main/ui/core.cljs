@@ -46,6 +46,12 @@
 (defmethod page :register [m]
   [p/register []])
 
+(defmethod page :list-content-by-topic [m]
+  [p/content (:data m)])
+
+(defmethod page :document [m]
+           [p/document (:data m)])
+
 (defmethod page :default [m]
   [p/home (:data m)])
 
@@ -62,7 +68,8 @@
 
 (defmethod render-page :list-content-by-topic [m]
            (go
-             (let [data (<! (<fetch :list-content-by-topic-json :topic (-> m :route-params :topic)))]
+             (let [res (<! (<fetch :list-content-by-topic-json :topic (-> m :route-params :topic)))
+                   data {:content res :topic topic}]
                   (rf/dispatch [:current-page {:page :list-content-by-topic
                                                :data data}])
                   )))
@@ -71,6 +78,14 @@
            (go
              (let [data (<! (<fetch :list-content-by-tag-json :tag (-> m :route-params :tag)))]
                   (rf/dispatch [:current-page {:page :list-content-by-tag
+                                               :data data}])
+                  )))
+
+(defmethod render-page :document [m]
+           (go
+             (let [{:keys [title topic]} (:route-params m)
+                   data (<! (<fetch :document-json :title title :topic topic))]
+                  (rf/dispatch [:current-page {:page :document
                                                :data data}])
                   )))
 
