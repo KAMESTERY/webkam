@@ -93,7 +93,7 @@
   (go
     (let [{:keys [title topic]} (-> req :route-params)]
       (alt!
-        (<get-document-and-related topic title)
+        (<get-document-and-related title topic)
         ([resp]
          (do (log/debug "RESPONSE::::" resp)
              (web/send :html
