@@ -27,5 +27,9 @@
    {cider/cider-nrepl {:mvn/version "0.22.0-beta11"}}}
   :prod
   {:extra-deps
-   {cider/cider-nrepl {:mvn/version "0.22.0-beta11"}}}}
+   {cider/cider-nrepl {:mvn/version "0.22.0-beta11"}}}
+   :zprint
+          {:extra-deps
+           {zprint {:mvn/version "0.5.3"}}
+           :main-opts ["-m" "zprint.main"]}}
  }

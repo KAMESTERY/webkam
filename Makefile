@@ -29,6 +29,10 @@ webpack-release:
 release: webpack-release
 	npx shadow-cljs release app web
 
+fmt:
+	@read -p "Enter Path to Clojure File: " cljfile; \
+	clj -A:zprint  -Sverbose < $$cljfile
+
 commit:
 	git add -A
 	git commit -m "wip"
