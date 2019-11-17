@@ -57,7 +57,7 @@
                                    {:query/alias :related
                                     :query/data
                                     [:querydocument
-                                     {:docquery {:Name (str namespace ":##:" (slugify topic))}}
+                                     {:query {:Name (str namespace ":##:" (slugify topic))}}
                                      [:Topic :DocumentID :UserID :Identifier :Slug
                                       :Publish :Tags :FiltreVisuel :Niveau :Score
                                       :Title :Version :Body :CreatedAt :UpdatedAt]]}]
@@ -79,7 +79,7 @@
   (let [{:keys [url namespace]} (urls/url-config)
         query-str (graphql-query {:queries
                                   [[:querydocument
-                                    {:docquery {:Name (str namespace ":##:" (slugify topic))}}
+                                    {:query {:Name (str namespace ":##:" (slugify topic))}}
                                     [:Topic :DocumentID :UserID :Identifier :Slug
                                      :Publish :Tags :FiltreVisuel :Niveau :Score
                                      :Title :Version :Body :CreatedAt :UpdatedAt]]]
@@ -104,7 +104,7 @@
                                                :query/alias (keyword %)
                                                :query/data
                                                [:querydocument
-                                                {:docquery {:Name (str namespace ":##:" (slugify %))}}
+                                                {:query {:Name (str namespace ":##:" (slugify %))}}
                                                 [:Topic :DocumentID :UserID :Identifier :Slug
                                                  :Publish :Tags :FiltreVisuel :Niveau :Score
                                                  :Title :Version :Body :CreatedAt :UpdatedAt]]) topics))
