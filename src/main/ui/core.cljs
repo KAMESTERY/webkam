@@ -68,7 +68,8 @@
 
 (defmethod render-page :list-content-by-topic [m]
            (go
-             (let [res (<! (<fetch :list-content-by-topic-json :topic (-> m :route-params :topic)))
+             (let [topic (-> m :route-params :topic)
+                   res (<! (<fetch :list-content-by-topic-json :topic topic))
                    data {:content res :topic topic}]
                   (rf/dispatch [:current-page {:page :list-content-by-topic
                                                :data data}])
