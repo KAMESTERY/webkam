@@ -8,8 +8,8 @@ system-prep:
 	chmod +x linux-install-1.10.1.469.sh
 	./linux-install-1.10.1.469.sh
 	rm ./linux-install-1.10.1.469.sh
-	curl -sL https://deb.nodesource.com/setup_12.x | bash -
-	apt-get install nodejs
+	curl -sL https://deb.nodesource.com/setup_13.x | bash -
+	apt-get install build-essential nodejs -y
 
 deps:
 	rm -rf $(PWD)/node_modules; npm i
