@@ -1,0 +1,12 @@
+# Build and Deploy Datakam
+steps:
+- name: gcr.io/cloud-builders/gcloud
+  entrypoint: bash
+  args:
+    - '-c'
+    - |
+      apt-get update
+      apt install make
+      make system-prep deps release deploy
+timeout: "1600s"
+

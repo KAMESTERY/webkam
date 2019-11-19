@@ -1,12 +1,15 @@
 BASEDIR=$(PWD)
 APPNAME=webkam
 PROJECTID=kamestery
+REGION=us-east1
 
 system-prep:
 	curl -O https://download.clojure.org/install/linux-install-1.10.1.469.sh
 	chmod +x linux-install-1.10.1.469.sh
-	sudo ./linux-install-1.10.1.469.sh
+	./linux-install-1.10.1.469.sh
 	rm ./linux-install-1.10.1.469.sh
+	curl -sL https://deb.nodesource.com/setup_12.x | bash -
+	apt-get install nodejs
 
 deps:
 	rm -rf $(PWD)/node_modules; npm i
@@ -41,4 +44,4 @@ container:
 	gcloud builds submit --tag gcr.io/$(PROJECTID)/$(APPNAME)
 
 deploy: container
-	gcloud beta run deploy --image gcr.io/$(PROJECTID)/$(APPNAME) --platform managed
+	gcloud beta run deploy $(APPNAME) --image gcr.io/$(PROJECTID)/$(APPNAME) --platform managed --region $(REGION)
