@@ -8,7 +8,7 @@
              :refer [<! put! chan close! timeout pipeline-async to-chan]]
             [fast-twitch.web-api :as web]
             [services.urls :as urls]
-            ["slugify" :as slugify]))
+            [utils.core :refer [to-slug]]))
 
 (defn get-topics []
   ["history" "education" "language" "africa"])
@@ -20,9 +20,9 @@
   (let [{:keys [url namespace]} (urls/url-config)
         query-str (graphql-query {:queries
                                   [[:getdocument
-                                    {:dockey {:Topic (str namespace ":##:" (slugify topic))
+                                    {:dockey {:Topic (str namespace ":##:" (to-slug topic))
                                               :DocumentID (str namespace ":##:"
-                                                               (slugify topic) ":##:" (slugify title))}}
+                                                               (to-slug topic) ":##:" (to-slug title))}}
                                     [:Topic :DocumentID :UserID :Identifier :Slug
                                      :Publish :Tags :FiltreVisuel :Niveau :Score
                                      :Title :Version :Body :CreatedAt :UpdatedAt]]]
@@ -48,16 +48,16 @@
                                   [{:query/alias :doc
                                     :query/data
                                     [:getdocument
-                                     {:dockey {:Topic (str namespace ":##:" (slugify topic))
+                                     {:dockey {:Topic (str namespace ":##:" (to-slug topic))
                                                :DocumentID (str namespace ":##:"
-                                                                (slugify topic) ":##:" (slugify title))}}
+                                                                (to-slug topic) ":##:" (to-slug title))}}
                                      [:Topic :DocumentID :UserID :Identifier :Slug
                                       :Publish :Tags :FiltreVisuel :Niveau :Score
                                       :Title :Version :Body :CreatedAt :UpdatedAt]]}
                                    {:query/alias :related
                                     :query/data
                                     [:querydocument
-                                     {:query {:Name (str namespace ":##:" (slugify topic))}}
+                                     {:query {:Name (str namespace ":##:" (to-slug topic))}}
                                      [:Topic :DocumentID :UserID :Identifier :Slug
                                       :Publish :Tags :FiltreVisuel :Niveau :Score
                                       :Title :Version :Body :CreatedAt :UpdatedAt]]}]
@@ -79,7 +79,7 @@
   (let [{:keys [url namespace]} (urls/url-config)
         query-str (graphql-query {:queries
                                   [[:querydocument
-                                    {:query {:Name (str namespace ":##:" (slugify topic))}}
+                                    {:query {:Name (str namespace ":##:" (to-slug topic))}}
                                     [:Topic :DocumentID :UserID :Identifier :Slug
                                      :Publish :Tags :FiltreVisuel :Niveau :Score
                                      :Title :Version :Body :CreatedAt :UpdatedAt]]]
@@ -104,7 +104,7 @@
                                                :query/alias (keyword %)
                                                :query/data
                                                [:querydocument
-                                                {:query {:Name (str namespace ":##:" (slugify %))}}
+                                                {:query {:Name (str namespace ":##:" (to-slug %))}}
                                                 [:Topic :DocumentID :UserID :Identifier :Slug
                                                  :Publish :Tags :FiltreVisuel :Niveau :Score
                                                  :Title :Version :Body :CreatedAt :UpdatedAt]]) topics))

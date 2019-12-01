@@ -1,7 +1,8 @@
 (ns utils.core
   (:require [clojure.string :as str]
             [goog.crypt.base64 :as b64]
-            ["moment" :as moment]))
+            ["moment" :as moment]
+            ["slugify" :as slugify]))
 
 (defn handle-response [response grab-data-fn]
   (let [status (:status response)]
@@ -29,7 +30,10 @@
                                   :or {no-suffix false}}]
   (-> timestamp
       moment/utc
-      (.fromNow true)))
+      (.fromNow no-suffix)))
+
+(defn to-slug [s]
+  (slugify s (clj->js {:remove #"[*+~.()'\"!:@]"})))
 
 (defn merge-styles [base override]
   (let [merged-styles (into [] (concat base override))]
