@@ -74,7 +74,7 @@
 
 (defn main []
   (let [staticFolder (if-let [STATIC (m/env-var "STATIC")] STATIC "static")
-        portNumber (if-let [PORT (m/env-var "PORT")] PORT 8080)]
+        portNumber (if-let [PORT (m/env-var "PORT")] PORT 8181)]
     (log/debug "Static Folder: " staticFolder)
     (log/debug "Port Number: " portNumber)
     (-> (ex/app)

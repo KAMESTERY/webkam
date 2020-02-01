@@ -116,13 +116,16 @@ a {
 
 .stl-bg {
   //background-color: #f8f3ff;
-  background:linear-gradient(0deg, rgba(27, 27, 27, 0.9), rgba(21, 0, 13, 0.9)),url("https://www.transparenttextures.com/patterns/fake-brick.png");
+  //background:linear-gradient(0deg, rgba(27, 27, 27, 0.9), rgba(21, 0, 13, 0.9)),url("https://www.transparenttextures.com/patterns/fake-brick.png");
   //background-size: cover;
 }
 
 
 @media (prefers-color-scheme: dark)
 {
+  $dark: #190019;
+  $med: #3a013a;
+  $light: #274c65;
   // COLOR SCHEME
   // NOTE: SHOULD ALIGN WITH MDC THEME DEFINED ABOVE
   .primary {
@@ -139,18 +142,22 @@ a {
 
   // DARK
   body {
-    background-color: #2d2a2e;
+    background-color: $dark;
     color: #fcfcfa;
     //background-image: url("https://www.transparenttextures.com/patterns/fake-luxury.png");
   }
 
+  footer {
+    background-color: $dark;
+  }
+
   #app-bar {
-    background-color: #190019;
+    background-color: $med;
   }
 
   .mdc-card {
-    background-color: #252326;
-    background-color: var(--mdc-theme-surface, #252326);
+    //background-color: $med;
+    background-color: var(--mdc-theme-surface, $med);
   }
 
   .mdc-chip {
@@ -158,7 +165,7 @@ a {
   }
 
   .mdc-drawer {
-    background-color: #252326;
+    background-color: $dark;
   }
 
   .mdc-drawer .mdc-list-item, .mdc-drawer .mdc-drawer__subtitle {
