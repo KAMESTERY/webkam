@@ -15,7 +15,7 @@
       [:span.mdc-chip__text.f7.primary.w-100.b (str "#" tag)]])])
 
 (defn search-input [id display override-styles]
-  (let [base-styles ["mdc-text-field" "mdc-text-field--with-trailing-icon"]
+  (let [base-styles ["mdc-text-field" "mdc-text-field--with-trailing-icon" "ml3"]
         styles (util/merge-styles base-styles override-styles)]
     [:div styles
      [:input.mdc-text-field__input {:type "text", :id id}]

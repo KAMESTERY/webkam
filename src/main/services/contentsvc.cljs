@@ -25,8 +25,17 @@
                                                                (to-slug topic) ":##:" (to-slug title))}}
                                     [:Topic :DocumentID :UserID :Identifier :Slug
                                      :Publish :Tags :FiltreVisuel :Niveau :Score
-                                     :Title :Version :Body :CreatedAt :UpdatedAt]]]
-                                  })]
+                                     :Title :Version :Body :CreatedAt :UpdatedAt [:Media [:MediaID
+                                                                                          :FileUrl
+                                                                                          :ParentDocumentID
+                                                                                          :Type
+                                                                                          :Tags
+                                                                                          :Version
+                                                                                          :Score
+                                                                                          :UserID
+                                                                                          :UpdatedAt
+                                                                                          :CreatedAt]]]]]})]
+
     (log/debug "Query: " query-str)
     (go
       (-> (http/post
@@ -36,8 +45,8 @@
           <!
           :body
           :data
-          :getdocument))
-    ))
+          :getdocument))))
+
 
 (defn <get-document-and-related
   "[title topic] Retrieve document and related by topic and title."
@@ -53,15 +62,33 @@
                                                                 (to-slug topic) ":##:" (to-slug title))}}
                                      [:Topic :DocumentID :UserID :Identifier :Slug
                                       :Publish :Tags :FiltreVisuel :Niveau :Score
-                                      :Title :Version :Body :CreatedAt :UpdatedAt]]}
+                                      :Title :Version :Body :CreatedAt :UpdatedAt [:Media [:MediaID
+                                                                                          :FileUrl
+                                                                                          :ParentDocumentID
+                                                                                          :Type
+                                                                                          :Tags
+                                                                                          :Version
+                                                                                          :Score
+                                                                                          :UserID
+                                                                                          :UpdatedAt
+                                                                                          :CreatedAt]]]]}
                                    {:query/alias :related
                                     :query/data
                                     [:querydocument
                                      {:query {:Name (str namespace ":##:" (to-slug topic))}}
                                      [:Topic :DocumentID :UserID :Identifier :Slug
                                       :Publish :Tags :FiltreVisuel :Niveau :Score
-                                      :Title :Version :Body :CreatedAt :UpdatedAt]]}]
-                                  })]
+                                      :Title :Version :Body :CreatedAt :UpdatedAt [:Media [:MediaID
+                                                                                          :FileUrl
+                                                                                          :ParentDocumentID
+                                                                                          :Type
+                                                                                          :Tags
+                                                                                          :Version
+                                                                                          :Score
+                                                                                          :UserID
+                                                                                          :UpdatedAt
+                                                                                          :CreatedAt]]]]}]})]
+
     (log/debug "Query: " query-str)
     (go
       (-> (http/post
@@ -70,8 +97,8 @@
             {:query query-str}})
           <!
           :body
-          :data))
-    ))
+          :data))))
+
 
 (defn <list-content
   [topic]
@@ -82,8 +109,17 @@
                                     {:query {:Name (str namespace ":##:" (to-slug topic))}}
                                     [:Topic :DocumentID :UserID :Identifier :Slug
                                      :Publish :Tags :FiltreVisuel :Niveau :Score
-                                     :Title :Version :Body :CreatedAt :UpdatedAt]]]
-                                  })]
+                                     :Title :Version :Body :CreatedAt :UpdatedAt [:Media [:MediaID
+                                                                                          :FileUrl
+                                                                                          :ParentDocumentID
+                                                                                          :Type
+                                                                                          :Tags
+                                                                                          :Version
+                                                                                          :Score
+                                                                                          :UserID
+                                                                                          :UpdatedAt
+                                                                                          :CreatedAt]]]]]})]
+
     (log/debug "Query: " query-str)
     (go
       (-> (http/post
@@ -107,8 +143,17 @@
                                                 {:query {:Name (str namespace ":##:" (to-slug %))}}
                                                 [:Topic :DocumentID :UserID :Identifier :Slug
                                                  :Publish :Tags :FiltreVisuel :Niveau :Score
-                                                 :Title :Version :Body :CreatedAt :UpdatedAt]]) topics))
-                                  })]
+                                                 :Title :Version :Body :CreatedAt :UpdatedAt [:Media [:MediaID
+                                                                                                      :FileUrl
+                                                                                                      :ParentDocumentID
+                                                                                                      :Type
+                                                                                                      :Tags
+                                                                                                      :Version
+                                                                                                      :Score
+                                                                                                      :UserID
+                                                                                                      :UpdatedAt
+                                                                                                      :CreatedAt]]]]) topics))})]
+
     (log/debug "Query: " query-str)
     (go
       (-> (http/post

@@ -3660,9 +3660,6 @@ a {
   text-decoration: none;
   color: inherit; }
 
-.stl-bg {
-  background: linear-gradient(0deg, rgba(27, 27, 27, 0.9), rgba(21, 0, 13, 0.9)), url("https://www.transparenttextures.com/patterns/fake-brick.png"); }
-
 @media (prefers-color-scheme: dark) {
   .primary {
     color: #fcfcfa; }
@@ -3671,17 +3668,18 @@ a {
   #side-bar-fixed {
     color: #fcfcfa; }
   body {
-    background-color: #2d2a2e;
+    background-color: #190019;
     color: #fcfcfa; }
-  #app-bar {
+  footer {
     background-color: #190019; }
+  #app-bar {
+    background-color: #3a013a; }
   .mdc-card {
-    background-color: #252326;
-    background-color: var(--mdc-theme-surface, #252326); }
+    background-color: var(--mdc-theme-surface, #3a013a); }
   .mdc-chip {
     background-color: #3b3539; }
   .mdc-drawer {
-    background-color: #252326; }
+    background-color: #190019; }
   .mdc-drawer .mdc-list-item, .mdc-drawer .mdc-drawer__subtitle {
     color: #fcfcfa; } }
 

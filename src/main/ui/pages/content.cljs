@@ -47,7 +47,7 @@
            (for [doc content]
                 ^{:key doc}
                 [c/doc-card
-                 doc])
-           ]]]]
-       [:div.vh-100 [:h2.mt7.tc "Loading..."]])
-     ]))
+                 doc])]]]]
+
+       [:div.vh-100 [:h2.mt7.tc "Loading..."]])]))
+

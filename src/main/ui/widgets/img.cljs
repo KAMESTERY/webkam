@@ -4,5 +4,5 @@
   (let [{:keys [alt src]} attr]
     [:div
      [:img.w-100
-      {:alt alt,
+      {:alt alt
        :src src}]]))

@@ -5,7 +5,7 @@
             [ui.widgets.core :as w]))
 
 (defn footer [copyright company notice]
-  [:footer.pa4.pa5-l.white-50.bt.b--black-10.bg-dark-gray.absolute.z-999.stl-bg
+  [:footer.pa4.pa5-l.white-50.bt.b--black-10.absolute.z-999.stl-bg
    [:section.cf.mb5
     [:div.mb4.mb0-ns.w-100.w-50-l.fr
      [:a.white-50.f3.f2-ns.fw6.tl.link.dim.dib.pv3.mt2.mb4.mb0-l {:href "mailto:hello@impossible.com"} "mail@kamestery.com"]]

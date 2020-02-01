@@ -63,8 +63,8 @@
   (go
     (let [data (<! (<fetch :home-json))]
       (rf/dispatch [:current-page {:page :home
-                                   :data data}])
-      )))
+                                   :data data}]))))
+
 
 (defmethod render-page :list-content-by-topic [m]
            (go
@@ -72,23 +72,23 @@
                    res (<! (<fetch :list-content-by-topic-json :topic topic))
                    data {:content res :topic topic}]
                   (rf/dispatch [:current-page {:page :list-content-by-topic
-                                               :data data}])
-                  )))
+                                               :data data}]))))
+
 
 (defmethod render-page :list-content-by-tag [m]
            (go
              (let [data (<! (<fetch :list-content-by-tag-json :tag (-> m :route-params :tag)))]
                   (rf/dispatch [:current-page {:page :list-content-by-tag
-                                               :data data}])
-                  )))
+                                               :data data}]))))
+
 
 (defmethod render-page :document [m]
            (go
              (let [{:keys [title topic]} (:route-params m)
                    data (<! (<fetch :document-json :title title :topic topic))]
                   (rf/dispatch [:current-page {:page :document
-                                               :data data}])
-                  )))
+                                               :data data}]))))
+
 
 (defmethod render-page :login [m]
   (rf/dispatch [:current-page {:page :login}]))
@@ -100,8 +100,8 @@
   (go
     (let [data (<! (<fetch :home-json))]
       (rf/dispatch [:current-page {:page :home
-                                   :data data}])
-      )))
+                                   :data data}]))))
+
 
 ;;;; Location
 
