@@ -2,6 +2,7 @@
   (:require
     [ui.components.nav :as n]
     [ui.components.footer :as f]
+    [ui.components.related-docs :as r]
     [ui.components.card :as c]))
 
 (defn top-app-bar []
@@ -9,6 +10,9 @@
 
 (defn menu []
   (n/menu))
+
+(defn related [docs doc]
+  (r/related docs doc))
 
 (defn doc-card-lg [document]
   (c/doc-card-lg document))

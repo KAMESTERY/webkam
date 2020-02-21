@@ -9,24 +9,15 @@
 
 
 (defn document-ui [data]
-  (let [{:keys [doc related]} data
-        {:keys [Title Identifier Slug UserID CreatedAt UpdatedAt Body Tags]} doc]
+  (let [{:keys [doc related]} data]
     (do (log/debug data)
-      [:<>
-       (if doc
-         [:div.ph1.mb4
-          [:section.mt4-l
-           [c/doc-card-lg doc]]
-          [:hr.sec-hr-xl]
-          [:section
-           [:h3.tc.primary.mt0 "Related Content"]
-           [:div.flex.flex-wrap.justify-center.ph1.mw8.center
-            (for [sibling related
-                  :when   (not= sibling doc)]
-                 ^{:key sibling}
-                 [c/doc-card
-                  sibling])]]]
-         [:div.vh-100 [:h2.mt7.tc "Loading..."]])])))
+        [:<>
+         (if doc
+           [:div.ph1.mb4
+            [:section.mt4-l
+             [c/doc-card-lg doc]]
+            [c/related related doc]]
+           [:div.vh-100 [:h2.mt7.tc "Loading..."]])])))
 
 (defn content-list-ui [data]
   (let [{:keys [content topic]} data
@@ -45,9 +36,9 @@
          [:section
           [:div.flex.flex-wrap.justify-center
            (for [doc content]
-                ^{:key doc}
-                [c/doc-card
-                 doc])]]]]
+             ^{:key doc}
+             [c/doc-card
+              doc])]]]]
 
        [:div.vh-100 [:h2.mt7.tc "Loading..."]])]))
 

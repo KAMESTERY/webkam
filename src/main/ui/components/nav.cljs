@@ -10,10 +10,10 @@
    {:id "app-bar"}
    [:div.mdc-top-app-bar__row
     [:section.mdc-top-app-bar__section.mdc-top-app-bar__section--align-start
-     [:a.material-icons.mdc-top-app-bar__navigation-icon.dn-l
+     [:a.material-icons.mdc-top-app-bar__navigation-icon
       {:href "#" :id "menu-btn"}
       "menu"]
-     [:a.mdc-top-app-bar__title.pl0-l
+     [:a.mdc-top-app-bar__title.pl0-l.ml3
       {:href (path-for routing-data :home)}
       [:strong "KAMESTERY"]]]
     [:section.mdc-top-app-bar__section.mdc-top-app-bar__section--align-end
@@ -36,11 +36,11 @@
         [:span.mdc-list-item__text t]])]]])
 
 (defn menu-mobile [topics]
-  [:aside.mdc-drawer.mdc-drawer--dismissible.mdc-top-app-bar--fixed-adjust.dn-l
+  [:aside.mdc-drawer.mdc-drawer--dismissible.mdc-top-app-bar--fixed-adjust.w-30-l.w-100
    [menu-list topics]])
 
 (defn menu-fixed [topics]
-  [:div.dn.db-l
+  [:div
    [:aside.mdc-drawer.mdc-top-app-bar--fixed-adjust.fixed
     {:id "side-bar-fixed"}
     [menu-list topics]]])
@@ -48,6 +48,6 @@
 (defn menu []
   (let [topics (s/topics)]
     [:<>
-     [menu-mobile topics]
-     [menu-fixed topics]]))
+     [menu-mobile topics]]))
+     ;[menu-fixed topics]]))
 

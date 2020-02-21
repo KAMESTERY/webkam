@@ -10,6 +10,12 @@
 (defn enroll [data]
   (u/enroll data))
 
+(defn <register [data]
+  (a/<register data))
+
+(defn <authenticate [data]
+  (a/<authenticate data))
+
 (defn set-claims! [data]
   (u/set-claims! data))
 

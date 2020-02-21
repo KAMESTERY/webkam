@@ -21,7 +21,7 @@
      [:input.mdc-text-field__input {:type "text", :id id}]
      [:label.mdc-floating-label {:for id} display]
      [:i.material-icons.mdc-text-field__icon
-      {:tabindex "0", :role "button"}
+      {:tab-index "0", :role "button"}
       "search"]
      [:div {:class "mdc-line-ripple"}]]))
 

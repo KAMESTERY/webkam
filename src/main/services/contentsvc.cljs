@@ -4,7 +4,7 @@
             [cljs-http.client :as http]
             [graphql-query.core :refer [graphql-query]]
             [cljs.core.async
-             :as    async
+             :as async
              :refer [<! put! chan close! timeout pipeline-async to-chan]]
             [fast-twitch.web-api :as web]
             [services.urls :as urls]
@@ -20,7 +20,7 @@
   (let [{:keys [url namespace]} (urls/url-config)
         query-str (graphql-query {:queries
                                   [[:getdocument
-                                    {:dockey {:Topic (str namespace ":##:" (to-slug topic))
+                                    {:dockey {:Topic      (str namespace ":##:" (to-slug topic))
                                               :DocumentID (str namespace ":##:"
                                                                (to-slug topic) ":##:" (to-slug title))}}
                                     [:Topic :DocumentID :UserID :Identifier :Slug
@@ -39,9 +39,9 @@
     (log/debug "Query: " query-str)
     (go
       (-> (http/post
-           url
-           {:json-params
-            {:query query-str}})
+            url
+            {:json-params
+             {:query query-str}})
           <!
           :body
           :data
@@ -56,45 +56,45 @@
         query-str (graphql-query {:queries
                                   [{:query/alias :doc
                                     :query/data
-                                    [:getdocument
-                                     {:dockey {:Topic (str namespace ":##:" (to-slug topic))
-                                               :DocumentID (str namespace ":##:"
-                                                                (to-slug topic) ":##:" (to-slug title))}}
-                                     [:Topic :DocumentID :UserID :Identifier :Slug
-                                      :Publish :Tags :FiltreVisuel :Niveau :Score
-                                      :Title :Version :Body :CreatedAt :UpdatedAt [:Media [:MediaID
-                                                                                          :FileUrl
-                                                                                          :ParentDocumentID
-                                                                                          :Type
-                                                                                          :Tags
-                                                                                          :Version
-                                                                                          :Score
-                                                                                          :UserID
-                                                                                          :UpdatedAt
-                                                                                          :CreatedAt]]]]}
+                                                 [:getdocument
+                                                  {:dockey {:Topic      (str namespace ":##:" (to-slug topic))
+                                                            :DocumentID (str namespace ":##:"
+                                                                             (to-slug topic) ":##:" (to-slug title))}}
+                                                  [:Topic :DocumentID :UserID :Identifier :Slug
+                                                   :Publish :Tags :FiltreVisuel :Niveau :Score
+                                                   :Title :Version :Body :CreatedAt :UpdatedAt [:Media [:MediaID
+                                                                                                        :FileUrl
+                                                                                                        :ParentDocumentID
+                                                                                                        :Type
+                                                                                                        :Tags
+                                                                                                        :Version
+                                                                                                        :Score
+                                                                                                        :UserID
+                                                                                                        :UpdatedAt
+                                                                                                        :CreatedAt]]]]}
                                    {:query/alias :related
                                     :query/data
-                                    [:querydocument
-                                     {:query {:Name (str namespace ":##:" (to-slug topic))}}
-                                     [:Topic :DocumentID :UserID :Identifier :Slug
-                                      :Publish :Tags :FiltreVisuel :Niveau :Score
-                                      :Title :Version :Body :CreatedAt :UpdatedAt [:Media [:MediaID
-                                                                                          :FileUrl
-                                                                                          :ParentDocumentID
-                                                                                          :Type
-                                                                                          :Tags
-                                                                                          :Version
-                                                                                          :Score
-                                                                                          :UserID
-                                                                                          :UpdatedAt
-                                                                                          :CreatedAt]]]]}]})]
+                                                 [:querydocument
+                                                  {:query {:Name (str namespace ":##:" (to-slug topic))}}
+                                                  [:Topic :DocumentID :UserID :Identifier :Slug
+                                                   :Publish :Tags :FiltreVisuel :Niveau :Score
+                                                   :Title :Version :Body :CreatedAt :UpdatedAt [:Media [:MediaID
+                                                                                                        :FileUrl
+                                                                                                        :ParentDocumentID
+                                                                                                        :Type
+                                                                                                        :Tags
+                                                                                                        :Version
+                                                                                                        :Score
+                                                                                                        :UserID
+                                                                                                        :UpdatedAt
+                                                                                                        :CreatedAt]]]]}]})]
 
     (log/debug "Query: " query-str)
     (go
       (-> (http/post
-           url
-           {:json-params
-            {:query query-str}})
+            url
+            {:json-params
+             {:query query-str}})
           <!
           :body
           :data))))
@@ -123,9 +123,9 @@
     (log/debug "Query: " query-str)
     (go
       (-> (http/post
-           url
-           {:json-params
-            {:query query-str}})
+            url
+            {:json-params
+             {:query query-str}})
           <!
           :body
           :data
@@ -137,29 +137,29 @@
         query-str (graphql-query {:queries
                                   (into []
                                         (map #(hash-map
-                                               :query/alias (keyword %)
-                                               :query/data
-                                               [:querydocument
-                                                {:query {:Name (str namespace ":##:" (to-slug %))}}
-                                                [:Topic :DocumentID :UserID :Identifier :Slug
-                                                 :Publish :Tags :FiltreVisuel :Niveau :Score
-                                                 :Title :Version :Body :CreatedAt :UpdatedAt [:Media [:MediaID
-                                                                                                      :FileUrl
-                                                                                                      :ParentDocumentID
-                                                                                                      :Type
-                                                                                                      :Tags
-                                                                                                      :Version
-                                                                                                      :Score
-                                                                                                      :UserID
-                                                                                                      :UpdatedAt
-                                                                                                      :CreatedAt]]]]) topics))})]
+                                                :query/alias (keyword %)
+                                                :query/data
+                                                [:querydocument
+                                                 {:query {:Name (str namespace ":##:" (to-slug %))}}
+                                                 [:Topic :DocumentID :UserID :Identifier :Slug
+                                                  :Publish :Tags :FiltreVisuel :Niveau :Score
+                                                  :Title :Version :Body :CreatedAt :UpdatedAt [:Media [:MediaID
+                                                                                                       :FileUrl
+                                                                                                       :ParentDocumentID
+                                                                                                       :Type
+                                                                                                       :Tags
+                                                                                                       :Version
+                                                                                                       :Score
+                                                                                                       :UserID
+                                                                                                       :UpdatedAt
+                                                                                                       :CreatedAt]]]]) topics))})]
 
     (log/debug "Query: " query-str)
     (go
       (-> (http/post
-           url
-           {:json-params
-            {:query query-str}})
+            url
+            {:json-params
+             {:query query-str}})
           <!
           :body
           :data))))

@@ -20,7 +20,7 @@
 
 (defn linkedin [fill]
   [:svg.db.w2.h2 {, :x "0px", :y "0px", :viewBox "0 0 48 48"}
-   [:lineargradient {:gradientunits "userSpaceOnUse", :x1 "23.9995", :y1 "0", :x2 "23.9995", :y2 "48.0005"}
+   [:lineargradient {:gradient-units "userSpaceOnUse", :x1 "23.9995", :y1 "0", :x2 "23.9995", :y2 "48.0005"}
     [:stop {:offset "0"}]
     [:stop {:offset "1"}]]
    [:path {:fill fill, :d "M48,42c0,3.313-2.687,6-6,6H6c-3.313,0-6-2.687-6-6V6 c0-3.313,2.687-6,6-6h36c3.313,0,6,2.687,6,6V42z"}]

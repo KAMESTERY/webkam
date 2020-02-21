@@ -19,9 +19,11 @@
        (if (empty? header-image)
          [w/image
           {:alt "media image"
+           :class ["fit-cover mx-h-10"]
            :src "//via.placeholder.com/750x300"}]
-         [:img.w-100
+         [w/image
           {:alt (c/media-title (:MediaID header-image) Topic)
+           :class ["fit-cover mx-h-10"]
            :src (:FileUrl header-image)}])]
       [:div.ph4.pv2
        [:h2.f4.mb0 Title]
@@ -30,7 +32,9 @@
         [:span.f7
          "  |  Created: " (utils/date-from-now CreatedAt)
          "  |  Updated: " (utils/date-format UpdatedAt)]]
-       [:p.tw.f6 (take 300 (utils/decode-base64 Body))]                ;; The Body is Base64 Encoded and Needs to be Decoded
+       [:p.tw.f6.min-h-4 (concat
+                           (take 150 (utils/decode-base64 Body))  ;; The Body is Base64 Encoded and Needs to be Decoded
+                           "...")]
        [w/tags Tags]
        [:hr.sec-hr-xs]
        [:div.mdc-card__actions.mt2.pa0
@@ -64,6 +68,7 @@
        [:div
         [w/icon-button "audiotrack" "Audio"]
         [w/icon-button "play_arrow" "Video"]]
-       [:div [:p.tw.f5.mv3 (utils/decode-base64 Body)]]     ;; The Body is Base64 Encoded and Needs to be Decoded
+       [:div.pre-line
+        [:p.tw.f5.mv3 (utils/decode-base64 Body)]]     ;; The Body is Base64 Encoded and Needs to be Decoded
        [:hr.sec-hr-sm]
        [w/tags Tags]]]]))

@@ -1,8 +1,5 @@
-(ns ui.widgets.img)
+(ns ui.widgets.img
+  (:require [utils.core :as u]))
 
-(defn img [attr]
-  (let [{:keys [alt src]} attr]
-    [:div
-     [:img.w-100
-      {:alt alt
-       :src src}]]))
+(defn img [input-attr]
+  [:img (u/override-attr input-attr ["w-100"])])

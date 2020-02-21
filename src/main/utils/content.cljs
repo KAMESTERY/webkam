@@ -70,3 +70,15 @@
 
 (defn media-title [id topic]
   (str/replace id (str topic ":##:") ""))
+
+(defn kam-ns [doc]
+  (let [topic (:Topic doc)
+        topic-slug (-> doc
+                       :Identifier
+                       to-slug
+                       str/lower-case)]
+    (str/replace topic (str ":##:" topic-slug) "")))
+
+(defn media-type [type ns]
+  (str/replace type (str ns ":##:") ""))
+

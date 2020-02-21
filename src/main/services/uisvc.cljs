@@ -1,7 +1,7 @@
 (ns services.uisvc
   (:require-macros [cljs.core.async.macros :refer [alt! go]])
   (:require [cljs.core.async
-             :as    async
+             :as async
              :refer [<! put! chan close! timeout pipeline-async to-chan]]
             [taoensso.timbre :as log]
             [cljs-http.client :as http]
@@ -18,7 +18,7 @@
   (go
     (let [r (t/reader :json)
           res (<! (http/get
-                   (apply path-for routing-data params)))
+                    (apply path-for routing-data params)))
           raw-data (-> res :body clj->json)
           data (t/read r raw-data)]
       (do
@@ -27,4 +27,4 @@
         (if data
           (println "transformed::" data)
           (println "No data returned!!"))
-          data))))
+        data))))
