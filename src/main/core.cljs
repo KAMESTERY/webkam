@@ -59,8 +59,8 @@
 
 (def routes
   (web/routes
-   routing-data
-   handle))
+    routing-data
+    handle))
 
 (defn main []
   (let [staticFolder (if-let [STATIC (m/env-var "STATIC")] STATIC "static")
@@ -70,13 +70,12 @@
     (-> (ex/app)
         (ex/with-middleware (serve-static staticFolder (clj->js {:index false})))
         (ex/with-middleware (helmet))
-        (ex/with-middleware (logger "combined")) ;; Logger
-        (ex/with-middleware (body-parser/json)) ;; support json encoded bodies
+        (ex/with-middleware (logger "combined"))            ;; Logger
+        (ex/with-middleware (body-parser/json))             ;; support json encoded bodies
         (ex/with-middleware (body-parser/urlencoded (clj->js {:extended true}))) ;; support encoded bodies
         (ex/with-middleware (cookie-parser))
         (ex/with-middleware (csurf (clj->js {:cookie true})))
         (ex/with-middleware "/" routes)
         (ex/listen portNumber))))
-
 
 (set! *main-cli-fn* main)

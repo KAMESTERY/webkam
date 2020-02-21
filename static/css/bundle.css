@@ -3945,6 +3945,9 @@ a.mdc-list-item {
 .mx-h-10 {
   max-height: 10rem; }
 
+.z-index-200 {
+  z-index: 200; }
+
 #side-bar-fixed {
   max-width: 12.5rem;
   min-width: 11rem;

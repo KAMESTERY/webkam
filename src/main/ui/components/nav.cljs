@@ -36,7 +36,7 @@
         [:span.mdc-list-item__text t]])]]])
 
 (defn menu-mobile [topics]
-  [:aside.mdc-drawer.mdc-drawer--dismissible.mdc-top-app-bar--fixed-adjust.w-30-l.w-100
+  [:aside.mdc-drawer.mdc-drawer--dismissible.mdc-top-app-bar--fixed-adjust.w-30-l.w-40-m.w-100.z-index-200
    [menu-list topics]])
 
 (defn menu-fixed [topics]
