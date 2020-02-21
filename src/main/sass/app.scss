@@ -63,6 +63,22 @@ $mdc-theme-on-primary: #feeae6;
   width: 12.5rem;
 }
 
+.min-h-4 {
+  min-height: 4rem;
+}
+
+.pre-line {
+  white-space: pre-line;
+}
+
+.fit-cover{
+  object-fit: cover;
+}
+
+.mx-h-10 {
+  max-height: 10rem;
+}
+
 // STRUCTURE ADJUSTMENT
 #side-bar-fixed {
   max-width: 12.5rem; // 200px
@@ -115,9 +131,10 @@ a {
 }
 
 .stl-bg {
-  //background-color: #f8f3ff;
-  //background:linear-gradient(0deg, rgba(27, 27, 27, 0.9), rgba(21, 0, 13, 0.9)),url("https://www.transparenttextures.com/patterns/fake-brick.png");
-  //background-size: cover;
+  object-fit: cover;
+  background-color: #f8f3ff;
+  background:linear-gradient(0deg, rgb(25, 0, 25), rgb(58, 1, 58)), url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS-FxOwTgAg2Tt3qzo7YpRl_Agz0HGnYnx");
+  background-size: cover;
 }
 
 
@@ -152,6 +169,10 @@ a {
   }
 
   #app-bar {
+    background-color: $med;
+  }
+
+  #hero{
     background-color: $med;
   }
 

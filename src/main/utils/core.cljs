@@ -38,3 +38,8 @@
 (defn merge-styles [base override]
   (let [merged-styles (into [] (concat base override))]
     {:class merged-styles}))
+
+(defn override-attr [input-attr base-styles]
+  (let [styles (merge-styles base-styles (:class input-attr))
+        attr (merge input-attr styles)]
+    attr))

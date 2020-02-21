@@ -53,16 +53,6 @@
 (defmethod handle :list-content-by-topic-json [req-data]
   (ep/list-content-json (:req req-data)))
 
-;; app life-cycle
-(defmethod handle :start [req-data]
-  (ep/app-start (:req req-data)))
-
-(defmethod handle :health [req-data]
-  (ep/check-health (:req req-data)))
-
-(defmethod handle :stop [req-data]
-  (ep/app-stop (:req req-data)))
-
 ;; default
 (defmethod handle :default [_]
   (web/send "Not Found"))
@@ -86,7 +76,7 @@
         (ex/with-middleware (cookie-parser))
         (ex/with-middleware (csurf (clj->js {:cookie true})))
         (ex/with-middleware "/" routes)
-        (ex/listen portNumber))
-    ))
+        (ex/listen portNumber))))
+
 
 (set! *main-cli-fn* main)
