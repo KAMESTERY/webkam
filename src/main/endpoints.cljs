@@ -30,9 +30,6 @@
 (defn bind-csrf [req resp]
   (merge {:csrf-token (:csrf-token req)} resp))
 
-(defn bind-resp [req resp]
-  (let [data (bind-csrf req resp)]
-    data))
 
 (defn navigate [{:keys [title content script]}]
   (web/send :html
@@ -77,7 +74,7 @@
   (go
     (alt!
       (<authenticate req)
-      ([resp]
+      ([resp] ;; token
        (if (not-empty resp)
          (do (print (str "RESP TOKEN:::" resp))
              (navigate {:title   "Welcome to Kamestery!"
