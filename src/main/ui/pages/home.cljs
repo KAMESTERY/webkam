@@ -32,7 +32,7 @@
                   header-image (first (c-util/get-tag Media c-util/header-img-tag))
                   path-to-doc (path-for routing-data :document :topic Identifier :title Slug)]
               [:article {:class "fl w-100 w-50-m  w-25-ns pa2-ns"}
-               [:div.aspect-ratio.aspect-ratio--1x1
+               [:div.aspect-ratio.aspect-ratio--16x9
                 (if (empty? header-image)
                   [:a {:href path-to-doc}
                    [:img
@@ -47,7 +47,8 @@
                [:a {:href  path-to-doc
                     :class "ph2 ph0-ns pb3 link db"}
                 [:h3 {:class "f5 f4-ns mb0 primary"} Title]
-                [:h3 {:class "f6 f5 fw4 mt2 primary"} Identifier]]])))
+                [:span.mdc-chip.pv0.mt2.h-50
+                 [:span.mdc-chip__text.f7.primary.w-100.b Identifier]]]])))
         [:div.vh-100 [:h2.mt7.tc "Loading..."]])]]))
 
 
