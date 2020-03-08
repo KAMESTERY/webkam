@@ -5,11 +5,11 @@
 
  :deps
  {outcastgeek/fast-twitch    {:git/url "https://github.com/outcastgeek/fast-twitch"
-                              :sha     "aca7c340d25a776f3466479d6722ec13f463d6ef"}
+                              :sha     "cffce60daa7f9e73a2290259e4ecbe5dfafcedde"}
   ;;outcastgeek/fast-twitch {:local/root "/path/to/fast-twitch"}
   cljs-http                  {:mvn/version "0.1.46"}
   district0x/graphql-query   {:mvn/version "1.0.6"}
-  org.clojure/core.match     {:mvn/version "0.3.0"}
+  org.clojure/core.match     {:mvn/version "1.0.0"}
   reagent                    {:mvn/version "0.8.1"
                               :exclusions  [cljsjs/react cljsjs/react-dom]}
   reagent-forms              {:mvn/version "0.5.43"}
@@ -18,8 +18,9 @@
   secretary                  {:mvn/version "1.2.3"}
   com.rpl/specter            {:mvn/version "1.1.2"}
   com.taoensso/timbre        {:mvn/version "4.10.0"}
-  thheller/shadow-cljs       {:mvn/version "2.8.52"}
-  com.cognitect/transit-cljs {:mvn/version "0.8.256"}}
+  com.cognitect/transit-cljs {:mvn/version "0.8.256"}
+  tick                       {:mvn/version "0.4.23-alpha"}
+  thheller/shadow-cljs       {:mvn/version "2.8.52"}}
 
  :aliases
  {:dev

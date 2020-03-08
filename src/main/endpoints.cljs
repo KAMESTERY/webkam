@@ -51,7 +51,7 @@
         (log/warn "WARN::: Home Timeout")
         (navigate {:title   "Welcome to Kamestery!"
                    :content [p/home data]
-                   :script  (path-js "main.js")})))))
+                   :scripts  (path-js "main.js")})))))
 
 (defn home-json
   [req]
@@ -68,7 +68,7 @@
   (let [data (bind-csrf req {})]
     (navigate {:title   "User Login"
                :content [p/login data]
-               :script  (path-js "main.js")})))
+               :scripts  (path-js "main.js")})))
 
 (defn authenticate [req]
   (go
@@ -89,14 +89,14 @@
         (log/warn "WARN::: Document Timeout")
         (navigate {:title   "User Registration"
                    :content [p/register []]
-                   :script  (path-js "main.js")})))))
+                   :scripts  (path-js "main.js")})))))
 
 (defn user-register
   [req]
   (let [data (bind-csrf req {})]
     (navigate {:title   "User Registration"
                :content [p/register data]
-               :script  (path-js "main.js")})))
+               :scripts  (path-js "main.js")})))
 
 (defn handle-enroll [req resp]
   (if (not-empty resp)
@@ -122,7 +122,7 @@
         (log/warn "WARN::: Document Timeout")
         (navigate {:title   "User Registration"
                    :content [p/register []]
-                   :script  (path-js "main.js")})))))
+                   :scripts  (path-js "main.js")})))))
 
 (defn validate-and-enroll [req]
   (let [{:keys [body]} req]
@@ -152,7 +152,7 @@
           (log/warn "WARN::: Document Timeout")
           (navigate {:title   title
                      :content [p/document []]
-                     :script  (path-js "main.js")}))))))
+                     :scripts  (path-js "main.js")}))))))
 
 (defn document-json
   [req]
@@ -182,7 +182,7 @@
                     [t/default-template-ui
                      {:title "List of Content"
                       :content [p/content {}]
-                      :script (path-js "main.js")}]))))))
+                      :scripts (path-js "main.js")}]))))))
 
 
 (defn list-content-json [req]
