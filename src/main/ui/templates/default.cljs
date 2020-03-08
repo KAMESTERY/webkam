@@ -8,13 +8,14 @@
             [ui.components.core :as c]))
 
 (defn default-template-ui [data]
-      (let [{:keys [content scripts styles title]} data]
+      (let [{:keys [content scripts styles title csrf-token]} data]
            [:html
             {:lang "en"}
             [:header
              [:meta {:charset "utf-8"}]
              [:meta {:http-equiv "content-type" :content "text/html; charset=UTF-8"}]
              [:meta {:content "width=device-width, initial-scale=1.0", :name "viewport"}]
+             [:meta {:name "csrf-token" :content csrf-token}]
              [:title (str "KAMESTERY | " title)]
 
 
@@ -47,7 +48,6 @@
 
              [c/footer "&copy; 2019" "OUCASTGEEK INC." "All rights reserved."]
              [:script {:type "text/javascript" :src (path-js "bundle.js")}]
-             [:script {:type "text/javascript" :src script}]
 
              (load-scripts scripts)
              ]]

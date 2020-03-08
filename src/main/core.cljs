@@ -64,8 +64,10 @@
 
 (defn main []
   (let [staticFolder (if-let [STATIC (m/env-var "STATIC")] STATIC "static")
+        secret (m/env-var "SECRET")
         portNumber (if-let [PORT (m/env-var "PORT")] PORT 8181)]
     (log/debug "Static Folder: " staticFolder)
+    (log/debug "Secret: " secret)
     (log/debug "Port Number: " portNumber)
     (-> (ex/app)
         (ex/with-middleware (serve-static staticFolder (clj->js {:index false})))
@@ -73,7 +75,7 @@
         (ex/with-middleware (logger "combined"))            ;; Logger
         (ex/with-middleware (body-parser/json))             ;; support json encoded bodies
         (ex/with-middleware (body-parser/urlencoded (clj->js {:extended true}))) ;; support encoded bodies
-        (ex/with-middleware (cookie-parser))
+        (ex/with-middleware (cookie-parser secret))
         (ex/with-middleware (csurf (clj->js {:cookie true})))
         (ex/with-middleware "/" routes)
         (ex/listen portNumber))))
