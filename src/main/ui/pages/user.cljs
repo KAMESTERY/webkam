@@ -16,7 +16,10 @@
       [:p (:msg data)]
       [:input {:type "hidden", :name "_csrf", :value csrf-token}]
       [:div text-field
-       [:input.mdc-text-field__input {:type "email", :id "email-input", :name "email"}]
+       [:input.mdc-text-field__input {:type "email"
+                                      :id "email-input"
+                                      :name "email"
+                                      :required true}]
        [:label.mdc-floating-label {:for "email-input"} "Email"]
        [:div.mdc-line-ripple]]
 

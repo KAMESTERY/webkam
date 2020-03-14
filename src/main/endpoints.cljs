@@ -71,15 +71,18 @@
         (alt!
           (<authenticate req)
           ([resp]                                           ;; token
-           (if (not-empty resp)
+           (if (or (empty? resp)
+                   (:error resp))
+             (do
+               (log/warn "WARN::: " (or (:error resp) "Could not authenticate"))
+               (web/redirect :login))
              (web/redirect :home
                            :cookies [{:name (m/env-var "AUTH")
-                                            :value (:token resp)
-                                            :opts {:maxAge (* 1000 60 15 );; would expire after 15 minutes
-                                                   :httpOnly true ;; The cookie only accessible by the web server
-                                                   ;:signed true  ;; Indicates if the cookie should be signed (DO NOT USE FOR NOW)
-                                                   }}])
-             (web/redirect :login)))
+                                      :value (:token resp)
+                                      :opts {:maxAge (* 1000 60 15 );; would expire after 15 minutes
+                                             :httpOnly true ;; The cookie only accessible by the web server
+                                             ;:signed true  ;; Indicates if the cookie should be signed (DO NOT USE FOR NOW)
+                                             }}])))
           (on-timeout 2000)
           (do
             (log/warn "WARN::: Authenticate Timeout")
@@ -100,9 +103,12 @@
                (alt!
                  (<register req)
                  ([resp]
-                  (if (not-empty resp)
-                    (web/redirect :login)
-                    (web/redirect :register)))
+                  (if (or (empty? resp)
+                          (:error resp))
+                    (do
+                      (log/warn "WARN::: " (or (:error resp) "Could not register"))
+                      (web/redirect :register))
+                    (web/redirect :login)))
                  (on-timeout 2000)
                  (do
                    (log/warn "WARN::: Document Timeout")
