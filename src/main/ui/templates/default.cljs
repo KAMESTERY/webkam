@@ -11,7 +11,7 @@
       (let [{:keys [content scripts styles title csrf-token]} data]
            [:html
             {:lang "en"}
-            [:header
+            [:head
              [:meta {:charset "utf-8"}]
              [:meta {:http-equiv "content-type" :content "text/html; charset=UTF-8"}]
              [:meta {:content "width=device-width, initial-scale=1.0", :name "viewport"}]
@@ -41,7 +41,7 @@
              (load-styles styles)]
 
             [:body
-             [c/top-app-bar]
+             [c/top-app-bar data]
              [c/menu]
              [:div.pt4.flex-auto.relative.mdc-top-app-bar--fixed-adjust
               [:main.overflow-auto.h-100 {:id "main-content"} content]]

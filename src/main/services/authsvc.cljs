@@ -16,7 +16,7 @@
       "[{:email e :password p :user-id u}] Authenticate user given username and password."
       [{:keys [body]}]
       (log/debug "Attempting login for user: " (:email body))
-      (let [{:keys [email user password]} body
+      (let [{:keys [email password]} body
             {:keys [url]} (urls/url-config)
             query-str (graphql-query {:queries [[:authenticate {:creds {:Email    email
                                                                         :UserID   email
@@ -27,7 +27,6 @@
            (go
              (if (and
                    (s/valid? ::cspk/email-type email)
-                   (s/valid? ::cspk/email-type user)
                    (s/valid? ::cspk/non-null-string-type password)
                    )
                (-> (http/post

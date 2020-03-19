@@ -8,4 +8,4 @@
     (for [sibling related
           :when (not= sibling doc)]
       ^{:key sibling}
-      [c/doc-card sibling])]])
+      [c/flat-card sibling])]])

@@ -7,33 +7,36 @@
  {outcastgeek/fast-twitch    {:git/url "https://github.com/outcastgeek/fast-twitch"
                               :sha     "0d489237a536879c86d5f8251a9a1f6d031e3dd5"}
   ;;outcastgeek/fast-twitch {:local/root "/path/to/fast-twitch"}
-  kamestery/contractskam {:git/url "https://github.com/kamestery/contractskam"
-                          :sha "5a1331b28df009f3dfa26a0aaa67352d52a6a183"}
+  kamestery/contractskam     {:git/url "https://github.com/kamestery/contractskam"
+                              :sha     "5a1331b28df009f3dfa26a0aaa67352d52a6a183"}
   ;;kamestery/contractskam {:local/root "/path/to/contractskam"}
+  cljs-ajax                  {:mvn/version "0.8.0"}
   cljs-http                  {:mvn/version "0.1.46"}
   district0x/graphql-query   {:mvn/version "1.0.6"}
   org.clojure/core.match     {:mvn/version "1.0.0"}
-  reagent                    {:mvn/version "0.8.1"
+  reagent                    {:mvn/version "0.10.0"
                               :exclusions  [cljsjs/react cljsjs/react-dom]}
   reagent-forms              {:mvn/version "0.5.43"}
   reagent-utils              {:mvn/version "0.3.3"}
-  re-frame                   {:mvn/version "0.10.5"}
-  secretary                  {:mvn/version "1.2.3"}
-  com.rpl/specter            {:mvn/version "1.1.2"}
-  com.taoensso/timbre        {:mvn/version "4.10.0"}
+  re-frame                   {:mvn/version "0.12.0"}
+  secretary                  {:mvn/version "2.0.0.1-260a59"}
+  com.rpl/specter            {:mvn/version "1.1.3"}
+  com.taoensso/timbre        {:mvn/version "4.9.0"}
   com.cognitect/transit-cljs {:mvn/version "0.8.256"}
   tick                       {:mvn/version "0.4.23-alpha"}
   thheller/shadow-cljs       {:mvn/version "2.8.92"}}
 
  :aliases
- {:dev
-  {:extra-deps
-   {cider/cider-nrepl      {:mvn/version "0.22.0-beta11"}}}
+ {:ancient {:main-opts  ["-m" "deps-ancient.deps-ancient"]
+            :extra-deps {deps-ancient {:mvn/version "0.0.4"}}}
+  :dev
+           {:extra-deps
+            {cider/cider-nrepl {:mvn/version "0.25.0-SNAPSHOT"}}}
   :prod
-  {:extra-deps
-   {cider/cider-nrepl {:mvn/version "0.22.0-beta11"}}}
+           {:extra-deps
+            {cider/cider-nrepl {:mvn/version "0.25.0-SNAPSHOT"}}}
   :zprint
-  {:extra-deps
-              {zprint {:mvn/version "0.5.3"}}
-   :main-opts ["-m" "zprint.main"]}}}
+           {:extra-deps
+                       {zprint {:mvn/version "0.5.3"}}
+            :main-opts ["-m" "zprint.main"]}}}
 

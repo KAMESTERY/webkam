@@ -25,8 +25,8 @@
       "search"]
      [:div {:class "mdc-line-ripple"}]]))
 
-(defn user-actions []
-  (u/user-actions))
+(defn user-actions [data]
+  (u/user-actions data))
 
 ; SVG - ICONS
 (defn facebook-icon [fill]

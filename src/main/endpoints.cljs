@@ -12,6 +12,7 @@
             [fast-twitch.os :as os]
             [fast-twitch.web-api :as web]
             [routing :refer [path-js]]
+            [auth :as auth :refer [is-authenticated?]]
             [ui.components.core :as c]
             [ui.pages.core :as p]
             [ui.templates.core :as t]
@@ -27,13 +28,9 @@
        (let [t (if-let [TIMEOUT (m/env-var "TIMEOUT")] TIMEOUT default)]
             (timeout t)))
 
-(defn- render-page [{:keys [title content styles scripts]}]
+(defn- render-page [data]
        (web/send :html
-                 [t/default-template-ui
-                  {:title   title
-                   :content content
-                   :styles  styles
-                   :scripts scripts}]))
+                 [t/default-template-ui data]))
 
 (defn home
       [req]
@@ -42,6 +39,8 @@
           (apply <list-topics (svc/topics))
           ([data]
            (render-page {:title   "Welcome to Kamestery!"
+                         :csrf-token (:csrf-token req)
+                         :authenticated (is-authenticated? req)
                          :content [p/home data]}))
           (on-timeout 2000)
           (do
@@ -60,9 +59,18 @@
 
 
 ;; user
+(defn user-logout
+      [req]
+      (web/redirect :home
+                    :cookies [{:name  (m/env-var "AUTH")
+                               :value "" ;; Empty out the token
+                               }]))
+
 (defn user-login
       [req]
       (render-page {:title   "User Login"
+                    :csrf-token (:csrf-token req)
+                    :authenticated (is-authenticated? req)
                     :content [p/login req]
                     :scripts (path-js "main.js")}))
 
@@ -77,12 +85,12 @@
                (log/warn "WARN::: " (or (:error resp) "Could not authenticate"))
                (web/redirect :login))
              (web/redirect :home
-                           :cookies [{:name (m/env-var "AUTH")
+                           :cookies [{:name  (m/env-var "AUTH")
                                       :value (:token resp)
-                                      :opts {:maxAge (* 1000 60 15 );; would expire after 15 minutes
-                                             :httpOnly true ;; The cookie only accessible by the web server
-                                             ;:signed true  ;; Indicates if the cookie should be signed (DO NOT USE FOR NOW)
-                                             }}])))
+                                      :opts  {:maxAge   (* 1000 60 15) ;; would expire after 15 minutes
+                                              :httpOnly true ;; The cookie only accessible by the web server
+                                              ;:signed true  ;; Indicates if the cookie should be signed (DO NOT USE FOR NOW)
+                                              }}])))
           (on-timeout 2000)
           (do
             (log/warn "WARN::: Authenticate Timeout")
@@ -91,6 +99,8 @@
 (defn user-register
       [req]
       (render-page {:title   "User Registration"
+                    :csrf-token (:csrf-token req)
+                    :authenticated (is-authenticated? req)
                     :content [p/register {:csrf-token (:csrf-token req)}]
                     :scripts (path-js "main.js")}))
 
@@ -123,11 +133,13 @@
                ([resp]
                 (do (log/debug "RESPONSE::::" resp)
                     (render-page {:title   title
+                                  :authenticated (is-authenticated? req)
                                   :content [p/document resp]})))
                (on-timeout 2000)
                (do
                  (log/warn "WARN::: Document Timeout")
                  (render-page {:title   title
+                               :authenticated (is-authenticated? req)
                                :content [p/document []]
                                :scripts (path-js "main.js")}))))))
 
@@ -151,6 +163,8 @@
                   (log/debug "RESONSE::::" resp)
                   (let [data {:content resp :topic topic}]
                        (render-page {:title   topic
+                                     :csrf-token (:csrf-token req)
+                                     :authenticated (is-authenticated? req)
                                      :content [p/content data]}))))
                (on-timeout 2000)
                (do
@@ -158,6 +172,8 @@
                  (web/send :html
                            [t/default-template-ui
                             {:title   "List of Content"
+                             :csrf-token (:csrf-token req)
+                             :authenticated (is-authenticated? req)
                              :content [p/content {}]
                              :scripts (path-js "main.js")}]))))))
 

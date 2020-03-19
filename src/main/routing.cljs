@@ -11,7 +11,7 @@
     ;; user
     "user/login"                        {:get
                                          {"" :login}}
-    "user/logout"                       {:get
+    "user/logout"                       {:post
                                          {"" :logout}}
     "user/authenticate"                 {:post
                                          {"" :authenticate}}
@@ -19,6 +19,9 @@
                                          {"" :register}}
     "user/enroll"                       {:post
                                          {"" :enroll}}
+    ;; protected
+    ["protected/content/" :topic "/" :title]      {:get
+                                                   {"" :some-protected-page}}
     ;content
     ["content/" :topic "/" :title]      {:get
                                          {"" :document}}
