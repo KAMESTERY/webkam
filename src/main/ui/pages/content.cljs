@@ -16,29 +16,23 @@
                   [:div.ph1.mb4
                    [:section.mt4-l
                     [c/doc-card-lg doc]]
-                   [c/related related doc]]
+                   [:h3.tc.primary.mt5 "Related Content"]
+            [c/doc-preview-list (filter #(not= % doc) related)]]
                   [:div.vh-100 [:h2.mt7.tc "Loading..."]])])))
 
 (defn content-list-ui [data]
-      (let [{:keys [content topic]} data
-            contains-topic? (some? topic)
-            title (str/upper-case (if contains-topic? (name topic) "title"))]
-           [:<>
-            (if content
-              [:div
-               [:article.mw7.center.tc.br2.pt5.pb3.mb
-                [:h1.fw6.f3.lh-title.mt0.mb3.primary title]]
-               [:div.tc.mb2
-                [w/button {:value "LATEST" :class ["primary mr3 ba"] :href "#"}]
-                [w/button {:value "TRENDING" :class ["primary mr3 ba"] :href "#"}]
-                [w/button {:value "FAVORITE" :class ["primary mr3 ba"] :href "#"}]]
-               [:div.ph1.mb4.mw8.center
-                [:section
-                 [:div.flex.flex-wrap.justify-center
-                  (for [doc content]
-                       ^{:key doc}
-                       [c/flat-card
-                        doc])]]]]
-
-              [:div.vh-100 [:h2.mt7.tc "Loading..."]])]))
+  (let [{:keys [content topic]} data
+        contains-topic? (some? topic)
+        title (str/upper-case (if contains-topic? (name topic) "title"))]
+    [:<>
+     (if content
+       [:div
+        [:article.mw7.center.tc.br2.pt5.pb3.mb
+         [:h1.fw6.f3.lh-title.mt0.mb3.primary title]]
+        [:div.tc.mb2
+         [w/button {:value "LATEST" :class ["primary mr3 ba"] :href "#"}]
+         [w/button {:value "TRENDING" :class ["primary mr3 ba"] :href "#"}]
+         [w/button {:value "FAVORITE" :class ["primary mr3 ba"] :href "#"}]]
+        [c/doc-preview-list content]]
+       [:div.vh-100 [:h2.mt7.tc "Loading..."]])]))
 
