@@ -18,17 +18,16 @@
           [w/button {:value "LEARN MORE" :class ["near-white mr3 ba"] :href "#"}]]]])
 
 (defn home-ui [data]
-      (log/debug "Rendering Home :-) with data: " data "\n\n of type " (type data))
-      (let [topics (keys data)]
-           [:<>
-            [hero]
-            [:section {:class "cf w-100 pa2-ns"}
-             (if topics
-               (for [topic topics]
-                    ^{:key topic}
-                    (for [doc (-> data topic)]
-                         ^{:key doc}
-                         [c/flat-card doc]))
-               [:div.vh-100 [:h2.mt7.tc "Loading..."]])]]))
+  (let [topics (keys data)]
+    [:<>
+     [hero]
+     (if topics
+       [:section.flex.flex-wrap.cf.w-100.pa2-ns
+        (for [topic topics]
+          ^{:key topic}
+          (for [doc (-> data topic)]
+            ^{:key doc}
+            [c/doc-preview doc]))]
+       [:div.vh-100 [:h2.mt7.tc "Loading..."]])]))
 
 
