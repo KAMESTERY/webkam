@@ -133,12 +133,14 @@
                ([resp]
                 (do (log/debug "RESPONSE::::" resp)
                     (render-page {:title   title
+                                  :csrf-token (:csrf-token req)
                                   :authenticated (is-authenticated? req)
                                   :content [p/document resp]})))
                (on-timeout 2000)
                (do
                  (log/warn "WARN::: Document Timeout")
                  (render-page {:title   title
+                               :csrf-token (:csrf-token req)
                                :authenticated (is-authenticated? req)
                                :content [p/document []]
                                :scripts (path-js "main.js")}))))))
