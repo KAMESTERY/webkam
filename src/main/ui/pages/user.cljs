@@ -5,6 +5,13 @@
             [routing :refer [routing-data]]
             [ui.styles.core :as styles]))
 
+(defn actions [{:keys [path submit link]}]
+  [:div
+   [:a.link.underline.mt3.lh-2
+    {:href path :aria-label "Login"} link]
+   [:button.mdc-button.mdc-button--raised.ml1.fr {:type "submit"} submit]
+   [:button.mdc-button.fr {:type "button"} "Cancel"]])
+
 ;; TODO REFACTOR MDC TEXT INPUT INTO A WIDGET
 (defn login-ui [data]
   (let [{:keys [csrf-token]} data
@@ -29,9 +36,7 @@
        [:label.mdc-floating-label {:for "password-input"} "Password"]
        [:div.mdc-line-ripple]]
 
-      [:div.flex.justify-end.center
-       [:button.mdc-button {:type "button"} "Cancel"]
-       [:button.mdc-button.mdc-button--raised.ml1 {:type "submit"} "Login"]]]]))
+      [actions {:path (path-for routing-data :login) :submit "Login" :link "Register"}]]]))
 
 ;; TODO REFACTOR MDC TEXT INPUT INTO A WIDGET
 (defn register-ui [data]
@@ -40,7 +45,7 @@
     [:div.vh-100
      [:form.mt5.ph3.w-40-ns.w-50-m.center
       {:action (path-for routing-data :enroll), :method "post"}
-      [:h2.tc "Register"]
+      [:h2.tc "Sign Up"]
       [:p (:msg data)]
       [:input {:type "hidden", :name "_csrf", :value csrf-token}]
 
@@ -71,6 +76,5 @@
        [:label.mdc-floating-label {:for "confirm-password-input"} "Confirm Password"]
        [:div.mdc-line-ripple]]
 
-      [:div.flex.justify-end.center
-       [:button.mdc-button {:type "button"} "Cancel"]
-       [:button.mdc-button.mdc-button--raised.ml1 {:type "submit"} "Register"]]]]))
+      [actions {:path (path-for routing-data :register) :submit "Register" :link "Login"}]]]))
+

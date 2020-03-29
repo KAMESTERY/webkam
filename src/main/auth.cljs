@@ -9,5 +9,5 @@
 
 (defn check-auth [req func]
       (if (is-authenticated? req)
-        (web/redirect :login)
-        (func req)))
+        (func req)
+        (web/redirect :login)))
