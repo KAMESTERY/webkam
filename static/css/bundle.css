@@ -3948,6 +3948,9 @@ a.mdc-list-item {
 .z-index-200 {
   z-index: 200; }
 
+.lh-2 {
+  line-height: 2; }
+
 #side-bar-fixed {
   max-width: 12.5rem;
   min-width: 11rem;
