@@ -3951,6 +3951,9 @@ a.mdc-list-item {
 .lh-2 {
   line-height: 2; }
 
+.p-btm-56pct {
+  padding-bottom: 56.25%; }
+
 #side-bar-fixed {
   max-width: 12.5rem;
   min-width: 11rem;

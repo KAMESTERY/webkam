@@ -5,6 +5,7 @@
             [ui.widgets.icons :as icons]
             [ui.widgets.user_actions :as u]
             [ui.widgets.buttons :as btn]
+            [ui.widgets.video :as v]
             [ui.widgets.img :refer [img]]))
 
 (defn tags [tags]
@@ -58,3 +59,10 @@
 ;; BUTTONS
 (defn button [attr]
   (btn/btn attr))
+
+;; VIDEO
+(defn video [src]
+  (v/video src))
+
+(defn iframe-video [src]
+  (v/iframe-video src))
