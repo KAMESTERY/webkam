@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "build-watch": "shadow-cljs watch app web",
+    "build-watch": "shadow-cljs watch app common web",
     "webpack-watch": "webpack --watch --mode development --config webpack.config.js",
     "run-dev": "nodemon app.js",
     "start-dev": "npm-run-all --parallel build-watch run-dev webpack-watch"

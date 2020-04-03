@@ -47,7 +47,7 @@
             (log/warn "WARN::: Home Timeout")
             (render-page {:title   "Welcome to Kamestery!"
                           :content [p/home {}]
-                          :scripts (path-js "main.js")})))))
+                          :scripts (path-js "web.js")})))))
 
 (defn home-json
       [req]
@@ -72,7 +72,7 @@
                     :csrf-token (:csrf-token req)
                     :authenticated (is-authenticated? req)
                     :content [p/login req]
-                    :scripts (path-js "main.js")}))
+                    :scripts (path-js "web.js")}))
 
 (defn authenticate [req]
       (go
@@ -102,7 +102,7 @@
                     :csrf-token (:csrf-token req)
                     :authenticated (is-authenticated? req)
                     :content [p/register {:csrf-token (:csrf-token req)}]
-                    :scripts (path-js "main.js")}))
+                    :scripts (path-js "web.js")}))
 
 (defn enroll [req]
       (let [{:keys [body]} req]
@@ -143,7 +143,7 @@
                                :csrf-token (:csrf-token req)
                                :authenticated (is-authenticated? req)
                                :content [p/document []]
-                               :scripts (path-js "main.js")}))))))
+                               :scripts (path-js "web.js")}))))))
 
 (defn document-json
       [req]
@@ -177,7 +177,7 @@
                              :csrf-token (:csrf-token req)
                              :authenticated (is-authenticated? req)
                              :content [p/content {}]
-                             :scripts (path-js "main.js")}]))))))
+                             :scripts (path-js "web.js")}]))))))
 
 
 (defn list-content-json [req]

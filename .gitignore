@@ -1,5 +1,4 @@
 node_modules/
-public/js
 dist
 /target
 /checkouts
@@ -21,5 +20,3 @@ pom.xml.asc
 .hgignore
 .hg/
 /app.js
-/static/js/manifest.edn
-/static/js/main.js

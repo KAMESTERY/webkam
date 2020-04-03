@@ -10,11 +10,20 @@
                       :infer-externs :all
                       :output-feature-set :es7
                       :fn-invoke-direct true}}
+  :common
+  {:target :browser
+   :output-dir "static/js"
+   :asset-path "/js"
+   :modules {:common {:init-fn ui.common/start}}
+   :compiler-options {:optimizations :advanced
+                      :infer-externs :all
+                      :output-feature-set :es5
+                      :fn-invoke-direct true}}
   :web
   {:target :browser
    :output-dir "static/js"
    :asset-path "/js"
-   :modules {:main {:init-fn ui.core/start}}
+   :modules {:web {:init-fn ui.core/start}}
    :compiler-options {:optimizations :advanced
                       :infer-externs :all
                       :output-feature-set :es7

@@ -15,7 +15,7 @@ deps:
 	rm -rf $(PWD)/node_modules; npm i
 
 compile:
-	npx shadow-cljs compile app web
+	npx shadow-cljs compile app common web
 
 node-repl:
 	npx shadow-cljs node-repl app
@@ -30,7 +30,7 @@ webpack-release:
 	npx webpack --mode production --config webpack.config.js
 
 release: webpack-release
-	npx shadow-cljs release app web
+	npx shadow-cljs release app common web
 
 fmt:
 	@read -p "Enter Path to Clojure File: " cljfile; \

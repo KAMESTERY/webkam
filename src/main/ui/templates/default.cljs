@@ -47,9 +47,10 @@
               [:main.overflow-auto.h-100 {:id "main-content"} content]]
 
              [c/footer "&copy; 2019" "OUCASTGEEK INC." "All rights reserved."]
-             [:script {:type "text/javascript" :src (path-js "bundle.js")}]
 
-             (load-scripts scripts)
+             (load-scripts
+               (conj scripts
+                     [:src (path-js "bundle.js")]
+                     [:src (path-js "common.js")]))
              ]]
            ))
-

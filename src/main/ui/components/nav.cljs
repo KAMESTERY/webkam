@@ -25,6 +25,9 @@
        [:div.mdc-drawer__header
         [:h3.mt3.mr0.mb0.mt4 "user-name"]
         [:h6.mdc-drawer__subtitle "user@example.com"]]
+       [:div.mdc-drawer__header
+        [:h3.mt3.mr0.mb0.mt4 "Language"]
+        [::h6.mdc-drawer__subtitle {:id "gtrnslt_el"}]]
        [:div.mdc-drawer__content.mt3
         [:h3.mt3.mr0.mb1.ml3 "Topics"]
         [w/search-input "topic-menu-search" "Find a topic" ["ph3" "mv2" "mw4-5"]]
