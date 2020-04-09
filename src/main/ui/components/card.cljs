@@ -67,7 +67,8 @@
 
 (defn doc-card-lg [document]
       (let [{:keys [Title Identifier Slug UserID CreatedAt UpdatedAt Body Tags Media Topic]} document
-            header-image (first (c/get-tag Media c/header-img-tag))]
+            header-image (first (c/get-tag Media c/header-img-tag))
+            video (first (c/get-tag Media c/video-tag))]
            [:div.mdc-card.mw7.center.mt4.mt5-ns
             [:div
              [:div
@@ -83,14 +84,14 @@
               [:p.mt0.mb2
                [:a.f6.gray {:href "#"} UserID]
                [:span.f6.gray
-                "  |  Created: "
-                (utils/date-from-now CreatedAt)
-                "  |  Updated: "
-                (utils/date-format UpdatedAt)]]
-              [:div
-               [w/icon-button "audiotrack" "Audio"]
-               [w/icon-button "play_arrow" "Video"]]
+                "  |  Created: " (utils/date-from-now CreatedAt)
+                "  |  Updated: " (utils/date-format UpdatedAt)]]
+              ;[:div
+              ; [w/icon-button "audiotrack" "Audio"]
+              ; [w/icon-button "play_arrow" "Video"]]
               [:div.pre-line
-               [:p.tw.f5.mv3 (utils/decode-base64 Body)]]   ;; The Body is Base64 Encoded and Needs to be Decoded
+               [:p.tw.f5.mv3 (utils/decode-base64 Body)]
+               [:div
+                (if video (w/video (:FileUrl video)))]]   ;; The Body is Base64 Encoded and Needs to be Decoded
               [:hr.sec-hr-sm]
               [w/tags Tags]]]]))

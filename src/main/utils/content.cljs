@@ -63,6 +63,8 @@
   ["history" "education" "language" "africa" "development"])
 
 (def header-img-tag "#headerimage")
+(def video-tag "#video")
+(def video-iframe-tag "#videoiframe")
 
 (defn get-tag [coll tag]
   (into [] (filter (fn [x]
