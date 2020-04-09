@@ -64,5 +64,5 @@
 (defn video [src]
   (v/video src))
 
-(defn iframe-video [src]
+(defn video-iframe [src]
   (v/iframe-video src))

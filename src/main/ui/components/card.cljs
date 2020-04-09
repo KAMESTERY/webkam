@@ -65,10 +65,17 @@
                  {:href (path-for routing-data :document :topic Identifier :title Slug)}
                  [:span.mdc-button__label "View Document"]]]]]]]))
 
+(defn video-media [media]
+  (let [video (first (c/get-tag media c/video-tag))
+        video-iframe (first (c/get-tag media c/video-iframe-tag))]
+    (cond
+      (not-empty video) (w/video (:FileUrl video))
+      (not-empty video-iframe) (w/video-iframe (:FileUrl video-iframe)))))
+
 (defn doc-card-lg [document]
       (let [{:keys [Title Identifier Slug UserID CreatedAt UpdatedAt Body Tags Media Topic]} document
             header-image (first (c/get-tag Media c/header-img-tag))
-            video (first (c/get-tag Media c/video-tag))]
+            video (video-media Media)]
            [:div.mdc-card.mw7.center.mt4.mt5-ns
             [:div
              [:div
@@ -91,7 +98,6 @@
               ; [w/icon-button "play_arrow" "Video"]]
               [:div.pre-line
                [:p.tw.f5.mv3 (utils/decode-base64 Body)]
-               [:div
-                (if video (w/video (:FileUrl video)))]]   ;; The Body is Base64 Encoded and Needs to be Decoded
+               video]   ;; The Body is Base64 Encoded and Needs to be Decoded
               [:hr.sec-hr-sm]
               [w/tags Tags]]]]))
