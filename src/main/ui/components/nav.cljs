@@ -6,7 +6,7 @@
             [services.core :as s]))
 
 (defn top-app-bar [data]
-      [:header.mdc-top-app-bar.z-999.top-0.left-0
+      [:header.mdc-top-app-bar.z-999.top-unset.left-0
        {:id "app-bar"}
        [:div.mdc-top-app-bar__row
         [:section.mdc-top-app-bar__section.mdc-top-app-bar__section--align-start

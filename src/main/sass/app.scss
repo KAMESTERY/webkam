@@ -91,6 +91,10 @@ $mdc-theme-on-primary: #feeae6;
   padding-bottom: 56.25%;
 }
 
+.top-unset {
+  top: unset;
+}
+
 // STRUCTURE ADJUSTMENT
 #side-bar-fixed {
   max-width: 12.5rem; // 200px
