@@ -5,26 +5,26 @@
 
  :deps
  {outcastgeek/fast-twitch    {:git/url "https://github.com/outcastgeek/fast-twitch"
-                              :sha     "0d489237a536879c86d5f8251a9a1f6d031e3dd5"}
+                              :sha     "0e4d0a203a88d3725bfb810ad037a9e289fa01e3"}
   ;;outcastgeek/fast-twitch {:local/root "/path/to/fast-twitch"}
   kamestery/contractskam     {:git/url "https://github.com/kamestery/contractskam"
-                              :sha     "5a1331b28df009f3dfa26a0aaa67352d52a6a183"}
+                              :sha     "a532761c407abe6c23a421155062335e57c37c7e"}
   ;;kamestery/contractskam {:local/root "/path/to/contractskam"}
   cljs-ajax                  {:mvn/version "0.8.0"}
   cljs-http                  {:mvn/version "0.1.46"}
   district0x/graphql-query   {:mvn/version "1.0.6"}
   org.clojure/core.match     {:mvn/version "1.0.0"}
-  reagent                    {:mvn/version "0.10.0"
+  reagent                    {:mvn/version "1.0.0-alpha2"
                               :exclusions  [cljsjs/react cljsjs/react-dom]}
-  reagent-forms              {:mvn/version "0.5.43"}
+  reagent-forms              {:mvn/version "0.5.44"}
   reagent-utils              {:mvn/version "0.3.3"}
   re-frame                   {:mvn/version "0.12.0"}
   secretary                  {:mvn/version "2.0.0.1-260a59"}
   com.rpl/specter            {:mvn/version "1.1.3"}
-  com.taoensso/timbre        {:mvn/version "4.9.0"}
+  com.taoensso/timbre        {:mvn/version "4.11.0-alpha1"}
   com.cognitect/transit-cljs {:mvn/version "0.8.256"}
   tick                       {:mvn/version "0.4.23-alpha"}
-  thheller/shadow-cljs       {:mvn/version "2.8.92"}}
+  thheller/shadow-cljs       {:mvn/version "2.9.3"}}
 
  :aliases
  {:ancient {:main-opts  ["-m" "deps-ancient.deps-ancient"]
@@ -37,6 +37,6 @@
             {cider/cider-nrepl {:mvn/version "0.25.0-SNAPSHOT"}}}
   :zprint
            {:extra-deps
-                       {zprint {:mvn/version "0.5.3"}}
+                       {zprint {:mvn/version "0.5.4"}}
             :main-opts ["-m" "zprint.main"]}}}
 

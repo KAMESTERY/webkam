@@ -68,15 +68,15 @@
 
 (defn get-tag [coll tag]
   (into [] (filter (fn [x]
-                     (some #(= tag %) (:Tags x))) coll)))
+                     (some #(= tag %) (:tags x))) coll)))
 
 (defn media-title [id topic]
   (str/replace id (str topic ":##:") ""))
 
 (defn kam-ns [doc]
-  (let [topic (:Topic doc)
+  (let [topic (:topic doc)
         topic-slug (-> doc
-                       :Identifier
+                       :identifier
                        to-slug
                        str/lower-case)]
     (str/replace topic (str ":##:" topic-slug) "")))

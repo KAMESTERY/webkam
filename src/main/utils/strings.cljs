@@ -1,15 +1,24 @@
 (ns utils.strings
   (:require [goog.crypt.base64 :as b64]
+            [taoensso.timbre :as log]
             ["moment" :as moment]
             ["slugify" :as slugify]))
 
 (defn encode-base64 [s]
   (if s
-    (b64/encodeString s)))
+    ((try
+       (b64/encodeString s)
+       (catch :default e
+         (log/error "ERROR:::: " e)
+         s)))))
 
 (defn decode-base64 [d]
   (if d
-    (b64/decodeString d)))
+    (try
+      (b64/decodeString d)
+      (catch :default e
+        (log/error "ERROR:::: " e)
+        d))))
 
 (defn date-format [timestamp & {:keys [format]
                                 :or   {format "MM-DD-YYYY"}}]

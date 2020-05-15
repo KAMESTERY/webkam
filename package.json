@@ -4,28 +4,29 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
+    "app-cljs-repl": "shadow-cljs cljs-repl app",
     "build-watch": "shadow-cljs watch app common web",
     "webpack-watch": "webpack --watch --mode development --config webpack.config.js",
     "run-dev": "nodemon app.js",
     "start-dev": "npm-run-all --parallel build-watch run-dev webpack-watch"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.7",
-    "@babel/preset-env": "^7.8.7",
-    "autoprefixer": "^9.7.4",
-    "babel-loader": "^8.0.6",
-    "css-loader": "^3.4.2",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "autoprefixer": "^9.7.6",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.5.3",
     "extract-loader": "^3.1.0",
     "file-loader": "^4.3.0",
-    "node-sass": "^4.13.1",
-    "nodemon": "^1.19.4",
+    "node-sass": "^4.14.1",
+    "nodemon": "^2.0.4",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^8.0.2",
     "shadow-cljs": "2.8.93",
-    "tachyons": "^4.11.1",
-    "webpack": "^4.42.0",
+    "tachyons": "^4.12.0",
+    "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
     "@material/button": "^3.2.0",
@@ -45,9 +46,9 @@
     "create-react-class": "15.6.3",
     "csurf": "^1.11.0",
     "express": "4.17.1",
-    "helmet": "^3.21.3",
+    "helmet": "^3.22.0",
     "js-joda": "^1.11.0",
-    "moment": "^2.24.0",
+    "moment": "^2.25.3",
     "morgan": "1.9.1",
     "npm-run-all": "^4.1.5",
     "react": "16.13.0",
@@ -56,6 +57,6 @@
     "slugify": "^1.4.0",
     "sockjs": "0.3.19",
     "source-map-support": "0.5.12",
-    "xhr2": "0.2.0"
+    "xhr2": "*"
   }
 }
