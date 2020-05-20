@@ -6,11 +6,13 @@
              :as async
              :refer [<! put! chan close! timeout]]
             [clojure.pprint :refer [pprint]]
+            [cljs.nodejs :as nodejs]
             [taoensso.timbre :as log]
             [com.rpl.specter :as s]
-            [cljs.nodejs :as nodejs]
+            [mount.core :as mount :refer [defstate]]
             [fast-twitch.os :as os]
             [fast-twitch.web-api :as web]
+            [fast-twitch.config :refer [config]]
             [routing :refer [path-js]]
             [auth :as auth :refer [is-authenticated?]]
             [ui.components.core :as c]
@@ -23,9 +25,9 @@
                                            <register
                                            <authenticate]]))
 
-(defn- on-timeout [default]
+(defn- on-timeout []
        "" " Control the Timeout from an Environment Variable " ""
-       (let [t (if-let [TIMEOUT (m/env-var "TIMEOUT")] TIMEOUT default)]
+       (let [t (if-let [TIMEOUT (m/env-var "TIMEOUT")] TIMEOUT (:timeout @config))]
             (timeout t)))
 
 (defn- render-page [data]
@@ -85,13 +87,13 @@
                (log/warn "WARN::: " (or (:error resp) "Could not authenticate"))
                (web/redirect :login))
              (web/redirect :home
-                           :cookies [{:name  (m/env-var "AUTH")
+                           :cookies [{:name  (if-let [AUTH (m/env-var "AUTH")] AUTH (:auth @config))
                                       :value (:token resp)
                                       :opts  {:maxAge   (* 1000 60 15) ;; would expire after 15 minutes
                                               :httpOnly true ;; The cookie only accessible by the web server
                                               ;:signed true  ;; Indicates if the cookie should be signed (DO NOT USE FOR NOW)
                                               }}])))
-          (on-timeout 2000)
+          (on-timeout)
           (do
             (log/warn "WARN::: Authenticate Timeout")
             (web/redirect :login)))))
@@ -119,7 +121,7 @@
                       (log/warn "WARN::: " (or (:error resp) "Could not register"))
                       (web/redirect :register))
                     (web/redirect :login)))
-                 (on-timeout 2000)
+                 (on-timeout)
                  (do
                    (log/warn "WARN::: Document Timeout")
                    (web/redirect :register)))))))
@@ -136,7 +138,7 @@
                                   :csrf-token (:csrf-token req)
                                   :authenticated (is-authenticated? req)
                                   :content [p/document resp]})))
-               (on-timeout 2000)
+               (on-timeout)
                (do
                  (log/warn "WARN::: Document Timeout")
                  (render-page {:title   title
@@ -168,7 +170,7 @@
                                      :csrf-token (:csrf-token req)
                                      :authenticated (is-authenticated? req)
                                      :content [p/content data]}))))
-               (on-timeout 2000)
+               (on-timeout)
                (do
                  (log/warn "WARN::: List Content Timeout")
                  (web/send :html

@@ -1,0 +1,9 @@
+{
+ :timeout 8000
+ :auth "km-auth"
+ :secret "lambert"
+ :namespace "com.kamestery.devdata"
+ :backend "https://20uwlfkeya.execute-api.us-east-1.amazonaws.com/Prod/gql"
+ :port 2323
+ }
+

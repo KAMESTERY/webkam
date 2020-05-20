@@ -4,8 +4,8 @@
   "src/test"]
 
  :deps
- {outcastgeek/fast-twitch    {:git/url "https://github.com/outcastgeek/fast-twitch"
-                              :sha     "0e4d0a203a88d3725bfb810ad037a9e289fa01e3"}
+ {OUTCASTGEEK-TECH/fast-twitch    {:git/url "https://github.com/OUTCASTGEEK-TECH/fast-twitch"
+                                   :sha     "54982d9ef3eb00115c3d906ad32057e38069096c"}
   ;;outcastgeek/fast-twitch {:local/root "/path/to/fast-twitch"}
   kamestery/contractskam     {:git/url "https://github.com/kamestery/contractskam"
                               :sha     "a532761c407abe6c23a421155062335e57c37c7e"}
@@ -21,7 +21,6 @@
   re-frame                   {:mvn/version "0.12.0"}
   secretary                  {:mvn/version "2.0.0.1-260a59"}
   com.rpl/specter            {:mvn/version "1.1.3"}
-  com.taoensso/timbre        {:mvn/version "4.11.0-alpha1"}
   com.cognitect/transit-cljs {:mvn/version "0.8.256"}
   tick                       {:mvn/version "0.4.23-alpha"}
   thheller/shadow-cljs       {:mvn/version "2.9.3"}}
