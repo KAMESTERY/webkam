@@ -17,15 +17,15 @@
     "css-loader": "^3.4.2",
     "extract-loader": "^3.1.0",
     "file-loader": "^4.3.0",
-    "node-sass": "^4.13.1",
-    "nodemon": "^1.19.4",
+    "node-sass": "^4.14.1",
+    "nodemon": "^2.0.4",
     "postcss-loader": "^3.0.0",
     "sass-loader": "^8.0.2",
     "shadow-cljs": "2.8.93",
     "tachyons": "^4.11.1",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
     "@material/button": "^3.2.0",
