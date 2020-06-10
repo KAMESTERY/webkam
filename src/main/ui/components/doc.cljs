@@ -11,7 +11,7 @@
         header-image (first (c-util/get-tag Media c-util/header-img-tag))
         path-to-doc (path-for routing-data :document :topic Identifier :title Slug)]
     [:article {:class "fl w-100 w-50-m w-25-ns pa2-ns"}
-     [:div.aspect-ratio.aspect-ratio--16x9
+     [:div.aspect-ratio.aspect-ratio--16x9.z-1
       (if (empty? header-image)
         [:a {:href path-to-doc}
          [:img

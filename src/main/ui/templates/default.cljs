@@ -49,8 +49,8 @@
              [c/footer "&copy; 2019" "OUCASTGEEK INC." "All rights reserved."]
 
              (load-scripts
-               (conj scripts
+               (conj [scripts]
                      [:src (path-js "bundle.js")]
-                     [:src (path-js "common.js")]))
-             ]]
-           ))
+                     [:src (path-js "common.js")]))]]))
+
+

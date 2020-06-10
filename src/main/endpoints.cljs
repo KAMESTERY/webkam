@@ -63,8 +63,8 @@
       [req]
       (web/redirect :home
                     :cookies [{:name  (m/env-var "AUTH")
-                               :value "" ;; Empty out the token
-                               }]))
+                               :value ""}])) ;; Empty out the token
+
 
 (defn user-login
       [req]
@@ -88,9 +88,9 @@
                            :cookies [{:name  (m/env-var "AUTH")
                                       :value (:token resp)
                                       :opts  {:maxAge   (* 1000 60 15) ;; would expire after 15 minutes
-                                              :httpOnly true ;; The cookie only accessible by the web server
+                                              :httpOnly true}}]))) ;; The cookie only accessible by the web server
                                               ;:signed true  ;; Indicates if the cookie should be signed (DO NOT USE FOR NOW)
-                                              }}])))
+
           (on-timeout 2000)
           (do
             (log/warn "WARN::: Authenticate Timeout")

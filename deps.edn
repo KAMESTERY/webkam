@@ -4,27 +4,27 @@
   "src/test"]
 
  :deps
- {outcastgeek/fast-twitch    {:git/url "https://github.com/outcastgeek/fast-twitch"
-                              :sha     "0d489237a536879c86d5f8251a9a1f6d031e3dd5"}
-  ;;outcastgeek/fast-twitch {:local/root "/path/to/fast-twitch"}
-  kamestery/contractskam     {:git/url "https://github.com/kamestery/contractskam"
-                              :sha     "5a1331b28df009f3dfa26a0aaa67352d52a6a183"}
+ {OUTCASTGEEK-TECH/fast-twitch {:git/url "https://github.com/OUTCASTGEEK-TECH/fast-twitch"
+                                :sha     "54982d9ef3eb00115c3d906ad32057e38069096c"}
+  ;;OUTCASTGEEK-TECH/fast-twitch {:local/root "/path/to/fast-twitch"} ;; Use this to run against a local copy of FastTwitch
+  kamestery/contractskam       {:git/url "https://github.com/kamestery/contractskam"
+                                :sha     "5a1331b28df009f3dfa26a0aaa67352d52a6a183"}
   ;;kamestery/contractskam {:local/root "/path/to/contractskam"}
-  cljs-ajax                  {:mvn/version "0.8.0"}
-  cljs-http                  {:mvn/version "0.1.46"}
-  district0x/graphql-query   {:mvn/version "1.0.6"}
-  org.clojure/core.match     {:mvn/version "1.0.0"}
-  reagent                    {:mvn/version "0.10.0"
-                              :exclusions  [cljsjs/react cljsjs/react-dom]}
-  reagent-forms              {:mvn/version "0.5.43"}
-  reagent-utils              {:mvn/version "0.3.3"}
-  re-frame                   {:mvn/version "0.12.0"}
-  secretary                  {:mvn/version "2.0.0.1-260a59"}
-  com.rpl/specter            {:mvn/version "1.1.3"}
-  com.taoensso/timbre        {:mvn/version "4.9.0"}
-  com.cognitect/transit-cljs {:mvn/version "0.8.256"}
-  tick                       {:mvn/version "0.4.23-alpha"}
-  thheller/shadow-cljs       {:mvn/version "2.8.92"}}
+  cljs-ajax                    {:mvn/version "0.8.0"}
+  cljs-http                    {:mvn/version "0.1.46"}
+  district0x/graphql-query     {:mvn/version "1.0.6"}
+  org.clojure/core.match       {:mvn/version "1.0.0"}
+  reagent                      {:mvn/version "0.10.0"
+                                :exclusions  [cljsjs/react cljsjs/react-dom]}
+  reagent-forms                {:mvn/version "0.5.43"}
+  reagent-utils                {:mvn/version "0.3.3"}
+  re-frame                     {:mvn/version "0.12.0"}
+  secretary                    {:mvn/version "2.0.0.1-260a59"}
+  com.rpl/specter              {:mvn/version "1.1.3"}
+  com.taoensso/timbre          {:mvn/version "4.9.0"}
+  com.cognitect/transit-cljs   {:mvn/version "0.8.256"}
+  tick                         {:mvn/version "0.4.23-alpha"}
+  thheller/shadow-cljs         {:mvn/version "2.8.92"}}
 
  :aliases
  {:ancient {:main-opts  ["-m" "deps-ancient.deps-ancient"]
