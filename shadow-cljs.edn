@@ -27,6 +27,6 @@
    :compiler-options {:optimizations :advanced
                       :infer-externs :all
                       :output-feature-set :es7
-                      :fn-invoke-direct true}}
-  }
- }
+                      :fn-invoke-direct true}}}}
+
+
